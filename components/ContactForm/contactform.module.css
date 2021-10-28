@@ -1,0 +1,32 @@
+.anything_else {
+    transition: max-height 0.45s ease;
+    overflow: hidden;
+}
+
+.anything_hidden {
+    max-height: 0 !important;
+}
+
+.anything_show {
+    max-height: 500px;
+}
+
+.emailInput, .messageInput {
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 9px 15px;
+    border-radius: 6px;
+    min-width: 100%;
+    font-size: 1.1em;
+    color: white;
+}
+
+.emailInput:focus, .messageInput:focus {
+    outline: none;
+}
+
+@media (max-width: 768px){
+    .submit_button {
+        float: right;
+    }
+}

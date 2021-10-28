@@ -1,0 +1,10 @@
+.experience {
+    background-image: url('/experience.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.experience_title {
+    color: white
+}

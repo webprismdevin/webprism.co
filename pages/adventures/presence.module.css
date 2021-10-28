@@ -1,0 +1,10 @@
+.presence {
+    background-image: url('/presence.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.presence_title {
+    color: white
+}

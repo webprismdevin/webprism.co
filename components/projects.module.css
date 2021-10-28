@@ -1,0 +1,80 @@
+.projects_outer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 165vh;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    color: black;
+  }
+  
+  .projects_half {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  
+  .project {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    padding: 40px;
+    transition: transform 200ms ease;
+  }
+
+  .project:hover {
+    transform: scale(1.05,1.05);
+    box-shadow: 6px 3px 3px rgba(36,36,36,0.15);
+    z-index: 1
+  }
+
+  .project > * {
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .project:hover > * {
+    opacity: 1
+  }
+  
+  @media screen and (max-width: 479px) {
+    .projects_outer {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+  
+    .project {
+      max-height: 33vh;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 33vh;
+      -ms-flex: 0 33vh;
+      flex: 0 33vh;
+    }
+
+    .project > * {
+      opacity: 1
+    }
+  }

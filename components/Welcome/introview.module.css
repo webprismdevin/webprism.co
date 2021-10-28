@@ -1,0 +1,74 @@
+.hi, .were {
+    font-size: 72px;
+    line-height: 85px;
+}
+
+.webprism {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 144px;
+    line-height: 175px;
+}
+
+.digitalcreative {
+    font-size: 36px;
+    line-height: 42px;
+}
+
+.herobody {
+    display: flex;
+}
+
+.entername {
+    position: absolute;
+    bottom: 60px;
+    right: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nameinput {
+    background-color: transparent;
+    text-align: right;
+}
+
+.scroll_lottie {
+    box-sizing: border-box;
+    position: absolute;
+    top: auto;
+    right: calc(50% - 100px);
+    bottom: -40px;
+}
+
+@media (max-width: 768px) {
+    .hi, .were {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    
+    .webprism {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 56px;
+        line-height: 62px;
+    }
+    
+    .digitalcreative {
+        font-size: 18px;
+        line-height: 21px;
+    }
+
+    .entername {
+        font-size: 22px;
+        margin-top: 80px;
+        position: static;
+    }
+    .nameinput {
+        text-align: left;
+    }
+    .scroll_lottie {
+        box-sizing: border-box;
+        position: absolute;
+        top: auto;
+        left: -220px;
+        bottom: -40px;
+    }
+}

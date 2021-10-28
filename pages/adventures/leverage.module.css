@@ -1,0 +1,10 @@
+.leverage {
+    background-image: url('/leverage.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.leverage_title {
+    color: white
+}

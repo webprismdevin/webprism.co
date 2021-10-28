@@ -1,0 +1,76 @@
+.page_container {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    transition: background 200ms ease;
+    transition-delay: 100ms;
+    /* overflow: hidden; */
+}
+
+.wheretostart {
+    text-align: left;
+    height: 120px;
+}
+
+.wheretostart > div {
+    color: white;
+}
+
+.adventureContainer {
+    position: relative;
+    min-height: 100vh;
+    align-items: center;
+    transition-delay: 400ms;
+}
+
+.stars {
+    background-image: url(/null_bg.jpg);
+}
+
+.pickAdventure {
+    display: flex;
+    justify-content: space-between;
+}
+
+.adventure {
+    box-shadow: 6px 6px 6px rgba(36,36,36,0.12);
+    background-position: center;
+    background-size: cover;
+    padding: 60px 80px;
+    border-radius: 0;
+    font-size: 2em;
+    color: transparent;
+}
+
+.adventure:hover {
+    background: white;
+    color: black;
+}
+
+.adventure1 {
+    background-image: url(/presence-3.jpg);
+}
+
+.adventure2 {
+    background-image: url(/experience-4.jpg);
+}
+
+.adventure3 {
+    background-image: url(/leverage-2.jpg);
+}
+
+.adventure4 {
+    background-image: url(/web3-2.jpg);
+}
+
+@media (max-width: 768px) {
+    .adventureContainer {
+        min-height: 104vh;
+    }
+    .adventure {
+        min-height: 26vh;
+    }
+    .pickAdventure {
+        flex-direction: column;
+    }
+}
