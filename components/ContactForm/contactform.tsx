@@ -50,9 +50,9 @@ export default function ContactForm(props: ContactProps){
     return(<section className="section" style={{padding: '160px 0px'}}>
         {!success && <>
             <div className="container">
-                <div className="columns">
+                {/* <div className="columns">
                     <div className="column is-2" />
-                    <div className="column is-8" style={{padding: '3.5em 1.5em'}}>
+                    <div className="column is-8" style={{padding: '3.5em 1.5em'}}> */}
                         <div className="block">
                             <p className="title is-2">Let&apos;s talk</p>
                         </div>
@@ -71,9 +71,9 @@ export default function ContactForm(props: ContactProps){
                         <div className="block">
                             <input type="button" className={`${styles.submit_button} button is-link ${loading && "is-loading"}`} value="Submit" onClick={handleFormSubmit}/>
                         </div>
-                        <div className="column is-2" />
-                    </div>
-                </div>
+                    {/* </div>
+                    <div className="column is-2" /> */}
+                {/* </div> */}
             </div>
         </>}
         {success &&

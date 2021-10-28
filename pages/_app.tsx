@@ -2,13 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { AppProps } from 'next/app';
 import { slide as Menu } from 'react-burger-menu'
 import Link from 'next/link';
-import Script from 'next/script';
+import Head from 'next/head';
 import $ from 'jquery/dist/jquery.slim';
 import './styles.scss';
-
-const ContactButton = () => {
-  return(<Link href="/contact" passHref><button className="button contact_button">Contact Us</button></Link>)
-}
 
 declare global {
   interface Window {
@@ -45,6 +41,10 @@ function CustomApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head>
+        <meta name="theme-color" content="#03040A" />
+        <meta name="description" content="However you got here, we look forward to connecting with you, hearing you, and buidling something incredible." />
+      </Head>
       <div className="app" id="outer-container">
         <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } right>
             <div><Link href="/"><a id="home" className="menu-item is-size-4">Home</a></Link></div>

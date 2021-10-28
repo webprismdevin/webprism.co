@@ -41,8 +41,8 @@ export function Index() {
   return (
     <>
       <Head>
-        <title>We&apos;re a new type of creative | WebPrism</title>
-        <meta name="theme-color" content="#03040A" />
+        <title>Passion-driven Creative Agency | WebPrism</title>
+        <meta name="description" content="WebPrism is a digital creative agency that helps organizations build engaging digital experiences. Our team works with clients as true partners, helping them formulate their vision and mission, then adopting that mission as our own. The result? Beautiful websites and apps we're proud to share with the world."></meta>
       </Head>
       <div className={`${styles.page_container} ${returnBgClass()}`}>
       <IntroView liftName={setName}/>

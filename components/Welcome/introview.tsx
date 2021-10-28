@@ -84,6 +84,7 @@ const AshleyView = (props:AVProps) => {
                 />
               </div>
             </>}
+            <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, a digital creative agency.</h1>
         </div>)
 }
 
