@@ -41,7 +41,7 @@ export function Index() {
   return (
     <>
       <Head>
-        <title>Passion-driven Creative Agency | WebPrism</title>
+        <title>WebPrism | A Passion Driven Creative Agency</title>
         <meta name="description" content="WebPrism is a digital creative agency that helps organizations build engaging digital experiences. Our team works with clients as true partners, helping them formulate their vision and mission, then adopting that mission as our own. The result? Beautiful websites and apps we're proud to share with the world."></meta>
       </Head>
       <div className={`${styles.page_container} ${returnBgClass()}`}>
@@ -54,7 +54,14 @@ export function Index() {
         </div>
       </Content>
       <Projects />
-      <ContactForm name={name}/>
+      <section className="section hero is-fullheight">
+              <div className="hero-body">
+                <div className="container">
+                  <p className="title is-1">Let&apos;s talk</p>
+                  <ContactForm name={name}/>
+                </div>
+              </div>
+      </section>
       <Footer />
       </div>
     </>

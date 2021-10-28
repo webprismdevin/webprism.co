@@ -10,9 +10,12 @@ const Footer  = () => {
     return(
         <footer className="footer">
             <hr />
+            <br />
+            <div className="block has-text-centered">
+                <Image src="/white-logo.png" height={32} width={262}  alt="webprism diamond logo"/>
+            </div>
             <div className="content block has-text-centered">
                 <br />
-                <Image src="/white-logo.png" height={32} width={262}  alt="webprism diamond logo"/>
                 <div>Copyright. WebPrism 2021.</div>
                 <a className="is-size-7" onClick={clearSavedName}>Clear saved name</a>
             </div>
