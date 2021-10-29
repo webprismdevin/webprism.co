@@ -52,9 +52,9 @@ export function Index(props:any) {
         <meta name="title" content="WebPrism | A Passion Driven Creative Agency" />
         <meta name="description" content="WebPrism is a digital creative agency that helps organizations build engaging digital experiences. Our team works with clients as true partners, helping them formulate their vision and mission, then adopting that mission as our own. The result? Beautiful websites and apps we're proud to share with the world." />
       </Head>
-      <div style={{position: 'fixed', top: 0, left: 0, height: '100%', width: '100%', zIndex: -1}}>
+      {props.isMobile && <div style={{position: 'fixed', top: 0, left: 0, height: '100%', width: '100%', zIndex: -1}}>
         <Image src="/null_bg_mobile.webp" layout="fill" alt="decorative" />
-      </div>
+      </div>}
       <div className={`${styles.page_container} ${returnBgClass()}`}>
       {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView liftName={setName}/>}
       <Content fullheight>
