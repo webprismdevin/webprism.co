@@ -48,8 +48,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <div className="app" id="outer-container">
         <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } right>
             <div><Link href="/"><a id="home" className="menu-item is-size-4">Home</a></Link></div>
-            {/* <div><Link href="/nextgen"><a id="nexgen" className="menu-item is-size-4" >Web3</a></Link></div> */}
             <div><Link href="/contact"><a id="contact" className="menu-item is-size-4">Contact</a></Link></div>
+            <div>More. Soon...</div>
         </Menu>
         <main id="page-wrap">
           <Component {...pageProps} />

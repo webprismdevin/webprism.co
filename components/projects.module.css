@@ -77,4 +77,11 @@
     .project > * {
       opacity: 1
     }
+
+    .project:hover {
+      transform: none;
+      box-shadow: none;
+      z-index: 1
+    }
+  
   }

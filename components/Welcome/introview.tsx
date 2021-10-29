@@ -110,19 +110,30 @@ export interface IntroViewProps {
 }
 
 export function IntroView(props: IntroViewProps) {
-  const [name, setName] = useState(null);
+  const [name, setName] = useState<string | null>(null);
   const [nameFromLS, setNameFromLS] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const rememberedName = window.localStorage.getItem("webprism_name");
-    if(rememberedName){
-      setNameFromLS(true);
-      setLoading(false);
-      props.liftName(rememberedName);
+    const getName = async () => {
+      const rememberedName = await window.localStorage.getItem("webprism_name");
+
+      console.log(rememberedName)
+
+      if(rememberedName){
+        setName(rememberedName);
+        props.liftName(rememberedName);
+        setNameFromLS(true);
+        setLoading(false);
+      }
+
+      else if(!rememberedName){
+        setLoading(false);
+      }
+
     }
-    else setLoading(false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    getName();
   }, []);
 
   const nameEntered = (name:any) => {

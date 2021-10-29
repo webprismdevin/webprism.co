@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from 'next/link';
-import styles from './contactform.module.css';
+import styles from './contactform.module.scss';
 
 export interface ContactProps {
     name?: string,
-    mission?: string
+    mission?: string,
+    handleFormSubmit?: () => void
 }
 
 export interface ReqOptType {
@@ -21,6 +22,9 @@ export default function ContactForm(props: ContactProps){
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
 
+    useEffect(() => {
+        setName(props.name);
+    }, [props.name])
 
     const handleFormSubmit = () => {
         setLoading(true);
@@ -38,12 +42,19 @@ export default function ContactForm(props: ContactProps){
               })
             .then(response => response.json())
             .then(result => {
-                if(result.status === "success") 
-                setSuccess(true)
-                setLoading(false);
+                if(result.status === "success") {
+                    setSuccess(true);
+                    setLoading(false);
+                    if(props.handleFormSubmit !== undefined){
+                        props.handleFormSubmit();
+                    }
+                }
             })
             .catch(error => console.log('error', error));
-        } else alert('Please complete the form. 🙏')
+        } else {
+            alert('Please complete the form. 🙏');
+            setLoading(false);
+        }
     }
 
     return(<>
@@ -58,7 +69,7 @@ export default function ContactForm(props: ContactProps){
                     />
                 </div>
                 <div className={`block ${styles.anything_else} ${email === "" ? styles.anything_hidden : styles.anything_show }`}>
-                    <input className={` ${styles.emailInput} block`} placeholder="enter your name" value={props.name} onChange={e => setName(e.target.value)}/>
+                    <input className={` ${styles.emailInput} block`} placeholder="enter your name" value={name} onChange={e => setName(e.target.value)}/>
                     <textarea className={`${styles.messageInput} block`} value={anythingElse} onChange={e => setAnythingElse(e.target.value)} placeholder="Anything else you'd like to share?"></textarea>
                 </div>
                 <div>
@@ -67,8 +78,8 @@ export default function ContactForm(props: ContactProps){
         </>}
         {success &&
         <div className="container">
-            <div className="block has-text-centered">
-                <p>We&apos;ll reach out soon! If you&apos;d like to book a time to speak with us right meow 🐱, <Link href="https://usemotion.com/meet/devin-santamaria/quick-connect">click here</Link>.</p>
+            <div className="block">
+                <p>We&apos;ll reach out soon! If you&apos;d like to book a time to speak with us right meow 🐱, <Link href="/booknow">click here</Link>.</p>
             </div>
         </div>
         }

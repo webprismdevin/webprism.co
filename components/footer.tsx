@@ -9,7 +9,9 @@ const Footer  = () => {
 
     return(
         <footer className="footer">
-            <hr />
+            <div className="container">
+                <hr />
+            </div>
             <br />
             <div className="block has-text-centered">
                 <Image src="/white-logo.png" height={32} width={262}  alt="webprism diamond logo"/>

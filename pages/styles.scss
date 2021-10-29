@@ -4,15 +4,17 @@
 $text: #fff;
 $title-color: #fff;
 $family-primary: 'Roboto', sans-serif;
+$link-hover: #fd2187;
+$link-hover-border: #fd2187;
 $footer-color: white;
 $footer-background-color: transparent;
+
 
 @import "bulma/sass/utilities/_all";
 @import "bulma/sass/base/_all";
 @import "bulma/sass/elements/_all";
 @import "bulma/sass/form/_all";
 @import "bulma/sass/components/_all";
-@import "bulma/sass/grid/_all";
 @import "bulma/sass/helpers/_all";
 @import "bulma/sass/layout/_all";
 
@@ -74,7 +76,7 @@ body {
 
 /* Color/shape of burger icon bars on hover*/
 .bm-burger-bars-hover {
-  background: $blue;
+  background: $link-hover;
 }
 
 /* Position and sizing of clickable cross button */

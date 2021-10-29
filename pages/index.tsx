@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import Head from 'next/head';
 import IntroView from "../components/Welcome/introview";
@@ -7,12 +6,14 @@ import Footer from '../components/footer';
 import Projects from '../components/projects';
 import Content from '../components/content';
 import ContactForm from '../components/ContactForm/contactform';
+import Typed from 'react-typed';
 import styles from './index.module.scss';
 
 export function Index() {
   const [hoverState, setHoverState] = useState(0);
   const [name, setName] = useState("" as string);
-
+  const [formSubmitted, setFormSubmitted] = useState(false);
+ 
   const handleHover = (num: number) => {
     setHoverState(num)
   }
@@ -36,6 +37,10 @@ export function Index() {
     }
   }
 
+  const handleFormSubmit = () => {
+    setFormSubmitted(true);
+  }
+
   return (
     <>
       <Head>
@@ -55,8 +60,16 @@ export function Index() {
       <section className="section hero is-fullheight">
               <div className="hero-body">
                 <div className="container">
-                  <p className="title is-1">Let&apos;s talk</p>
-                  <ContactForm name={name}/>
+                  {!formSubmitted && <p className="title is-1">Let&apos;s talk</p>}
+                  {formSubmitted &&
+                    <Typed 
+                      strings={[`${name}, you're awesome!`]}
+                      typeSpeed={40}
+                      showCursor={false}
+                      className="title is-1"
+                    />
+                  }
+                  <ContactForm name={name} handleFormSubmit={handleFormSubmit}/>
                 </div>
               </div>
       </section>
