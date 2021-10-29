@@ -13,8 +13,6 @@ export function Index() {
   const [hoverState, setHoverState] = useState(0);
   const [name, setName] = useState("" as string);
 
-  const bgArr = ['/null_bg.jpg', '/presence-2.jpg', '/experience-2.jpg', '/leverage-2.jpg', '/web3-2.jpg'];
-
   const handleHover = (num: number) => {
     setHoverState(num)
   }
