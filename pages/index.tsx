@@ -7,6 +7,9 @@ import Projects from '../components/projects';
 import Content from '../components/content';
 import ContactForm from '../components/ContactForm/contactform';
 import Typed from 'react-typed';
+import SwipeableViews from 'react-swipeable-views';
+import Lottie from 'react-lottie';
+import swipeAnimation from  './11516-swipe-left-arrows.json';
 import styles from './index.module.scss';
 
 export function Index(props:any) {
@@ -55,13 +58,16 @@ export function Index(props:any) {
           <p className="is-size-4">We craft beautiful websites that showcase our clients passion for what they do, and create captivating experiences for their customers.</p>
         </div>
       </Content>
-      <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} />
+      {props.isMobile ? <AdventuresMobile name={name} /> : <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} />}
       <Mission name={name}/>
       <Projects />
       <section className="section hero is-fullheight">
               <div className="hero-body">
                 <div className="container">
-                  {!formSubmitted && <p className="title is-1">Let&apos;s talk</p>}
+                  {!formSubmitted && <>
+                    <p className="title is-1">Let&apos;s talk</p>
+                    <p className="is-size-3 block">What can we build together?</p>
+                  </>}
                   {formSubmitted &&
                     <Typed 
                       strings={[`${name}, you're awesome!`]}
@@ -80,23 +86,65 @@ export function Index(props:any) {
   );
 }
 
-const Adventures = (props:any) => {
-  const getDescription = () => {
-    switch(props.hoverState){
-      case 1:
-        return <>It&apos;s not just a website. You&apos;re little corner of the internet also serves as a digital business card, a communication platform, a marketing hub, and a portal for customers to connect and interact with you. We&apos;ll help you put your best foot (and face) forward.</>
-      case 2: 
-        return <>Digital expriences are everywhere. Some people call them &quot;web apps&quot;. From your favorite social media site, to online grocery shopping, creating a place for your customers to interact with you online builds a deeper relationship.</>
-      case 3:
-        return <>We&apos;ve built something together. Maybe we&apos;ve started to feel like part of your team. Using the knowledge we&apos;re gained from working together, we&apos;ll help you leverage this new digital marketing platform into growth and continued success.</>
-      case 4:
-        return <></>
-      default: 
-        return <>Hover to learn more</>
-    }
+const getDescription = (hoverState: number) => {
+  switch(hoverState){
+    case 1:
+      return <>It&apos;s not just a website. You&apos;re little corner of the internet also serves as a digital business card, a communication platform, a marketing hub, and a portal for customers to connect and interact with you. We&apos;ll help you put your best foot (and face) forward.</>
+    case 2: 
+      return <>Digital expriences are everywhere. Some people call them &quot;web apps&quot;. From your favorite social media site, to online grocery shopping, creating a place for your customers to interact with you online builds a deeper relationship.</>
+    case 3:
+      return <>We&apos;ve built something together. Maybe we&apos;ve started to feel like part of your team. Using the knowledge we&apos;re gained from working together, we&apos;ll help you leverage this new digital marketing platform into growth and continued success.</>
+    case 4:
+      return <></>
+    default: 
+      return <>Hover to learn more</>
   }
+}
 
-  return(<div className={styles.adventureContainer}>
+const AdventuresMobile = (props: any) => {
+
+  const swipeOptions = {
+    loop: true,
+    autoplay: true, 
+    animationData: swipeAnimation,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
+  return(<>
+            <SwipeableViews>
+              <div className={`block ${styles.adventure1} ${styles.mobileAdventure}`}>
+                <div>
+                  <p className="title is-2">Create Presence</p>
+                  <p className="is-size-5">{getDescription(1)}</p>
+                </div>
+              </div>
+              <div className={`block ${styles.adventure2} ${styles.mobileAdventure}`}>
+                <div>
+                  <p className="title is-2">Build Experience</p>
+                  <p className="is-size-5">{getDescription(2)}</p>
+                </div>
+              </div>
+              <div className={`block ${styles.adventure3} ${styles.mobileAdventure}`}>
+                <div>
+                  <p className="title is-2">Expand + Grow</p>
+                  <p className="is-size-5">{getDescription(3)}</p>
+                </div>
+              </div>
+            </SwipeableViews>
+            <div className={styles.swipeAnimation}>
+              <Lottie
+                    options={swipeOptions}
+                    height={120}
+                    width={120}
+              />
+            </div>
+        </>)
+}
+
+const Adventures = (props:any) => {
+  return(<section className={`section ${styles.adventureContainer}`}>
             <div className={`${styles.wheretostart} container`}>
               <div className="title is-1">Choose your adventure{props.name && ", "}{props.name} 🚀</div>
             </div>
@@ -118,9 +166,9 @@ const Adventures = (props:any) => {
                   >Expand + Grow</div>
           </div>
           <div className="container">
-            <div className="content is-size-4" style={{marginTop: 40, padding: props.hoverState !== 0 ? '1.5em 1.5em' : 0, backgroundColor: props.hoverState !== 0 ? "rgba(36,36,36,0.7)" : "transparent"}}>{getDescription()}</div>
+            <div className="content is-size-4" style={{marginTop: 40, padding: props.hoverState !== 0 ? '1.5em 1.5em' : 0, backgroundColor: props.hoverState !== 0 ? "rgba(36,36,36,0.7)" : "transparent"}}>{getDescription(props.hoverState)}</div>
           </div>
-        </div>)
+        </section>)
 }
 
 export default Index;
