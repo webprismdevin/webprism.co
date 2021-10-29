@@ -9,7 +9,7 @@ import ContactForm from '../components/ContactForm/contactform';
 import Typed from 'react-typed';
 import styles from './index.module.scss';
 
-export function Index() {
+export function Index(props:any) {
   const [hoverState, setHoverState] = useState(0);
   const [name, setName] = useState("" as string);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -48,7 +48,7 @@ export function Index() {
         <meta name="description" content="WebPrism is a digital creative agency that helps organizations build engaging digital experiences. Our team works with clients as true partners, helping them formulate their vision and mission, then adopting that mission as our own. The result? Beautiful websites and apps we're proud to share with the world."></meta>
       </Head>
       <div className={`${styles.page_container} ${returnBgClass()}`}>
-      <IntroView liftName={setName}/>
+      <IntroView liftName={setName} deviceType={props.deviceType}/>
       <Mission name={name}/>
       <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} />
       <Content fullheight>
@@ -125,3 +125,21 @@ const Adventures = (props:any) => {
 }
 
 export default Index;
+
+export const getServerSideProps = (context:any) => {
+  let userAgent;
+
+  if(context.req){
+    userAgent = context.req.headers['user-agent'];
+
+    let isMobile = Boolean(userAgent.match(
+      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+    ))
+
+    return {
+      props: {
+        deviceType: isMobile ? 'mobile' : 'desktop'
+      }
+    }    
+  }
+}

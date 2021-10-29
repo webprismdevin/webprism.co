@@ -16,7 +16,8 @@ const scrollOptions = {
 };
 
 export interface AVProps {
-  nameEntered: (name: string) => void
+  nameEntered: (name: string) => void,
+  deviceType: string
 }
 
 const AshleyView = (props:AVProps) => {
@@ -52,7 +53,7 @@ const AshleyView = (props:AVProps) => {
                 showCursor={false}
                 className={styles.webprism}
                 onComplete={() => handleComplete()}
-                startDelay={800}
+                startDelay={600}
                 typeSpeed={75}
               />
             {typed && <FadeIn delay={100}><div className={styles.digitalcreative}>a digital creative agency.</div></FadeIn>}
@@ -106,7 +107,8 @@ const WelcomeBack = (props:any) => {
 
 /* eslint-disable-next-line */
 export interface IntroViewProps {
-  liftName?: any
+  liftName?: any,
+  deviceType: string
 }
 
 export function IntroView(props: IntroViewProps) {

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { AppProps } from 'next/app';
-import { slide as Menu } from 'react-burger-menu'
+import { push as Menu } from 'react-burger-menu'
 import Link from 'next/link';
 import Head from 'next/head';
+import Image from 'next/image';
 import $ from 'jquery/dist/jquery.slim';
 import './styles.scss';
 
@@ -19,7 +20,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
     if(typeof window !== undefined){
       setWindow(window)
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     const fun = function fun(e:MouseEvent){ 
@@ -50,6 +51,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
             <div><Link href="/"><a id="home" className="menu-item is-size-4">Home</a></Link></div>
             <div><Link href="/contact"><a id="contact" className="menu-item is-size-4">Contact</a></Link></div>
             <div>More. Soon...</div>
+            <Image src="/menu_img_5.webp" alt="menu background" layout="fill" objectFit="cover" objectPosition="center" className="menu_background" />
         </Menu>
         <main id="page-wrap">
           <Component {...pageProps} />
