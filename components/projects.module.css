@@ -56,6 +56,15 @@
   .project:hover > * {
     opacity: 1
   }
+
+  .tbd {
+    filter: blur(0.3em);
+    transition: all 200ms ease;
+  } 
+
+  .tbd:hover {
+    filter: blur(0);
+  }
   
   @media screen and (max-width: 479px) {
     .projects_outer {

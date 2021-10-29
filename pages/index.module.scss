@@ -24,7 +24,7 @@
 }
 
 .stars {
-    background-image: url(/null_bg.jpg);
+    background-image: url(/null_bg.webp);
 }
 
 .pickAdventure {
@@ -60,7 +60,7 @@
 
 .swipeAnimation {
     position: relative;
-    top: -220px;
+    top: -260px;
 }
 
 .adventure:hover {
@@ -85,6 +85,12 @@
 }
 
 @media (max-width: 768px) {
+    .page_container {
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-image: url(/null_bg_mobile.webp);
+    }
     .adventureContainer {
         min-height: 104vh;
     }

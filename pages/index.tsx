@@ -56,7 +56,7 @@ export function Index(props:any) {
       <Content fullheight>
         <div className="block">
           <p className="title is-2">We&apos;re passionate about passionate people.</p>
-          <p className="is-size-4">We craft beautiful websites that showcase our clients passion for what they do, and create captivating experiences for their customers.</p>
+          <p className="is-size-4">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
         </div>
       </Content>
       {props.isMobile ? <AdventuresMobile name={name} /> : <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} />}
@@ -92,9 +92,9 @@ const getDescription = (hoverState: number) => {
     case 1:
       return <>It&apos;s not just a website. You&apos;re little corner of the internet also serves as a digital business card, a communication platform, a marketing hub, and a portal for customers to connect and interact with you. We&apos;ll help you put your best foot (and face) forward.</>
     case 2: 
-      return <>Digital expriences are everywhere. Some people call them &quot;web apps&quot;. From your favorite social media site, to online grocery shopping, creating a place for your customers to interact with you online builds a deeper relationship.</>
+      return <>Digital expriences are everywhere. Some people call them &quot;web apps&quot;. Building a digital experience to interact more deeply with your current and potential customers is opens new ways to further your mission and deliver more value to the world.</>
     case 3:
-      return <>We&apos;ve built something together. Maybe we&apos;ve started to feel like part of your team. Using the knowledge we&apos;re gained from working together, we&apos;ll help you leverage this new digital marketing platform into growth and continued success.</>
+      return <>We&apos;ve built something together. Maybe we&apos;ve started to feel like part of your team. Using the knowledge we&apos;re gained from working together, we&apos;ll help you leverage this new digital marketing platform into growth and expansion in the next phase of your adventure.</>
     case 4:
       return <></>
     default: 

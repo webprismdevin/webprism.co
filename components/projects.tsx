@@ -8,21 +8,30 @@ export interface ProjectProps {
     tags?: Array<string>,
     backgroundImage?: string,
     color? : string,
-    href?: string
+    href?: string,
+    tbd?: boolean
 }
 
 
 const Project = (props: ProjectProps) => {
     return(<>
+        {!props.tbd && 
         <Link href={props.href ? props.href : ""} passHref>
-            <div className={styles.project} style={Object.assign({backgroundImage: props.backgroundImage}, props.style)}>
+            <div className={`${styles.project}`} style={Object.assign({backgroundImage: props.backgroundImage}, props.style)}>
                 <p className="title is-2" style={{color: props.color ? props.color : "inherit"}}>{props.name}</p>
                 <>{props.children && props.children}</>
                 <div style={{display: 'flex', justifyContent: 'flex-start', width: '100%'}}>
                     {props.tags && props.tags.map((t, index) => <Tag key={index}>{t}</Tag>)}
                 </div>
             </div>
-        </Link>
+        </Link>}
+        {props.tbd && 
+        <div className={`${props.tbd ? styles.tbd : ""} ${styles.project}`} style={Object.assign({backgroundImage: props.backgroundImage}, props.style)}>
+            <p className="title is-2" style={{color: props.color ? props.color : "inherit"}}>Coming Soon!</p>
+            <div style={{display: 'flex', justifyContent: 'flex-start', width: '100%'}}>
+                {props.tags && props.tags.map((t, index) => <Tag key={index}>{t}</Tag>)}
+            </div>                
+        </div>}
     </>)
 }
 
@@ -47,13 +56,15 @@ const Projects = () => {
                     backgroundImage='url("/projects/optimalbuilding.webp")'
                     style={bgStyle}
                     color='white'
-                    name="Optimal Building" 
-                    tags={['presence', 'leverage']}
+                    name="Optimal Building"
+                    tbd
+                    tags={['presence', 'grow + expand']}
                     href="https://optimalbuilding.io/"
                 />
                 <Project name="The Daily Moment"
                     backgroundImage='url("/projects/thedailymoment.webp")'
                     style={bgStyle}
+                    tbd
                     tags={['presence', 'experience', 'web3']}
                     href="https://thedailymoment.com/"
                 />
@@ -65,13 +76,14 @@ const Projects = () => {
                     color="white"
                     name="Finn Capital"
                     tags={['presence']}
+                    tbd
                     href="https://finn.capital/"
                 />
                 <Project 
                     backgroundImage='url("/projects/studiolife.webp")'
                     style={bgStyle}
                     name="StudioLife" 
-                    tags={['ecommerce', 'presence', 'leverage']}
+                    tags={['ecommerce', 'presence', 'grow + expand']}
                 />
                 <Project 
                     backgroundImage='url("/projects/littlefishswimschool.webp")'
