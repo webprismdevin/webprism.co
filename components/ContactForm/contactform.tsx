@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Content from "../content";
 import Link from 'next/link';
 import styles from './contactform.module.css';
 
@@ -59,10 +58,11 @@ export default function ContactForm(props: ContactProps){
                     />
                 </div>
                 <div className={`block ${styles.anything_else} ${email === "" ? styles.anything_hidden : styles.anything_show }`}>
-                    <textarea className={styles.messageInput} value={anythingElse} onChange={e => setAnythingElse(e.target.value)} placeholder="Anything else you'd like to share?"></textarea>
+                    <input className={` ${styles.emailInput} block`} placeholder="enter your name" value={props.name} onChange={e => setName(e.target.value)}/>
+                    <textarea className={`${styles.messageInput} block`} value={anythingElse} onChange={e => setAnythingElse(e.target.value)} placeholder="Anything else you'd like to share?"></textarea>
                 </div>
-                <div className="block">
-                    <input type="button" className={`${styles.submit_button} button is-link ${loading && "is-loading"}`} value="Submit" onClick={handleFormSubmit}/>
+                <div>
+                    <input type="button" className={`block ${styles.submit_button} button is-link ${loading && "is-loading"}`} value="Submit" onClick={handleFormSubmit}/>
                 </div>
         </>}
         {success &&

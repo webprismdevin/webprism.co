@@ -37,14 +37,14 @@ const Projects = () => {
         <div className={styles.projects_outer}>
             <div className={styles.projects_half}>
                 <Project
-                    backgroundImage='url("/portfolio/themintgardener.jpeg")'
+                    backgroundImage='url("/themintgardener.jpg")'
                     style={bgStyle}
                     name="The Mint Gardener"
                     href="https://themintgardener.com/"
                     tags={['ecommerce', 'presence']}
                 />
                 <Project 
-                    backgroundImage='url("/portfolio/optimalbuilding.jpeg")'
+                    backgroundImage='url("/optimalbuilding.jpg")'
                     style={bgStyle}
                     color='white'
                     name="Optimal Building" 
@@ -52,7 +52,7 @@ const Projects = () => {
                     href="https://optimalbuilding.io/"
                 />
                 <Project name="The Daily Moment"
-                    backgroundImage='url("/portfolio/dailymoment.png")'
+                    backgroundImage='url("/thedailymoment.jpg")'
                     style={bgStyle}
                     tags={['presence', 'experience', 'web3']}
                     href="https://thedailymoment.com/"
@@ -60,7 +60,7 @@ const Projects = () => {
             </div>
             <div className={styles.projects_half}>
                 <Project 
-                    backgroundImage='url("/portfolio/finncapital.jpeg")'
+                    backgroundImage='url("/finncapital.jpg")'
                     style={bgStyle}
                     color="white"
                     name="Finn Capital"
@@ -68,19 +68,19 @@ const Projects = () => {
                     href="https://finn.capital/"
                 />
                 <Project 
-                    backgroundImage='url("/portfolio/studiolife.jpeg")'
+                    backgroundImage='url("/studiolife.jpg")'
                     style={bgStyle}
                     name="StudioLife" 
                     tags={['ecommerce', 'presence', 'leverage']}
                 />
                 <Project 
-                    backgroundImage='url("/portfolio/littlefishswimschool.jpeg")'
+                    backgroundImage='url("/littlefishswimschool.jpg")'
                     style={bgStyle}
                     name="Little Fish Swim School"
                     tags={['presence']}
                 />
                 <Project 
-                    backgroundImage='url("/portfolio/strongox.jpg")'
+                    backgroundImage='url("/strongox.jpg")'
                     style={bgStyle}
                     color='white'
                     name="Strong Ox Supplements"
