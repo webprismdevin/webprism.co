@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import Router from 'next/router';
 
 const Footer  = () => {
@@ -14,7 +15,7 @@ const Footer  = () => {
             </div>
             <br />
             <div className="block has-text-centered">
-                <Image src="/white-logo.png" height={32} width={262}  alt="webprism diamond logo"/>
+                <Link href="/" passHref><Image src="/white-logo.png" height={32} width={262}  alt="webprism diamond logo"/></Link>
             </div>
             <div className="content block has-text-centered">
                 <br />
