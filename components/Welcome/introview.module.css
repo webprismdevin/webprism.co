@@ -7,6 +7,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 144px;
     line-height: 175px;
+    letter-spacing: 10px;
 }
 
 .digitalcreative {
@@ -47,7 +48,7 @@
     
     .webprism {
         font-family: 'Montserrat', sans-serif;
-        font-size: 56px;
+        font-size: 46px;
         line-height: 62px;
     }
     

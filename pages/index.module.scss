@@ -18,7 +18,7 @@
 
 .adventureContainer {
     position: relative;
-    min-height: 100vh;
+    min-height: 60vh;
     align-items: center;
     transition-delay: 400ms;
 }
@@ -40,11 +40,12 @@
     border-radius: 0;
     font-size: 2em;
     color: transparent;
+    width: 30%;
 }
 
 .adventure:hover {
-    background: white;
-    color: black;
+    background: rgba(36,36,36,0.7);
+    color: white;
 }
 
 .adventure1 {

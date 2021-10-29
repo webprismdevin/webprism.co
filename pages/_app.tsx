@@ -51,7 +51,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
             <div><Link href="/"><a id="home" className="menu-item is-size-4">Home</a></Link></div>
             <div><Link href="/contact"><a id="contact" className="menu-item is-size-4">Contact</a></Link></div>
             <div>More. Soon...</div>
-            <Image src="/menu_img_5.webp" alt="menu background" layout="fill" objectFit="cover" objectPosition="center" className="menu_background" />
         </Menu>
         <main id="page-wrap">
           <Component {...pageProps} />
