@@ -85,10 +85,7 @@
 }
 
 @media (max-width: 768px) {
-    .page_container {
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
+    .stars {
         background-image: url(/null_bg_mobile.webp);
     }
     .adventureContainer {
