@@ -84,12 +84,15 @@ const Projects = () => {
                     style={bgStyle}
                     name="StudioLife" 
                     tags={['ecommerce', 'presence', 'grow + expand']}
+                    href="https://studiolifeseattle.com"
                 />
                 <Project 
                     backgroundImage='url("/projects/littlefishswimschool.webp")'
                     style={bgStyle}
                     name="Little Fish Swim School"
+                    color="white"
                     tags={['presence']}
+                    href="https://littlefishswimschool.net"
                 />
                 <Project 
                     backgroundImage='url("/projects/strongox.webp")'

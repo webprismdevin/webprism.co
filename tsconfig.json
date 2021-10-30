@@ -21,9 +21,10 @@
   },
   "include": [
     "next-env.d.ts",
+    "block-content-to-react.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "pages/posts/[slug].js"  ],
   "exclude": [
     "node_modules"
   ]

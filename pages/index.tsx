@@ -149,7 +149,7 @@ const AdventuresMobile = (props: any) => {
 }
 
 const Adventures = (props:any) => {
-  return(<section className={`section ${styles.adventureContainer}`}>
+  return(<section className={`section ${styles.adventureContainer}`} style={{margin: '3.5em'}}>
             <div className={`${styles.wheretostart} container`}>
               <div className="title is-1">Choose your adventure{props.name && ", "}{props.name} 🚀</div>
             </div>

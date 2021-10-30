@@ -4,6 +4,7 @@ import { push as Menu } from 'react-burger-menu'
 import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import $ from 'jquery/dist/jquery.slim';
 import './styles.scss';
 
@@ -15,6 +16,8 @@ declare global {
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const [window, setWindow] = useState(null);
+  const [isOpen, handleOnOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if(typeof window !== undefined){
@@ -38,6 +41,21 @@ function CustomApp({ Component, pageProps }: AppProps) {
     },10)};
 
     $("body").on('touchstart' as any, fun).on('mousedown' as any, fun);
+  }, []);
+
+  useEffect(() => {
+    //@ts-ignore
+    const handleRouteChange = () => {
+      handleOnOpen(false);
+    }
+
+    router.events.on('routeChangeStart', handleRouteChange)
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method:
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange)
+    }
   }, [])
 
   return (
@@ -59,8 +77,10 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <meta property="twitter:image" content="https://www.webprism.co/open-graph-thumbnail.png" />
       </Head>
       <div className="app" id="outer-container">
-        <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } right>
+        <Link href="/" passHref><div className="is-clickable" style={{position: 'fixed', zIndex: 998, top: 30, left: 36}}><Image src="/webprism-diamond-white.png" alt="WEBPRISM logo" width={36} height={36} /></div></Link>
+        <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } right isOpen={isOpen} onOpen={() => handleOnOpen(!isOpen)} onClose={() => handleOnOpen(!isOpen)}>
             <div><Link href="/"><a id="home" className="menu-item is-size-4">Home</a></Link></div>
+            <div><Link href="/posts"><a id="blog" className="menu-item is-size-4">Blog</a></Link></div>
             <div><Link href="/contact"><a id="contact" className="menu-item is-size-4">Contact</a></Link></div>
             <div>More. Soon...</div>
         </Menu>
