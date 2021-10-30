@@ -9,3 +9,9 @@
     color: black !important;
     text-transform: capitalize;
 }
+
+@media (max-width: 768px){
+    .postcontainer {
+        padding: 80px 40px;
+    }
+}

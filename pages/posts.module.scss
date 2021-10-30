@@ -1,5 +1,11 @@
-
-
 .post {
     width: 30%;
+    padding-bottom: 20px;
+    border-bottom: 3px solid white;
+}
+
+@media (max-width: 768px){
+    .post {
+        width: 100%;
+    }
 }
