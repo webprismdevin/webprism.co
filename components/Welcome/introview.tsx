@@ -40,7 +40,7 @@ const AshleyView = (props:AVProps) => {
     nameInput.current.focus();
   }
 
-  return(<div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3.5em 1.5em'}}>
+  return(<div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
         {!enterPressed &&
           <>
             <FadeIn delay={100}>
@@ -109,47 +109,49 @@ const AshleyViewMobile = (props:AVProps) => {
     nameInput.current.focus();
   }
 
-  return(<div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3.5em 1.5em'}}>
-        {!enterPressed &&
-          <>
-            <div className={styles.hi}>hi 👋</div>
-            <div className={styles.were}>we&apos;re</div>
-            <div className={styles.webprism}>WEBPRISM</div>
-            <div className={styles.digitalcreative}>a digital creative agency.</div>
-            <div style={{marginTop: 80}}>
-              <div className="title is-4">What can we call you?</div>
-              <input 
-                value={name} 
-                onChange={e => setName(e.target.value)} 
-                ref={nameInput} 
-                className={`title is-5 ${styles.nameinput}`} 
-                placeholder="type name + hit enter" 
-                style={{borderColor: 'transparent', outline: 'none', display: 'inline', minWidth: '100%'}} 
-                onKeyDown={handleKeyDown} 
-              />
-            </div>
-            </>}
-            {enterPressed && <>
-              <Typed 
-                strings={[`Nice to meet you, ${name}!`]}
-                typeSpeed={40}
-                showCursor={false}
-                className="title is-1"
-              />
-              <div className={styles.scroll_lottie}>
-                <Lottie
-                  options={scrollOptions}
-                  height={200}
-                  width={200}
+  return(
+          <div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3.5em 1.5em'}}>
+            {!enterPressed &&
+            <>
+              <div className={styles.hi}>hi 👋</div>
+              <div className={styles.were}>we&apos;re</div>
+              <div className={styles.webprism}>WEBPRISM</div>
+              <div className={styles.digitalcreative}>a digital creative agency.</div>
+              <div style={{marginTop: 80}}>
+                <div className="title is-4">What can we call you?</div>
+                <input 
+                  value={name} 
+                  onChange={e => setName(e.target.value)} 
+                  ref={nameInput} 
+                  className={`title is-5 ${styles.nameinput}`} 
+                  placeholder="type name + hit enter" 
+                  style={{borderColor: 'transparent', outline: 'none', display: 'inline', minWidth: '100%'}} 
+                  onKeyDown={handleKeyDown} 
                 />
               </div>
-            </>}
-            <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, a digital creative agency.</h1>
-        </div>)
+              </>}
+              {enterPressed && <>
+                <Typed 
+                  strings={[`Nice to meet you, ${name}!`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                  className="title is-1"
+                />
+                <div className={styles.scroll_lottie}>
+                  <Lottie
+                    options={scrollOptions}
+                    height={200}
+                    width={200}
+                  />
+                </div>
+              </>}
+              <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, a digital creative agency.</h1>
+          </div>
+        )
 }
 
 const WelcomeBack = (props:any) => {
-  return(<div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3.5em 1.5em'}}>
+  return(<div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
           <FadeIn delay={200}>
             <p className="title is-1">Welcome back, {props.name}! ✌️ </p>
             <p className="title is-3">We&apos;re WebPrism, a digital creative agency.</p>
@@ -212,19 +214,19 @@ export function IntroView(props: IntroViewProps) {
 
   return (
     <>
-      <div className="hero is-fullheight">
-        {loading && <div className="hero-body">
+      <section className="section">
+        {loading && <div>
           <Lottie 
             options={loadingOptions}
             height={200}
             width={200}
           />  
         </div>}
-        {!loading && <div className={styles.herobody}>
+        {!loading && <div>
           {!nameFromLS && <AshleyView nameEntered={nameEntered}/>}
           {nameFromLS && <WelcomeBack name={name}/>}
         </div>}
-      </div>
+      </section>
     </>
   );
 }

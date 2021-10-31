@@ -1,0 +1,14 @@
+.fullheight, .halfheight, .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.fullheight {
+    min-height: 100vh;
+}
+
+.halfheight {
+    min-height: 50vh;
+}

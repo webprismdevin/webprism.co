@@ -56,53 +56,52 @@ export function Index(props:any) {
         <Image src="/null_bg_mobile.webp" layout="fill" alt="decorative" />
       </div>}
       <div className={`${styles.page_container} ${returnBgClass()}`}>
-      {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView liftName={setName}/>}
-      <Content fullheight>
-        <div className="block">
-          <p className="title is-2">We&apos;re passionate about passionate people.</p>
+        {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView liftName={setName}/>}
+        <Content fullheight title="We&apos;re passionate about passionate people.">
           <p className="is-size-4">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
-        </div>
-      </Content>
-      {props.isMobile ? <AdventuresMobile name={name} /> : <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} />}
-      <Mission name={name}/>
-      <Projects />
-      <section className="section hero is-fullheight">
-              <div className="hero-body">
-                <div className="container">
-                  {!formSubmitted && <>
-                    <p className="title is-1">Let&apos;s talk</p>
-                    <p className="is-size-3 block">What can we build together?</p>
-                  </>}
-                  {formSubmitted &&
-                    <Typed 
-                      strings={[`${name}, you're awesome!`]}
-                      typeSpeed={40}
-                      showCursor={false}
-                      className="title is-1"
-                    />
-                  }
-                  <ContactForm name={name} handleFormSubmit={handleFormSubmit}/>
-                </div>
-              </div>
-      </section>
-      <Footer />
+        </Content>
+        {/* {props.isMobile ? <AdventuresMobile name={name} /> : <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} />} */}
+        <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} isMobile={props.isMobile}/>
+        <Mission name={name}/>
+        <Projects />
+        <Content fullheight>
+                  <div className={styles.contactFormContainer} >
+                    {!formSubmitted && <>
+                      <p className="title is-1">Let&apos;s talk</p>
+                      <p className="is-size-3 block">What can we build together?</p>
+                    </>}
+                    {formSubmitted &&
+                      <Typed 
+                        strings={[`${name}, you're awesome!`]}
+                        typeSpeed={40}
+                        showCursor={false}
+                        className="title is-1"
+                      />
+                    }
+                    <ContactForm name={name} handleFormSubmit={handleFormSubmit}/>
+                  </div>
+        </Content>
+        <Footer />
       </div>
     </>
   );
 }
 
-const getDescription = (hoverState: number) => {
+const getDescription = (hoverState: number, isMobile?: boolean) => {
   switch(hoverState){
     case 1:
-      return <>It&apos;s not just a website. You&apos;re little corner of the internet also serves as a digital business card, a communication platform, a marketing hub, and a portal for customers to connect and interact with you. We&apos;ll help you put your best foot (and face) forward.</>
+      return <>{isMobile && <h2 style={{color: 'white'}}>Create Presence</h2>}
+        It&apos;s not just a website. You&apos;re little corner of the internet also serves as a digital business card, a communication platform, a marketing hub, and a portal for customers to connect and interact with you. We&apos;ll help you put your best foot (and face) forward.</>
     case 2: 
-      return <>Connect with your customers on a deeper level by creating a memorable digital experience. An engaging experience will increase interactions with current and potential customers and open new ways to further your mission and deliver more value to the world.</>
+      return <>{isMobile && <h2 style={{color: 'white'}}>Build Experiences</h2>}
+        Connect with your customers on a deeper level by creating a memorable digital experience. An engaging experience will increase interactions with current and potential customers and open new ways to further your mission and deliver more value to the world.</>
     case 3:
-      return <>We&apos;ve built something together. Maybe we&apos;ve started to feel like part of your team. Using the knowledge we&apos;re gained from working together, we&apos;ll help you leverage this new digital marketing platform into growth and expansion in the next phase of your adventure.</>
+      return <>{isMobile && <h2 style={{color: 'white'}}>Expand + Grow</h2>}
+        We&apos;ve built something together. Maybe we&apos;ve started to feel like part of your team. Using the knowledge we&apos;re gained from working together, we&apos;ll help you leverage this new digital marketing platform into growth and expansion in the next phase of your adventure.</>
     case 4:
       return <></>
     default: 
-      return <>Hover to learn more</>
+      return <>{isMobile ? "Tap": "Hover"} to learn more</>
   }
 }
 
@@ -127,7 +126,7 @@ const AdventuresMobile = (props: any) => {
               </div>
               <div className={`block ${styles.adventure2} ${styles.mobileAdventure}`}>
                 <div>
-                  <p className="title is-2">Build Experience</p>
+                  <p className="title is-2">Build Experiences</p>
                   <p className="is-size-5">{getDescription(2)}</p>
                 </div>
               </div>
@@ -149,7 +148,7 @@ const AdventuresMobile = (props: any) => {
 }
 
 const Adventures = (props:any) => {
-  return(<section className={`section ${styles.adventureContainer}`} style={{margin: '3.5em'}}>
+  return(<section className={`section ${styles.adventureContainer}`}>
             <div className={`${styles.wheretostart} container`}>
               <div className="title is-1">Choose your adventure{props.name && ", "}{props.name} 🚀</div>
             </div>
@@ -163,7 +162,7 @@ const Adventures = (props:any) => {
                     className={`${styles.adventure} ${styles.adventure2}`}
                     onMouseEnter={() => props.handleHover(2)} 
                     onMouseLeave={() => props.handleMouseLeave()}
-                  >Build Experience</div>
+                  >Build Experiences</div>
                   <div
                     className={`${styles.adventure} ${styles.adventure3}`}
                     onMouseEnter={() => props.handleHover(3)} 
@@ -171,7 +170,7 @@ const Adventures = (props:any) => {
                   >Expand + Grow</div>
           </div>
           <div className="container">
-            <div className="content is-size-4" style={{marginTop: 40, padding: props.hoverState !== 0 ? '1.5em 1.5em' : 0, backgroundColor: props.hoverState !== 0 ? "rgba(36,36,36,0.7)" : "transparent"}}>{getDescription(props.hoverState)}</div>
+            <div className="content is-size-4" style={{marginTop: 40, padding: props.hoverState !== 0 ? '1.5em 1.5em' : 0, backgroundColor: props.hoverState !== 0 ? "rgba(36,36,36,0.7)" : "transparent"}}>{getDescription(props.hoverState, props.isMobile)}</div>
           </div>
         </section>)
 }

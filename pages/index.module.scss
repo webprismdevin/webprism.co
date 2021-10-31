@@ -23,6 +23,11 @@
     transition-delay: 400ms;
 }
 
+.contactFormContainer {
+    width: 800px;
+    margin: 0 auto;
+}
+
 .stars {
     background-image: url(/null_bg.webp);
 }
@@ -90,12 +95,19 @@
     }
     .adventureContainer {
         min-height: 104vh;
+        overflow: hidden;
+    }
+    .pickAdventure{
+        margin-top: 40px;
     }
     .adventure {
-        min-height: 26vh;
-        width: 100%;
+        max-height: 22vh;
+        padding: 30px 40px;
+        margin-bottom: 20px;
+        color: transparent !important;
     }
-    .pickAdventure {
-        flex-direction: column;
+
+    .contactFormContainer {
+        width: auto;
     }
 }

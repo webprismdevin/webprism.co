@@ -15,8 +15,8 @@
     line-height: 42px;
 }
 
-.herobody {
-    display: flex;
+.flexbody {
+    /* display: flex; */
 }
 
 .entername {
