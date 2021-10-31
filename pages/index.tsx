@@ -7,9 +7,6 @@ import Projects from '../components/projects';
 import Content from '../components/content';
 import ContactForm from '../components/ContactForm/contactform';
 import Typed from 'react-typed';
-import SwipeableViews from 'react-swipeable-views';
-import Lottie from 'react-lottie';
-import swipeAnimation from  './11516-swipe-left-arrows.json';
 import styles from './index.module.scss';
 import Image from 'next/image';
 
@@ -34,8 +31,6 @@ export function Index(props:any) {
         return styles.adventure2
       case 3: 
         return styles.adventure3
-      case 4:
-        return styles.adventure4
       default:
         return styles.stars
     }
@@ -53,8 +48,6 @@ export function Index(props:any) {
         return "/experience-4-mobile.webp"
       case 3: 
         return "/leverage-2-mobile.webp"
-      case 4:
-        return styles.adventure4
       default:
         return '/null_bg_mobile.webp'
     }

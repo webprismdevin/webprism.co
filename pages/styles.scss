@@ -24,17 +24,6 @@ html {
   background-color: black;
 }
 
-.App {
-  font-family: sans-serif;
-  text-align: center;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 body {
   padding: 0;
   margin: 0;
@@ -45,16 +34,6 @@ body {
   top: 10px;
   right: 10px;
   z-index: 1000;
-}
-
-.brand_container {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-  background-color: white;
-  border-radius: 100%;
-  padding: 3px 6px;
 }
 
 ::-webkit-scrollbar {
@@ -76,7 +55,6 @@ body {
   .align-margin-fix {
     margin: 0em 0.75em;
   }
-  
 }
 
 /* burger menu */
@@ -84,7 +62,7 @@ body {
   position: fixed;
   width: 36px;
   height: 30px;
-  right: 36px;
+  right: 1.5em;
   top: 36px;
 }
 
@@ -155,7 +133,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-weight: bolder;
 }
 
-
 //gun fun pop
 .joy {
 	width: 100px;
@@ -167,6 +144,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 	z-index: 999999999;
 	animation: joy 1s steps(28);
 }
+
 @keyframes joy {
 	0% {
 		background-position: 0 0;

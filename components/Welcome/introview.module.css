@@ -15,13 +15,9 @@
     line-height: 42px;
 }
 
-.flexbody {
-    /* display: flex; */
-}
-
 .entername {
     position: absolute;
-    bottom: 60px;
+    bottom: 90px;
     right: 30px;
     display: flex;
     justify-content: flex-end;
