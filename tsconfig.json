@@ -24,7 +24,7 @@
     "block-content-to-react.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/posts/[slug].js"  ],
+, "pages/posts/[slug].js", "pages/sitemap.xml.js"  ],
   "exclude": [
     "node_modules"
   ]

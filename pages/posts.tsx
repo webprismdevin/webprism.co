@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext } from "next";
+import { GetStaticProps } from "next";
 import Head from 'next/head';
 import Link from 'next/link';
 import FadeIn from "react-fade-in/lib/FadeIn";
@@ -37,21 +37,19 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
     );
   };
   
-export const getServerSideProps = async (pageContext: GetServerSidePropsContext) => {
-    const pageSlug = pageContext.query.slug;
+export const getStaticProps:GetStaticProps = async ({params}) => {
     const query = encodeURIComponent(`*[ _type == "post" ] {title, _id, _updatedAt, slug }`);
 
     const url = `https://0ggffobx.api.sanity.io/v1/data/query/production?query=${query}`;
     const result = await fetch(url).then(res => res.json());
     const allPosts = result.result;
 
-    console.log(allPosts)
-
     return {
         props: {
                 posts: allPosts
-            }
+            },
+            revalidate: 10
         }
-};
+}
 
 export default Posts;
