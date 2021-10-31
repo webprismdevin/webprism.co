@@ -45,6 +45,21 @@ export function Index(props:any) {
     setFormSubmitted(true);
   }
 
+  const getMobileBg = () => {
+    switch(hoverState){
+      case 1:
+        return "/presence-3-mobile.webp"
+      case 2:
+        return "/experience-4-mobile.webp"
+      case 3: 
+        return "/leverage-2-mobile.webp"
+      case 4:
+        return styles.adventure4
+      default:
+        return '/null_bg_mobile.webp'
+    }
+  }
+
   return (
     <>
       <Head>
@@ -53,14 +68,13 @@ export function Index(props:any) {
         <meta name="description" content="WebPrism is a digital creative agency that helps organizations build engaging digital experiences. Our team works with clients as true partners, helping them formulate their vision and mission, then adopting that mission as our own. The result? Beautiful websites and apps we're proud to share with the world." />
       </Head>
       {props.isMobile && <div style={{position: 'fixed', top: 0, left: 0, height: '100%', width: '100%', zIndex: -1}}>
-        <Image src="/null_bg_mobile.webp" layout="fill" alt="decorative" />
+        <Image src={getMobileBg()} layout="fill" objectFit="fill" alt="decorative" />
       </div>}
-      <div className={`${styles.page_container} ${returnBgClass()}`}>
+      <div className={`${styles.page_container} ${!props.isMobile && returnBgClass()}`}>
         {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView liftName={setName}/>}
         <Content fullheight title="We&apos;re passionate about passionate people.">
           <p className="is-size-4">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
         </Content>
-        {/* {props.isMobile ? <AdventuresMobile name={name} /> : <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} />} */}
         <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} isMobile={props.isMobile}/>
         <Mission name={name}/>
         <Projects />
@@ -103,48 +117,6 @@ const getDescription = (hoverState: number, isMobile?: boolean) => {
     default: 
       return <>{isMobile ? "Tap": "Hover"} to learn more</>
   }
-}
-
-const AdventuresMobile = (props: any) => {
-
-  const swipeOptions = {
-    loop: true,
-    autoplay: true, 
-    animationData: swipeAnimation,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
-
-  return(<>
-            <SwipeableViews>
-              <div className={`block ${styles.adventure1} ${styles.mobileAdventure}`}>
-                <div>
-                  <p className="title is-2">Create Presence</p>
-                  <p className="is-size-5">{getDescription(1)}</p>
-                </div>
-              </div>
-              <div className={`block ${styles.adventure2} ${styles.mobileAdventure}`}>
-                <div>
-                  <p className="title is-2">Build Experiences</p>
-                  <p className="is-size-5">{getDescription(2)}</p>
-                </div>
-              </div>
-              <div className={`block ${styles.adventure3} ${styles.mobileAdventure}`}>
-                <div>
-                  <p className="title is-2">Expand + Grow</p>
-                  <p className="is-size-5">{getDescription(3)}</p>
-                </div>
-              </div>
-            </SwipeableViews>
-            <div className={styles.swipeAnimation}>
-              <Lottie
-                    options={swipeOptions}
-                    height={120}
-                    width={120}
-              />
-            </div>
-        </>)
 }
 
 const Adventures = (props:any) => {
