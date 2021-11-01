@@ -31,10 +31,10 @@ const AshleyView = (props:AVProps) => {
   return(<div className={`container ${styles.introview_container}`}>
         {!enterPressed &&
           <>
-            <FadeIn delay={400}>
+            {/* <FadeIn delay={400}> */}
               <div className={styles.hi}>hi 👋</div>
               <div className={styles.were}>we&apos;re</div>
-            </FadeIn>
+            {/* </FadeIn> */}
             <Typed 
                 strings={["WEBPRISM"]}
                 showCursor={false}
@@ -43,7 +43,11 @@ const AshleyView = (props:AVProps) => {
                 startDelay={1200}
                 typeSpeed={75}
               />
-            {typed && <FadeIn delay={300}><div className={styles.digitalcreative}>a digital creative agency.</div></FadeIn>}
+            {typed && 
+              // <FadeIn delay={300}>
+                <div className={styles.digitalcreative}>a digital creative agency.</div>
+              // </FadeIn>
+            }
             {typed && <div className={styles.entername}><FadeIn delay={300}>
                   <div className="title is-3">What can we call you?</div>
                   <input 
