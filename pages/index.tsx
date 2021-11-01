@@ -14,6 +14,7 @@ import Image from 'next/image';
 export function Index(props:any) {
   const [hoverState, setHoverState] = useState(0);
   const [name, setName] = useState("" as string);
+  const [typeComplete, setTypeComplete] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
  
   const handleHover = (num: number) => {
@@ -67,7 +68,8 @@ export function Index(props:any) {
         <Image src={getMobileBg()} layout="fill" objectFit="fill" alt="decorative" />
       </div>}
       <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
-        {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView liftName={setName}/>}
+        {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={setName}/>}
+        {typeComplete &&  <>
         <Content fullheight title="We&apos;re passionate about passionate people.">
           <p className="is-size-4 one_k_wide">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
         </Content>
@@ -92,6 +94,7 @@ export function Index(props:any) {
                   </div>
         </Content>
         <Footer />
+        </>}
         <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" />
       </div>
     </>

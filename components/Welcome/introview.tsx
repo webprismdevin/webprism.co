@@ -4,7 +4,8 @@ import FadeIn from 'react-fade-in';
 import styles from './introview.module.css';
 
 export interface AVProps {
-  nameEntered: (name: string) => void 
+  nameEntered: (name: string) => void,
+  typeComplete: () => any;
 }
 
 const AshleyView = (props:AVProps) => {
@@ -25,6 +26,7 @@ const AshleyView = (props:AVProps) => {
 
   const handleComplete = () => {
     setTyped(true);
+    props.typeComplete();
     nameInput.current.focus();
   }
 
@@ -147,7 +149,8 @@ const WelcomeBack = (props:any) => {
 
 /* eslint-disable-next-line */
 export interface IntroViewProps {
-  liftName?: any
+  liftName?: any,
+  typeComplete?: () => any
 }
 
 export function IntroView(props: IntroViewProps) {
@@ -180,12 +183,16 @@ export function IntroView(props: IntroViewProps) {
     props.liftName(name);
   }
 
+  const handleComplete = () => {
+    if(props.typeComplete) props.typeComplete();
+  }
+
   return (
     <>
       <section className="section">
         {loading && <div></div>}
         {!loading && <div>
-          {!nameFromLS && <AshleyView nameEntered={nameEntered}/>}
+          {!nameFromLS && <AshleyView typeComplete={() => handleComplete()} nameEntered={nameEntered}/>}
           {nameFromLS && <WelcomeBack name={name}/>}
         </div>}
       </section>
