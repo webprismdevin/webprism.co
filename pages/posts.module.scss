@@ -1,7 +1,26 @@
+.postcontainer {
+    transition: all 200ms ease;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
 .post {
     width: 30%;
-    padding-bottom: 20px;
+    padding: 20px;
     border-bottom: 3px solid white;
+    transition: all 200ms ease;
+    margin-right: 3%;
+}
+
+.post > h1 {
+    min-height: 270px;
+}
+
+.post:hover {
+    box-shadow: 12px 12px 24px #fd2187;
+    border: 3px solid white;
 }
 
 @media (max-width: 768px){

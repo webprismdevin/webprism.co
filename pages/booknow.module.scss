@@ -1,0 +1,10 @@
+.iframeContainer {
+    min-width: 1000px;
+    margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+    .iframeContainer {
+        min-width: 100%;
+    }
+}

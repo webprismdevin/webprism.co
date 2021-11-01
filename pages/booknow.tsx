@@ -1,7 +1,8 @@
 import Head from 'next/head';
+import Content from '../components/content';
 import Footer from '../components/footer';
+import styles from './booknow.module.scss';
 
-/* eslint-disable-next-line */
 export interface ContactProps {}
 
 export function ContactPage(props: ContactProps) {
@@ -9,13 +10,11 @@ export function ContactPage(props: ContactProps) {
             <Head>
               <title>WebPrism | Book Now</title>
             </Head>
-            <section className="section hero is-fullheight">
-              <div className="hero-body">
-                <div className="container">
-                    <iframe src="https://app.usemotion.com/meet/devin-webprism/50-min" title="Motion Booking Page" width="100%" height="840px" frameBorder="0"></iframe>
+            <Content fullheight>
+                <div className={styles.iframeContainer}>
+                  <iframe src="https://app.usemotion.com/meet/devin-webprism/50-min" title="Motion Booking Page" width="100%" height="840px" frameBorder="0"></iframe>
                 </div>
-              </div>
-            </section>
+            </Content>
             <Footer />
           </div>);
 }

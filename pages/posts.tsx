@@ -1,7 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from 'next/head';
 import Link from 'next/link';
-import FadeIn from "react-fade-in/lib/FadeIn";
 import styles from './posts.module.scss'
 
 export interface Post {
@@ -20,8 +19,7 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
             <title>WEBPRISM | Blog</title>
           </Head>
           <section className="section align-margin-fix" style={{paddingTop: 160}}>
-            <div className="container is-flex is-justify-content-space-between">
-                <FadeIn>
+            <div className={`container ${styles.postcontainer}`}>
                 {posts.map((post: any) => <>
                     <Link href={`/posts/${post.slug.current}`} passHref>
                         <div className={`${styles.post} block is-clickable`}>
@@ -30,7 +28,6 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
                         </div>
                     </Link>
                 </>)}
-                </FadeIn>
             </div>
           </section>
       </div>

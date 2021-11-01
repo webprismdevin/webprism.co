@@ -1,19 +1,7 @@
 import Typed from 'react-typed';
 import { useEffect, useRef, useState } from 'react';
 import FadeIn from 'react-fade-in';
-import Lottie from 'react-lottie';
-import scrollAnimation from  './14325-scroll.json';
-import loadingAnimation from './77612-loading-animation.json';
 import styles from './introview.module.css';
-
-const scrollOptions = {
-  loop: true,
-  autoplay: true, 
-  animationData: scrollAnimation,
-  rendererSettings: {
-    preserveAspectRatio: 'xMidYMid slice'
-  }
-};
 
 export interface AVProps {
   nameEntered: (name: string) => void 
@@ -76,12 +64,9 @@ const AshleyView = (props:AVProps) => {
                 showCursor={false}
                 className="title is-1"
               />
-              <div className={styles.scroll_lottie}>
-                <Lottie
-                  options={scrollOptions}
-                  height={200}
-                  width={200}
-                />
+              <div className={styles.scroll_lottie}
+                    dangerouslySetInnerHTML={{__html: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_vjs5zX.json"  background="transparent"  speed="0.5"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>`}}
+              >
               </div>
             </>}
             <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, a digital creative agency.</h1>
@@ -137,12 +122,9 @@ const AshleyViewMobile = (props:AVProps) => {
                   showCursor={false}
                   className="title is-1"
                 />
-                <div className={styles.scroll_lottie}>
-                  <Lottie
-                    options={scrollOptions}
-                    height={200}
-                    width={200}
-                  />
+                <div className={styles.scroll_lottie}
+                      dangerouslySetInnerHTML={{__html: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_vjs5zX.json"  background="transparent"  speed="0.5"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>`}}
+                >
                 </div>
               </>}
               <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, a digital creative agency.</h1>
@@ -156,12 +138,9 @@ const WelcomeBack = (props:any) => {
             <p className="title is-1">Welcome back, {props.name}! ✌️ </p>
             <p className="title is-3">We&apos;re WebPrism, a digital creative agency.</p>
           </FadeIn>
-          <div className={styles.scroll_lottie}>
-            <Lottie
-              options={scrollOptions}
-              height={300}
-              width={300}
-            />
+          <div className={styles.scroll_lottie}
+                dangerouslySetInnerHTML={{__html: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_vjs5zX.json"  background="transparent"  speed="0.5"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>`}}
+          >
           </div>
         </div>)
 }
@@ -203,25 +182,10 @@ export function IntroView(props: IntroViewProps) {
     props.liftName(name);
   }
 
-  const loadingOptions = {
-    loop: true,
-    autoplay: true, 
-    animationData: loadingAnimation,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
-
   return (
     <>
       <section className="section">
-        {loading && <div>
-          <Lottie 
-            options={loadingOptions}
-            height={200}
-            width={200}
-          />  
-        </div>}
+        {loading && <div></div>}
         {!loading && <div>
           {!nameFromLS && <AshleyView nameEntered={nameEntered}/>}
           {nameFromLS && <WelcomeBack name={name}/>}
@@ -263,25 +227,10 @@ export function MobileIntroView(props: IntroViewProps) {
     props.liftName(name);
   }
 
-  const loadingOptions = {
-    loop: true,
-    autoplay: true, 
-    animationData: loadingAnimation,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
-
   return (
     <>
       <div className="hero is-fullheight">
-        {loading && <div className="hero-body">
-          <Lottie 
-            options={loadingOptions}
-            height={200}
-            width={200}
-          />  
-        </div>}
+        {loading && <div className="hero-body"></div>}
         {!loading && <div className={styles.herobody}>
           {!nameFromLS && <AshleyViewMobile nameEntered={nameEntered}/>}
           {nameFromLS && <WelcomeBack name={name}/>}

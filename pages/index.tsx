@@ -8,6 +8,7 @@ import Content from '../components/content';
 import ContactForm from '../components/ContactForm/contactform';
 import Typed from 'react-typed';
 import styles from './index.module.scss';
+import Script from 'next/script';
 import Image from 'next/image';
 
 export function Index(props:any) {
@@ -66,7 +67,7 @@ export function Index(props:any) {
       <div className={`${styles.page_container} ${!props.isMobile && returnBgClass()}`}>
         {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView liftName={setName}/>}
         <Content fullheight title="We&apos;re passionate about passionate people.">
-          <p className="is-size-4">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
+          <p className="is-size-4 one_k_wide">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
         </Content>
         <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} isMobile={props.isMobile}/>
         <Mission name={name}/>
@@ -89,6 +90,7 @@ export function Index(props:any) {
                   </div>
         </Content>
         <Footer />
+        <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" />
       </div>
     </>
   );

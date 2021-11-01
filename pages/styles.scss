@@ -1,5 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
 $text: #fff;
 $title-color: #fff;
@@ -12,12 +25,20 @@ $footer-background-color: transparent;
 
 @import "bulma/sass/utilities/_all";
 @import "bulma/sass/base/_all";
-@import "bulma/sass/elements/_all";
+
+@import "bulma/sass/elements/button";
+@import "bulma/sass/elements/container";
+@import "bulma/sass/elements/title";
+@import "bulma/sass/elements/tag";
+@import "bulma/sass/elements/other";
+
+
 @import "bulma/sass/form/_all";
-@import "bulma/sass/grid/_all";
-@import "bulma/sass/components/_all";
-@import "bulma/sass/helpers/_all";
-@import "bulma/sass/layout/_all";
+
+@import "bulma/sass/helpers/typography";
+@import "bulma/sass/layout/section";
+@import "bulma/sass/layout/footer";
+
 
 html {
   scroll-behavior: smooth;
@@ -27,13 +48,6 @@ html {
 body {
   padding: 0;
   margin: 0;
-}
-
-.contact_button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 1000;
 }
 
 ::-webkit-scrollbar {
@@ -49,6 +63,10 @@ body {
 
 .align-margin-fix {
   margin: 0em 3.5em;
+}
+
+.one_k_wide {
+  max-width: 1000px;
 }
 
 @media (max-width: 768px) {
