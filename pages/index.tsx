@@ -34,7 +34,7 @@ export function Index(props:any) {
         case 3: 
           return styles.adventure3
         default:
-          return styles.stars
+          return " "
       }
     }
   }
@@ -66,7 +66,7 @@ export function Index(props:any) {
       {props.isMobile && <div style={{position: 'fixed', top: 0, left: 0, height: '100%', width: '100%', zIndex: -1}}>
         <Image src={getMobileBg()} layout="fill" objectFit="fill" alt="decorative" />
       </div>}
-      <div className={`${styles.page_container} ${returnBgClass()}`}>
+      <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
         {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView liftName={setName}/>}
         <Content fullheight title="We&apos;re passionate about passionate people.">
           <p className="is-size-4 one_k_wide">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
