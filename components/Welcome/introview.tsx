@@ -26,8 +26,8 @@ const AshleyView = (props:AVProps) => {
 
   const handleComplete = () => {
     setTyped(true);
-    if(props.typeComplete) props.typeComplete();
     nameInput.current.focus();
+    if(props.typeComplete) { props.typeComplete(); }
   }
 
   return(<div className={`container ${styles.introview_container}`}>
