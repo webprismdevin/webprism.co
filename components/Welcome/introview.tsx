@@ -48,7 +48,8 @@ const AshleyView = (props:AVProps) => {
                 <div className={styles.digitalcreative}>a digital creative agency.</div>
               // </FadeIn>
             }
-            {typed && <div className={styles.entername}><FadeIn delay={300}>
+            {typed && <div className={styles.entername}>
+                {/* <FadeIn delay={300}> */}
                   <div className="title is-3">What can we call you?</div>
                   <input 
                     value={name} 
@@ -59,7 +60,9 @@ const AshleyView = (props:AVProps) => {
                     style={{borderColor: 'transparent', outline: 'none', display: 'inline', minWidth: '100%'}} 
                     onKeyDown={handleKeyDown} 
                   />
-              </FadeIn></div>}
+                {/* </FadeIn> */}
+              </div>
+              }
             </>}
             {enterPressed && <>
               <Typed 
