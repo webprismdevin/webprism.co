@@ -19,7 +19,7 @@ const tagManagerArgs = {
   gtmId: 'GTM-NZ2DFK5'
 }
 
-if(process.env.NODE_ENV === 'production'){
+if(process.env.NODE_ENV === 'production' && process.browser){
   console.log("GTM fired");
   TagManager.initialize(tagManagerArgs);
 }
