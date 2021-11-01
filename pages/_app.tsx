@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import TagManager from 'react-gtm-module'
 import $ from 'jquery/dist/jquery.slim';
 import './styles.scss';
 
@@ -12,6 +13,18 @@ declare global {
   interface Window {
     fun: any,
   }
+}
+
+const tagManagerArgs = {
+  gtmId: 'GTM-NZ2DFK5'
+}
+
+if(process.env.NODE_ENV === 'production'){
+  console.log("GTM fired");
+  TagManager.initialize(tagManagerArgs);
+}
+else {
+  console.log("GTM not fired");
 }
 
 function CustomApp({ Component, pageProps }: AppProps) {

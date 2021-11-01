@@ -28,7 +28,7 @@ const AshleyView = (props:AVProps) => {
     nameInput.current.focus();
   }
 
-  return(<div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', paddingTop: 120}}>
+  return(<div className={`container ${styles.introview_container}`}>
         {!enterPressed &&
           <>
             <FadeIn delay={400}>
@@ -158,8 +158,6 @@ export function IntroView(props: IntroViewProps) {
   useEffect(() => {
     const getName = async () => {
       const rememberedName = await window.localStorage.getItem("webprism_name");
-
-      console.log(rememberedName)
 
       if(rememberedName){
         setName(rememberedName);
