@@ -25,15 +25,17 @@ export function Index(props:any) {
   }
   
   const returnBgClass = () => {
-    switch(hoverState){
-      case 1:
-        return styles.adventure1
-      case 2:
-        return styles.adventure2
-      case 3: 
-        return styles.adventure3
-      default:
-        return styles.stars
+    if(!props.isMobile){
+      switch(hoverState){
+        case 1:
+          return styles.adventure1
+        case 2:
+          return styles.adventure2
+        case 3: 
+          return styles.adventure3
+        default:
+          return styles.stars
+      }
     }
   }
 
@@ -64,7 +66,7 @@ export function Index(props:any) {
       {props.isMobile && <div style={{position: 'fixed', top: 0, left: 0, height: '100%', width: '100%', zIndex: -1}}>
         <Image src={getMobileBg()} layout="fill" objectFit="fill" alt="decorative" />
       </div>}
-      <div className={`${styles.page_container} ${!props.isMobile && returnBgClass()}`}>
+      <div className={`${styles.page_container} ${returnBgClass()}`}>
         {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView liftName={setName}/>}
         <Content fullheight title="We&apos;re passionate about passionate people.">
           <p className="is-size-4 one_k_wide">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
