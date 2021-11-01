@@ -59,7 +59,7 @@ export function Index(props:any) {
   return (
     <>
       <Head>
-        <title>WebPrism | A Passion Driven Creative Agency</title>
+        <title>WEBPRISM | A Passion-driven Creative Agency</title>
         <meta name="title" content="WebPrism | A Passion Driven Creative Agency" />
         <meta name="description" content="WebPrism is a digital creative agency that helps organizations build engaging digital experiences. Our team works with clients as true partners, helping them formulate their vision and mission, then adopting that mission as our own. The result? Beautiful websites and apps we're proud to share with the world." />
       </Head>

@@ -14,7 +14,7 @@ export function ContactPage(props: ContactProps) {
 
   return (<div className={styles.background}>
             <Head>
-              <title>WebPrism | Contact</title>
+              <title>WEBPRISM | Contact</title>
             </Head>
                   <Content fullheight>
                     {!formSubmitted && <>

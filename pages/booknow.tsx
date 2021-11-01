@@ -8,7 +8,7 @@ export interface ContactProps {}
 export function ContactPage(props: ContactProps) {
   return (<div className={`page`}>
             <Head>
-              <title>WebPrism | Book Now</title>
+              <title>WEBPRISM | Book Now</title>
             </Head>
             <Content fullheight>
                 <div className={styles.iframeContainer}>
