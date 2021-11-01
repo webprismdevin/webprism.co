@@ -21,10 +21,10 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
           <section className="section align-margin-fix" style={{paddingTop: 160}}>
             <div className={`container ${styles.postcontainer}`}>
                 {posts.map((post: any) => <>
-                    <Link href={`/posts/${post.slug.current}`} passHref>
-                        <div className={`${styles.post} block is-clickable`}>
+                    <Link href={`/posts/${post.slug.current}`} passHref key={post._id}>
+                        <div  className={`${styles.post} block is-clickable`}>
                             <h1 className="title is-1" style={{textTransform: 'capitalize'}}>{post.title}</h1>
-                            <p className="is-size-7 block">{new Date(post._updatedAt).toLocaleDateString()}</p>
+                            <p className="is-size-7 block">Published: {new Date(post._createdAt).toLocaleDateString()}</p>
                         </div>
                     </Link>
                 </>)}
@@ -35,7 +35,7 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
   };
   
 export const getStaticProps:GetStaticProps = async ({params}) => {
-    const query = encodeURIComponent(`*[ _type == "post" ] {title, _id, _updatedAt, slug }`);
+    const query = encodeURIComponent(`*[ _type == "post" ] `);
 
     const url = `https://0ggffobx.api.sanity.io/v1/data/query/production?query=${query}`;
     const result = await fetch(url).then(res => res.json());
