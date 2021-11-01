@@ -28,10 +28,10 @@ const AshleyView = (props:AVProps) => {
     nameInput.current.focus();
   }
 
-  return(<div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+  return(<div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', paddingTop: 120}}>
         {!enterPressed &&
           <>
-            <FadeIn delay={100}>
+            <FadeIn delay={200}>
               <div className={styles.hi}>hi 👋</div>
               <div className={styles.were}>we&apos;re</div>
             </FadeIn>
@@ -43,7 +43,7 @@ const AshleyView = (props:AVProps) => {
                 startDelay={600}
                 typeSpeed={75}
               />
-            {typed && <FadeIn delay={100}><div className={styles.digitalcreative}>a digital creative agency.</div></FadeIn>}
+            {typed && <FadeIn delay={200}><div className={styles.digitalcreative}>a digital creative agency.</div></FadeIn>}
             {typed && <div className={styles.entername}><FadeIn delay={300}>
                   <div className="title is-3">What can we call you?</div>
                   <input 
