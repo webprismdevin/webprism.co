@@ -33,6 +33,7 @@ const AshleyView = (props:AVProps) => {
   return(<div className={`container ${styles.introview_container}`}>
         {!enterPressed &&
           <>
+            <div />
             <FadeIn delay={400}>
               <div className={styles.hi}>hi 👋</div>
               <div className={styles.were}>we&apos;re</div>
