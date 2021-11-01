@@ -5,7 +5,7 @@ import styles from './introview.module.css';
 
 export interface AVProps {
   nameEntered: (name: string) => void,
-  typeComplete: () => any;
+  typeComplete?: () => any;
 }
 
 const AshleyView = (props:AVProps) => {
@@ -26,7 +26,7 @@ const AshleyView = (props:AVProps) => {
 
   const handleComplete = () => {
     setTyped(true);
-    props.typeComplete();
+    if(props.typeComplete) props.typeComplete();
     nameInput.current.focus();
   }
 
