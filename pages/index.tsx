@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import {IntroView, MobileIntroView } from "../components/Welcome/introview";
 import Mission from '../components/mission';
@@ -24,6 +24,10 @@ export function Index(props:any) {
   const handleMouseLeave = () => {
     setHoverState(0);
   }
+
+  useEffect(() => {
+    if(props.isMobile) setTypeComplete(true);
+  }, [])
   
   const returnBgClass = () => {
     if(!props.isMobile){
@@ -69,7 +73,7 @@ export function Index(props:any) {
       </div>}
       <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
         {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={setName}/>}
-        {typeComplete &&  <>
+        {typeComplete && <>
         <Content fullheight title="We&apos;re passionate about passionate people.">
           <p className="is-size-4 one_k_wide">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
         </Content>

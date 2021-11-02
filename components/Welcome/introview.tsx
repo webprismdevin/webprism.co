@@ -92,11 +92,6 @@ const AshleyViewMobile = (props:AVProps) => {
     }
   }
 
-  const handleComplete = () => {
-    setTyped(true);
-    nameInput.current.focus();
-  }
-
   return(
           <div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '3.5em 1.5em'}}>
             {!enterPressed &&
