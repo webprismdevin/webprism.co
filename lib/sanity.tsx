@@ -1,6 +1,15 @@
 import sanityClient from '@sanity/client';
+import { createImageUrlBuilder } from 'next-sanity';
 
+const config = {
+  dataset: 'production',
+  projectId: '0ggffobx',
+  useCdn: process.env.NODE_ENV === 'production',
+}
 
+export const imageBuilder = (source:any) => createImageUrlBuilder(config).image(source)
+
+//
 export const client = sanityClient({
   projectId: '0ggffobx',
   dataset: 'production',

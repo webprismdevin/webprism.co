@@ -38,14 +38,14 @@ const AshleyView = (props:AVProps) => {
               <div className={styles.hi}>hi 👋</div>
               <div className={styles.were}>we&apos;re</div>
             </FadeIn>
-            <Typed 
+            <h1><Typed 
                 strings={["WEBPRISM"]}
                 showCursor={false}
                 className={styles.webprism}
                 onComplete={() => handleComplete()}
                 startDelay={1200}
                 typeSpeed={75}
-              />
+              /></h1>
             {typed && <FadeIn delay={300}><div className={styles.digitalcreative}>a digital creative agency.</div></FadeIn>}
             {typed && <div className={styles.entername}><FadeIn delay={300}>
                   <div className="title is-3">What can we call you?</div>
@@ -98,7 +98,7 @@ const AshleyViewMobile = (props:AVProps) => {
             <>
               <div className={styles.hi}>hi 👋</div>
               <div className={styles.were}>we&apos;re</div>
-              <div className={styles.webprism}>WEBPRISM</div>
+              <h1 className={styles.webprism}>WEBPRISM</h1>
               <div className={styles.digitalcreative}>a digital creative agency.</div>
               <div style={{marginTop: 80}}>
                 <div className="title is-4">What can we call you?</div>

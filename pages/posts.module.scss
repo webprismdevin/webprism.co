@@ -19,8 +19,33 @@
 }
 
 .post:hover {
-    box-shadow: 12px 12px 24px #fd2187;
     border: 3px solid white;
+}
+
+.blue:hover {
+    box-shadow: 12px 12px 24px #00D5FF
+}
+
+.green:hover {
+    box-shadow: 12px 12px 24px #C3FF1F
+}
+
+.pink:hover {
+    box-shadow: 12px 12px 24px #FD2187
+}
+
+.orange:hover {
+    box-shadow: 12px 12px 24px #FE7900
+}
+
+.purple:hover {
+    box-shadow: 12px 12px 24px #8B1FFF
+}
+
+@media (max-width: 1000px){
+    .post {
+        width: 46%;
+    }
 }
 
 @media (max-width: 768px){

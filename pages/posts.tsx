@@ -12,6 +12,23 @@ export interface PostsProps {
     posts: Array<Post>
 }
 
+function randomColor(){
+    const rando = Math.floor(Math.random() * 5);
+
+    switch(rando){
+        case 0: 
+            return styles.pink
+        case 1:
+            return styles.blue
+        case 2: 
+            return styles.orange
+        case 3:
+            return styles.green
+        case 4:
+            return styles.purple
+    }
+}
+
 export const Posts:React.FC<PostsProps> = ({ posts }) => {
     return (
       <div>
@@ -22,7 +39,7 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
             <div className={`container ${styles.postcontainer}`}>
                 {posts.map((post: any) => <>
                     <Link href={`/posts/${post.slug.current}`} passHref key={post._id}>
-                        <div  className={`${styles.post} block is-clickable`}>
+                        <div  className={`${styles.post} block is-clickable ${randomColor()}`}>
                             <h1 className="title is-1" style={{textTransform: 'capitalize'}}>{post.title}</h1>
                             <p className="is-size-7 block">Published: {new Date(post._createdAt).toLocaleDateString()}</p>
                         </div>
@@ -45,7 +62,7 @@ export const getStaticProps:GetStaticProps = async ({params}) => {
         props: {
                 posts: allPosts
             },
-            revalidate: 10
+            revalidate: 60
         }
 }
 

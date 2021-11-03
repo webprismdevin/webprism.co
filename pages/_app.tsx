@@ -75,7 +75,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="theme-color" content="#03040A" />
-        <meta name="description" content="However you got here, we look forward to connecting with you, hearing you, and buidling something incredible." />
         
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.webprism.co/" />

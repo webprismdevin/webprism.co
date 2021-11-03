@@ -1,14 +1,12 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
-  reactStrictMode: true,
-  images: {
-    domains: ['www.webprism.co'],
-    formats: ['image/avif', 'image/webp']
-  }
-}
-
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
 })
 
-module.exports = withBundleAnalyzer({});
+module.exports = withBundleAnalyzer({
+  reactStrictMode: true,
+  images: {
+    domains: ['webprism.co','cdn.sanity.io', 'localhost'],
+    formats: ['image/avif', 'image/webp']
+  }
+});
