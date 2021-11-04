@@ -16,7 +16,7 @@
   "env": {
     "development": {
       "plugins": [
-        "@sanity/vision"
+        "@sanity/vision"      
       ]
     }
   },
@@ -24,6 +24,10 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
+    },
+    {
+      "implements": "part:@sanity/base/brand-logo",
+      "path": "./logo/logo.js"
     }
   ]
 }
