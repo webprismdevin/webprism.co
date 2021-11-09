@@ -11,7 +11,7 @@ import Typed from 'react-typed';
 import styles from './index.module.scss';
 import Script from 'next/script';
 import Image from 'next/image';
-import DefinitionCard from "https://framer.com/m/Definition-Card-kUv0.js@15ZusmzWhXqRrW6pUiL9"
+// import DefinitionCard from "https://framer.com/m/Definition-Card-kUv0.js@15ZusmzWhXqRrW6pUiL9"
 
 export function Index(props:any) {
   const [hoverState, setHoverState] = useState(0);
@@ -50,6 +50,11 @@ export function Index(props:any) {
     setFormSubmitted(true);
   }
 
+  const liftName = (name:string) => {
+    setName(name);
+    setTypeComplete(true);
+  }
+
   const getMobileBg = () => {
     switch(hoverState){
       case 1:
@@ -74,7 +79,7 @@ export function Index(props:any) {
         <Image src={getMobileBg()} layout="fill" objectFit="fill" alt="decorative" />
       </div>}
       <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
-        {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={setName}/>}
+        {props.isMobile ? <MobileIntroView liftName={liftName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={liftName}/>}
         {typeComplete && <>
         <section className="section">
           <div className="container" style={{padding: '30vh 0vh'}}>
