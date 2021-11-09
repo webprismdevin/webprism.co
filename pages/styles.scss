@@ -14,6 +14,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Merriweather-Light.ttf");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
 $text: #fff;
 $title-color: #fff;
 $family-primary: 'Roboto', sans-serif;
@@ -22,22 +30,24 @@ $link-hover-border: #fd2187;
 $footer-color: white;
 $footer-background-color: transparent;
 
+@import "bulma/bulma.sass";
 
-@import "bulma/sass/utilities/_all";
-@import "bulma/sass/base/_all";
+// @import "bulma/sass/utilities/_all";
+// @import "bulma/sass/base/_all";
 
-@import "bulma/sass/elements/button";
-@import "bulma/sass/elements/container";
-@import "bulma/sass/elements/title";
-@import "bulma/sass/elements/tag";
-@import "bulma/sass/elements/other";
+// @import "bulma/sass/elements/button";
+// @import "bulma/sass/elements/container";
+// @import "bulma/sass/elements/title";
+// @import "bulma/sass/elements/tag";
+// @import "bulma/sass/elements/other";
 
 
-@import "bulma/sass/form/_all";
+// @import "bulma/sass/form/_all";
 
-@import "bulma/sass/helpers/typography";
-@import "bulma/sass/layout/section";
-@import "bulma/sass/layout/footer";
+// @import "bulma/sass/helpers/typography";
+// @import "bulma/sass/helpers/flexbox";
+// @import "bulma/sass/layout/section";
+// @import "bulma/sass/layout/footer";
 
 
 html {

@@ -8,5 +8,16 @@ module.exports = withBundleAnalyzer({
   images: {
     domains: ['webprism.co','cdn.sanity.io', 'localhost'],
     formats: ['image/avif', 'image/webp']
-  }
+  },
+  experimental: {
+    urlImports: [
+        "https://framer.com/m/",
+        "https://framerusercontent.com/",
+        "https://fonts.gstatic.com/",
+        "https://fonts.googleapis.com/",
+        "https://ga.jspm.io/",
+        "https://jspm.dev/",
+        "https://cdn.jsdelivr.net/"
+    ],
+  },
 });

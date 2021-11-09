@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
-  name: 'post',
-  title: 'Post',
+  name: 'project',
+  title: 'Projects',
   type: 'document',
   fields: [
     {
@@ -19,12 +19,6 @@ export default {
       },
     },
     {
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
-    },
-    {
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
@@ -32,6 +26,12 @@ export default {
         hotspot: true,
       },
     },
+    {
+      name: 'detailShots',
+      title: 'Detail Shots',
+      type: 'array',
+      of: [{ type: 'image', options: {hotspot: true} }]
+     },
     {
       name: 'tags',
       title: 'Tags',
@@ -44,15 +44,10 @@ export default {
     {
       name: 'metaDesc',
       title: 'Meta Tag Description',
-      description: 'The <Meta name="description"> tag is used for preview text when a link is sent, and  important for SEO.',
+      description: 'The <Meta> Tag Description is used for preview text when a link is sent, and SEO.',
       rows: 3,
       type: 'text',
       validation: Rule => Rule.required().min(20).max(250)
-    },
-    {
-      name: 'publishedAt',
-      title: 'Published at',
-      type: 'date',
     },
     {
       name: 'body',
@@ -64,14 +59,7 @@ export default {
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
       media: 'mainImage',
-    },
-    prepare(selection) {
-      const {author} = selection
-      return Object.assign({}, selection, {
-        subtitle: author && `by ${author}`,
-      })
-    },
+    }
   },
 }

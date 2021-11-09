@@ -1,3 +1,4 @@
+import React from "react"
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import {IntroView, MobileIntroView } from "../components/Welcome/introview";
@@ -10,6 +11,7 @@ import Typed from 'react-typed';
 import styles from './index.module.scss';
 import Script from 'next/script';
 import Image from 'next/image';
+import DefinitionCard from "https://framer.com/m/Definition-Card-kUv0.js@15ZusmzWhXqRrW6pUiL9"
 
 export function Index(props:any) {
   const [hoverState, setHoverState] = useState(0);
@@ -74,9 +76,19 @@ export function Index(props:any) {
       <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
         {props.isMobile ? <MobileIntroView liftName={setName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={setName}/>}
         {typeComplete && <>
-        <Content fullheight title="We&apos;re passionate about passionate people.">
-          <p className="is-size-4 one_k_wide">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
-        </Content>
+        <section className="section">
+          <div className="container" style={{padding: '30vh 0vh'}}>
+            <div className="columns is-vcentered">
+              <div className="column is-6">
+                  <h2 className="title is-2">We&apos;re passionate about<br/> passionate people.</h2>
+                  <p className="title is-size-4" style={{maxWidth: '80%'}}>We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
+              </div>
+              <div className="column is-6">
+              <DefinitionCard />
+              </div>
+            </div>
+          </div>
+        </section>
         <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} isMobile={props.isMobile}/>
         <Mission name={name}/>
         <Projects />
