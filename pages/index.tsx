@@ -79,12 +79,12 @@ export function Index(props:any) {
         <section className="section">
           <div className="container" style={{padding: '30vh 0vh'}}>
             <div className="columns is-vcentered">
-              <div className="column is-6">
+              <div className="column is-6 p-6" style={{boxShadow: '12px 12px 18px #FD2187', border: '2px solid white'}}>
                   <h2 className="title is-2">We&apos;re passionate about<br/> passionate people.</h2>
-                  <p className="title is-size-4" style={{maxWidth: '80%'}}>We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
+                  <p className="title is-size-4">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
               </div>
               <div className="column is-6">
-              <DefinitionCard />
+                {/* <DefinitionCard /> */}
               </div>
             </div>
           </div>
