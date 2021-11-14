@@ -9,7 +9,6 @@ import markdownStyles from './portfolio-markdown-styles.module.scss';
 import Footer from "../components/footer";
 
 export interface ProjectProps {
-    key: string,
     _id: string,
     screenshot: string,
     title: string,
@@ -22,7 +21,7 @@ export interface ProjectProps {
     url: string
 }
 
-const ProjectComponent = ({screenshot, mainImage, title, body, tags, url}: ProjectProps) => {
+const ProjectComponent = ({_id, screenshot, mainImage, title, body, tags, url}: ProjectProps) => {
     return(
             <section>
                 <Content fullheight>
@@ -36,7 +35,7 @@ const ProjectComponent = ({screenshot, mainImage, title, body, tags, url}: Proje
                             <Link  href={url} passHref><a className="is-size-5 mb-3" target="_blank" rel="noreferrer">Live Site</a></Link>
                             <BlockContent blocks={body} className={markdownStyles.markdown}/>
                             <div className="tagOuter mt-auto">
-                                {tags && tags.map(t => <div key={t._id} className="tag has-text-black mr-2 mb-2 is-size-6">{t}</div>)}
+                                {tags && tags.map((t, i) => <div key={i} className="tag has-text-black mr-2 mb-2 is-size-6">{t}</div>)}
                             </div>
                         </div>
                     </div>
@@ -56,7 +55,7 @@ const Portfolio = ({projects}: PortfolioProps) => {
                     <title>WEBPRISM | Portfolio</title>
                 </Head>
                 <div className={styles.scrollSnap}>
-                    {projects.map(p => <ProjectComponent key={p._id} {...p} />)}
+                    {projects.map((p:ProjectProps) => <ProjectComponent key={p._id} {...p} />)}
                 <Footer />
                 </div>
             </div>)
