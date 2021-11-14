@@ -26,12 +26,12 @@ const ProjectComponent = ({screenshot, mainImage, title, body, tags, url}: Proje
     return(
             <section>
                 <Content fullheight>
-                    <div className="is-flex is-justify-content-space-between is-mobile-is-flex-direction-column">
+                    <div className={`is-flex is-justify-content-space-between ${styles.mobile_container} ${styles.spacing}`}>
                         <div className={styles.fullpage_screenshot}>
                             <div className={styles.fs_overlay}>SCROLL</div>
                             <Image src={screenshot} alt="full length project screenshot" width={mainImage.width} height={mainImage.height} />
                         </div>
-                        <div className="ml-6 is-flex is-flex-direction-column is-justify-flex-start" style={{minWidth: 300, maxWidth: 300}}>
+                        <div className={`${styles.spacing} is-flex is-flex-direction-column is-justify-flex-start`} style={{minWidth: 300, maxWidth: 300}}>
                             <p className="title is-2">{title}</p>
                             <Link  href={url} passHref><a className="is-size-5 mb-3" target="_blank" rel="noreferrer">Live Site</a></Link>
                             <BlockContent blocks={body} className={markdownStyles.markdown}/>
