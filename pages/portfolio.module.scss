@@ -1,0 +1,55 @@
+.scrollSnap {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y proximity;
+}
+
+.scrollSnap section {
+    scroll-snap-align: start;
+}
+
+.fullpage_screenshot {
+    aspect-ratio: 1.75;
+    width: 80%;
+    max-width: 1050px;
+    max-height: 600px;
+    overflow-y: scroll;
+    transition: border 200ms ease;
+    transition: box-shadow 200ms ease;
+}
+
+.fullpage_screenshot {
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.fs_overlay {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.60);
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    animation-name: fadeOut;
+    animation-delay: 1800ms;
+    animation-duration: 800ms;
+    animation-fill-mode: forwards;
+}
+
+.fullpage_screenshot:hover {
+    border: 2px solid white;
+    box-shadow: 12px 12px 24px white;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}

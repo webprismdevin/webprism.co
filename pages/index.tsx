@@ -11,7 +11,6 @@ import Typed from 'react-typed';
 import styles from './index.module.scss';
 import Script from 'next/script';
 import Image from 'next/image';
-// import DefinitionCard from "https://framer.com/m/Definition-Card-kUv0.js@15ZusmzWhXqRrW6pUiL9"
 
 export function Index(props:any) {
   const [hoverState, setHoverState] = useState(0);
@@ -82,14 +81,11 @@ export function Index(props:any) {
         {props.isMobile ? <MobileIntroView liftName={liftName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={liftName}/>}
         {typeComplete && <>
         <section className="section">
-          <div className="container" style={{padding: '30vh 0vh'}}>
-            <div className="columns is-vcentered">
-              <div className="column is-6 p-6" style={{boxShadow: '12px 12px 18px #FD2187', border: '2px solid white'}}>
+          <div className="container" style={{paddingTop: '30vh', paddingBottom: '30vh'}}>
+            <div className="is-vcentered" style={{maxWidth: 600}}>
+              <div className="p-6" style={{boxShadow: '12px 12px 18px #FD2187', border: '2px solid white'}}>
                   <h2 className="title is-2">We&apos;re passionate about<br/> passionate people.</h2>
                   <p className="title is-size-4">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
-              </div>
-              <div className="column is-6">
-                {/* <DefinitionCard /> */}
               </div>
             </div>
           </div>

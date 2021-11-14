@@ -29,25 +29,10 @@ $link-hover: #fd2187;
 $link-hover-border: #fd2187;
 $footer-color: white;
 $footer-background-color: transparent;
+$text-strong: white;
+$link: #00D5FF;
 
 @import "bulma/bulma.sass";
-
-// @import "bulma/sass/utilities/_all";
-// @import "bulma/sass/base/_all";
-
-// @import "bulma/sass/elements/button";
-// @import "bulma/sass/elements/container";
-// @import "bulma/sass/elements/title";
-// @import "bulma/sass/elements/tag";
-// @import "bulma/sass/elements/other";
-
-
-// @import "bulma/sass/form/_all";
-
-// @import "bulma/sass/helpers/typography";
-// @import "bulma/sass/helpers/flexbox";
-// @import "bulma/sass/layout/section";
-// @import "bulma/sass/layout/footer";
 
 
 html {
@@ -56,7 +41,7 @@ html {
 }
 
 body {
-  padding: 0;
+  padding: 0px 18px;
   margin: 0;
 }
 

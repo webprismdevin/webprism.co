@@ -19,9 +19,31 @@ export default {
       },
     },
     {
+      name: 'url',
+      title: 'Project URL',
+      type: 'url'
+    },
+    {
       name: 'mainImage',
       title: 'Main image',
+      description: 'Be sure to enter all image details in "Edit Details".',
       type: 'image',
+      fields: [
+        {
+          name: 'width',
+          title: 'Width',
+          type: 'number',
+          description: 'Full width (in pixels) of the screenshot.',
+          validation: Rule => Rule.required().min(600)
+        },
+        {
+          name: 'height',
+          title: 'Height',
+          type: 'number',
+          description: 'Full height (in pixels) of the screenshot.',
+          validation: Rule => Rule.required().min(600)
+        },
+      ],
       options: {
         hotspot: true,
       },
@@ -41,17 +63,17 @@ export default {
         layout: 'tags'
       }
     },
-    {
-      name: 'metaDesc',
-      title: 'Meta Tag Description',
-      description: 'The <Meta> Tag Description is used for preview text when a link is sent, and SEO.',
-      rows: 3,
-      type: 'text',
-      validation: Rule => Rule.required().min(20).max(250)
-    },
+    // {
+    //   name: 'metaDesc',
+    //   title: 'Meta Tag Description',
+    //   description: 'The <Meta> Tag Description is used for preview text when a link is sent, and SEO.',
+    //   rows: 3,
+    //   type: 'text',
+    //   validation: Rule => Rule.required().min(20).max(250)
+    // },
     {
       name: 'body',
-      title: 'Body',
+      title: 'Project Overview',
       type: 'blockContent',
     }
   ],
