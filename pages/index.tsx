@@ -79,7 +79,7 @@ export function Index(props:any) {
       </div>}
       <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
         {props.isMobile ? <MobileIntroView liftName={liftName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={liftName}/>}
-        {typeComplete && <>
+        {/* {typeComplete && <> */}
         <section className="section">
           <div className="container" style={{paddingTop: '30vh', paddingBottom: '30vh'}}>
             <div className="is-vcentered" style={{maxWidth: 600}}>
@@ -111,7 +111,7 @@ export function Index(props:any) {
                   </div>
         </Content>
         <Footer />
-        </>}
+        {/* </>} */}
         <Script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" />
       </div>
     </>

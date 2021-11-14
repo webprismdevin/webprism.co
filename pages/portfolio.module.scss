@@ -48,6 +48,11 @@
     margin-left: 3rem;
 }
 
+.project_details {
+    max-height: 600px;
+    overflow-y: scroll;
+}
+
 @media (max-width: 769px) {
     .mobile_container {
         flex-direction: column;
