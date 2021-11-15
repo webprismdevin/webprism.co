@@ -1,0 +1,35 @@
+.halfpage {
+    min-width: 50%;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.righthalf {
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    h1 {
+        font-size: 48px;
+    }
+    p {
+        font-size: 22px;
+    }
+}
+
+.stroke {
+    font-size: 72px;
+    text-align: left;
+    font-family: 'Roboto';
+    font-weight: 900;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px white;
+    -webkit-text-fill-color: transparent;
+    transition: -webkit-text-fill-color 4800ms ease;
+    letter-spacing: 0.09em;
+}
+
+.stroke:hover {
+    -webkit-text-fill-color: white;
+    text-shadow: 6px 6px 24px #FD2187;
+}

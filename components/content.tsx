@@ -11,8 +11,6 @@ export interface ContentProps {
 
 const Content = (props:ContentProps) => {
     return(
-    // <section className={`section hero ${props.fullheight ? "is-fullheight": ""} ${props.halfheight ? "is-halfheight": ""}`} style={props.style && props.style}>
-    //     <div className={`container hero-body`}>
     <section className={`section ${props.fullheight ? styles.fullheight : ""} ${props.halfheight ? styles.halfheight: ""}`} style={props.style && props.style}>
         <div className={`container ${styles.container}`}>
             {props.title && <p className="title is-1">{props.title}</p>}
