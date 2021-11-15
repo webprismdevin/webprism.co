@@ -7,21 +7,21 @@
     /* overflow: hidden; */
 }
 
-.wheretostart {
-    text-align: left;
-    height: 120px;
-}
+// .wheretostart {
+//     text-align: left;
+//     height: 120px;
+// }
 
-.wheretostart > div {
-    color: white;
-}
+// .wheretostart > div {
+//     color: white;
+// }
 
-.adventureContainer {
-    position: relative;
-    min-height: 60vh;
-    align-items: center;
-    transition-delay: 400ms;
-}
+// .adventureContainer {
+//     position: relative;
+//     min-height: 60vh;
+//     align-items: center;
+//     transition-delay: 400ms;
+// }
 
 .contactFormContainer {
     width: 800px;
@@ -32,50 +32,50 @@
     background-image: url(/null_bg.webp);
 }
 
-.pickAdventure {
-    display: flex;
-    justify-content: space-between;
-}
+// .pickAdventure {
+//     display: flex;
+//     justify-content: space-between;
+// }
 
-.adventure {
-    box-shadow: 6px 6px 6px rgba(36,36,36,0.12);
-    background-position: center;
-    background-size: cover;
-    padding: 40px 80px;
-    border-radius: 0;
-    font-size: 2em;
-    color: transparent;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
+// .adventure {
+//     box-shadow: 6px 6px 6px rgba(36,36,36,0.12);
+//     background-position: center;
+//     background-size: cover;
+//     padding: 40px 80px;
+//     border-radius: 0;
+//     font-size: 2em;
+//     color: transparent;
+//     width: 30%;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     text-align: center;
+// }
 
-.mobileAdventure {
-    height: 120vh;
-    background-position: center;
-    background-position: cover;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+// .mobileAdventure {
+//     height: 120vh;
+//     background-position: center;
+//     background-position: cover;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
 
-.mobileAdventure > div {
-    padding: 1.5em;
-    margin-top: 35vh;
-    background-color: rgba(36,36,36,0.7);
-}
+// .mobileAdventure > div {
+//     padding: 1.5em;
+//     margin-top: 35vh;
+//     background-color: rgba(36,36,36,0.7);
+// }
 
 .swipeAnimation {
     position: relative;
     top: -260px;
 }
 
-.adventure:hover {
-    background: rgba(36,36,36,0.7);
-    color: white;
-}
+// .adventure:hover {
+//     background: rgba(36,36,36,0.7);
+//     color: white;
+// }
 
 .adventure1 {
     background-image: url(/presence-3.webp);
@@ -93,20 +93,19 @@
     .stars {
         background-image: none;
     }
-    .adventureContainer {
-        min-height: 104vh;
-        overflow: hidden;
-    }
-    .pickAdventure{
-        margin-top: 40px;
-    }
-    .adventure {
-        max-height: 22vh;
-        padding: 30px 40px;
-        margin-bottom: 20px;
-        color: transparent !important;
-    }
-
+    // .adventureContainer {
+    //     min-height: 104vh;
+    //     overflow: hidden;
+    // }
+    // .pickAdventure{
+    //     margin-top: 40px;
+    // }
+    // .adventure {
+    //     max-height: 22vh;
+    //     padding: 30px 40px;
+    //     margin-bottom: 20px;
+    //     color: transparent !important;
+    // }
     .contactFormContainer {
         width: auto;
     }

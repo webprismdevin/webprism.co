@@ -21,7 +21,7 @@ export interface ProjectProps {
     url: string
 }
 
-const ProjectComponent = ({_id, screenshot, mainImage, title, body, tags, url}: ProjectProps) => {
+const ProjectComponent = ({screenshot, mainImage, title, body, tags, url}: ProjectProps) => {
     return(
             <section>
                 <Content fullheight>
