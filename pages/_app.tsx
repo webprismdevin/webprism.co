@@ -92,7 +92,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <Link href="/" passHref><div className="is-clickable" style={{position: 'fixed', zIndex: 998, top: 30, left: '1.5em'}}><Image src="/webprism-diamond-white.png" alt="WEBPRISM logo" width={36} height={36} /></div></Link>
         <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } right isOpen={isOpen} onOpen={() => handleOnOpen(!isOpen)} onClose={() => handleOnOpen(!isOpen)}>
             <div><Link href="/"><a id="home" className="menu-item is-size-4">Home</a></Link></div>
-            <div><Link href="/portfolio"><a id="portfolio" className="menu-item is-size-4">Project Portfolio</a></Link></div>
+            <div><Link href="/portfolio"><a id="portfolio" className="menu-item is-size-4">Portfolio</a></Link></div>
             <div><Link href="/posts"><a id="blog" className="menu-item is-size-4">Blog</a></Link></div>
             <div><Link href="/contact"><a id="contact" className="menu-item is-size-4">Contact</a></Link></div>
             <div>More. Soon...</div>

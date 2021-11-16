@@ -55,6 +55,11 @@ const Portfolio = ({projects}: PortfolioProps) => {
                     <title>WEBPRISM | Portfolio</title>
                 </Head>
                 <div className={styles.scrollSnap}>
+                    <section className="section">
+                        <div className="container">
+                            <h1 className="title is-1 has-text-centered">PORTFOLIO</h1>
+                        </div>
+                    </section>
                     {projects.map((p:ProjectProps) => <ProjectComponent key={p._id} {...p} />)}
                 <Footer />
                 </div>

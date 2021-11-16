@@ -64,12 +64,14 @@ const AshleyView = (props:AVProps) => {
               </FadeIn></div>}
             </>}
             {enterPressed && <>
-              <Typed 
-                strings={[`Nice to meet you, ${name}!`]}
-                typeSpeed={40}
-                showCursor={false}
-                className="title is-1"
-              />
+              <div style={{height: "100%", display: 'grid', placeItems: 'center start'}}>
+                <Typed 
+                  strings={[`Nice to meet you, ${name}!`]}
+                  typeSpeed={40}
+                  showCursor={false}
+                  className="title is-1"
+                />
+              </div>
               <div className={styles.scroll_lottie}
                     dangerouslySetInnerHTML={{__html: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_vjs5zX.json"  background="transparent"  speed="0.5"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>`}}
               >

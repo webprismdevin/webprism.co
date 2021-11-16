@@ -36,6 +36,11 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
             <title>WEBPRISM | Blog</title>
             <meta name="description" content="We love to write about life, our business, and give away everythign we learn! Come on it, and you might just learn something."/>
           </Head>
+          <section className="section">
+            <div className="container">
+                <h1 className="title is-1 has-text-centered">BLOG</h1>
+            </div>
+        </section>
           <section className="section align-margin-fix" style={{paddingTop: 160}}>
             <div className={`container ${styles.postcontainer}`}>
                 {posts.map((post: any) => <>
