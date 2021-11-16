@@ -61,7 +61,7 @@ html {
 }
 
 body {
-  padding: 0px 18px;
+  background-color: transparent;
   margin: 0;
 }
 
@@ -90,11 +90,7 @@ body {
   padding: 3rem;
 }
 
-@media (max-width: 768px) {
-  .align-margin-fix {
-    margin: 0em 0.75em;
-  }
-}
+
 
 /* burger menu */
 .bm-burger-button {
@@ -170,6 +166,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .menu-item {
   color: white;
   font-weight: bolder;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0px 18px;
+  }
+  .align-margin-fix {
+    margin: 0em 0.75em;
+  }
 }
 
 //gun fun pop

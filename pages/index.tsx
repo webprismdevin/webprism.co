@@ -15,7 +15,7 @@ import Choose from "../components/choose";
 
 const WeCreate = () => {
   return(        
-  <section className="section" style={{margin: '300px 0px 0px 0px'}}>
+  <section className="section" >
     <div className="container">
       <div className={styles.section2}>
         <div style={{marginBottom: 'auto'}}>
