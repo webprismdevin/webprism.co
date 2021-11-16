@@ -61,6 +61,23 @@ export default {
     }
   ],
 
+  orderings: [
+    {
+      title: 'Publish Date, New',
+      name: 'publishAtDesc',
+      by: [
+        {field: 'publishedAt', direction: 'desc'}
+      ]
+    },
+    {
+      title: 'Publish Date, Old',
+      name: 'publishedAtAsc',
+      by: [
+        {field: 'publishedAt', direction: 'asc'}
+      ]
+    },
+  ],
+
   preview: {
     select: {
       title: 'title',

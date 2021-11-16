@@ -34,6 +34,7 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
       <div>
           <Head>
             <title>WEBPRISM | Blog</title>
+            <meta name="description" content=""/>
           </Head>
           <section className="section align-margin-fix" style={{paddingTop: 160}}>
             <div className={`container ${styles.postcontainer}`}>
@@ -52,7 +53,7 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
   };
   
 export const getStaticProps:GetStaticProps = async ({params}) => {
-    const query = encodeURIComponent(`*[ _type == "post" ] `);
+    const query = encodeURIComponent(`*[ _type == "post" ] | order (publishedAt desc)`);
 
     const url = `https://0ggffobx.api.sanity.io/v1/data/query/production?query=${query}`;
     const result = await fetch(url).then(res => res.json());

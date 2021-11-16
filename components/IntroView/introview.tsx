@@ -1,12 +1,15 @@
 import Typed from 'react-typed';
 import { useEffect, useRef, useState } from 'react';
 import FadeIn from 'react-fade-in';
-import styles from './introview.module.css';
+import styles from './introview.module.scss';
 
 export interface AVProps {
   nameEntered: (name: string) => void,
   typeComplete?: () => any;
 }
+
+// const tagline = "we create websites that amaze our clients and their customers";
+const tagline = "a web design + development agency"
 
 const AshleyView = (props:AVProps) => {
   const [typed, setTyped] = useState(false);
@@ -46,7 +49,7 @@ const AshleyView = (props:AVProps) => {
                 startDelay={1200}
                 typeSpeed={75}
               /></h1>
-            {typed && <FadeIn delay={300}><div className={styles.digitalcreative}>a digital creative agency.</div></FadeIn>}
+            {typed && <FadeIn delay={300}><div className={styles.digitalcreative}>{tagline}</div></FadeIn>}
             {typed && <div className={styles.entername}><FadeIn delay={300}>
                   <div className="title is-3">What can we call you?</div>
                   <input 
@@ -72,7 +75,7 @@ const AshleyView = (props:AVProps) => {
               >
               </div>
             </>}
-            <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, a digital creative agency.</h1>
+            <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, {tagline}</h1>
         </div>)
 }
 
@@ -99,7 +102,7 @@ const AshleyViewMobile = (props:AVProps) => {
               <div className={styles.hi}>hi 👋</div>
               <div className={styles.were}>we&apos;re</div>
               <h1 className={styles.webprism}>WEBPRISM</h1>
-              <div className={styles.digitalcreative}>a digital creative agency.</div>
+              <div className={styles.digitalcreative}>{tagline}</div>
               <div style={{marginTop: 80}}>
                 <div className="title is-4">What can we call you?</div>
                 <input 
@@ -125,7 +128,7 @@ const AshleyViewMobile = (props:AVProps) => {
                 >
                 </div>
               </>}
-              <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, a digital creative agency.</h1>
+              <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, {tagline}</h1>
           </div>
         )
 }
@@ -134,7 +137,7 @@ const WelcomeBack = (props:any) => {
   return(<div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
           <FadeIn delay={200}>
             <p className="title is-1">Welcome back, {props.name}! ✌️ </p>
-            <p className="title is-3">We&apos;re WebPrism, a digital creative agency.</p>
+            <p className="title is-3">We&apos;re WebPrism, {tagline}</p>
           </FadeIn>
           <div className={styles.scroll_lottie}
                 dangerouslySetInnerHTML={{__html: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_vjs5zX.json"  background="transparent"  speed="0.5"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>`}}

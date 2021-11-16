@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './projects.module.css';
+import styles from './projects.module.scss';
 
 export interface ProjectProps {
     style?: unknown,

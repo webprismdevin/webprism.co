@@ -17,7 +17,7 @@ const Choose = () => {
             case 5:
                 return "expand your reach"
             default:
-                return "what we do";
+                return "explore our process";
         }
     }
 
@@ -33,9 +33,9 @@ const Choose = () => {
                         <div onMouseEnter={() => setHover(5)} onMouseLeave={() => setHover(0)} className={`${styles.stroke}`}>Expand</div>
                     </div>
                     <div className={`${styles.halfpage} ${styles.righthalf}`}>
-                        <h2 className="title is-2">{getTitle(hover)}</h2>
+                        <h2 className="is-size-2">{getTitle(hover)}</h2>
                         <div>
-                            <p style={{display: hover === 0 ?  'block' : 'none'}}></p>
+                            <p style={{display: hover === 0 ?  'block' : 'none'}}>At WEBPRISM, our goal is to represent your mission, and the passion for what you do every day online. Whether we&apos;re building you an informational website, or a complex online experience</p>
                             <p style={{display: hover === 1 ?  'block' : 'none'}}>We get to know our clients deeply, learningtheir passion and mission as if it were our own.</p>
                             <p style={{display: hover === 2 ?  'block' : 'none'}}>Taking an outsiders look at your brand/organization, we design a concept for our clients new site or digital experience.</p>
                             <p style={{display: hover === 3 ?  'block' : 'none'}}>Once we&apos;ve agreed on the direction of the project, we begin building - collaborating with our clients closely throughout the process.</p>

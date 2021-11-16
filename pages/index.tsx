@@ -3,17 +3,51 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import {IntroView, MobileIntroView } from "../components/IntroView/introview";
 import Mission from '../components/mission';
-import Projects from '../components/projects';
 import Content from '../components/content';
-import Adventures from "../components/adventures";
 import ContactForm from '../components/ContactForm/contactform';
 import Footer from '../components/footer';
 import Typed from 'react-typed';
 import styles from './index.module.scss';
 import Script from 'next/script';
 import Image from 'next/image';
+import Link from 'next/link';
 import Choose from "../components/choose";
-import OurWork from "../components/ourwork";
+import PassionateAboutPassionatePeople from "https://framer.com/m/Passionate-About-Passionate-People-UuOC.js@vlIZT5KbosZaCQ6ZCLXV";
+import LatestProjects from "https://framer.com/m/latest-projects-5RAV.js@nW0KEMQ4sI6G2fdL8NCC"
+
+const Wavin = () => {
+  return(
+    <section className="section">
+      <div className="container" style={{paddingTop: '0vh', paddingBottom: '20vh', minHeight: '100vh'}}>
+        <div className="columns is-vcentered">
+          {/* <div className="column is-5"> */}
+            {/* <div className={styles.frame1}>
+                <h2 className="title is-2">We&apos;re passionate about<br/> passionate people.</h2>
+                <p className="title is-size-4">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
+            </div> */}
+            <PassionateAboutPassionatePeople />
+          {/* </div> */}
+          {/* <div className="column is-2"></div>
+          <div className="column is-5" style={{marginTop: 280}}> */}
+            {/* <div className={styles.frame2}>
+              <h2 className="title is-2">What we&apos;ve created</h2>
+              <Link href="/portfolio" passHref>SEE OUR WORK →</Link>
+            </div> */}.
+            <Link href="/portfolio" passHref><LatestProjects style={{marginTop: 280}}/></Link>
+          {/* </div> */}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+
+
+
+
+
+
 
 export function Index(props:any) {
   const [hoverState, setHoverState] = useState(0);
@@ -82,17 +116,7 @@ export function Index(props:any) {
       </div>}
       <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
         {props.isMobile ? <MobileIntroView liftName={liftName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={liftName}/>}
-        <section className="section">
-          <div className="container" style={{paddingTop: '30vh', paddingBottom: '30vh'}}>
-            <div className="is-vcentered" style={{maxWidth: 600}}>
-              <div className="p-6" style={{boxShadow: '12px 12px 18px #FD2187', border: '2px solid white'}}>
-                  <h2 className="title is-2">We&apos;re passionate about<br/> passionate people.</h2>
-                  <p className="title is-size-4">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <OurWork />
+        <Wavin />
         <Choose />
         {/* <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} isMobile={props.isMobile}/> */}
         <Mission name={name}/>
