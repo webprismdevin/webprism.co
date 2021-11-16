@@ -12,41 +12,7 @@ import Script from 'next/script';
 import Image from 'next/image';
 import Link from 'next/link';
 import Choose from "../components/choose";
-import PassionateAboutPassionatePeople from "https://framer.com/m/Passionate-About-Passionate-People-UuOC.js@vlIZT5KbosZaCQ6ZCLXV";
-import LatestProjects from "https://framer.com/m/latest-projects-5RAV.js@nW0KEMQ4sI6G2fdL8NCC"
-
-const Wavin = () => {
-  return(
-    <section className="section">
-      <div className="container" style={{paddingTop: '0vh', paddingBottom: '20vh', minHeight: '100vh'}}>
-        <div className="columns is-vcentered">
-          {/* <div className="column is-5"> */}
-            {/* <div className={styles.frame1}>
-                <h2 className="title is-2">We&apos;re passionate about<br/> passionate people.</h2>
-                <p className="title is-size-4">We craft beautiful websites that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
-            </div> */}
-            <PassionateAboutPassionatePeople />
-          {/* </div> */}
-          {/* <div className="column is-2"></div>
-          <div className="column is-5" style={{marginTop: 280}}> */}
-            {/* <div className={styles.frame2}>
-              <h2 className="title is-2">What we&apos;ve created</h2>
-              <Link href="/portfolio" passHref>SEE OUR WORK →</Link>
-            </div> */}.
-            <Link href="/portfolio" passHref><LatestProjects style={{marginTop: 280}}/></Link>
-          {/* </div> */}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-
-
-
-
-
-
+import PassionateAboutPassionatePeople from "https://framer.com/m/Passionate-About-Passionate-People-UuOC.js"
 
 
 export function Index(props:any) {
@@ -116,11 +82,28 @@ export function Index(props:any) {
       </div>}
       <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
         {props.isMobile ? <MobileIntroView liftName={liftName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={liftName}/>}
-        <Wavin />
+        <section className="section">
+          <div className="container" style={{paddingTop: '0vh', paddingBottom: '20vh', minHeight: '100vh'}}>
+                {/* <div className={styles.wecraft}>
+                    <h2>we craft beautiful websites</h2>
+                </div> */}
+                <PassionateAboutPassionatePeople
+  // Using default values:
+  text={`that showcase our clients' passion for what they do, and create captivating experiences for their customers.
+	`}
+  title={`we craft 
+beautiful websites`}
+  variant="Variant 1"
+/>
+                <Link href="/portfolio" passHref>
+                  <div className={styles.projects}>
+
+                  </div>
+                </Link>
+          </div>
+        </section>
         <Choose />
-        {/* <Adventures name={name} hoverState={hoverState} handleHover={handleHover} handleMouseLeave={handleMouseLeave} isMobile={props.isMobile}/> */}
         <Mission name={name}/>
-        {/* <Projects /> */}
         <Content fullheight>
                   <div className={styles.contactFormContainer} >
                     {!formSubmitted && <>

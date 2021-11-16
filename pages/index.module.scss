@@ -27,17 +27,58 @@
     top: -260px;
 }
 
-.adventure1 {
-    background-image: url(/presence-3.webp);
+// .adventure1 {
+//     background-image: url(/presence-3.webp);
+// }
+
+// .adventure2 {
+//     background-image: url(/experience-4.webp);
+// }
+
+// .adventure3 {
+//     background-image: url(/leverage-2.webp);
+// }
+
+.wecraft {
+    width: 900px;
+    height: 450px;
+    box-shadow: -16px -16px 10px 2px #00D5FF;
+    background-color: rgba(68, 204, 255, 0);
+    overflow: visible;
+
+    h2 {
+        width: 634px;
+        height: 161px;
+        overflow: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-word;
+        font-weight: 700;
+        font-style: normal;
+        font-family: "Montserrat", serif;
+        color: #ffffff;
+        font-size: 64px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+    }
+    p {
+        width: 650px;
+        height: 110px;
+        overflow: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-word;
+        font-weight: 400;
+        font-style: normal;
+        font-family: "Roboto", sans-serif;
+        color: #ffffff;
+        font-size: 30px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+    }
 }
 
-.adventure2 {
-    background-image: url(/experience-4.webp);
-}
 
-.adventure3 {
-    background-image: url(/leverage-2.webp);
-}
 
 @media (max-width: 768px) {
     .stars {
