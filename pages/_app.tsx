@@ -71,10 +71,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
     }
   }, [])
 
-  useEffect(() => {
-    process.browser && document.querySelector(".bm-menu")?.setAttribute("background-image", "url(/menu_img_5.webp)")
-  }, [])
-
   return (
     <>
       <Head>

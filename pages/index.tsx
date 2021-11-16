@@ -131,7 +131,7 @@ export function Index(props:any) {
         </Content>
         <Footer />
         </>}
-        <Script strategy="afterInteractive" src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" />
+        <Script strategy="lazyOnload" src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" />
       </div>
     </>
   );
