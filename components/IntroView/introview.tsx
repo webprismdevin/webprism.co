@@ -104,7 +104,7 @@ const AshleyViewMobile = (props:AVProps) => {
               <h1 className={styles.webprism}>WEBPRISM</h1>
               <div className={styles.digitalcreative}>{tagline}</div>
               <div style={{marginTop: 80}}>
-                <div className="title is-4">What can we call you?</div>
+                <div className="title is-5">What can we call you?</div>
                 <input 
                   value={name} 
                   onChange={e => setName(e.target.value)} 
