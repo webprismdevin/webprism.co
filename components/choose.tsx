@@ -23,8 +23,8 @@ const Choose = () => {
 
     return (
         <section className="section" id="ourprocess">
-            <div style={{height: '100vh', display: 'grid', placeItems: 'center'}}>
-                <div className={`container is-flex is-justify-content-space-between is-align-items-stretch`} style={{width: '100%'}}>
+            <div className={styles.level1}>
+                <div className={`container ${styles.level2}`} style={{width: '100%'}}>
                     <div className={`${styles.halfpage} ${styles.lefthalf}`}>
                         <div onMouseEnter={() => setHover(1)} onMouseLeave={() => setHover(0)} className={`${styles.stroke}`}>Discover</div>
                         <div onMouseEnter={() => setHover(2)} onMouseLeave={() => setHover(0)} className={`${styles.stroke}`}>Concept</div>

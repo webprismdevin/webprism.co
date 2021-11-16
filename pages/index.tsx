@@ -15,9 +15,9 @@ import Choose from "../components/choose";
 
 const WeCreate = () => {
   return(        
-  <section className="section">
-    <div className="container ">
-      <div className="is-flex is-justify-content-center" style={{paddingTop: '15vh', paddingBottom: '20vh'}}>
+  <section className="section" style={{margin: '300px 0px 0px 0px'}}>
+    <div className="container">
+      <div className={styles.section2}>
         <div style={{marginBottom: 'auto'}}>
           <div className={styles.wecraft}>
             <div>
