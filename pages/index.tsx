@@ -12,8 +12,6 @@ import Script from 'next/script';
 import Image from 'next/image';
 import Link from 'next/link';
 import Choose from "../components/choose";
-import PassionateAboutPassionatePeople from "https://framer.com/m/Passionate-About-Passionate-People-UuOC.js";
-import LatestProjects from "https://framer.com/m/latest-projects-5RAV.js"
 
 
 export function Index(props:any) {
@@ -84,14 +82,24 @@ export function Index(props:any) {
       <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
         {props.isMobile ? <MobileIntroView liftName={liftName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={liftName}/>}
         <section className="section">
-          <div className="container" style={{}}>
-            <div className="columns is-vcentered">
-              <div className="column is-5">
-                <PassionateAboutPassionatePeople />
+          <div className="container ">
+            <div className="is-flex is-justify-content-center" style={{paddingTop: '15vh', paddingBottom: '20vh'}}>
+              <div style={{marginBottom: 'auto'}}>
+                <div className={styles.wecraft}>
+                  <div>
+                    <h2>we craft<br/>beautiful websites</h2>
+                    <p>that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
+                    <br />
+                    <Link href="/#ourprocess"><a className="is-size-4">See how we do it →</a></Link>
+                  </div>
+                </div>
               </div>
-              <div className="column is-2"></div>
-              <div className="column is-5" style={{marginTop: 220}}>
-                <Link href="portfolio" passHref><LatestProjects /></Link>
+              <div className="is-flex is-justify-content-flex-end" style={{marginTop: 180, textAlign: 'right'}}>
+                <Link href="portfolio" passHref>
+                  <div className={styles.projects}>
+                    <h1>latest<br/>projects</h1>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>

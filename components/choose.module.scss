@@ -22,7 +22,7 @@
     text-align: left;
     font-family: 'Roboto-900';
     text-transform: uppercase;
-    -webkit-text-stroke: 2px white;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.719);
     -webkit-text-fill-color: transparent;
     transition: -webkit-text-fill-color 4800ms ease;
     letter-spacing: 0.09em;
@@ -30,4 +30,5 @@
 
 .stroke:hover {
     -webkit-text-fill-color: white;
+    -webkit-text-stroke: 2px white;
 }

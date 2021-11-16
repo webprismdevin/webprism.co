@@ -22,7 +22,7 @@ const Choose = () => {
     }
 
     return (
-        <section className="section">
+        <section className="section" id="ourprocess">
             <div style={{height: '100vh', display: 'grid', placeItems: 'center'}}>
                 <div className={`container is-flex is-justify-content-space-between is-align-items-stretch`} style={{width: '100%'}}>
                     <div className={`${styles.halfpage} ${styles.lefthalf}`}>

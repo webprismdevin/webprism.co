@@ -7,6 +7,7 @@
     height: 100vh;
     overflow-y: scroll;
     scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
 }
 
 .page_container section {
@@ -45,6 +46,8 @@
     box-shadow: -16px -16px 10px 2px #00D5FF;
     background-color: rgba(68, 204, 255, 0);
     overflow: visible;
+    display: grid;
+    place-items: center;
 
     h2 {
         width: 634px;
@@ -73,6 +76,56 @@
         font-family: "Roboto", sans-serif;
         color: #ffffff;
         font-size: 30px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+    }
+}
+
+.projects {
+    width: 400px;
+    height: 400px;
+    box-shadow: 16px 16px 10px 2px var(--token-fd55116d-62f5-4047-b631-e2176ab15d14, #fd2187) /* {"name":"Pink Glow"} */;
+    background-color: rgba(0, 0, 0, 0);
+    overflow: visible;
+    display: grid;
+    place-items: end center;
+    transition: all 400ms ease;
+    cursor: pointer;
+    
+    h1 {
+        width: 338px;
+        height: 219px;
+        overflow: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-word;
+        font-weight: 400;
+        font-style: normal;
+        font-family: "Montserrat", serif;
+        color: #ffffff;
+        font-size: 72px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+    }
+}
+
+.projects:hover {
+    box-shadow: 26px 26px 20px 6px var(--token-fd55116d-62f5-4047-b631-e2176ab15d14, #fd2187) /* {"name":"Pink Glow"} */;
+    background-color: #ffffff;
+    overflow: visible;
+
+    h1 {
+        width: 338px;
+        height: 219px;
+        overflow: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-word;
+        font-weight: 800;
+        font-style: normal;
+        font-family: "Montserrat", serif;
+        color: var(--token-fd55116d-62f5-4047-b631-e2176ab15d14, #fd2187) /* {"name":"Pink Glow"} */;
+        font-size: 72px;
         letter-spacing: 0px;
         line-height: 1.2;
     }
