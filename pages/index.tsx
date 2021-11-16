@@ -95,7 +95,7 @@ export function Index(props:any) {
                 </div>
               </div>
               <div className="is-flex is-justify-content-flex-end" style={{marginTop: 180, textAlign: 'right'}}>
-                <Link href="portfolio" passHref>
+                <Link href="/portfolio" passHref>
                   <div className={styles.projects}>
                     <h1>latest<br/>projects</h1>
                   </div>
