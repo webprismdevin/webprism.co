@@ -69,6 +69,16 @@ body {
   display: none;
 }
 
+.page-title {
+  padding: 30px;
+  text-align: center;
+  font-size: 3rem;
+  h1 {
+    line-height: 3.2rem;
+    font-weight: bold;
+  }
+}
+
 .menu_background {
   position: absolute;
   top: 0;

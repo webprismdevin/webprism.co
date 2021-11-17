@@ -205,8 +205,6 @@ export function MobileIntroView(props: IntroViewProps) {
     const getName = async () => {
       const rememberedName = await window.localStorage.getItem("webprism_name");
 
-      console.log(rememberedName)
-
       if(rememberedName){
         setName(rememberedName);
         props.liftName(rememberedName);
@@ -243,13 +241,19 @@ export function MobileIntroView(props: IntroViewProps) {
 
 const WelcomeBack = (props:any) => {
   return(<div className="container" style={{position: 'relative', height: '100vh', width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-          <FadeIn delay={200}>
-            <p className="title is-1">Welcome back, {props.name}! ✌️ </p>
-            <div className={styles.digitalcreative}>We&apos;re WebPrism, {tagline}</div>
-          </FadeIn>
-          <div className={styles.scroll_lottie}
-                dangerouslySetInnerHTML={{__html: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_vjs5zX.json"  background="transparent"  speed="0.5"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>`}}
-          >
+          <div className="columns">
+            <div className="column is-1"></div>
+            <div className="column is-10">
+              <FadeIn delay={200}>
+                <p className="title is-1">Welcome back, {props.name}! ✌️ </p>
+                <div className={styles.digitalcreative}>We&apos;re WebPrism, {tagline}</div>
+              </FadeIn>
+              <div className={styles.scroll_lottie}
+                    dangerouslySetInnerHTML={{__html: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_vjs5zX.json"  background="transparent"  speed="0.5"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>`}}
+              >
+              </div>
+            </div>
+            <div className="column is-1"></div>
           </div>
         </div>)
 }

@@ -37,10 +37,8 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
             <title>Blog | WEBPRISM | A web design + development agency</title>
             <meta name="description" content="We love to write about life, our business, and give away everythign we learn! Come on it, and you might just learn something."/>
           </Head>
-          <section className="section">
-            <div className="container">
-                <h1 className="title is-1 has-text-centered">BLOG</h1>
-            </div>
+          <section className="page-title">
+                <h1>BLOG</h1>
         </section>
           <section className="section align-margin-fix" style={{paddingTop: 160}}>
             <div className={`container ${styles.postcontainer}`}>

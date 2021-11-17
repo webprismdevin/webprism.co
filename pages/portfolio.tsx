@@ -56,10 +56,8 @@ const Portfolio = ({projects}: PortfolioProps) => {
                     <meta name="description" content="Our portfolio showcases our recent work and favorite projects." />
                 </Head>
                 <div className={styles.scrollSnap}>
-                    <section className="section">
-                        <div className="container">
-                            <h1 className="title is-1 has-text-centered">PORTFOLIO</h1>
-                        </div>
+                    <section className="page-title">
+                        <h1>PORTFOLIO</h1>
                     </section>
                     {projects.map((p:ProjectProps) => <ProjectComponent key={p._id} {...p} />)}
                 <Footer />
