@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import Head from 'next/head';
 import Link from 'next/link';
+import Footer from "../components/footer";
 import styles from './posts.module.scss'
 
 export interface Post {
@@ -33,7 +34,7 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
     return (
       <div>
           <Head>
-            <title>WEBPRISM | Blog</title>
+            <title>Blog | WEBPRISM | A web design + development agency</title>
             <meta name="description" content="We love to write about life, our business, and give away everythign we learn! Come on it, and you might just learn something."/>
           </Head>
           <section className="section">
@@ -53,6 +54,7 @@ export const Posts:React.FC<PostsProps> = ({ posts }) => {
                 </>)}
             </div>
           </section>
+          <Footer />
       </div>
     );
   };

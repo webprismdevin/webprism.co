@@ -1,0 +1,169 @@
+.section2 {
+    display: flex;
+    flex-direction: row;
+    // justify-content: center;
+    padding-top: 12vh;
+    padding-bottom: 20vh;
+    position: relative;
+}
+
+.wecraft {
+    // width: 900px;
+    // height: 450px;
+    box-shadow: -16px -16px 10px 2px #00D5FF;
+    background-color: rgba(68, 204, 255, 0);
+    padding: 40px;
+
+    h2 {
+        overflow: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-word;
+        font-weight: 700;
+        font-style: normal;
+        font-family: "Montserrat-Bold", serif;
+        color: #ffffff;
+        font-size: 64px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+    }
+    p {
+        // width: 650px;
+        // height: 110px;
+        overflow: hidden;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-word;
+        font-weight: 400;
+        font-style: normal;
+        font-family: "Roboto", sans-serif;
+        color: #ffffff;
+        font-size: 24px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+    }
+}
+
+.projects {
+    // width: 400px;
+    // height: 400px;
+    box-shadow: 16px 16px 10px 2px var(--token-fd55116d-62f5-4047-b631-e2176ab15d14, #fd2187) /* {"name":"Pink Glow"} */;
+    background-color: rgba(0, 0, 0, 0);
+    // display: grid;
+    // place-items: end end;
+    transition: all 400ms ease;
+    // cursor: pointer;
+    padding: 80px;
+    margin-top: 180px;
+    
+    h1 {
+        overflow: hidden;
+        white-space: pre-wrap;
+        text-align: right;
+        // word-wrap: break-word;
+        // word-break: break-word;
+        font-weight: 400;
+        font-style: normal;
+        font-family: "Montserrat", serif;
+        color: #ffffff;
+        font-size: 72px;
+        letter-spacing: 0px;
+        line-height: 1.2;
+    }
+}
+
+.projects:hover {
+    box-shadow: 26px 26px 20px 6px var(--token-fd55116d-62f5-4047-b631-e2176ab15d14, #fd2187) /* {"name":"Pink Glow"} */;
+    background-color: #ffffff;
+    overflow: visible;
+
+    h1 {
+        // width: 338px;
+        // height: 219px;
+        overflow: hidden;
+        white-space: pre-wrap;
+        // word-wrap: break-word;
+        // word-break: break-word;
+        // font-weight: 800;
+        // font-style: normal;
+        // font-family: "Montserrat", serif;
+        color: var(--token-fd55116d-62f5-4047-b631-e2176ab15d14, #fd2187) /* {"name":"Pink Glow"} */;
+        // font-size: 72px;
+        // letter-spacing: 0px;
+        // line-height: 1.2;
+    }
+}
+
+@media (max-width: 769px){
+    .section2 {
+        flex-direction: column;
+    }
+    
+    .wecraft {
+        box-sizing: border-box;
+        width: 300px;
+        height: auto;
+        box-shadow: -16px -16px 10px 2px #00D5FF;
+        background-color: rgba(68, 204, 255, 0);
+        overflow: visible;
+        padding: 40px;
+    
+        h2 {
+            overflow: hidden;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            word-break: break-word;
+            font-weight: 400;
+            font-style: normal;
+            font-family: "Montserrat", serif;
+            color: #ffffff;
+            font-size: 36px;
+            letter-spacing: 0px;
+            line-height: 1.2;
+        }
+        p {
+            width: 200px;
+            height: 169px;
+            overflow: hidden;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            word-break: break-word;
+            font-weight: 400;
+            font-style: normal;
+            font-family: "Roboto", sans-serif;
+            color: #ffffff;
+            font-size: 20px;
+            letter-spacing: 0px;
+            line-height: 1.2;
+        }
+    }
+    
+    .projectsContainer {
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .projects {
+        width: 300px;
+        height: 300px;
+        h1 {
+            overflow: hidden;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            word-break: break-word;
+            font-weight: 400;
+            font-style: normal;
+            font-family: "Montserrat", serif;
+            color: #ffffff;
+            font-size: 48px;
+            letter-spacing: 0px;
+            line-height: 1.2;
+            text-align: right;
+        }
+    }
+    .projects:hover {
+        h1 {
+            font-size: 48px;
+        }
+    }
+}

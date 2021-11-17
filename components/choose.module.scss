@@ -1,3 +1,9 @@
+.background {
+    background-size: cover;
+    background-position: center;
+    transition: background 400ms ease;
+}
+
 .level1 {
     min-height: 100vh;
     display: grid;
@@ -17,9 +23,13 @@
     flex-direction: column;
 }
 
+
+
 .righthalf {
     justify-content: flex-start;
     align-items: flex-start;
+    padding: 3rem;
+    border: 2px solid white;
     
     h1 {
         font-size: 48px;
@@ -29,6 +39,12 @@
     }
 }
 
+.righthalf_bg {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+}
+
 .stroke {
     font-size: 72px;
     text-align: left;
@@ -36,7 +52,7 @@
     text-transform: uppercase;
     -webkit-text-stroke: 2px rgba(255, 255, 255, 0.719);
     -webkit-text-fill-color: transparent;
-    transition: -webkit-text-fill-color 4800ms ease;
+    transition: -webkit-text-fill-color 800ms ease;
     letter-spacing: 0.09em;
 }
 

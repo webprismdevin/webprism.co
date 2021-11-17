@@ -30,115 +30,22 @@
     top: -260px;
 }
 
-// .adventure1 {
-//     background-image: url(/presence-3.webp);
-// }
-
-// .adventure2 {
-//     background-image: url(/experience-4.webp);
-// }
-
-// .adventure3 {
-//     background-image: url(/leverage-2.webp);
-// }
-
-.section2 {
-    display: flex;
-    justify-content: center;
-    padding-top: 15vh;
-    padding-bottom: 20vh;
+.adventure1 {
+    background-image: url(/presence-3.webp);
 }
 
-.wecraft {
-    width: 900px;
-    height: 450px;
-    box-shadow: -16px -16px 10px 2px #00D5FF;
-    background-color: rgba(68, 204, 255, 0);
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-
-    h2 {
-        overflow: hidden;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        word-break: break-word;
-        font-weight: 700;
-        font-style: normal;
-        font-family: "Montserrat-Bold", serif;
-        color: #ffffff;
-        font-size: 64px;
-        letter-spacing: 0px;
-        line-height: 1.2;
-    }
-    p {
-        width: 650px;
-        height: 110px;
-        overflow: hidden;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        word-break: break-word;
-        font-weight: 400;
-        font-style: normal;
-        font-family: "Roboto", sans-serif;
-        color: #ffffff;
-        font-size: 30px;
-        letter-spacing: 0px;
-        line-height: 1.2;
-    }
+.adventure2 {
+    background-image: url(/experience-4.webp);
 }
 
-.projects {
-    width: 400px;
-    height: 400px;
-    box-shadow: 16px 16px 10px 2px var(--token-fd55116d-62f5-4047-b631-e2176ab15d14, #fd2187) /* {"name":"Pink Glow"} */;
-    background-color: rgba(0, 0, 0, 0);
-    display: grid;
-    place-items: end end;
-    transition: all 400ms ease;
-    cursor: pointer;
-    padding: 40px;
-    
-    h1 {
-        overflow: hidden;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        word-break: break-word;
-        font-weight: 400;
-        font-style: normal;
-        font-family: "Montserrat", serif;
-        color: #ffffff;
-        font-size: 72px;
-        letter-spacing: 0px;
-        line-height: 1.2;
-    }
+.adventure3 {
+    background-image: url(/leverage-2.webp);
 }
-
-.projects:hover {
-    box-shadow: 26px 26px 20px 6px var(--token-fd55116d-62f5-4047-b631-e2176ab15d14, #fd2187) /* {"name":"Pink Glow"} */;
-    background-color: #ffffff;
-    overflow: visible;
-
-    h1 {
-        // width: 338px;
-        // height: 219px;
-        overflow: hidden;
-        white-space: pre-wrap;
-        word-wrap: break-word;
-        word-break: break-word;
-        font-weight: 800;
-        font-style: normal;
-        font-family: "Montserrat", serif;
-        color: var(--token-fd55116d-62f5-4047-b631-e2176ab15d14, #fd2187) /* {"name":"Pink Glow"} */;
-        font-size: 72px;
-        letter-spacing: 0px;
-        line-height: 1.2;
-    }
-}
-
-
 
 @media (max-width: 768px) {
+    .page_container {
+        scroll-snap-type: y proximity;
+    }
     .stars {
         background-image: none;
     }
@@ -147,69 +54,5 @@
     }
     .entername {
         justify-content: flex-start;
-    }
-    .section2 {
-        flex-direction: column;
-    }
-    .wecraft {
-        box-sizing: border-box;
-        width: 300px;
-        height: auto;
-        box-shadow: -16px -16px 10px 2px #00D5FF;
-        background-color: rgba(68, 204, 255, 0);
-        overflow: visible;
-        padding: 40px;
-
-        h2 {
-            overflow: hidden;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            word-break: break-word;
-            font-weight: 400;
-            font-style: normal;
-            font-family: "Montserrat", serif;
-            color: #ffffff;
-            font-size: 36px;
-            letter-spacing: 0px;
-            line-height: 1.2;
-        }
-        p {
-            width: 200px;
-            height: 169px;
-            overflow: hidden;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            word-break: break-word;
-            font-weight: 400;
-            font-style: normal;
-            font-family: "Roboto", sans-serif;
-            color: #ffffff;
-            font-size: 20px;
-            letter-spacing: 0px;
-            line-height: 1.2;
-        }
-    }
-    .projects {
-        width: 300px;
-        height: 300px;
-        h1 {
-            overflow: hidden;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            word-break: break-word;
-            font-weight: 400;
-            font-style: normal;
-            font-family: "Montserrat", serif;
-            color: #ffffff;
-            font-size: 48px;
-            letter-spacing: 0px;
-            line-height: 1.2;
-            text-align: right;
-        }
-    }
-    .projects:hover {
-        h1 {
-            font-size: 48px;
-        }
     }
 }

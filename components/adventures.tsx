@@ -21,27 +21,46 @@ const getDescription = (hoverState: number, isMobile?: boolean) => {
 const Adventures = (props:any) => {
     return(<section className={`section ${styles.adventureContainer}`}>
               <div className={`${styles.wheretostart} container`}>
-                <div className="title is-1">Choose your adventure{props.name && ", "}{props.name} 🚀</div>
+                <div className="columns">
+                  <div className="column is-1"></div>
+                  <div className="column is-10">
+                    <div className="title is-1">Choose your adventure{props.name && ", "}{props.name} 🚀</div>
+                  </div>
+                  <div className="column is-1"></div>
+                </div>
               </div>
-              <div className={`container ${styles.pickAdventure}`}>
+              <div className={`container`}>
+                <div className="columns">
+                  <div className="column is-1"></div>
+                  <div className={`column is-10 ${styles.pickAdventure}`}>
                     <div
-                      className={`${styles.adventure} ${styles.adventure1}`} 
-                      onMouseEnter={() => props.handleHover(1)} 
-                      onMouseLeave={() => props.handleMouseLeave()}
-                    >Create Presence</div>
-                    <div
-                      className={`${styles.adventure} ${styles.adventure2}`}
-                      onMouseEnter={() => props.handleHover(2)} 
-                      onMouseLeave={() => props.handleMouseLeave()}
-                    >Build Experiences</div>
-                    <div
-                      className={`${styles.adventure} ${styles.adventure3}`}
-                      onMouseEnter={() => props.handleHover(3)} 
-                      onMouseLeave={() => props.handleMouseLeave()}
-                    >Expand + Grow</div>
+                        className={`${styles.adventure} ${styles.adventure1}`} 
+                        onMouseEnter={() => props.handleHover(1)} 
+                        onMouseLeave={() => props.handleMouseLeave()}
+                      >Create Presence</div>
+                      <div
+                        className={`${styles.adventure} ${styles.adventure2}`}
+                        onMouseEnter={() => props.handleHover(2)} 
+                        onMouseLeave={() => props.handleMouseLeave()}
+                      >Build Experiences</div>
+                      <div
+                        className={`${styles.adventure} ${styles.adventure3}`}
+                        onMouseEnter={() => props.handleHover(3)} 
+                        onMouseLeave={() => props.handleMouseLeave()}
+                      >Expand + Grow</div>
+                    </div>
+                  <div className="column is-1"></div>
+                </div>
+
             </div>
             <div className="container">
-              <div className="content is-size-4" style={{marginTop: 40, padding: props.hoverState !== 0 ? '1.5em 1.5em' : 0, backgroundColor: props.hoverState !== 0 ? "rgba(36,36,36,0.7)" : "transparent"}}>{getDescription(props.hoverState, props.isMobile)}</div>
+              <div className="columns">
+                <div className="column is-1"></div>
+                <div className="column is-10">
+                  <div className="content is-size-4" style={{marginTop: 40, padding: props.hoverState !== 0 ? '1.5em 1.5em' : 0, backgroundColor: props.hoverState !== 0 ? "rgba(36,36,36,0.7)" : "transparent"}}>{getDescription(props.hoverState, props.isMobile)}</div>
+                </div>
+                <div className="column is-1"></div>
+              </div>
             </div>
           </section>)
 }

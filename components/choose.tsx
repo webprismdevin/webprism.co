@@ -1,8 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import styles from './choose.module.scss';
+import { url } from 'inspector';
 
 const Choose = () => {
     const [hover, setHover] = useState(0);
+    
+    const bgArray = [
+        "/presence-3.webp",
+        "/experience-4.webp",
+        "/leverage-2.webp",
+        "/presence-3.webp",
+        "/web3-2.webp",
+    ]
 
     function getTitle(state: number){
         switch(state){
@@ -22,7 +32,7 @@ const Choose = () => {
     }
 
     return (
-        <section className="section" id="ourprocess">
+        <section className={`section ${styles.background}`} id="ourprocess" style={{backgroundImage: `url(${bgArray[hover-1]})`}}>
             <div className={styles.level1}>
                 <div className={`container ${styles.level2}`} style={{width: '100%'}}>
                     <div className={`${styles.halfpage} ${styles.lefthalf}`}>
@@ -32,7 +42,7 @@ const Choose = () => {
                         <div onMouseEnter={() => setHover(4)} onMouseLeave={() => setHover(0)} className={`${styles.stroke}`}>Launch</div>
                         <div onMouseEnter={() => setHover(5)} onMouseLeave={() => setHover(0)} className={`${styles.stroke}`}>Expand</div>
                     </div>
-                    <div className={`${styles.halfpage} ${styles.righthalf}`}>
+                    <div className={`${styles.halfpage} ${styles.righthalf} ${hover > 0 && styles.righthalf_bg}`}>
                         <h2 className="is-size-2">{getTitle(hover)}</h2>
                         <div>
                             <p style={{display: hover === 0 ?  'block' : 'none'}}>At WEBPRISM, our goal is to represent your mission, and the passion for what you do every day online. Whether we&apos;re building you an informational website, or a complex online experience</p>

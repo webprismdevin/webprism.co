@@ -24,8 +24,8 @@ export interface ProjectProps {
 const ProjectComponent = ({screenshot, mainImage, title, body, tags, url}: ProjectProps) => {
     return(
             <section>
-                <Content fullheight>
-                    <div className={`is-flex is-justify-content-space-between ${styles.mobile_container} ${styles.spacing}`}>
+                <Content>
+                    <div className={`is-flex is-justify-content-space-between ${styles.mobile_container} ${styles.container_spacing}`}>
                         <div className={styles.fullpage_screenshot}>
                             <div className={styles.fs_overlay}>SCROLL</div>
                             <Image src={screenshot} alt="full length project screenshot" width={mainImage.width} height={mainImage.height} />
@@ -52,7 +52,8 @@ const Portfolio = ({projects}: PortfolioProps) => {
     
     return (<div>
                 <Head>
-                    <title>WEBPRISM | Portfolio</title>
+                    <title>Portfolio | WEBPRISM | A web design + development agency</title>
+                    <meta name="description" content="Our portfolio showcases our recent work and favorite projects." />
                 </Head>
                 <div className={styles.scrollSnap}>
                     <section className="section">

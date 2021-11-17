@@ -1,3 +1,13 @@
+.adventureContainer {
+    position: relative;
+    // min-height: 100vh;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    justify-content: center;
+    align-items: center;
+    transition-delay: 400ms;
+}
+
 .wheretostart {
     text-align: left;
     height: 120px;
@@ -5,13 +15,6 @@
 
 .wheretostart > div {
     color: white;
-}
-
-.adventureContainer {
-    position: relative;
-    min-height: 60vh;
-    align-items: center;
-    transition-delay: 400ms;
 }
 
 .pickAdventure {

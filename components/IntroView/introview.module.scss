@@ -16,9 +16,10 @@
 }
 
 .entername {
-    position: absolute;
-    bottom: 90px;
-    right: 30px;
+    // position: absolute;
+    // bottom: 90px;
+    // right: 30px;
+    margin-top: 90px;
     display: flex;
     justify-content: flex-end;
 }
@@ -45,6 +46,10 @@
     flex-direction: column;
     justify-content: flex-start;
     padding-top: 120px;
+}
+
+.centerNTMY {
+    height: 80%
 }
 
 @media (max-width: 768px) {

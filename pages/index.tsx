@@ -10,35 +10,10 @@ import Typed from 'react-typed';
 import styles from './index.module.scss';
 import Script from 'next/script';
 import Image from 'next/image';
-import Link from 'next/link';
-import Choose from "../components/choose";
-
-const WeCreate = () => {
-  return(        
-  <section className="section" >
-    <div className="container">
-      <div className={styles.section2}>
-        <div style={{marginBottom: 'auto'}}>
-          <div className={styles.wecraft}>
-            <div>
-              <h2>we craft<br/>beautiful websites</h2>
-              <p>that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
-              <br />
-              <Link href="/#ourprocess"><a className="is-size-4">See how we do it →</a></Link>
-            </div>
-          </div>
-        </div>
-        <div className="is-flex is-justify-content-flex-end" style={{marginTop: 180, textAlign: 'right'}}>
-          <Link href="/portfolio" passHref>
-            <div className={styles.projects}>
-              <h1>latest<br/>projects</h1>
-            </div>
-          </Link>
-        </div>
-      </div>
-    </div>
-  </section>)
-}
+// import Link from 'next/link';
+// import Choose from "../components/choose";
+import Adventures from "../components/adventures";
+import WeCraft from "../components/wecraft";
 
 
 export function Index(props:any) {
@@ -99,8 +74,7 @@ export function Index(props:any) {
   return (
     <>
       <Head>
-        <title>WEBPRISM | A Passion-driven Creative Agency</title>
-        <meta name="title" content="WebPrism | A Passion Driven Creative Agency" />
+        <title>WEBPRISM | A web design + development agency</title>
         <meta name="description" content="WebPrism is a digital creative agency that helps organizations build engaging digital experiences. Our team works with clients as true partners, helping them formulate their vision and mission, then adopting that mission as our own. The result? Beautiful websites and apps we're proud to share with the world." />
       </Head>
       {props.isMobile && <div style={{position: 'fixed', top: 0, left: 0, height: '100%', width: '100%', zIndex: -1}}>
@@ -109,8 +83,9 @@ export function Index(props:any) {
       <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
         {props.isMobile ? <MobileIntroView liftName={liftName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={liftName}/>}
         {typeComplete && <>
-        <WeCreate />
-        <Choose />
+        <WeCraft />
+        <Adventures handleHover={handleHover} handleMouseLeave={handleMouseLeave} hoverState={hoverState}/>
+        {/* <Choose /> */}
         <Mission name={name}/>
         <Content fullheight>
                   <div className={styles.contactFormContainer} >
