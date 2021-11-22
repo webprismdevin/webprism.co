@@ -20,6 +20,7 @@ export function ContactPage(props: ContactProps) {
                     {!formSubmitted && <>
                       <h1 className="title is-1">What can we build together?</h1>
                       <h2 className="title is-3">Let&apos;s find out.</h2>
+                      <p className="block" style={{maxWidth: 600}}>We&apos;re a digital creative agency that builds engaging digital experiences. We work with our clients as true partners to create amazing results.</p>
                     </>}
                     {formSubmitted &&
                       <Typed 
