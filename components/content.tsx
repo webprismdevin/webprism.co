@@ -1,4 +1,4 @@
-import styles from './content.module.scss'
+import styles from '@/styles/content.module.scss'
 
 export interface ContentProps {
     fullheight?: boolean,

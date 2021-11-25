@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './wecraft.module.scss';
+import styles from '@/styles/wecraft.module.scss';
 
 const WeCraft = () => {
     return(        
@@ -15,7 +15,7 @@ const WeCraft = () => {
                     <h2>we craft<br/>beautiful websites</h2>
                     <p>that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
                     <br />
-                    <Link href="/#ourprocess"><a className="is-size-4">See how we do it →</a></Link>
+                    <Link href="/#contact"><a className="is-size-4">Let&apos;s create together →</a></Link>
                   </div>
                 </div>
               </div>

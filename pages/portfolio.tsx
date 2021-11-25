@@ -3,10 +3,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import Content from "../components/content";
-import styles from './portfolio.module.scss';
 import BlockContent from "@sanity/block-content-to-react";
-import markdownStyles from './portfolio-markdown-styles.module.scss';
-import Footer from "../components/footer";
+import markdownStyles from '@/styles/portfolio-markdown-styles.module.scss';
+import Footer from "@/components/footer";
+import styles from '@/styles/portfolio.module.scss';
+
 
 export interface ProjectProps {
     _id: string,

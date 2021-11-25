@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import Content from '../components/content';
-import Footer from '../components/footer';
-import styles from './booknow.module.scss';
+import Content from '@/components/content';
+import Footer from '@/components/footer';
+import styles from '@/styles/booknow.module.scss';
 
 export interface ContactProps {}
 

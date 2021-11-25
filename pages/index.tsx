@@ -1,20 +1,17 @@
 import React from "react"
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import {IntroView, MobileIntroView } from "../components/IntroView/introview";
-import Mission from '../components/mission';
-import Content from '../components/content';
-import ContactForm from '../components/ContactForm/contactform';
-import Footer from '../components/footer';
+import {IntroView, MobileIntroView } from "@/components/Home/IntroView/introview";
+import Mission from '@/components/Home/mission';
+import Content from '@/components/content';
+import ContactForm from '@/components/ContactForm/contactform';
+import Footer from '@/components/footer';
 import Typed from 'react-typed';
-import styles from './index.module.scss';
 import Script from 'next/script';
 import Image from 'next/image';
-// import Link from 'next/link';
-// import Choose from "../components/choose";
-import Adventures from "../components/adventures";
-import WeCraft from "../components/wecraft";
-
+import Adventures from "@/components/Home/adventures";
+import WeCraft from "@/components/Home/wecraft";
+import styles from '@/styles/index.module.scss';
 
 export function Index(props:any) {
   const [hoverState, setHoverState] = useState(0);

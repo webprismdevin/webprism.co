@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import {useState} from 'react';
 import Typed from 'react-typed';
-import Content from '../components/content';
-import ContactForm from '../components/ContactForm/contactform';
-import Footer from '../components/footer';
-import styles from './contact.module.scss';
+import Content from '@/components/content';
+import ContactForm from '@/components/ContactForm/contactform';
+import Footer from '@/components/footer';
+import styles from '@/styles/contact.module.scss';
 
 /* eslint-disable-next-line */
 export interface ContactProps {}

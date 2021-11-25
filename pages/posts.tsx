@@ -1,8 +1,8 @@
 import { GetStaticProps } from "next";
 import Head from 'next/head';
 import Link from 'next/link';
-import Footer from "../components/footer";
-import styles from './posts.module.scss'
+import Footer from "@/components/footer";
+import styles from '@/styles/posts.module.scss'
 
 export interface Post {
     title: string,

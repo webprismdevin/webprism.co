@@ -1,7 +1,7 @@
 import styles from './presence.module.css';
 import FadeIn from 'react-fade-in/lib/FadeIn';
 import Content from '../../components/content';
-import Mission from '../../components/mission';
+import Mission from '../../components/Home/mission';
 import ContactForm from '../../components/ContactForm/contactform';
 import Projects from '../../components/projects';
 

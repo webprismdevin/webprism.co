@@ -59,7 +59,7 @@ export default function ContactForm(props: ContactProps){
 
     return(<>
         {!success && <>
-                <div className="block">
+                <div className="block" id="contact">
                     <input 
                         type="text"
                         className={styles.emailInput}

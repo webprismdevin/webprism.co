@@ -1,4 +1,4 @@
-import Content from "./content";
+import Content from "@/components/content";
 
 export interface MissionProps {
   name?: string

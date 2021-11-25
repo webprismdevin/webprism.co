@@ -84,7 +84,7 @@ const AshleyView = (props:AVProps) => {
             </div>
             <div className="column is-1"></div>
           </div>
-          <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, {tagline}</h1>
+          <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WEBPRISM, {tagline}</h1>
         </div>)
 }
 
@@ -191,7 +191,7 @@ const AshleyViewMobile = (props:AVProps) => {
                 >
                 </div>
               </>}
-              <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WebPrism, {tagline}</h1>
+              <h1 style={{visibility: 'hidden'}}>hi 👋, we&apos;re WEBPRISM, {tagline}</h1>
           </div>
         )
 }
@@ -246,7 +246,7 @@ const WelcomeBack = (props:any) => {
             <div className="column is-10">
               <FadeIn delay={200}>
                 <p className="title is-1">Welcome back, {props.name}! ✌️ </p>
-                <div className={styles.digitalcreative}>We&apos;re WebPrism, {tagline}</div>
+                <div className={styles.digitalcreative}>We&apos;re WEBPRISM, {tagline}</div>
               </FadeIn>
               <div className={styles.scroll_lottie}
                     dangerouslySetInnerHTML={{__html: `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_vjs5zX.json"  background="transparent"  speed="0.5"  style="width: 100%; height: 100%;"  loop  autoplay></lottie-player>`}}

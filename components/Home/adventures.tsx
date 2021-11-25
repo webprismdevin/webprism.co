@@ -1,4 +1,4 @@
-import styles from './adventures.module.scss';
+import styles from '@/styles/adventures.module.scss';
 
 const getDescription = (hoverState: number, isMobile?: boolean) => {
     switch(hoverState){
