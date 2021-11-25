@@ -5,9 +5,10 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-// import TagManager from 'react-gtm-module'
+import TagManager from 'react-gtm-module'
 import $ from 'jquery/dist/jquery.slim';
 import MenuInner from '@/components/menu-inner';
+import Script from 'next/script'
 import '@/styles/styles.scss';
 
 
@@ -17,17 +18,17 @@ declare global {
   }
 }
 
-// const tagManagerArgs = {
-//   gtmId: 'GTM-NZ2DFK5'
-// }
+const tagManagerArgs = {
+  gtmId: 'GTM-NZ2DFK5'
+}
 
-// if(process.env.NODE_ENV === 'production' && process.browser){
-//   console.log("GTM fired");
-//   TagManager.initialize(tagManagerArgs);
-// }
-// else {
-//   console.log("GTM not fired");
-// }
+if(process.env.NODE_ENV === 'production' && process.browser){
+  console.log("GTM fired");
+  TagManager.initialize(tagManagerArgs);
+}
+else {
+  console.log("GTM not fired");
+}
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const [window, setWindow] = useState(null);
@@ -98,6 +99,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <main id="page-wrap">
           <Component {...pageProps} />
         </main>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-3DQ0G9HYBF"></Script>
       </div>
     </>
   );
