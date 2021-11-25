@@ -7,11 +7,12 @@ export interface ContentProps {
     title?: string,
     subtitle?:string,
     children?: any,
+    id?: string
 }
 
 const Content = (props:ContentProps) => {
     return(
-    <section className={`section ${props.fullheight ? styles.fullheight : ""} ${props.halfheight ? styles.halfheight: ""}`} style={props.style && props.style}>
+    <section className={`section ${props.fullheight ? styles.fullheight : ""} ${props.halfheight ? styles.halfheight: ""}`} style={props.style && props.style} id={props.id}>
         <div className={`container ${styles.container}`}>
             {props.title && <p className="title" style={{fontSize: 64}}>{props.title}</p>}
             {props.subtitle && <p className="title is-3">{props.subtitle}</p>}

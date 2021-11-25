@@ -77,14 +77,13 @@ export function Index(props:any) {
       {props.isMobile && <div style={{position: 'fixed', top: 0, left: 0, height: '100%', width: '100%', zIndex: -1}}>
         <Image src={getMobileBg()} layout="fill" objectFit="fill" alt="decorative" />
       </div>}
-      <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`}>
+      <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`} id="page_container">
         {props.isMobile ? <MobileIntroView liftName={liftName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={liftName}/>}
         {typeComplete && <>
         <WeCraft />
         <Adventures handleHover={handleHover} handleMouseLeave={handleMouseLeave} hoverState={hoverState}/>
-        {/* <Choose /> */}
         <Mission name={name}/>
-        <Content fullheight>
+        <Content fullheight id="contact">
                   <div className={styles.contactFormContainer} >
                     {!formSubmitted && <>
                       <p className="title is-1">Let&apos;s talk</p>

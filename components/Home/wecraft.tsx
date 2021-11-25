@@ -3,7 +3,7 @@ import styles from '@/styles/wecraft.module.scss';
 
 const WeCraft = () => {
     return(        
-    <section className="section" >
+    <section className="section">
       <div className="container">
         <div className="columns">
         <div className="column is-1"></div>
@@ -15,7 +15,7 @@ const WeCraft = () => {
                     <h2>we craft<br/>beautiful websites</h2>
                     <p>that showcase our clients&apos; passion for what they do, and create captivating experiences for their customers.</p>
                     <br />
-                    <Link href="/#contact"><a className="is-size-4">Let&apos;s create together →</a></Link>
+                    <Link href="/contact"><a className="is-size-4">Let&apos;s create together →</a></Link>
                   </div>
                 </div>
               </div>
