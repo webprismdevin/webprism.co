@@ -12,6 +12,7 @@ import Image from 'next/image';
 import Adventures from "@/components/Home/adventures";
 import WeCraft from "@/components/Home/wecraft";
 import styles from '@/styles/index.module.scss';
+import GlassCard from "https://framer.com/m/glass-card-G08K.js@483uxF64t3S2unbt5GTA"
 
 export function Index(props:any) {
   const [hoverState, setHoverState] = useState(0);
