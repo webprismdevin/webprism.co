@@ -6,7 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
-    domains: ['webprism.co','cdn.sanity.io', 'localhost'],
+    domains: ['webprism.co','cdn.sanity.io', 'localhost', 'framer.com'],
     formats: ['image/avif', 'image/webp']
   },
   experimental: {

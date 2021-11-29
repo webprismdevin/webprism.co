@@ -58,7 +58,7 @@ export const Post:React.FC<PostProps> = ({ title, body, _updatedAt, _createdAt, 
                       <span className="is-size-6">By: {authorName}</span>
                     </div>
                   </div>
-                  <BlockContent blocks={body} className={markdownStyles.markdown}/>
+                  <BlockContent blocks={body} className={markdownStyles.markdown} projectId='0ggffobx' dataset='production' />
                   <hr />
                   <div className="block">
                     <p className="is-size-7">Published: {new Date(_createdAt).toLocaleDateString()}</p>
