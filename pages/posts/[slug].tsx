@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import Head from 'next/head';
 import markdownStyles from './markdown-styles.module.scss'
-import { imageBuilder } from "../../lib/sanity";
+import { imageBuilder } from "../../lib/sanity"
 import BlockContent from '@sanity/block-content-to-react'
 import Image from 'next/image';
 import styles from './post.module.scss';
@@ -58,8 +58,7 @@ export const Post:React.FC<PostProps> = ({ title, body, _updatedAt, _createdAt, 
                       <span className="is-size-6">By: {authorName}</span>
                     </div>
                   </div>
-                  <BlockContent blocks={body} className={markdownStyles.markdown} projectId='0ggffobx' dataset='production' />
-                  <hr />
+d                  <hr />
                   <div className="block">
                     <p className="is-size-7">Published: {new Date(_createdAt).toLocaleDateString()}</p>
                     <p className="is-size-7">Last updated: {new Date(_updatedAt).toLocaleDateString()}</p>
