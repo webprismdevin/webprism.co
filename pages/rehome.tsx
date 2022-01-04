@@ -10,12 +10,11 @@ import {
   AspectRatio,
   Button,
   Divider,
+  Image,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 
 export default function ReHome({ data }: { data: {} }) {
-
-
   function returnWindowWidth() {
     if (process.browser) return window.innerWidth;
 
@@ -80,20 +79,7 @@ export default function ReHome({ data }: { data: {} }) {
         </Stack>
       </Flex>
       <AnimatedCircle />
-      <Box bg="gray.400" pb={60}>
-        <Container maxW="container.md">
-          <Stack>
-            <Heading>A solid foundation for growth marketing.</Heading>
-            <Heading>Increase opportunities for sales online.</Heading>
-            <Heading>
-              Grow &amp; change, without relaunching your site again.
-            </Heading>
-          </Stack>
-        </Container>
-      </Box>
-      <Box py={80}>
-        Nothin
-      </Box>
+      <Box h={200} />
     </>
   );
 }
@@ -101,9 +87,9 @@ export default function ReHome({ data }: { data: {} }) {
 function AnimatedCircle() {
   const [dimensions, setDimensions] = useState({
     width: 0,
-    height: 0
-  })
-  const [ftgSize, setSize] = useState(0)
+    height: 0,
+  });
+  const [size, setSize] = useState(0);
 
   useEffect(() => {
     setDimensions({
@@ -123,35 +109,51 @@ function AnimatedCircle() {
     return () => window.removeEventListener("scroll", () => {});
   }, []);
 
+  function returnSize() {
+    if (size < 0) return 800;
+
+    return 800 + size * 3;
+  }
+
   return (
-    <Box w="full" py={80} id="ftg" overflow={"hidden"}>
-      <Flex
-        borderRadius={
-          800 + ftgSize < dimensions.width
-            ? "50%"
-            : `${50 - (800 + ftgSize + 100) * 0.1}%`
-        }
-        style={{
-          transition: "border-radius 400ms ease",
-        }}
-        bg="gray.400"
-        h={ftgSize < 0 ? 800 : 800 + ftgSize * 1.2}
-        w={ftgSize < 0 ? 800 : 800 + ftgSize * 1.2}
-        maxW={"full"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        marginLeft={"auto"}
-        marginRight={"auto"}
-        flexDir={"column"}
-      >
-        <Container maxW="container.md" pos="sticky" top={200}>
+    <Box
+      w="full"
+      mt={200}
+      h={1200}
+      pt={200}
+      id="ftg"
+      pos="relative"
+      display="grid"
+      placeItems="center"
+      overflow={"hidden"}
+    >
+      <Box h={returnSize()} w={returnSize()} pos="absolute" zIndex={0}>
+        <Image
+          src={"/gray-circle.svg"}
+          alt="decorative gray circle"
+          h="100%"
+          w="100%"
+        />
+      </Box>
+      <Box zIndex={1}>
+        <Container maxW="container.sm">
           <Heading size="4xl" textAlign={"center"}>
-            A foundation to grow
+            Grow Into The Next Stage
           </Heading>
         </Container>
-      </Flex>
-    </Box>
-  );
+        <Box pt={20} opacity={size > 200 ? 1 : 0} transition={"opacity 400ms ease"}>
+          <Container maxW="container.xl">
+            <Stack direction={"column"} spacing={10}>
+              <Heading>A solid foundation for growth marketing.</Heading>
+              <Heading>Increase opportunities for sales online.</Heading>
+              <Heading>
+                Grow &amp; change, without relaunching your site again.
+              </Heading>
+            </Stack>
+          </Container>
+        </Box>
+      </Box>
+    </Box>);
 }
 
 export async function getStaticProps() {
