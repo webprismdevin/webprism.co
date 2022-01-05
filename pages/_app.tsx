@@ -10,6 +10,7 @@ import $ from "jquery/dist/jquery.slim";
 import MenuInner from "@/components/menu-inner";
 import Script from "next/script";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import 'animate.css';
 import "@/styles/styles.scss";
 
 declare global {

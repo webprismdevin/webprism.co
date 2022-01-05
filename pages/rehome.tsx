@@ -13,13 +13,23 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 export default function ReHome({ data }: { data: {} }) {
+  const [professional, profInView, entry] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
   function returnWindowWidth() {
     if (process.browser) return window.innerWidth;
 
     return 1000;
   }
+
+  useEffect(() => {
+    console.log(true)
+  }, [profInView])
 
   return (
     <>
@@ -34,6 +44,23 @@ export default function ReHome({ data }: { data: {} }) {
           <Box />
         </Stack>
       </Container>
+      <Container maxW="container.md" centerContent>
+        <Heading size="2xl"></Heading>
+        <Text></Text>
+      </Container>
+      <Flex justifyContent={"flex-end"} ref={professional} className={`animate__animated ${profInView ? 'animate__slideInRight' : 'pre_animated'}`}>
+        <Stack spacing={4} p={20} maxW={["100%", "60%"]} bg="gray.200">
+          <Heading size="2xl">
+            You&apos;re a professional. You deserve to look like one.
+          </Heading>
+          <Text>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
+            sequi maiores molestias beatae aspernatur sunt assumenda esse optio
+            repellendus, voluptate ut praesentium dolore et neque commodi ipsum
+            placeat facilis consequatur.
+          </Text>
+        </Stack>
+      </Flex>
       <Container maxW="container.xl" py={40}>
         <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={8}>
           <GridItem colSpan={1} p={20}>
@@ -65,31 +92,18 @@ export default function ReHome({ data }: { data: {} }) {
           </GridItem>
         </SimpleGrid>
       </Container>
-      <Flex justifyContent={"flex-end"}>
-        <Stack spacing={4} p={20} maxW={["100%", "60%"]} bg="gray.200">
-          <Heading size="2xl">
-            You&apos;re a professional. You deserve to look like one.
-          </Heading>
-          <Text>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
-            sequi maiores molestias beatae aspernatur sunt assumenda esse optio
-            repellendus, voluptate ut praesentium dolore et neque commodi ipsum
-            placeat facilis consequatur.
-          </Text>
-        </Stack>
-      </Flex>
-      <AnimatedCircle />
+      <GrowIntoTheNext />
       <Box h={200} />
     </>
   );
 }
 
-function AnimatedCircle() {
+function GrowIntoTheNext() {
   const [dimensions, setDimensions] = useState({
     width: 0,
     height: 0,
   });
-  const [size, setSize] = useState(0);
+  const [size, setSize] = useState(0)
 
   useEffect(() => {
     setDimensions({
@@ -102,7 +116,7 @@ function AnimatedCircle() {
     const ftg = document.getElementById("ftg")!.offsetTop;
 
     window.addEventListener("scroll", () => {
-      console.log(window.pageYOffset - ftg);
+      // console.log(window.pageYOffset - ftg);
       setSize(window.pageYOffset - ftg);
     });
 
@@ -136,8 +150,8 @@ function AnimatedCircle() {
         />
       </Box>
       <Box zIndex={1}>
-        <Container maxW="container.sm">
-          <Heading size="4xl" textAlign={"center"}>
+        <Container maxW={size > 200 ? "container.xl" : "container.sm"} transition={"max-width 400ms ease"}>
+          <Heading size="4xl" textAlign={size > 200 ? "left" : "center"}>
             Grow Into The Next Stage
           </Heading>
         </Container>
