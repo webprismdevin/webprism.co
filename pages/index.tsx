@@ -1,130 +1,213 @@
-import React from "react"
-import { useEffect, useState } from 'react';
-import Head from 'next/head';
-import {IntroView, MobileIntroView } from "@/components/Home/IntroView/introview";
-import Mission from '@/components/Home/mission';
-import Content from '@/components/content';
-import ContactForm from '@/components/ContactForm/contactform';
-import Footer from '@/components/footer';
-import Typed from 'react-typed';
-import Script from 'next/script';
-import Image from 'next/image';
-import Adventures from "@/components/Home/adventures";
-import WeCraft from "@/components/Home/wecraft";
-import styles from '@/styles/index.module.scss';
-import GlassCard from "https://framer.com/m/glass-card-G08K.js@483uxF64t3S2unbt5GTA"
+import {
+  Box,
+  Container,
+  Stack,
+  Flex,
+  Heading,
+  SimpleGrid,
+  GridItem,
+  Text,
+  AspectRatio,
+  Button,
+  Divider,
+  Image,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  Input,
+  Textarea,
+} from "@chakra-ui/react";
+import { useEffect, useRef, useState } from "react";
+import { Parallax } from "react-parallax";
+import { useInView } from "react-intersection-observer";
 
-export function Index(props:any) {
-  const [hoverState, setHoverState] = useState(0);
-  const [name, setName] = useState("" as string);
-  const [typeComplete, setTypeComplete] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
- 
-  const handleHover = (num: number) => {
-    setHoverState(num)
-  }
-
-  const handleMouseLeave = () => {
-    setHoverState(0);
-  }
-
-  useEffect(() => {
-    if(props.isMobile) setTypeComplete(true);
-  }, [])
-  
-  const returnBgClass = () => {
-    if(!props.isMobile){
-      switch(hoverState){
-        case 1:
-          return styles.adventure1
-        case 2:
-          return styles.adventure2
-        case 3: 
-          return styles.adventure3
-        default:
-          return " "
-      }
-    }
-  }
-
-  const handleFormSubmit = () => {
-    setFormSubmitted(true);
-  }
-
-  const liftName = (name:string) => {
-    setName(name);
-    setTypeComplete(true);
-  }
-
-  const getMobileBg = () => {
-    switch(hoverState){
-      case 1:
-        return "/presence-3-mobile.webp"
-      case 2:
-        return "/experience-4-mobile.webp"
-      case 3: 
-        return "/leverage-2-mobile.webp"
-      default:
-        return '/null_bg_mobile.webp'
-    }
-  }
+export default function ReHome({ data }: { data: {} }) {
 
   return (
     <>
-      <Head>
-        <title>WEBPRISM | A web design + development agency</title>
-        <meta name="description" content="WebPrism is a digital creative agency that helps organizations build engaging digital experiences. Our team works with clients as true partners, helping them formulate their vision and mission, then adopting that mission as our own. The result? Beautiful websites and apps we're proud to share with the world." />
-      </Head>
-      {props.isMobile && <div style={{position: 'fixed', top: 0, left: 0, height: '100%', width: '100%', zIndex: -1}}>
-        <Image src={getMobileBg()} layout="fill" objectFit="fill" alt="decorative" />
-      </div>}
-      <div className={`${styles.page_container} ${hoverState !== 0 && returnBgClass()} ${hoverState === 0 && styles.stars}`} id="page_container">
-        {props.isMobile ? <MobileIntroView liftName={liftName}/> : <IntroView typeComplete={() => setTypeComplete(true)} liftName={liftName}/>}
-        {typeComplete && <>
-        <WeCraft />
-        <Adventures handleHover={handleHover} handleMouseLeave={handleMouseLeave} hoverState={hoverState}/>
-        <Mission name={name}/>
-        <Content fullheight id="contact">
-                  <div className={styles.contactFormContainer} >
-                    {!formSubmitted && <>
-                      <p className="title is-1">Let&apos;s talk</p>
-                      <p className="is-size-3 block">What can we build together?</p>
-                    </>}
-                    {formSubmitted &&
-                      <Typed 
-                        strings={[`${name}, you're awesome!`]}
-                        typeSpeed={40}
-                        showCursor={false}
-                        className="title is-1"
-                      />
-                    }
-                    <ContactForm name={name} handleFormSubmit={handleFormSubmit}/>
-                  </div>
-        </Content>
-        <Footer />
-        </>}
-        <Script strategy="lazyOnload" src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" />
-      </div>
+      <Parallax
+        bgImage={"/photos/budding-plant.jpg"}
+        strength={-200}
+        bgImageAlt="budding plant"
+      >
+        <Container maxW="container.xl" color="white">
+          <Stack spacing={6} py={60} alignItems={"flex-start"}>
+            <Box>
+              <Heading size="lg">we create</Heading>
+              <Heading size="3xl">websites that</Heading>
+              <Heading size="3xl">enable growth</Heading>
+            </Box>
+            <Button
+              variant="outline"
+              color={"gray.200"}
+              _hover={{ color: "gray.800", bg: "gray.200" }}
+            >
+              Contact Us →
+            </Button>
+          </Stack>
+        </Container>
+      </Parallax>
+      <Box py={40}>
+        <Container maxW="container.md">
+          <Text>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatibus sapiente totam, dolorem saepe praesentium asperiores
+            provident inventore, itaque cupiditate placeat ducimus eveniet rerum
+            deserunt, facilis recusandae sit quos voluptas facere.
+          </Text>
+        </Container>
+      </Box>
+      <ProjectFeature />
+      <Box py={40} bg="gray.700" color="white">
+        <Container maxW="container.md" centerContent>
+          <Text fontSize="3xl" textAlign={"center"}>
+            We work with people that are ready to step out of
+            &quot;do-it-yourself&quot; and into their authentic digital vision.
+          </Text>
+        </Container>
+      </Box>
+      <Parallax>
+        <Container maxW="container.xl" py={40}>
+          <Heading size="lg">we&apos;re</Heading>
+          <Heading size="4xl">WEBPRISM</Heading>
+        </Container>
+      </Parallax>
+      <Box py={40}>
+        <Container maxW="container.md">
+          <Stack spacing={8}>
+            <Heading size="xl">Frequently Asked Questions</Heading>
+            <Accordion allowMultiple allowToggle>
+              <AccordionItem>
+                <h2>
+                  <AccordionButton>
+                    <Box flex="1" textAlign="left">
+                      Section 1 title
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </AccordionPanel>
+              </AccordionItem>
+
+              <AccordionItem>
+                <h2>
+                  <AccordionButton>
+                    <Box flex="1" textAlign="left">
+                      Section 2 title
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                </h2>
+                <AccordionPanel pb={4}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat.
+                </AccordionPanel>
+              </AccordionItem>
+            </Accordion>
+          </Stack>
+        </Container>
+      </Box>
+      <Box py={40} bg="gray.900" color="white">
+        <Container maxW="container.md" centerContent>
+          <Stack spacing={8}>
+            <Text fontSize="2xl" textAlign={"center"}>
+              We believe the free market of ideas allows every person to do
+              something to improve their corner of the world. We believe the
+              most successful businesses exist to serve others.
+            </Text>
+            <Text fontSize="2xl" textAlign={"center"}>
+              Who would we be if we didn&apos;t use our talents to help improve
+              the world around us, in whatever way we can?
+            </Text>
+          </Stack>
+        </Container>
+      </Box>
+      <Box py={20}>
+        <Container maxW="container.md">
+          <Stack spacing={8}>
+            <Heading as="h2" size="xl">
+              Contact Us
+            </Heading>
+            <SimpleGrid templateColumns={`repeat(2, 1fr)`} gap={6} w="full">
+              <GridItem colSpan={[2, 1]}>
+                <Input placeholder="first name" />
+              </GridItem>
+              <GridItem colSpan={[2, 1]}>
+                <Input placeholder="last name" />
+              </GridItem>
+              <GridItem colSpan={[2]}>
+                <Input placeholder="phone number" />
+              </GridItem>
+              <GridItem colSpan={[2]}>
+                <Input placeholder="email address" />
+              </GridItem>
+              <GridItem colSpan={[2]}>
+                <Textarea placeholder="your message" rows={5} />
+              </GridItem>
+            </SimpleGrid>
+          </Stack>
+        </Container>
+      </Box>
     </>
   );
 }
 
-export default Index;
+function ProjectFeature() {
+  const [feature, featureInView, entry] = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
 
-export const getServerSideProps = (context:any) => {
-  let userAgent;
+  return (
+    <Flex justifyContent={"flex-end"} py={40}>
+      <Stack
+        spacing={8}
+        p={20}
+        maxW={["100%", "60%"]}
+        bg="gray.200"
+        ref={feature}
+        className={`animate__animated ${
+          featureInView ? "animate__slideInRight" : "pre_animated"
+        }`}
+      >
+        <Heading size="lg">Project Feature - [Name]</Heading>
+        <Stack direction={["column"]} spacing={8}>
+          <Text>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
+            sequi maiores molestias beatae aspernatur sunt assumenda esse optio
+            repellendus, voluptate ut praesentium dolore et neque commodi ipsum
+            placeat facilis consequatur.
+          </Text>
+          <Text fontStyle={"italic"}>
+            quote from the customer about our awesomeness...
+          </Text>
+        </Stack>
+      </Stack>
+    </Flex>
+  );
+}
 
-  if(context.req){
-    userAgent = context.req.headers['user-agent'];
+export async function getStaticProps() {
+  const query = encodeURIComponent(
+    `*[ _type == "post" ][0..2] | order (publishedAt desc)`
+  );
 
-    let isMobile = Boolean(userAgent.match(
-      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
-    ))
+  const url = `https://0ggffobx.api.sanity.io/v1/data/query/production?query=${query}`;
+  const result = await fetch(url).then((res) => res.json());
+  const data = result.result;
 
-    return {
-      props: {
-        isMobile: isMobile ? true : false
-      }
-    }    
-  }
+  return {
+    props: {
+      data: data,
+    },
+  };
 }

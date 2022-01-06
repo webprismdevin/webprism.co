@@ -16,6 +16,7 @@
     "@chakra-ui/react": "^1.7.3",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@fontsource/montserrat": "^4.5.1",
     "@next/bundle-analyzer": "^12.0.7",
     "@sanity/block-content-to-react": "^3.0.0",
     "animate.css": "^4.1.1",
@@ -36,6 +37,8 @@
     "react-intersection-observer": "^8.33.1",
     "react-lottie": "^1.2.3",
     "react-lottie-light2": "^3.0.1",
+    "react-parallax": "^3.3.0",
+    "react-scroll-horizontal": "^1.6.6",
     "react-swipeable-views": "^0.14.0",
     "react-typed": "^1.2.0"
   },
