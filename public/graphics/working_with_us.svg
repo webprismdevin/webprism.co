@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">
+    <g id="Working-With-Us" serif:id="Working With Us" transform="matrix(0.604769,0,0,0.742362,-6.77865,-324.239)">
+        <rect x="11.209" y="436.766" width="496.057" height="404.059" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1.33352,14.1799,-214.548)">
+            <g transform="matrix(1.65352,0,0,1.01015,-25.5317,445.232)">
+                <text x="87.343px" y="200.903px" style="font-family:'Montserrat-Medium', 'Montserrat';font-weight:500;font-size:24px;">Y<tspan x="102.151px " y="200.903px ">O</tspan>U</text>
+            </g>
+            <g transform="matrix(1.65352,0,0,1.01015,-114.654,454.368)">
+                <text x="261.3px" y="191.506px" style="font-family:'Montserrat-Medium', 'Montserrat';font-weight:500;font-size:24px;">US</text>
+            </g>
+            <g transform="matrix(-1.27835,-9.28123e-17,7.51093e-17,-0.394157,814.692,725.692)">
+                <g transform="matrix(-1.29348,3.04576e-16,-1.50577e-16,-2.5628,639.623,601.978)">
+                    <path d="M212.913,180.389L210.847,175.391L207.028,179.221L212.913,180.389Z" style="fill:none;stroke:black;stroke-width:2px;"/>
+                    <path d="M209.971,179.805C204.29,193.911 179.555,204.541 149.941,204.541C116.132,204.541 88.683,190.687 88.683,173.623" style="fill:none;stroke:black;stroke-width:2px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+                </g>
+            </g>
+            <g transform="matrix(1.27835,-2.82681e-18,3.9051e-18,0.394157,-324.773,551.778)">
+                <g transform="matrix(1.29348,9.27657e-18,-7.82883e-18,2.5628,251.732,-160.749)">
+                    <path d="M86.968,117.225L89.034,122.223L92.853,118.393L86.968,117.225Z" style="fill:none;stroke:black;stroke-width:2px;"/>
+                    <path d="M89.911,117.809C95.592,103.704 120.326,93.074 149.941,93.074C183.749,93.074 211.198,106.928 211.198,123.991" style="fill:none;stroke:black;stroke-width:2px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+                </g>
+            </g>
+            <g transform="matrix(1.65352,0,0,1.01015,-68.9659,446.446)">
+                <text x="121.248px" y="71.489px" style="font-family:'Montserrat-Light', 'Montserrat';font-weight:300;font-size:24px;">BRANDING</text>
+            </g>
+            <g transform="matrix(1.65352,0,0,1.01015,-28.0914,480.376)">
+                <text x="121.248px" y="71.489px" style="font-family:'Montserrat-Light', 'Montserrat';font-weight:300;font-size:24px;">DESIGN</text>
+            </g>
+            <g transform="matrix(1.65352,0,0,1.01015,-115.357,669.637)">
+                <text x="121.248px" y="71.489px" style="font-family:'Montserrat-Light', 'Montserrat';font-weight:300;font-size:24px;">DE<tspan x="156.888px 173.016px 189.072px 202.776px 222.888px 239.808px " y="71.489px 71.489px 71.489px 71.489px 71.489px 71.489px ">VELOPM</tspan>ENT</text>
+            </g>
+            <g transform="matrix(1.65352,0,0,1.01015,-119.921,703.566)">
+                <text x="121.248px" y="71.489px" style="font-family:'Montserrat-Light', 'Montserrat';font-weight:300;font-size:24px;">SEO &amp; C<tspan x="216.816px " y="71.489px ">O</tspan>NTENT</text>
+            </g>
+        </g>
+    </g>
+</svg>

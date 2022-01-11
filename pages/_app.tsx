@@ -11,6 +11,7 @@ import { HeadContent } from "@/components/head-content";
 import "@fontsource/montserrat";
 import "@/styles/styles.scss";
 import 'animate.css';
+import Footer from "@/components/footer";
 
 declare global {
   interface Window {
@@ -95,6 +96,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
           <main>
             <Component {...pageProps} />
           </main>
+          <Footer />
         </ChakraProvider>
     </>
   );

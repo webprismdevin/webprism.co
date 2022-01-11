@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Router from 'next/router';
+import { Box, Container, Flex, Heading, Text, SimpleGrid, GridItem, Stack } from '@chakra-ui/react'
 
 const Footer  = () => {
     const clearSavedName = () => {
@@ -8,23 +9,33 @@ const Footer  = () => {
     }
 
     return(
-        <footer className="footer" style={{marginTop: 200}}>
-            <div className="container">
-                <hr />
-            </div>
-            <br />
-            <div className="block has-text-centered">
-                <Image src="/white-logo.png" height={32} width={262}  alt="webprism diamond logo"/>
-            </div>
-            <div className="content block has-text-centered">
-                <br />
-                <div>Copyright. WebPrism 2021.</div>
-                <a className="is-size-7" onClick={clearSavedName}>Clear saved name</a>
-            </div>
-            <div className="content has-text-centered">
-                <div>bye 👋</div>
-            </div>
-        </footer>
+        <Box py={40} color="white" bg={"gray.900"}>
+            <Container maxW="container.xl">
+                <SimpleGrid w="full" templateColumns={'repeat(5, 1fr)'} templateRows={'repeat(1, 1fr)'} gap={6}>
+                    <GridItem colSpan={1} rowSpan={1}>
+                        <Heading size="lg">WEBPRISM</Heading>
+                    </GridItem>
+                    <GridItem colSpan={2} rowSpan={1} textAlign={"right"}>
+                        <Stack>
+                            <Text>Blog</Text>
+                            <Text>Portfolio</Text>
+                            <Text>MVP: Define Your Mission</Text>
+                            <Text>Contact Us</Text>
+                        </Stack>
+                    </GridItem>
+                    <GridItem colSpan={2} rowSpan={1} textAlign={"right"}>
+                        <Stack>
+                            <Text>Instagram</Text>
+                            <Text>LinkedIn</Text>
+                            <Text>Facebook</Text>
+                        </Stack>
+                    </GridItem>
+                </SimpleGrid>
+            </Container>
+            <Container centerContent py={20}>
+                <Text>thanks for stopping by 👋</Text>
+            </Container>
+        </Box>
     )
 }
 
