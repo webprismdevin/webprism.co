@@ -8,11 +8,11 @@ import $ from "jquery/dist/jquery.slim";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { HeadContent } from "@/components/head-content";
+import Footer from "@/components/footer";
+import { NavBar } from "@/components/NavBar";
 import "@fontsource/montserrat";
 import "@/styles/styles.scss";
 import 'animate.css';
-import Footer from "@/components/footer";
-import { NavBar } from "@/components/NavBar";
 
 declare global {
   interface Window {
@@ -51,30 +51,32 @@ function CustomApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const fun = function fun(e: MouseEvent) {
-  //     setTimeout(() => {
-  //       e = e || {};
-  //       const $img = $('<div class="joy"></div>')
-  //         .css({
-  //           position: "fixed",
-  //           width: 100,
-  //           top: (e.y || e.clientY) - 50,
-  //           left: (e.x || e.clientX || e.pageX) - 50,
-  //           transform: "rotate(" + Math.random() * 360 + "deg)",
-  //         })
-  //         .appendTo("body");
+  useEffect(() => {
+    const fun = function fun(e: MouseEvent) {
+      setTimeout(() => {
+        e = e || {};
+        const $img = $('<div class="joy"></div>')
+          .css({
+            position: "fixed",
+            width: 100,
+            top: (e.y || e.clientY) - 50,
+            left: (e.x || e.clientX || e.pageX) - 50,
+            transform: "rotate(" + Math.random() * 360 + "deg)",
+          })
+          .appendTo("body");
 
-  //       setTimeout(() => {
-  //         $img.remove();
-  //       }, 800);
-  //     }, 10);
-  //   };
+        setTimeout(() => {
+          $img.remove();
+        }, 800);
+      }, 10);
+    };
 
-  //   $("body")
-  //     .on("touchstart" as any, fun)
-  //     .on("mousedown" as any, fun);
-  // }, []);
+    if(process.env.NODE_ENV !== 'development'){
+      $("body")
+      .on("touchstart" as any, fun)
+      .on("mousedown" as any, fun);
+    }
+  }, []);
 
   useEffect(() => {
     const handleRouteChange = () => {

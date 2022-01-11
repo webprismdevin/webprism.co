@@ -159,6 +159,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 business. We can even turn your new web application into a
                 mobile app!
               </Text>
+              <Text>Interested? We built an app to help anyone define their mission, vision &amp; purpose.</Text>
+              <Button>View MVP →</Button>
             </Stack>
           </Flex>
           <Flex gap={6} className="ecomm-sites">
@@ -433,7 +435,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           </Stack>
         </Container>
       </Box>
-      {/* <MailingList /> */}
+      {process.env.NODE_ENV !== "development" && <MailingList />}
     </>
   );
 }
