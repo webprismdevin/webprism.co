@@ -7,15 +7,9 @@ import {
   SimpleGrid,
   GridItem,
   Text,
-  AspectRatio,
   Button,
   Divider,
   Image,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
   useColorMode,
   Drawer,
   DrawerBody,
@@ -23,15 +17,15 @@ import {
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
-  DrawerCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Parallax } from "react-parallax";
 import { useInView } from "react-intersection-observer";
 
 import dynamic from "next/dynamic";
+import { FAQ } from "@/components/FAQ";
 const DynamicLordIcon = dynamic(() => import("../components/LordIcon"), {
   ssr: false,
 });
@@ -54,37 +48,37 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
   return (
     <>
       {/* Hero */}
-        <Parallax
-          bgImage={
-            colorMode === "dark"
-              ? "/photos/craft_black.jpg"
-              : "/photos/drawn-mountain.jpg"
-          }
-          style={{
-            width: "100vw",
-          }}
-          strength={-100}
-          bgImageAlt="NEEDS UPDATE WHEN FINAL SETTLED"
-        >
-          <Container maxW="container.xl">
-            <Stack
-              spacing={8}
-              py={80}
-              alignItems={"flex-start"}
-              maxW={["full", "60%"]}
-              px={"18px"}
-            >
-              <Heading size="3xl" fontWeight="800">
-                Crafted Websites for Authentic Brands
-              </Heading>
-              <Heading size="md">
-                Unlock new digital marketing opportunities with a
-                custom-tailored website designed to showcase your brand.
-              </Heading>
-              <Button>Contact Us →</Button>
-            </Stack>
-          </Container>
-        </Parallax>
+      <Parallax
+        bgImage={
+          colorMode === "dark"
+            ? "/photos/craft_black.jpg"
+            : "/photos/craft_white.jpg"
+        }
+        style={{
+          width: "100vw",
+        }}
+        strength={-100}
+        bgImageAlt="NEEDS UPDATE WHEN FINAL SETTLED"
+      >
+        <Container maxW="container.xl">
+          <Stack
+            spacing={8}
+            py={60}
+            alignItems={"flex-start"}
+            maxW={["full", "60%"]}
+            px={"18px"}
+          >
+            <Heading size="3xl" fontWeight="800">
+              Crafted Websites for Authentic Brands
+            </Heading>
+            <Heading size="md">
+              Unlock new digital marketing opportunities with a custom-tailored
+              website designed to showcase your brand.
+            </Heading>
+            <Button>Contact Us →</Button>
+          </Stack>
+        </Container>
+      </Parallax>
       {/* PAS */}
       <Box py={40}>
         <Container maxW="container.md" pos={"relative"}>
@@ -399,44 +393,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       {/* FAQ */}
       <Box pb={40} pt={20}>
         <Container maxW="container.md">
-          <Stack spacing={8}>
-            <Heading size="xl">Frequently Asked Questions</Heading>
-            <Accordion allowMultiple allowToggle>
-              <AccordionItem>
-                <h2>
-                  <AccordionButton>
-                    <Box flex="1" textAlign="left">
-                      Section 1 title
-                    </Box>
-                    <AccordionIcon />
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </AccordionPanel>
-              </AccordionItem>
-
-              <AccordionItem>
-                <h2>
-                  <AccordionButton>
-                    <Box flex="1" textAlign="left">
-                      Section 2 title
-                    </Box>
-                    <AccordionIcon />
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </AccordionPanel>
-              </AccordionItem>
-            </Accordion>
-          </Stack>
+          <FAQ />
         </Container>
       </Box>
       {process.env.NODE_ENV !== "development" && <MailingList />}

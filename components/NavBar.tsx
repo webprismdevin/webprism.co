@@ -5,7 +5,8 @@ import {
   Image,
   Text,
   Stack,
-  useColorMode
+  useColorMode,
+  Button
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { FaSun, FaMoon } from "react-icons/fa";
@@ -30,7 +31,7 @@ export function NavBar() {
               <Text cursor={"pointer"}>Portfolio</Text>
             </Link>
             <Link href="/contact" passHref>
-              <Text cursor={"pointer"}>Contact</Text>
+              <Button>Contact</Button>
             </Link>
             <ColorModeSwitcher colorMode={colorMode} toggleColorMode={toggleColorMode} />
           </Stack>
