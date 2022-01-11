@@ -6,48 +6,48 @@
 //   font-display: swap;
 // }
 
-@font-face {
-  font-family: "Montserrat-Bold";
-  src: url("/fonts/Montserrat-Regular.ttf");
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-}
+// @font-face {
+//   font-family: "Montserrat-Bold";
+//   src: url("/fonts/Montserrat-Regular.ttf");
+//   font-style: normal;
+//   font-weight: 700;
+//   font-display: swap;
+// }
 
 
-@font-face {
-  font-family: "Roboto";
-  src: url("/fonts/Roboto-Regular.ttf");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
+// @font-face {
+//   font-family: "Roboto";
+//   src: url("/fonts/Roboto-Regular.ttf");
+//   font-style: normal;
+//   font-weight: 400;
+//   font-display: swap;
+// }
 
-@font-face {
-  font-family: "Roboto-900";
-  src: url("/fonts/Roboto-Black.ttf");
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-}
+// @font-face {
+//   font-family: "Roboto-900";
+//   src: url("/fonts/Roboto-Black.ttf");
+//   font-style: normal;
+//   font-weight: 900;
+//   font-display: swap;
+// }
 
-@font-face {
-  font-family: "Merriweather";
-  src: url("/fonts/Merriweather-Light.ttf");
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-}
+// @font-face {
+//   font-family: "Merriweather";
+//   src: url("/fonts/Merriweather-Light.ttf");
+//   font-style: normal;
+//   font-weight: 300;
+//   font-display: swap;
+// }
 
-$text: #fff;
-$title-color: #fff;
-$family-primary: 'Roboto', sans-serif;
-$link-hover: var(--hot-pink);
-$link-hover-border: var(--hot-pink);
-$footer-color: white;
-$footer-background-color: transparent;
-$text-strong: white;
-$link: #00D5FF;
+// $text: #fff;
+// $title-color: #fff;
+// $family-primary: 'Roboto', sans-serif;
+// $link-hover: var(--hot-pink);
+// $link-hover-border: var(--hot-pink);
+// $footer-color: white;
+// $footer-background-color: transparent;
+// $text-strong: white;
+// $link: #00D5FF;
 
 @import "bulma/bulma.sass";
 

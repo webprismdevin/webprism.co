@@ -16,8 +16,6 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
-  Input,
-  Textarea,
   useColorMode,
   Drawer,
   DrawerBody,
@@ -56,34 +54,37 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
   return (
     <>
       {/* Hero */}
-      <Parallax
-        bgImage={
-          colorMode === "dark"
-            ? "/photos/craft_black.jpg"
-            : "/photos/drawn-mountain.jpg"
-        }
-        strength={-100}
-        bgImageAlt="NEEDS UPDATE WHEN FINAL SETTLED"
-      >
-        <Container maxW="container.xl">
-          <Stack spacing={8} py={80} alignItems={"flex-start"} maxW={["60%"]}>
-            <Heading size="3xl" fontWeight="800">
-              Crafted Websites for Authentic Brands
-            </Heading>
-            <Heading size="md">
-              Unlock new digital marketing opportunities with a custom-tailored
-              website designed to showcase your brand.
-            </Heading>
-            <Button
-            // variant="outline"
-            // color={"gray.800"}
-            // _hover={{ color: "gray.800", bg: "gray.200" }}
+        <Parallax
+          bgImage={
+            colorMode === "dark"
+              ? "/photos/craft_black.jpg"
+              : "/photos/drawn-mountain.jpg"
+          }
+          style={{
+            width: "100vw",
+          }}
+          strength={-100}
+          bgImageAlt="NEEDS UPDATE WHEN FINAL SETTLED"
+        >
+          <Container maxW="container.xl">
+            <Stack
+              spacing={8}
+              py={80}
+              alignItems={"flex-start"}
+              maxW={["full", "60%"]}
+              px={"18px"}
             >
-              Contact Us →
-            </Button>
-          </Stack>
-        </Container>
-      </Parallax>
+              <Heading size="3xl" fontWeight="800">
+                Crafted Websites for Authentic Brands
+              </Heading>
+              <Heading size="md">
+                Unlock new digital marketing opportunities with a
+                custom-tailored website designed to showcase your brand.
+              </Heading>
+              <Button>Contact Us →</Button>
+            </Stack>
+          </Container>
+        </Parallax>
       {/* PAS */}
       <Box py={40}>
         <Container maxW="container.md" pos={"relative"}>
@@ -159,7 +160,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 business. We can even turn your new web application into a
                 mobile app!
               </Text>
-              <Text>Interested? We built an app to help anyone define their mission, vision &amp; purpose.</Text>
+              <Text>
+                Interested? We built an app to help anyone define their mission,
+                vision &amp; purpose.
+              </Text>
               <Button>View MVP →</Button>
             </Stack>
           </Flex>
@@ -177,7 +181,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 further than a blog with guides, video series and courses,
                 podcasts and more!
               </Text>
-              <Button>Learn More About SuperShops →</Button>
+              <Button>Learn More →</Button>
             </Stack>
           </Flex>
         </Stack>
@@ -283,8 +287,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           <Heading size="2xl">What Our Clients Have Said</Heading>
           <Text>We might be biased, but we think they like us.</Text>
         </Stack>
-        <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={8} mt={16}>
-          <GridItem>
+        <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={8} mt={20}>
+          <GridItem colSpan={[3, 1]}>
             <Stack spacing={4} alignItems={"flex-start"}>
               <Heading size="lg">Name - Org</Heading>
               <Text>
@@ -296,7 +300,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               <Button>See Case Study</Button>
             </Stack>
           </GridItem>
-          <GridItem>
+          <GridItem colSpan={[3, 1]}>
             <Stack spacing={4} alignItems={"flex-start"}>
               <Heading size="lg">Name - Org</Heading>
               <Text>
@@ -308,7 +312,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               <Button>See Case Study</Button>
             </Stack>
           </GridItem>
-          <GridItem>
+          <GridItem colSpan={[3, 1]}>
             <Stack spacing={4} alignItems={"flex-start"}>
               <Heading size="lg">Name - Org</Heading>
               <Text>
@@ -343,7 +347,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       >
         <Container maxW="container.xl" py={40}>
           <Heading size="lg">we&apos;re</Heading>
-          <Heading size="4xl">WEBPRISM</Heading>
+          <Heading size={"4xl"}>WEBPRISM</Heading>
           <Text mt={8} maxW={"60%"}>
             We build websites that unlock online marketing for our customers.
             We&apos;ll also help our customers support and market their website

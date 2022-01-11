@@ -1,19 +1,10 @@
 import {
   Box,
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-  useDisclosure,
   Icon,
   Flex,
   Image,
   Text,
   Stack,
-  Button,
   useColorMode
 } from "@chakra-ui/react";
 import Link from "next/link";
@@ -21,7 +12,6 @@ import { FaSun, FaMoon } from "react-icons/fa";
 import useSound from "use-sound";
 
 export function NavBar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [play] = useSound<any>("/sounds/pup-fat.mp3")
   const { colorMode, toggleColorMode } = useColorMode()
 
@@ -32,31 +22,20 @@ export function NavBar() {
           <Link href="/" passHref>
               <Image src={colorMode === 'dark' ? "/logos/webprism_diamond_white.svg" : "/logos/webprism_diamond.svg"} height={10} width={8} alt="WEBPRISM diamond logo" onClick={play as any}/>
           </Link>
-          <Stack direction="row" spacing={8} alignItems={"center"}>
+          <Stack direction="row" spacing={[4, 8]} alignItems={"center"}>
             <Link href="/posts" passHref>
-              <Text>Blog</Text>
+              <Text cursor={"pointer"}>Blog</Text>
             </Link>
             <Link href="/portfolio" passHref>
-              <Text>Portfolio</Text>
+              <Text cursor={"pointer"}>Portfolio</Text>
             </Link>
             <Link href="/contact" passHref>
-              <Text>Contact</Text>
+              <Text cursor={"pointer"}>Contact</Text>
             </Link>
             <ColorModeSwitcher colorMode={colorMode} toggleColorMode={toggleColorMode} />
           </Stack>
         </Flex>
       </Box>
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>WEBPRISM</DrawerHeader>
-
-          <DrawerBody></DrawerBody>
-
-          <DrawerFooter></DrawerFooter>
-        </DrawerContent>
-      </Drawer>
     </>
   );
 }
@@ -72,6 +51,6 @@ function ColorModeSwitcher({ colorMode, toggleColorMode }: any){
     }
 
     return (
-        <Icon as={colorMode === 'dark' ? FaSun : FaMoon} height={4} width={4} onClick={handleClick} />
+        <Icon cursor={"pointer"} as={colorMode === 'dark' ? FaSun : FaMoon} height={4} width={4} onClick={handleClick} />
     )
 }
