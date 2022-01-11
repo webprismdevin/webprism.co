@@ -12,6 +12,7 @@ import "@fontsource/montserrat";
 import "@/styles/styles.scss";
 import 'animate.css';
 import Footer from "@/components/footer";
+import { NavBar } from "@/components/NavBar";
 
 declare global {
   interface Window {
@@ -93,6 +94,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <HeadContent />
       </Head>
         <ChakraProvider theme={customTheme}>
+          <NavBar />
           <main>
             <Component {...pageProps} />
           </main>

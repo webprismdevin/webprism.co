@@ -11,29 +11,29 @@ const Footer  = () => {
     return(
         <Box py={40} color="white" bg={"gray.900"}>
             <Container maxW="container.xl">
-                <SimpleGrid w="full" templateColumns={'repeat(5, 1fr)'} templateRows={'repeat(1, 1fr)'} gap={6}>
-                    <GridItem colSpan={1} rowSpan={1}>
-                        <Heading size="lg">WEBPRISM</Heading>
-                    </GridItem>
-                    <GridItem colSpan={2} rowSpan={1} textAlign={"right"}>
-                        <Stack>
-                            <Text>Blog</Text>
-                            <Text>Portfolio</Text>
-                            <Text>MVP: Define Your Mission</Text>
-                            <Text>Contact Us</Text>
-                        </Stack>
-                    </GridItem>
-                    <GridItem colSpan={2} rowSpan={1} textAlign={"right"}>
-                        <Stack>
-                            <Text>Instagram</Text>
-                            <Text>LinkedIn</Text>
-                            <Text>Facebook</Text>
-                        </Stack>
-                    </GridItem>
-                </SimpleGrid>
-            </Container>
-            <Container centerContent py={20}>
-                <Text>thanks for stopping by 👋</Text>
+                <Stack spacing={16}>
+                    <SimpleGrid w="full" templateColumns={'repeat(5, 1fr)'} templateRows={'repeat(1, 1fr)'} gap={6}>
+                        <GridItem colSpan={1} rowSpan={1}>
+                            <Heading size="lg">WEBPRISM</Heading>
+                        </GridItem>
+                        <GridItem colSpan={2} rowSpan={1} textAlign={"right"}>
+                            <Stack>
+                                <Text>Blog</Text>
+                                <Text>Portfolio</Text>
+                                <Text>MVP: Define Your Mission</Text>
+                                <Text>Contact Us</Text>
+                            </Stack>
+                        </GridItem>
+                        <GridItem colSpan={2} rowSpan={1} textAlign={"right"}>
+                            <Stack>
+                                <Text>Instagram</Text>
+                                <Text>LinkedIn</Text>
+                                <Text>Facebook</Text>
+                            </Stack>
+                        </GridItem>
+                    </SimpleGrid>
+                    <Text textAlign={"center"}>thanks for stopping by 👋</Text>
+                </Stack>
             </Container>
         </Box>
     )
