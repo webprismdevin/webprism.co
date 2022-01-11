@@ -19,6 +19,14 @@ import {
   Input,
   Textarea,
   useColorMode,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -34,21 +42,26 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
   const [step, setStep] = useState(0);
   const { colorMode } = useColorMode();
 
-  function returnStatement(){
-    switch(step){
+  function returnStatement() {
+    switch (step) {
       case 0:
-        return "hover over a step to learn more!"
+        return "hover over a step to learn more!";
       case 7:
-        return "we write a bunch of shit for reasons"
+        return "we write a bunch of shit for reasons";
       default:
-        return "something has gone horribly wrong!"
+        return "something has gone horribly wrong!";
     }
   }
 
   return (
     <>
+      {/* Hero */}
       <Parallax
-        bgImage={colorMode === "dark" ? "/photos/craft_black.jpg" : "/photos/drawn-mountain.jpg"}
+        bgImage={
+          colorMode === "dark"
+            ? "/photos/craft_black.jpg"
+            : "/photos/drawn-mountain.jpg"
+        }
         strength={-100}
         bgImageAlt="NEEDS UPDATE WHEN FINAL SETTLED"
       >
@@ -62,15 +75,16 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               website designed to showcase your brand.
             </Heading>
             <Button
-              // variant="outline"
-              // color={"gray.800"}
-              // _hover={{ color: "gray.800", bg: "gray.200" }}
+            // variant="outline"
+            // color={"gray.800"}
+            // _hover={{ color: "gray.800", bg: "gray.200" }}
             >
               Contact Us →
             </Button>
           </Stack>
         </Container>
       </Parallax>
+      {/* PAS */}
       <Box py={40}>
         <Container maxW="container.md" pos={"relative"}>
           <Stack spacing={16}>
@@ -174,7 +188,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           <Heading size="md">What you can expect</Heading>
           <Divider />
           <Stack direction={["column", "row"]} alignItems={"center"}>
-            <Box onMouseLeave={() => setStep(0)} onMouseEnter={() => setStep(1)} >
+            <Box
+              onMouseLeave={() => setStep(0)}
+              onMouseEnter={() => setStep(1)}
+            >
               <DynamicLordIcon
                 target=""
                 src="https://cdn.lordicon.com/zpxybbhl.json"
@@ -183,7 +200,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               <Text>Consultation</Text>
             </Box>
             <Text fontSize="6xl">→</Text>
-            <Box onMouseLeave={() => setStep(0)} onMouseEnter={() => setStep(2)}>
+            <Box
+              onMouseLeave={() => setStep(0)}
+              onMouseEnter={() => setStep(2)}
+            >
               <DynamicLordIcon
                 target=""
                 src="https://cdn.lordicon.com/iltqorsz.json"
@@ -192,7 +212,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               <Text>Brand Discovery</Text>
             </Box>
             <Text fontSize="6xl">→</Text>
-            <Box onMouseLeave={() => setStep(0)} onMouseEnter={() => setStep(3)}>
+            <Box
+              onMouseLeave={() => setStep(0)}
+              onMouseEnter={() => setStep(3)}
+            >
               <DynamicLordIcon
                 target=""
                 src="https://cdn.lordicon.com/puvaffet.json"
@@ -201,7 +224,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               <Text>Copy Writing</Text>
             </Box>
             <Text fontSize="6xl">→</Text>
-            <Box onMouseLeave={() => setStep(0)} onMouseEnter={() => setStep(4)}>
+            <Box
+              onMouseLeave={() => setStep(0)}
+              onMouseEnter={() => setStep(4)}
+            >
               <DynamicLordIcon
                 target=""
                 src="https://cdn.lordicon.com/wloilxuq.json"
@@ -210,7 +236,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               <Text>Site Design</Text>
             </Box>
             <Text fontSize="6xl">→</Text>
-            <Box onMouseLeave={() => setStep(0)} onMouseEnter={() => setStep(5)}>
+            <Box
+              onMouseLeave={() => setStep(0)}
+              onMouseEnter={() => setStep(5)}
+            >
               <DynamicLordIcon
                 target=""
                 src="https://cdn.lordicon.com/ybfcwnqv.json"
@@ -219,16 +248,22 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               <Text>Development</Text>
             </Box>
             <Text fontSize="6xl">→</Text>
-            <Box onMouseLeave={() => setStep(0)} onMouseEnter={() => setStep(6)}>
+            <Box
+              onMouseLeave={() => setStep(0)}
+              onMouseEnter={() => setStep(6)}
+            >
               <DynamicLordIcon
                 target=""
-                src="https://cdn.lordicon.com/zpxybbhl.json"
+                src="https://cdn.lordicon.com/rqsvgwdj.json"
                 trigger="hover"
               />
               <Text>Launch</Text>
             </Box>
             <Text fontSize="6xl">→</Text>
-            <Box onMouseLeave={() => setStep(0)} onMouseEnter={() => setStep(7)}>
+            <Box
+              onMouseLeave={() => setStep(0)}
+              onMouseEnter={() => setStep(7)}
+            >
               <DynamicLordIcon
                 target=""
                 src="https://cdn.lordicon.com/gqdnbnwt.json"
@@ -239,6 +274,51 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           </Stack>
           <Text>{returnStatement()}</Text>
         </Stack>
+      </Container>
+      {/* Testimonials */}
+      <Container pt={40} pb={80} centerContent maxW="container.xl">
+        <Stack spacing={6} textAlign={"center"}>
+          <Heading size="2xl">What Our Clients Have Said</Heading>
+          <Text>We might be biased, but we think they like us.</Text>
+        </Stack>
+        <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={8} mt={16}>
+          <GridItem>
+            <Stack spacing={4} alignItems={"flex-start"}>
+              <Heading size="lg">Name - Org</Heading>
+              <Text>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aspernatur eos quos fugit alias soluta vero, accusamus dolore
+                cum, ipsam, assumenda ipsa deleniti libero autem vel voluptas
+                laudantium placeat ducimus suscipit.
+              </Text>
+              <Button>See Case Study</Button>
+            </Stack>
+          </GridItem>
+          <GridItem>
+            <Stack spacing={4} alignItems={"flex-start"}>
+              <Heading size="lg">Name - Org</Heading>
+              <Text>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aspernatur eos quos fugit alias soluta vero, accusamus dolore
+                cum, ipsam, assumenda ipsa deleniti libero autem vel voluptas
+                laudantium placeat ducimus suscipit.
+              </Text>
+              <Button>See Case Study</Button>
+            </Stack>
+          </GridItem>
+          <GridItem>
+            <Stack spacing={4} alignItems={"flex-start"}>
+              <Heading size="lg">Name - Org</Heading>
+              <Text>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aspernatur eos quos fugit alias soluta vero, accusamus dolore
+                cum, ipsam, assumenda ipsa deleniti libero autem vel voluptas
+                laudantium placeat ducimus suscipit.
+              </Text>
+              <Button>See Case Study</Button>
+            </Stack>
+          </GridItem>
+        </SimpleGrid>
       </Container>
       {/* Cut out Statement 1 */}
       <Box py={40} bg="gray.900" color="white">
@@ -253,7 +333,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       {/* We're WEBPRISM */}
       <Parallax
         blur={{ min: -5, max: 15 }}
-        bgImage={colorMode === 'dark' ? "logos/logo-bg-dark.jpg" : "/logos/logo-bg.jpg"}
+        bgImage={
+          colorMode === "dark" ? "logos/logo-bg-dark.jpg" : "/logos/logo-bg.jpg"
+        }
         strength={-200}
         bgImageAlt="WEBPRISM logo repeated background"
       >
@@ -285,6 +367,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           </Stack>
         </Container>
       </Box>
+      {/* Blog Posts */}
       <Box pt={40} pb={20}>
         <Container maxW="container.md">
           <Stack spacing={8}>
@@ -298,7 +381,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 <Stack spacing={4} alignItems={"flex-start"} key={post._id}>
                   <Heading size="md">{post.title}</Heading>
                   <Text>{post.metaDesc}</Text>
-                  <Link href={`/posts/${post.slug}`} passHref>
+                  <Link href={`/posts/${post.slug.current}`} passHref>
                     <Button>Read →</Button>
                   </Link>
                 </Stack>
@@ -350,6 +433,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           </Stack>
         </Container>
       </Box>
+      {/* <MailingList /> */}
     </>
   );
 }
@@ -370,7 +454,7 @@ function ProjectFeature({ dir }: { dir: "left" | "right" }) {
         spacing={8}
         p={20}
         maxW={["100%", "60%"]}
-        bg={colorMode === 'dark' ? "gray.400" : "gray.200"}
+        bg={colorMode === "dark" ? "gray.600" : "gray.200"}
         ref={feature}
         pos={"relative"}
         zIndex={1}
@@ -394,6 +478,44 @@ function ProjectFeature({ dir }: { dir: "left" | "right" }) {
         </Stack>
       </Stack>
     </Flex>
+  );
+}
+
+function MailingList() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onOpen();
+    }, 1200);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <Drawer placement={"bottom"} onClose={onClose} isOpen={isOpen}>
+      <DrawerOverlay />
+      <DrawerContent>
+        <DrawerHeader borderBottomWidth="1px">
+          Psssttttt 👀 Is Your Website Enabling Your Digital Marketing?
+        </DrawerHeader>
+        <DrawerBody>
+          <Stack spacing={8}>
+            <Text>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit,
+              accusamus dolor. Quos laboriosam, sint eligendi nihil, nisi
+              obcaecati tempora doloribus odio nobis quidem harum ducimus, ad
+              error. Sequi, quibusdam quae!
+            </Text>
+          </Stack>
+        </DrawerBody>
+        <DrawerFooter>
+          <Link href="/booknow" passHref>
+            <Button>Schedule Your Consultation</Button>
+          </Link>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
 }
 

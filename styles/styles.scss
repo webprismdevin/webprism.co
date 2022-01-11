@@ -1,10 +1,10 @@
-@font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat-Regular.ttf");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
+// @font-face {
+//   font-family: "Montserrat";
+//   src: url("/fonts/Montserrat-Regular.ttf");
+//   font-style: normal;
+//   font-weight: 400;
+//   font-display: swap;
+// }
 
 @font-face {
   font-family: "Montserrat-Bold";
@@ -57,7 +57,7 @@ $link: #00D5FF;
 
 html {
   scroll-behavior: smooth;
-  background-color: black;
+  // background-color: black;
 }
 
 body {

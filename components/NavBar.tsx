@@ -32,17 +32,17 @@ export function NavBar() {
           <Link href="/" passHref>
               <Image src={colorMode === 'dark' ? "/logos/webprism_diamond_white.svg" : "/logos/webprism_diamond.svg"} height={10} width={8} alt="WEBPRISM diamond logo" onClick={play as any}/>
           </Link>
-          <Stack direction="row" spacing={8}>
-            <Link href="">
+          <Stack direction="row" spacing={8} alignItems={"center"}>
+            <Link href="/posts" passHref>
               <Text>Blog</Text>
             </Link>
-            <Link href="">
+            <Link href="/portfolio" passHref>
               <Text>Portfolio</Text>
             </Link>
-            <Link href="">
+            <Link href="/contact" passHref>
               <Text>Contact</Text>
             </Link>
-            <Icon as={colorMode === 'dark' ? FaSun : FaMoon} height={4} width={4} onClick={toggleColorMode} />
+            <ColorModeSwitcher colorMode={colorMode} toggleColorMode={toggleColorMode} />
           </Stack>
         </Flex>
       </Box>
@@ -59,4 +59,19 @@ export function NavBar() {
       </Drawer>
     </>
   );
+}
+
+function ColorModeSwitcher({ colorMode, toggleColorMode }: any){
+    const [playOn] = useSound<any>("/sounds/switch-on.mp3")
+    const [playOff] = useSound<any>("/sounds/switch-off.mp3")
+
+    function handleClick(){
+        toggleColorMode();
+        if(colorMode === 'dark') playOn();
+        else playOff();
+    }
+
+    return (
+        <Icon as={colorMode === 'dark' ? FaSun : FaMoon} height={4} width={4} onClick={handleClick} />
+    )
 }

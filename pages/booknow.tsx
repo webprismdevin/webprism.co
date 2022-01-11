@@ -1,22 +1,28 @@
-import Head from 'next/head';
-import Content from '@/components/content';
-import Footer from '@/components/footer';
-import styles from '@/styles/booknow.module.scss';
+import Head from "next/head";
+import styles from "@/styles/booknow.module.scss";
+import { Box, Text, Heading } from "@chakra-ui/react";
 
 export interface ContactProps {}
 
 export function ContactPage(props: ContactProps) {
-  return (<div className={`page`}>
-            <Head>
-              <title>WEBPRISM | Book Now</title>
-            </Head>
-            <Content fullheight>
-                <div className={styles.iframeContainer}>
-                  <iframe src="https://app.usemotion.com/meet/devin-webprism/50-min" title="Motion Booking Page" width="100%" height="840px" frameBorder="0"></iframe>
-                </div>
-            </Content>
-            <Footer />
-          </div>);
+  return (
+    <div className={`page`}>
+      <Head>
+        <title>WEBPRISM | Book Now</title>
+      </Head>
+      <Box pt={"86px"} bg="#2C77E7">
+        <div className={styles.iframeContainer}>
+          <iframe
+            src="https://app.usemotion.com/meet/webprism/website-seo-audit-design-review"
+            // title="Motion Booking Page"
+            width="100%"
+            height="840px"
+            frameBorder="0"
+          ></iframe>
+        </div>
+      </Box>
+    </div>
+  );
 }
 
 export default ContactPage;

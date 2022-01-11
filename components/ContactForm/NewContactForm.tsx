@@ -1,4 +1,4 @@
-import { Box, Container, Heading, GridItem, SimpleGrid, Stack, Button, Textarea } from '@chakra-ui/react' 
+import { Box, Container, Heading, GridItem, SimpleGrid, Stack, Button, Textarea, Input } from '@chakra-ui/react' 
 
 export default function ContactForm(){
     return(function ContactForm() {
