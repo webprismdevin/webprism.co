@@ -61,7 +61,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         style={{
           width: "100vw",
         }}
-        strength={-100}
+        strength={-200}
         bgImageAlt="NEEDS UPDATE WHEN FINAL SETTLED"
       >
         <Container maxW="container.xl">
@@ -359,7 +359,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       {/* Cut out Statement 1 */}
       <Box
         py={40}
-        bg={colorMode === "dark" ? "gray.600" : "gray.800"}
+        bg={colorMode === "dark" ? "gray.600" : "gray.900"}
         color="white"
       >
         <Container maxW="container.lg" centerContent>
@@ -394,7 +394,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       {/* Cut out Statement 2 */}
       <Box
         py={40}
-        bg={colorMode === "dark" ? "gray.600" : "gray.800"}
+        bg={colorMode === "dark" ? "gray.600" : "gray.900"}
         color="white"
       >
         <Container maxW="container.lg" centerContent>
