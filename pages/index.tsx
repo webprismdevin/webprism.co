@@ -26,6 +26,7 @@ import { useInView } from "react-intersection-observer";
 
 import dynamic from "next/dynamic";
 import { FAQ } from "@/components/FAQ";
+import Head from "next/head";
 const DynamicLordIcon = dynamic(() => import("../components/LordIcon"), {
   ssr: false,
 });
@@ -47,6 +48,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
 
   return (
     <>
+      <Head>
+        <title>Crafted Websites for Authentic Brands | WEBPRISM</title>
+      </Head>
       {/* Hero */}
       <Parallax
         bgImage={
@@ -109,6 +113,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               trigger="hover"
               src="https://cdn.lordicon.com/lupuorrc.json"
               target="div.mktg_sites"
+              height={128}
+              width={128}
             />
             <Stack spacing={8}>
               <Heading size="lg">Marketing Sites</Heading>
@@ -125,6 +131,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               trigger="hover"
               src="https://cdn.lordicon.com/uukerzzv.json"
               target="div.micro-sites"
+              height={128}
+              width={128}
             />
             <Stack spacing={8}>
               <Heading size="lg">Micro-sites &amp; Landing Pages</Heading>
@@ -137,7 +145,12 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           </Flex>
         </Stack>
       </Container>
-      <ProjectFeature dir="right" />
+      <ProjectFeature
+        dir="right"
+        name="Le Marche Reverie"
+        portLink={"La%20Marche%20Reverie"}
+        bgImage={"projects/le-marche.png"}
+      />
       {/* Site Types 2 */}
       <Container py={20} maxW="container.lg">
         <Stack spacing={16}>
@@ -146,6 +159,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               trigger="hover"
               src="https://cdn.lordicon.com/fqrjldna.json"
               target="div.web-apps"
+              height={128}
+              width={128}
             />
             <Stack spacing={8} alignItems={"flex-start"}>
               <Heading size="lg">Web Applications</Heading>
@@ -166,6 +181,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               trigger="hover"
               src="https://cdn.lordicon.com/nlzvfogq.json"
               target="div.ecomm-sites"
+              height={128}
+              width={128}
             />
             <Stack spacing={8} alignItems={"flex-start"}>
               <Heading size="lg">E-Commerce Sites</Heading>
@@ -180,7 +197,12 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           </Flex>
         </Stack>
       </Container>
-      <ProjectFeature dir="left" />
+      <ProjectFeature
+        dir="left"
+        name="Strong Ox"
+        portLink={"Strong%20Ox"}
+        bgImage={"/projects/strongox.webp"}
+      />
       {/* Our Process */}
       <Container maxW="container.xl" centerContent py={40}>
         <Stack spacing={8} textAlign={"center"}>
@@ -196,6 +218,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 target=""
                 src="https://cdn.lordicon.com/zpxybbhl.json"
                 trigger="hover"
+                height={96}
+                width={96}
               />
               <Text>Consultation</Text>
             </Box>
@@ -208,6 +232,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 target=""
                 src="https://cdn.lordicon.com/iltqorsz.json"
                 trigger="hover"
+                height={96}
+                width={96}
               />
               <Text>Brand Discovery</Text>
             </Box>
@@ -220,6 +246,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 target=""
                 src="https://cdn.lordicon.com/puvaffet.json"
                 trigger="hover"
+                height={96}
+                width={96}
               />
               <Text>Copy Writing</Text>
             </Box>
@@ -232,6 +260,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 target=""
                 src="https://cdn.lordicon.com/wloilxuq.json"
                 trigger="hover"
+                height={96}
+                width={96}
               />
               <Text>Site Design</Text>
             </Box>
@@ -244,6 +274,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 target=""
                 src="https://cdn.lordicon.com/ybfcwnqv.json"
                 trigger="hover"
+                height={96}
+                width={96}
               />
               <Text>Development</Text>
             </Box>
@@ -256,6 +288,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 target=""
                 src="https://cdn.lordicon.com/rqsvgwdj.json"
                 trigger="hover"
+                height={96}
+                width={96}
               />
               <Text>Launch</Text>
             </Box>
@@ -268,6 +302,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 target=""
                 src="https://cdn.lordicon.com/gqdnbnwt.json"
                 trigger="hover"
+                height={96}
+                width={96}
               />
               <Text>SEO &amp; Maintenance</Text>
             </Box>
@@ -321,7 +357,11 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         </SimpleGrid>
       </Container>
       {/* Cut out Statement 1 */}
-      <Box py={40} bg="gray.900" color="white">
+      <Box
+        py={40}
+        bg={colorMode === "dark" ? "gray.600" : "gray.800"}
+        color="white"
+      >
         <Container maxW="container.lg" centerContent>
           <Text fontSize="2xl" textAlign={"center"}>
             We work together to understand your brand goals and create a
@@ -336,7 +376,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         bgImage={
           colorMode === "dark" ? "logos/logo-bg-dark.jpg" : "/logos/logo-bg.jpg"
         }
-        strength={-200}
+        strength={-100}
         bgImageAlt="WEBPRISM logo repeated background"
       >
         <Container maxW="container.xl" py={40}>
@@ -352,7 +392,11 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         </Container>
       </Parallax>
       {/* Cut out Statement 2 */}
-      <Box py={40} bg="gray.900" color="white">
+      <Box
+        py={40}
+        bg={colorMode === "dark" ? "gray.600" : "gray.800"}
+        color="white"
+      >
         <Container maxW="container.lg" centerContent>
           <Stack spacing={8}>
             <Text fontSize="2xl" textAlign={"center"}>
@@ -396,12 +440,24 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           <FAQ />
         </Container>
       </Box>
-      {process.env.NODE_ENV !== "development" && <MailingList />}
+      {process.env.NODE_ENV !== "development" && 
+        <MailingList />
+      }
     </>
   );
 }
 
-function ProjectFeature({ dir }: { dir: "left" | "right" }) {
+function ProjectFeature({
+  dir,
+  name,
+  portLink,
+  bgImage,
+}: {
+  dir: "left" | "right";
+  name: string;
+  portLink: string;
+  bgImage: string;
+}) {
   const { colorMode } = useColorMode();
   const [feature, featureInView, entry] = useInView({
     threshold: 0.3,
@@ -413,33 +469,47 @@ function ProjectFeature({ dir }: { dir: "left" | "right" }) {
 
   return (
     <Flex justifyContent={animationFlex} py={16}>
-      <Stack
-        spacing={8}
-        p={20}
-        maxW={["100%", "60%"]}
-        bg={colorMode === "dark" ? "gray.600" : "gray.200"}
-        ref={feature}
-        pos={"relative"}
-        zIndex={1}
-        className={`animate__animated ${
-          featureInView
-            ? `animate__slideIn${animationDirection}`
-            : "pre_animated"
-        }`}
-      >
-        <Heading size="lg">Project Feature - [Name]</Heading>
-        <Stack direction={["column"]} spacing={8}>
-          <Text>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
-            sequi maiores molestias beatae aspernatur sunt assumenda esse optio
-            repellendus, voluptate ut praesentium dolore et neque commodi ipsum
-            placeat facilis consequatur.
-          </Text>
-          <Text fontStyle={"italic"}>
-            quote from the customer about our awesomeness...
-          </Text>
+      <Link href={`/portfolio#${portLink}`} passHref>
+        <Stack
+          spacing={8}
+          p={20}
+          maxW={["100%", "60%"]}
+          // bg={colorMode === "dark" ? "gray.600" : "gray.200"}
+          ref={feature}
+          pos={"relative"}
+          zIndex={1}
+          className={`animate__animated ${
+            featureInView
+              ? `animate__slideIn${animationDirection}`
+              : "pre_animated"
+          }`}
+          alignItems={"flex-start"}
+          bgImage={bgImage}
+          // bgSize={"cover"}
+          bgPos={"left center"}
+          outline="none"
+          color="white"
+          transition={"opacity 200ms ease"}
+          opacity={0.7}
+          _hover={{
+            opacity: 1,
+          }}
+          cursor={"pointer"}
+        >
+          <Heading size="lg">Project Feature - {name}</Heading>
+          <Stack direction={["column"]} spacing={8}>
+            <Text fontWeight={800}>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
+              sequi maiores molestias beatae aspernatur sunt assumenda esse
+              optio repellendus, voluptate ut praesentium dolore et neque
+              commodi ipsum placeat facilis consequatur.
+            </Text>
+            <Text fontStyle={"italic"}>
+              quote from the customer about our awesomeness...
+            </Text>
+          </Stack>
         </Stack>
-      </Stack>
+      </Link>
     </Flex>
   );
 }
@@ -450,7 +520,7 @@ function MailingList() {
   useEffect(() => {
     const timer = setTimeout(() => {
       onOpen();
-    }, 1200);
+    }, 2400);
 
     return () => clearTimeout(timer);
   }, []);
@@ -460,16 +530,14 @@ function MailingList() {
       <DrawerOverlay />
       <DrawerContent>
         <DrawerHeader borderBottomWidth="1px">
-          Psssttttt 👀 Is Your Website Enabling Your Digital Marketing?
+          Psssttttt 👀 
         </DrawerHeader>
-        <DrawerBody>
+        <DrawerBody pb={10}>
           <Stack spacing={8}>
-            <Text>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit,
-              accusamus dolor. Quos laboriosam, sint eligendi nihil, nisi
-              obcaecati tempora doloribus odio nobis quidem harum ducimus, ad
-              error. Sequi, quibusdam quae!
+            <Text maxW={["80%"]}>
+              It can be tough to stay on top of all the ways to reach your customers online - if your website isn&apos;t opening up new opportunities for building and connecting with your audience, we can show you simple tweaks to start unlocking new opportunities with your current website!
             </Text>
+            <Text>We totally get it if you&apos;re overwhelmed, and not looking to grow right now. But if you are - smash that button below 👇👇</Text>
           </Stack>
         </DrawerBody>
         <DrawerFooter>

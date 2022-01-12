@@ -8,8 +8,6 @@ import { FAQ } from "@/components/FAQ";
 export interface ContactProps {}
 
 export function ContactPage(props: ContactProps) {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
   return (
     <>
       <Head>
@@ -18,7 +16,7 @@ export function ContactPage(props: ContactProps) {
       <Container maxW="container.md" pt={40} pb={20}>
         <Stack spacing={8}>
           <Heading>Contact Us</Heading>
-          <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, sequi assumenda? Quisquam illum qui, dolorum quaerat nulla libero ex beatae neque non eveniet? Neque soluta quas harum, nobis deleniti unde!</Text>
+          <Text>You&apos;re here because your&apos;re looking for the next step, need some help with design, or want to unlock your websites digital marketing potential. We&apos;re ready to explore the possibilities - together.</Text>
           <ContactForm />
         </Stack>
       </Container>

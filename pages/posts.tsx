@@ -68,7 +68,13 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
                 passHref
                 key={post._id}
               >
-                <GridItem colSpan={[3, 1]} p={8}>
+                <GridItem
+                  colSpan={[3, 1]}
+                  p={8}
+                  cursor={"pointer"}
+                  transition="opacity 200ms ease"
+                  _hover={{ opacity: 0.6 }}
+                >
                   <Stack spacing={4}>
                     <Heading>{post.title}</Heading>
                     <Text>

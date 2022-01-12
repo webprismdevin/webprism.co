@@ -19,16 +19,10 @@
 }
 
 .scaled_frame {
-    zoom: 0.75;
-    -moz-transform: scale(0.75);
-    -moz-transform-origin: 0 0;
-    -o-transform: scale(0.75);
-    -o-transform-origin: 0 0;
-    -webkit-transform: scale(0.75);
-    -webkit-transform-origin: 0 0;
-    ::-webkit-scrollbar {
-        display: none;
-      }
+    -webkit-transform:scale(0.8);
+    -moz-transform:scale(0.8);
+    -o-transform:scale(0.8);
+    -ms-transform:scale(0.8);
 }
 
 .fullpage_screenshot {

@@ -34,9 +34,9 @@ const Portfolio = ({ projects }: PortfolioProps) => {
       <Container py={20} centerContent maxW="container.xl">
         <Heading textAlign={"center"}>Portfolio</Heading>
             {projects.map((p: ProjectProps) => (
-                <Box key={p._id} w="full" py={20}>
+                <Box key={p._id} w="full" py={20} id={encodeURIComponent(p.title)}>
                     <AspectRatio ratio={1440/900}>
-                        <iframe src={p.url}/>
+                        <iframe src={p.url} style={{backgroundColor: 'white'}}/>
                     </AspectRatio>
                 </Box>
                   ))}
