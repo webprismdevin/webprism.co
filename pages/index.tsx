@@ -22,7 +22,9 @@ const DynamicLordIcon = dynamic(() => import("../components/LordIcon"), {
   ssr: false,
 });
 
-const OurProcess = dynamic(() => import("../components/OurProcess"));
+const OurProcess = dynamic(() => import("../components/OurProcess"!), {
+  ssr: false
+});
 
 export default function ReHome({ blogPosts }: { blogPosts: [] }) {
   const { colorMode } = useColorMode();
@@ -117,7 +119,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             What We Build
           </Heading>
           <SimpleGrid templateColumns={'repeat(2, 1fr)'} templateRows={'repeat(2, 1fr)'} gap={8}>
-            <GridItem colSpan={1}>
+            <GridItem colSpan={[2, 1]}>
               <Flex gap={6} className="mktg_sites">
                 <DynamicLordIcon
                   trigger="hover"
@@ -137,7 +139,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 </Stack>
               </Flex>
             </GridItem>
-            <GridItem colSpan={1}>
+            <GridItem colSpan={[2, 1]}>
               <Flex gap={6} className="micro-sites">
                 <DynamicLordIcon
                   trigger="hover"
@@ -156,7 +158,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 </Stack>
               </Flex>
             </GridItem>
-            <GridItem colSpan={1}>
+            <GridItem colSpan={[2, 1]}>
               <Flex gap={6} className="web-apps">
                 <DynamicLordIcon
                   trigger="hover"
@@ -181,7 +183,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 </Stack>
               </Flex>
             </GridItem>
-            <GridItem colSpan={1}>
+            <GridItem colSpan={[2, 1]}>
               <Flex gap={6} className="ecomm-sites">
                 <DynamicLordIcon
                   trigger="hover"
@@ -207,18 +209,20 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           </SimpleGrid>
         </Stack>
       </Container>
-      <ProjectFeature
-        dir="left"
-        name="Strong Ox"
-        portLink={"Strong%20Ox"}
-        bgImage={"/projects/strongox.webp"}
-      />
-      <ProjectFeature
-        dir="right"
-        name="Le Marche Reverie"
-        portLink={"La%20Marche%20Reverie"}
-        bgImage={"projects/le-marche.png"}
-      />
+      <Box w="full" overflow={"hidden"}>
+        <ProjectFeature
+          dir="left"
+          name="Strong Ox"
+          portLink={"Strong%20Ox"}
+          bgImage={"/projects/strongox.webp"}
+        />
+        <ProjectFeature
+          dir="right"
+          name="Le Marche Reverie"
+          portLink={"La%20Marche%20Reverie"}
+          bgImage={"projects/le-marche.png"}
+        />
+      </Box>
       {/* Our Process */}
       <Container maxW={["container.xl"]} centerContent py={40}>
         <Heading size="2xl">Our Process</Heading>

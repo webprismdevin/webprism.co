@@ -1,4 +1,4 @@
-import { Box, Stack, Heading, Text } from "@chakra-ui/react";
+import { Box, Stack, Heading, Text, Container } from "@chakra-ui/react";
 import { returnStatement } from "@/lib/processSteps";
 import dynamic from "next/dynamic";
 import { useState } from "react";
@@ -53,7 +53,7 @@ export default function OurProcess() {
   }
 
   if(isMobile) return (
-    <Box w="full">
+    <Container>
       <Text my={4} w="full" textAlign={"center"}>Swipe »</Text>
       <SwipeableViews autoPlay>
       {steps.map((step, index) => (
@@ -70,10 +70,10 @@ export default function OurProcess() {
         </Stack>
       ))}
         </SwipeableViews>
-    </Box>
+    </Container>
   )
 
-  return (
+  if(isBrowser) return (
       <Stack spacing={8} textAlign={"center"}>
           <Stack
             direction={["column", "row"]}
