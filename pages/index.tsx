@@ -38,20 +38,18 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       <Parallax
         renderLayer={percentage => {
           const top = (percentage*100) - 100
-
-          console.log(top);
-
-          return (
+          return (<>
             <iframe
             src={ colorMode === "dark" ? "https://my.spline.design/shapesdarkmode-6d0ed103eb7820d52a67213a7835db2c/" : 
-                                         "https://my.spline.design/shapeslightmode-f3f554768acd3d03d17fcf29ba05938c/"}
+                                         "https://my.spline.design/shapeslightmode-382f8e27efafd96f224a93830b6debcb/"}
             frameBorder="0"
             width="100%"
-            height={1200}
+            height={900}
             style={{position: 'absolute', top: -top*4, left: 0, zIndex: 0}}
           ></iframe>
+                <Box pos="absolute" bg={colorMode === "dark" ? "gray.800" : "#F7F4EE" } bottom={0+top*4} right={0} p={8} h={300} zIndex={1}/>
+          </>
           )
-
         }}
         strength={-100}
         bgImageAlt="NEEDS UPDATE WHEN FINAL SETTLED"
@@ -78,7 +76,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             </Link>
           </Stack>
         </Container>
-      {/* </Box> */}
       </Parallax>
       {/* PAS */}
       <Box py={40}>

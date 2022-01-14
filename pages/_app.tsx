@@ -36,6 +36,9 @@ const customTheme = extendTheme({
     heading: "Montserrat",
     body: "Montserrat",
   },
+  colors: {
+    white: "#F7F4EE"
+  }
 });
 
 if (process.env.NODE_ENV === "production" && process.browser) {
