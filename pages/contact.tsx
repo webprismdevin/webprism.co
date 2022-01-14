@@ -1,6 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
-import ContactForm from "@/components/ContactForm/NewContactForm";
+import ContactForm from "@/components/NewContactForm";
 import { Container, Stack, Heading, Text } from "@chakra-ui/react";
 import { FAQ } from "@/components/FAQ";
 

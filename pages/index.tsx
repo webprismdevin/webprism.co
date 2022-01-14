@@ -8,25 +8,18 @@ import {
   GridItem,
   Text,
   Button,
-  Divider,
   Image,
   useColorMode,
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Parallax } from "react-parallax";
 import { useInView } from "react-intersection-observer";
-
+import { returnStatement } from "@/lib/processSteps";
 import dynamic from "next/dynamic";
 import { FAQ } from "@/components/FAQ";
 import Head from "next/head";
+
 const DynamicLordIcon = dynamic(() => import("../components/LordIcon"), {
   ssr: false,
 });
@@ -35,16 +28,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
   const [step, setStep] = useState(0);
   const { colorMode } = useColorMode();
 
-  function returnStatement() {
-    switch (step) {
-      case 0:
-        return "hover over a step to learn more!";
-      case 7:
-        return "we write a bunch of shit for reasons";
-      default:
-        return "something has gone horribly wrong!";
-    }
-  }
 
   return (
     <>
@@ -53,24 +36,35 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       </Head>
       {/* Hero */}
       <Parallax
-        bgImage={
-          colorMode === "dark"
-            ? "/photos/craft_black.jpg"
-            : "/photos/craft_white.jpg"
-        }
-        style={{
-          width: "100vw",
+        renderLayer={percentage => {
+          const top = (percentage*100) - 100
+
+          console.log(top);
+
+          return (
+            <iframe
+            src={ colorMode === "dark" ? "https://my.spline.design/shapesdarkmode-6d0ed103eb7820d52a67213a7835db2c/" : 
+                                         "https://my.spline.design/shapeslightmode-f3f554768acd3d03d17fcf29ba05938c/"}
+            frameBorder="0"
+            width="100%"
+            height={1200}
+            style={{position: 'absolute', top: -top*4, left: 0, zIndex: 0}}
+          ></iframe>
+          )
+
         }}
-        strength={-200}
+        strength={-100}
         bgImageAlt="NEEDS UPDATE WHEN FINAL SETTLED"
       >
         <Container maxW="container.xl">
           <Stack
             spacing={8}
-            py={60}
+            my={80}
             alignItems={"flex-start"}
             maxW={["full", "60%"]}
             px={"18px"}
+            pos="relative"
+            zIndex={1}
           >
             <Heading size="3xl" fontWeight="800">
               Crafted Websites for Authentic Brands
@@ -79,9 +73,12 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               Unlock new digital marketing opportunities with a custom-tailored
               website designed to showcase your brand.
             </Heading>
-            <Button>Contact Us →</Button>
+            <Link href="/contact" passHref>
+              <Button>Contact Us →</Button>
+            </Link>
           </Stack>
         </Container>
+      {/* </Box> */}
       </Parallax>
       {/* PAS */}
       <Box py={40}>
@@ -107,7 +104,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           <Heading size="2xl" textAlign={"center"}>
             What We&apos;ll Build You
           </Heading>
-          <Divider />
           <Flex gap={6} className="mktg_sites">
             <DynamicLordIcon
               trigger="hover"
@@ -173,7 +169,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 Interested? We built an app to help anyone define their mission,
                 vision &amp; purpose.
               </Text>
-              <Button>View MVP →</Button>
+              <Link href="https://mvp.webprism.co" passHref>
+                <Button>View MVP →</Button>
+              </Link>
             </Stack>
           </Flex>
           <Flex gap={6} className="ecomm-sites">
@@ -192,7 +190,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 further than a blog with guides, video series and courses,
                 podcasts and more!
               </Text>
-              <Button>Learn More →</Button>
+              <Link href="https://supershops.webprism.xyz" passHref>
+                <Button>Learn More →</Button>
+              </Link>
             </Stack>
           </Flex>
         </Stack>
@@ -208,7 +208,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         <Stack spacing={8} textAlign={"center"}>
           <Heading size="2xl">Our Process</Heading>
           <Heading size="md">What you can expect</Heading>
-          <Divider />
           <Stack direction={["column", "row"]} alignItems={"center"}>
             <Box
               onMouseLeave={() => setStep(0)}
@@ -308,53 +307,64 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               <Text>SEO &amp; Maintenance</Text>
             </Box>
           </Stack>
-          <Text>{returnStatement()}</Text>
+          <Text maxW="50%" alignSelf={"center"}>
+            {returnStatement(step)}
+          </Text>
         </Stack>
       </Container>
       {/* Testimonials */}
       <Container pt={40} pb={80} centerContent maxW="container.xl">
         <Stack spacing={6} textAlign={"center"}>
-          <Heading size="2xl">What Our Clients Have Said</Heading>
+          <Heading size="2xl">What Our Clients Say</Heading>
           <Text>We might be biased, but we think they like us.</Text>
         </Stack>
-        <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={8} mt={20}>
+        <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={8} my={20}>
           <GridItem colSpan={[3, 1]}>
             <Stack spacing={4} alignItems={"flex-start"}>
-              <Heading size="lg">Name - Org</Heading>
               <Text>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Aspernatur eos quos fugit alias soluta vero, accusamus dolore
                 cum, ipsam, assumenda ipsa deleniti libero autem vel voluptas
                 laudantium placeat ducimus suscipit.
               </Text>
-              <Button>See Case Study</Button>
+              <Text fontStyle={"italic"}>Damen - Strong Ox</Text>
             </Stack>
           </GridItem>
           <GridItem colSpan={[3, 1]}>
             <Stack spacing={4} alignItems={"flex-start"}>
-              <Heading size="lg">Name - Org</Heading>
               <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aspernatur eos quos fugit alias soluta vero, accusamus dolore
-                cum, ipsam, assumenda ipsa deleniti libero autem vel voluptas
-                laudantium placeat ducimus suscipit.
+                Deciding to work with Devin and Ashley was a pivotal moment for
+                our business. Their expertise, creativity and productivity (not
+                to mention their adaptability and great personalities) are
+                brilliant.
               </Text>
-              <Button>See Case Study</Button>
+              <Text>
+                Their ability to conceptualize our business allows us to trust
+                their insights and guidance. Redoing our website felt like a
+                major undertaking and vulnerable step, but their design
+                competence and workflow made it so positive. Check out our
+                website, it&apos;s awesome!
+              </Text>
+              <Text fontStyle={"italic"}>Brooke &amp; Kristi - StudioLife</Text>
             </Stack>
           </GridItem>
           <GridItem colSpan={[3, 1]}>
             <Stack spacing={4} alignItems={"flex-start"}>
-              <Heading size="lg">Name - Org</Heading>
               <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aspernatur eos quos fugit alias soluta vero, accusamus dolore
-                cum, ipsam, assumenda ipsa deleniti libero autem vel voluptas
-                laudantium placeat ducimus suscipit.
+                Devin and Ashley of @webprism.co redesigned and reworked my
+                website, and I couldn’t be more thrilled. If you’ve been waiting
+                for the right person to do your website rebuild, I cannot
+                recommend @webprism.co enough. It’s a fabulous way to start a
+                new year, and it&apos;s been such a nice gift to myself and my
+                business!
               </Text>
-              <Button>See Case Study</Button>
+              <Text fontStyle={"italic"}>Sarah - The Mint Gardener</Text>
             </Stack>
           </GridItem>
         </SimpleGrid>
+        <Link href="/portfolio" passHref>
+          <Button>See Our Portfolio</Button>
+        </Link>
       </Container>
       {/* Cut out Statement 1 */}
       <Box
@@ -389,6 +399,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             We&apos;ve worked with small teams so far, becoming a marketing
             partner and digital advisor to our clients.
           </Text>
+          <Button mt={8}>About Us →</Button>
         </Container>
       </Parallax>
       {/* Cut out Statement 2 */}
@@ -440,9 +451,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           <FAQ />
         </Container>
       </Box>
-      {process.env.NODE_ENV !== "development" && 
-        <MailingList />
-      }
     </>
   );
 }
@@ -511,42 +519,6 @@ function ProjectFeature({
         </Stack>
       </Link>
     </Flex>
-  );
-}
-
-function MailingList() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      onOpen();
-    }, 2400);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <Drawer placement={"bottom"} onClose={onClose} isOpen={isOpen}>
-      <DrawerOverlay />
-      <DrawerContent>
-        <DrawerHeader borderBottomWidth="1px">
-          Psssttttt 👀 
-        </DrawerHeader>
-        <DrawerBody pb={10}>
-          <Stack spacing={8}>
-            <Text maxW={["80%"]}>
-              It can be tough to stay on top of all the ways to reach your customers online - if your website isn&apos;t opening up new opportunities for building and connecting with your audience, we can show you simple tweaks to start unlocking new opportunities with your current website!
-            </Text>
-            <Text>We totally get it if you&apos;re overwhelmed, and not looking to grow right now. But if you are - smash that button below 👇👇</Text>
-          </Stack>
-        </DrawerBody>
-        <DrawerFooter>
-          <Link href="/booknow" passHref>
-            <Button>Schedule Your Consultation</Button>
-          </Link>
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
   );
 }
 

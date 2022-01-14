@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   Stack,
   Heading,
   Accordion,
@@ -19,7 +18,7 @@ export function FAQ() {
           <h2>
             <AccordionButton>
               <Box flex="1" textAlign="left">
-                Section 1 title
+                What&apos;s it cost to work with WEBPRISM?
               </Box>
               <AccordionIcon />
             </AccordionButton>
@@ -36,7 +35,40 @@ export function FAQ() {
           <h2>
             <AccordionButton>
               <Box flex="1" textAlign="left">
-                Section 2 title
+                Why a custom website vs. a template from Wix/SquareSpace/etc?
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </AccordionPanel>
+        </AccordionItem>
+
+        <AccordionItem>
+          <h2>
+            <AccordionButton>
+              <Box flex="1" textAlign="left">
+                What can I do to get ahead while my site is being built?
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </h2>
+          <AccordionPanel pb={4}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+          <h2>
+            <AccordionButton>
+              <Box flex="1" textAlign="left">
+                How does WEBPRISM unlock marketing opportunities for me?
               </Box>
               <AccordionIcon />
             </AccordionButton>

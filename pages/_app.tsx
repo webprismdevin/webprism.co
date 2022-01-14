@@ -8,11 +8,16 @@ import $ from "jquery/dist/jquery.slim";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { HeadContent } from "@/components/head-content";
-import Footer from "@/components/footer";
+// import Footer from "@/components/footer";
 import { NavBar } from "@/components/NavBar";
+// import { MailingList } from "@/components/MailingList";
+import dynamic from "next/dynamic";
 import "@fontsource/montserrat";
 import "@/styles/styles.scss";
-import 'animate.css';
+import "animate.css";
+
+const MailingList = dynamic(() => import("../components/MailingList"));
+const Footer = dynamic(() => import("../components/footer"))
 
 declare global {
   interface Window {
@@ -28,10 +33,10 @@ const customTheme = extendTheme({
   useSystemColorMode: false,
   initialColorMode: "light",
   fonts: {
-    heading: 'Montserrat',
-    body: 'Montserrat',
-  }
-})
+    heading: "Montserrat",
+    body: "Montserrat",
+  },
+});
 
 if (process.env.NODE_ENV === "production" && process.browser) {
   console.log("GTM fired");
@@ -71,10 +76,10 @@ function CustomApp({ Component, pageProps }: AppProps) {
       }, 10);
     };
 
-    if(process.env.NODE_ENV !== 'development'){
+    if (process.env.NODE_ENV !== "development") {
       $("body")
-      .on("touchstart" as any, fun)
-      .on("mousedown" as any, fun);
+        .on("touchstart" as any, fun)
+        .on("mousedown" as any, fun);
     }
   }, []);
 
@@ -95,13 +100,14 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <HeadContent />
       </Head>
-        <ChakraProvider theme={customTheme}>
-          <NavBar />
-          <main>
-            <Component {...pageProps} />
-          </main>
-          <Footer />
-        </ChakraProvider>
+      <ChakraProvider theme={customTheme}>
+        <NavBar />
+        <main>
+          <Component {...pageProps} />
+        </main>
+        <Footer />
+        <MailingList />
+      </ChakraProvider>
     </>
   );
 }

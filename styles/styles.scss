@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
   // background-color: black;
 }
 
@@ -10,127 +11,6 @@ body {
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-.page-title {
-  padding: 30px;
-  text-align: center;
-  font-size: 3rem;
-  h1 {
-    line-height: 3.2rem;
-    font-weight: bold;
-  }
-}
-
-.menu_background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-.align-margin-fix {
-  margin: 0em 3.5em;
-}
-
-.one_k_wide {
-  max-width: 1000px;
-}
-
-.webprism-box {
-  box-shadow: 12px 12px 18px var(--hot-pink);
-  border: 2px solid white;
-  padding: 3rem;
-}
-
-.pre_animated {
-  visibility: hidden;
-}
-
-/* burger menu */
-.bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  right: 1.5em;
-  top: 36px;
-}
-
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: #fff;
-}
-
-/* Color/shape of burger icon bars on hover*/
-.bm-burger-bars-hover {
-  background: var(--hot-pink);
-  opacity: 1 !important;
-}
-
-/* Position and sizing of clickable cross button */
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-}
-
-/* Color/shape of close button cross */
-.bm-cross {
-  background: #bdc3c7;
-}
-
-/*
-Sidebar wrapper styles
-Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-*/
-.bm-menu-wrap {
-  position: fixed;
-  height: 100%;
-}
-
-/* General sidebar styles */
-.bm-menu {
-  background-image: url(/menu_img_5.webp);
-  background-size: cover;
-  background-position: center;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
-}
-
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: #373a47;
-}
-
-/* Wrapper for item list */
-.bm-item-list {
-  color: #333;
-  padding: 0.8em;
-}
-
-/* Individual item */
-.bm-item {
-  display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-/* Styling of overlay */
-.bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.menu-item {
-  color: white;
-  font-weight: bolder;
-}
-
-@media (max-width: 768px) {
-  body {
-    padding: 0px 18px;
-  }
-  .align-margin-fix {
-    margin: 0em 0.75em;
-  }
 }
 
 //gun fun pop
@@ -144,6 +24,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 	z-index: 999999999;
 	animation: joy 1s steps(28);
 }
+
 
 @keyframes joy {
 	0% {

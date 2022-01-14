@@ -29,7 +29,7 @@ export default async function handler(
 
   console.log(emailText)
 
-  const recipients = [new Recipient("devin@webprism.co", "WEBPRISM Team")];
+  const recipients = [new Recipient("team@webprism.co", "WEBPRISM Team")];
 
   const emailParams = new EmailParams()
     .setFrom("website@webprism.co")

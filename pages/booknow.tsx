@@ -1,6 +1,7 @@
 import Head from "next/head";
-import styles from "@/styles/booknow.module.scss";
 import { Box, Text, Heading } from "@chakra-ui/react";
+import styles from "@/styles/booknow.module.scss";
+
 
 export interface ContactProps {}
 
