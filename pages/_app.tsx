@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { AppProps } from "next/app";
-import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
 import TagManager from "react-gtm-module";
 import $ from "jquery/dist/jquery.slim";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { HeadContent } from "@/components/head-content";
-// import Footer from "@/components/footer";
-import { NavBar } from "@/components/NavBar";
-// import { MailingList } from "@/components/MailingList";
 import dynamic from "next/dynamic";
 import "@fontsource/montserrat";
 import "@/styles/styles.scss";
 import "animate.css";
 
+const NavBar = dynamic(() => import("../components/NavBar"))
 const MailingList = dynamic(() => import("../components/MailingList"));
 const Footer = dynamic(() => import("../components/footer"))
 
