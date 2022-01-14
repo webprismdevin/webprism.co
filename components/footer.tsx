@@ -8,7 +8,9 @@ import {
   SimpleGrid,
   GridItem,
   Stack,
+  Icon
 } from "@chakra-ui/react";
+import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -23,8 +25,22 @@ const Footer = () => {
           >
             <GridItem colSpan={1} rowSpan={1}>
               <Heading size="lg">WEBPRISM</Heading>
+              <Stack alignItems={"flex-start"} mt={8}>
+                <Heading size="sm">Connect with us</Heading>
+                <Stack direction="row" spacing={4}>
+                  <Link href="https://www.instagram.com/webprism.co/" passHref>
+                    <Icon as={FaFacebookF} h={8} w={8} />
+                  </Link>
+                  <Link href="https://www.linkedin.com/company/webprism/" passHref>
+                  <Icon as={FaLinkedin} h={8} w={8} />
+                  </Link>
+                  <Link href="https://www.facebook.com/webprismco" passHref>
+                  <Icon as={FaInstagram} h={8} w={8} />
+                  </Link>
+                </Stack>
+              </Stack>
             </GridItem>
-            <GridItem colSpan={2} rowSpan={1} textAlign={"right"}>
+            <GridItem colSpan={4} rowSpan={1} textAlign={"right"}>
               <Stack>
                 <Link href="/posts" passHref>
                   <Text>Blog</Text>
@@ -41,13 +57,6 @@ const Footer = () => {
                 <Link href="/contact" passHref>
                   <Text>Contact Us</Text>
                 </Link>
-              </Stack>
-            </GridItem>
-            <GridItem colSpan={2} rowSpan={1} textAlign={"right"}>
-              <Stack>
-                <Text>Instagram</Text>
-                <Text>LinkedIn</Text>
-                <Text>Facebook</Text>
               </Stack>
             </GridItem>
           </SimpleGrid>

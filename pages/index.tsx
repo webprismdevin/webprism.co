@@ -111,90 +111,100 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         </Container>
       </Box>
       {/* Site Types */}
-      <Container py={20} maxW="container.lg">
+      <Container py={20} maxW="container.xl">
         <Stack spacing={16}>
           <Heading size="2xl" textAlign={"center"}>
             What We Build
           </Heading>
-          <Flex gap={6} className="mktg_sites">
-            <DynamicLordIcon
-              trigger="hover"
-              src="https://cdn.lordicon.com/lupuorrc.json"
-              target="div.mktg_sites"
-              height={128}
-              width={128}
-            />
-            <Stack spacing={8}>
-              <Heading size="lg">Marketing Sites</Heading>
-              <Text>
-                Your business&apos;s digital marketing home base. Everything
-                from your services &amp; offerings, to your story, to resources
-                for your potential and current clients live on your marketing
-                site.
-              </Text>
-            </Stack>
-          </Flex>
-          <Flex gap={6} className="micro-sites">
-            <DynamicLordIcon
-              trigger="hover"
-              src="https://cdn.lordicon.com/uukerzzv.json"
-              target="div.micro-sites"
-              height={128}
-              width={128}
-            />
-            <Stack spacing={8}>
-              <Heading size="lg">Micro-sites &amp; Landing Pages</Heading>
-              <Text>
-                A specifically designed, usually single page, websites for a
-                specific event, function, or marketing purpose, like gathering
-                leads for a webinar.
-              </Text>
-            </Stack>
-          </Flex>
-          <Flex gap={6} className="web-apps">
-            <DynamicLordIcon
-              trigger="hover"
-              src="https://cdn.lordicon.com/fqrjldna.json"
-              target="div.web-apps"
-              height={128}
-              width={128}
-            />
-            <Stack spacing={8} alignItems={"flex-start"}>
-              <Heading size="lg">Web Applications</Heading>
-              <Text>
-                Turn an idea into a full-fledged application online for your
-                business. We can even turn your new web application into a
-                mobile app!
-              </Text>
-              <Link href="https://mvp.webprism.co" passHref>
-                <Text textDecor={"underline"} cursor={"pointer"}>
-                  We built an app to help anyone define their mission, vision
-                  &amp; purpose.
-                </Text>
-              </Link>
-            </Stack>
-          </Flex>
-          <Flex gap={6} className="ecomm-sites">
-            <DynamicLordIcon
-              trigger="hover"
-              src="https://cdn.lordicon.com/nlzvfogq.json"
-              target="div.ecomm-sites"
-              height={128}
-              width={128}
-            />
-            <Stack spacing={8} alignItems={"flex-start"}>
-              <Heading size="lg">E-Commerce Sites</Heading>
-              <Text>
-                Sell your products online with a custom shopping experience that
-                allows ultimate flexibility for your content strategy. Go
-                further than a blog with guides, video series and courses,
-                podcasts and more!
-              </Text>
-              <Link href="https://supershops.webprism.xyz" passHref>
-                <Button>Learn More →</Button>
-              </Link>
-            </Stack>
-          </Flex>
+          <SimpleGrid templateColumns={'repeat(2, 1fr)'} templateRows={'repeat(2, 1fr)'} gap={8}>
+            <GridItem colSpan={1}>
+              <Flex gap={6} className="mktg_sites">
+                <DynamicLordIcon
+                  trigger="hover"
+                  src="https://cdn.lordicon.com/lupuorrc.json"
+                  target="div.mktg_sites"
+                  height={128}
+                  width={128}
+                />
+                <Stack spacing={8}>
+                  <Heading size="lg">Marketing Sites</Heading>
+                  <Text>
+                    Your business&apos;s digital marketing home base. Everything
+                    from your services &amp; offerings, to your story, to
+                    resources for your potential and current clients live on
+                    your marketing site.
+                  </Text>
+                </Stack>
+              </Flex>
+            </GridItem>
+            <GridItem colSpan={1}>
+              <Flex gap={6} className="micro-sites">
+                <DynamicLordIcon
+                  trigger="hover"
+                  src="https://cdn.lordicon.com/uukerzzv.json"
+                  target="div.micro-sites"
+                  height={128}
+                  width={128}
+                />
+                <Stack spacing={8}>
+                  <Heading size="lg">Micro-sites &amp; Landing Pages</Heading>
+                  <Text>
+                    A specifically designed, usually single page, websites for a
+                    specific event, function, or marketing purpose, like
+                    gathering leads for a webinar.
+                  </Text>
+                </Stack>
+              </Flex>
+            </GridItem>
+            <GridItem colSpan={1}>
+              <Flex gap={6} className="web-apps">
+                <DynamicLordIcon
+                  trigger="hover"
+                  src="https://cdn.lordicon.com/fqrjldna.json"
+                  target="div.web-apps"
+                  height={128}
+                  width={128}
+                />
+                <Stack spacing={8} alignItems={"flex-start"}>
+                  <Heading size="lg">Web Applications</Heading>
+                  <Text>
+                    Turn an idea into a full-fledged application online for your
+                    business. We can even turn your new web application into a
+                    mobile app!
+                  </Text>
+                  <Link href="https://mvp.webprism.co" passHref>
+                    <Text textDecor={"underline"} cursor={"pointer"}>
+                      We built an app to help anyone define their mission,
+                      vision &amp; purpose.
+                    </Text>
+                  </Link>
+                </Stack>
+              </Flex>
+            </GridItem>
+            <GridItem colSpan={1}>
+              <Flex gap={6} className="ecomm-sites">
+                <DynamicLordIcon
+                  trigger="hover"
+                  src="https://cdn.lordicon.com/nlzvfogq.json"
+                  target="div.ecomm-sites"
+                  height={128}
+                  width={128}
+                />
+                <Stack spacing={8} alignItems={"flex-start"}>
+                  <Heading size="lg">E-Commerce Sites</Heading>
+                  <Text>
+                    Sell your products online with a custom shopping experience
+                    that allows ultimate flexibility for your content strategy.
+                    Go further than a blog with guides, video series and
+                    courses, podcasts and more!
+                  </Text>
+                  <Link href="https://supershops.webprism.xyz" passHref>
+                    <Button>Learn More →</Button>
+                  </Link>
+                </Stack>
+              </Flex>
+            </GridItem>
+          </SimpleGrid>
         </Stack>
       </Container>
       <ProjectFeature
@@ -248,7 +258,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 building the site and creating graphics for longer term
                 marketing.
               </Text>
-              <Text fontStyle={"italic"} fontWeight={600}>Damen - Strong Ox</Text>
+              <Text fontStyle={"italic"} fontWeight={600}>
+                Damen - Strong Ox
+              </Text>
             </Stack>
           </GridItem>
           <GridItem colSpan={[3, 1]}>
@@ -266,7 +278,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 competence and workflow made it so positive. Check out our
                 website, it&apos;s awesome!
               </Text>
-              <Text fontStyle={"italic"} fontWeight={600}>Brooke &amp; Kristi - StudioLife</Text>
+              <Text fontStyle={"italic"} fontWeight={600}>
+                Brooke &amp; Kristi - StudioLife
+              </Text>
             </Stack>
           </GridItem>
           <GridItem colSpan={[3, 1]}>
@@ -279,7 +293,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 new year, and it&apos;s been such a nice gift to myself and my
                 business!
               </Text>
-              <Text fontStyle={"italic"} fontWeight={600}>Sarah - The Mint Gardener</Text>
+              <Text fontStyle={"italic"} fontWeight={600}>
+                Sarah - The Mint Gardener
+              </Text>
             </Stack>
           </GridItem>
         </SimpleGrid>
