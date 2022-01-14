@@ -11,11 +11,9 @@ import {
   Image,
   useColorMode,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Parallax } from "react-parallax";
 import { useInView } from "react-intersection-observer";
-import { returnStatement } from "@/lib/processSteps";
 import dynamic from "next/dynamic";
 import { FAQ } from "@/components/FAQ";
 import Head from "next/head";
@@ -24,10 +22,10 @@ const DynamicLordIcon = dynamic(() => import("../components/LordIcon"), {
   ssr: false,
 });
 
-export default function ReHome({ blogPosts }: { blogPosts: [] }) {
-  const [step, setStep] = useState(0);
-  const { colorMode } = useColorMode();
+const OurProcess = dynamic(() => import("../components/OurProcess"));
 
+export default function ReHome({ blogPosts }: { blogPosts: [] }) {
+  const { colorMode } = useColorMode();
 
   return (
     <>
@@ -36,20 +34,37 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       </Head>
       {/* Hero */}
       <Parallax
-        renderLayer={percentage => {
-          const top = (percentage*100) - 100
-          return (<>
-            <iframe
-            src={ colorMode === "dark" ? "https://my.spline.design/shapesdarkmode-6d0ed103eb7820d52a67213a7835db2c/" : 
-                                         "https://my.spline.design/shapeslightmode-382f8e27efafd96f224a93830b6debcb/"}
-            frameBorder="0"
-            width="100%"
-            height={900}
-            style={{position: 'absolute', top: -top*4, left: 0, zIndex: 0}}
-          ></iframe>
-                <Box pos="absolute" bg={colorMode === "dark" ? "gray.800" : "#F7F4EE" } bottom={0+top*4} right={0} p={8} h={300} zIndex={1}/>
-          </>
-          )
+        renderLayer={(percentage) => {
+          const top = percentage * 100 - 100;
+          return (
+            <>
+              <iframe
+                src={
+                  colorMode === "dark"
+                    ? "https://my.spline.design/shapesdarkmode-6d0ed103eb7820d52a67213a7835db2c/"
+                    : "https://my.spline.design/shapeslightmode-382f8e27efafd96f224a93830b6debcb/"
+                }
+                frameBorder="0"
+                width="100%"
+                height={900}
+                style={{
+                  position: "absolute",
+                  top: -top * 4,
+                  left: 0,
+                  zIndex: 0,
+                }}
+              ></iframe>
+              <Box
+                pos="absolute"
+                bg={colorMode === "dark" ? "gray.800" : "#F7F4EE"}
+                bottom={0 + top * 4}
+                right={0}
+                p={8}
+                h={300}
+                zIndex={1}
+              />
+            </>
+          );
         }}
         strength={-100}
         bgImageAlt="NEEDS UPDATE WHEN FINAL SETTLED"
@@ -95,7 +110,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           <Image alt="" />
         </Container>
       </Box>
-      {/* Site Types 1 */}
+      {/* Site Types */}
       <Container py={20} maxW="container.lg">
         <Stack spacing={16}>
           <Heading size="2xl" textAlign={"center"}>
@@ -136,17 +151,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               </Text>
             </Stack>
           </Flex>
-        </Stack>
-      </Container>
-      <ProjectFeature
-        dir="right"
-        name="Le Marche Reverie"
-        portLink={"La%20Marche%20Reverie"}
-        bgImage={"projects/le-marche.png"}
-      />
-      {/* Site Types 2 */}
-      <Container py={20} maxW="container.lg">
-        <Stack spacing={16}>
           <Flex gap={6} className="web-apps">
             <DynamicLordIcon
               trigger="hover"
@@ -162,12 +166,11 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 business. We can even turn your new web application into a
                 mobile app!
               </Text>
-              <Text>
-                Interested? We built an app to help anyone define their mission,
-                vision &amp; purpose.
-              </Text>
               <Link href="https://mvp.webprism.co" passHref>
-                <Button>View MVP →</Button>
+                <Text textDecor={"underline"} cursor={"pointer"}>
+                  We built an app to help anyone define their mission, vision
+                  &amp; purpose.
+                </Text>
               </Link>
             </Stack>
           </Flex>
@@ -200,114 +203,15 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         portLink={"Strong%20Ox"}
         bgImage={"/projects/strongox.webp"}
       />
+      <ProjectFeature
+        dir="right"
+        name="Le Marche Reverie"
+        portLink={"La%20Marche%20Reverie"}
+        bgImage={"projects/le-marche.png"}
+      />
       {/* Our Process */}
       <Container maxW="container.xl" centerContent py={40}>
-        <Stack spacing={8} textAlign={"center"}>
-          <Heading size="2xl">Our Process</Heading>
-          <Heading size="md">What you can expect</Heading>
-          <Stack direction={["column", "row"]} alignItems={"center"}>
-            <Box
-              onMouseLeave={() => setStep(0)}
-              onMouseEnter={() => setStep(1)}
-            >
-              <DynamicLordIcon
-                target=""
-                src="https://cdn.lordicon.com/zpxybbhl.json"
-                trigger="hover"
-                height={96}
-                width={96}
-              />
-              <Text>Consultation</Text>
-            </Box>
-            <Text fontSize="6xl">→</Text>
-            <Box
-              onMouseLeave={() => setStep(0)}
-              onMouseEnter={() => setStep(2)}
-            >
-              <DynamicLordIcon
-                target=""
-                src="https://cdn.lordicon.com/iltqorsz.json"
-                trigger="hover"
-                height={96}
-                width={96}
-              />
-              <Text>Brand Discovery</Text>
-            </Box>
-            <Text fontSize="6xl">→</Text>
-            <Box
-              onMouseLeave={() => setStep(0)}
-              onMouseEnter={() => setStep(3)}
-            >
-              <DynamicLordIcon
-                target=""
-                src="https://cdn.lordicon.com/puvaffet.json"
-                trigger="hover"
-                height={96}
-                width={96}
-              />
-              <Text>Copy Writing</Text>
-            </Box>
-            <Text fontSize="6xl">→</Text>
-            <Box
-              onMouseLeave={() => setStep(0)}
-              onMouseEnter={() => setStep(4)}
-            >
-              <DynamicLordIcon
-                target=""
-                src="https://cdn.lordicon.com/wloilxuq.json"
-                trigger="hover"
-                height={96}
-                width={96}
-              />
-              <Text>Site Design</Text>
-            </Box>
-            <Text fontSize="6xl">→</Text>
-            <Box
-              onMouseLeave={() => setStep(0)}
-              onMouseEnter={() => setStep(5)}
-            >
-              <DynamicLordIcon
-                target=""
-                src="https://cdn.lordicon.com/ybfcwnqv.json"
-                trigger="hover"
-                height={96}
-                width={96}
-              />
-              <Text>Development</Text>
-            </Box>
-            <Text fontSize="6xl">→</Text>
-            <Box
-              onMouseLeave={() => setStep(0)}
-              onMouseEnter={() => setStep(6)}
-            >
-              <DynamicLordIcon
-                target=""
-                src="https://cdn.lordicon.com/rqsvgwdj.json"
-                trigger="hover"
-                height={96}
-                width={96}
-              />
-              <Text>Launch</Text>
-            </Box>
-            <Text fontSize="6xl">→</Text>
-            <Box
-              onMouseLeave={() => setStep(0)}
-              onMouseEnter={() => setStep(7)}
-            >
-              <DynamicLordIcon
-                target=""
-                src="https://cdn.lordicon.com/gqdnbnwt.json"
-                trigger="hover"
-                height={96}
-                width={96}
-              />
-              <Text>SEO &amp; Maintenance</Text>
-            </Box>
-          </Stack>
-          <Text maxW="50%" alignSelf={"center"}>
-            {returnStatement(step)}
-          </Text>
-        </Stack>
+        <OurProcess />
       </Container>
       {/* Testimonials */}
       <Container pt={40} pb={80} centerContent maxW="container.xl">
@@ -319,10 +223,12 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           <GridItem colSpan={[3, 1]}>
             <Stack spacing={4} alignItems={"flex-start"}>
               <Text>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Aspernatur eos quos fugit alias soluta vero, accusamus dolore
-                cum, ipsam, assumenda ipsa deleniti libero autem vel voluptas
-                laudantium placeat ducimus suscipit.
+                Working with WEBPRISM was a great decision - they were able to
+                build my website quickly, help me define my branding and showed
+                the personality I wanted to show for the Strong Ox brand. They
+                helped me with everything from getting Shopify set up to
+                building the site and creating graphics for longer term
+                marketing.
               </Text>
               <Text fontStyle={"italic"}>Damen - Strong Ox</Text>
             </Stack>
@@ -479,7 +385,6 @@ function ProjectFeature({
           spacing={8}
           p={20}
           maxW={["100%", "60%"]}
-          // bg={colorMode === "dark" ? "gray.600" : "gray.200"}
           ref={feature}
           pos={"relative"}
           zIndex={1}
@@ -490,7 +395,6 @@ function ProjectFeature({
           }`}
           alignItems={"flex-start"}
           bgImage={bgImage}
-          // bgSize={"cover"}
           bgPos={"left center"}
           outline="none"
           color="white"

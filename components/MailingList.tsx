@@ -34,7 +34,7 @@ export default function MailingList() {
     }
       
     return (
-      <Drawer placement={"top"} onClose={onClose} isOpen={isOpen}>
+      <Drawer placement={"bottom"} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerHeader borderBottomWidth="1px">
