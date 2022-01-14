@@ -114,7 +114,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       <Container py={20} maxW="container.lg">
         <Stack spacing={16}>
           <Heading size="2xl" textAlign={"center"}>
-            What We&apos;ll Build You
+            What We Build
           </Heading>
           <Flex gap={6} className="mktg_sites">
             <DynamicLordIcon
@@ -210,9 +210,27 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         bgImage={"projects/le-marche.png"}
       />
       {/* Our Process */}
-      <Container maxW="container.xl" centerContent py={40}>
+      <Container maxW={["container.xl"]} centerContent py={40}>
+        <Heading size="2xl">Our Process</Heading>
+        <Heading size="md" mb={8}>
+          What you can expect
+        </Heading>
         <OurProcess />
       </Container>
+      {/* Cut out Statement 1 */}
+      <Box
+        py={40}
+        bg={colorMode === "dark" ? "gray.600" : "gray.900"}
+        color="white"
+      >
+        <Container maxW="container.lg" centerContent>
+          <Text fontSize="2xl" textAlign={"center"}>
+            We work together to understand your brand goals and create a
+            strategy to get the most out of your new website and marketing
+            platform so that you can grow your audience and your business.
+          </Text>
+        </Container>
+      </Box>
       {/* Testimonials */}
       <Container pt={40} pb={80} centerContent maxW="container.xl">
         <Stack spacing={6} textAlign={"center"}>
@@ -230,7 +248,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 building the site and creating graphics for longer term
                 marketing.
               </Text>
-              <Text fontStyle={"italic"}>Damen - Strong Ox</Text>
+              <Text fontStyle={"italic"} fontWeight={600}>Damen - Strong Ox</Text>
             </Stack>
           </GridItem>
           <GridItem colSpan={[3, 1]}>
@@ -248,7 +266,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 competence and workflow made it so positive. Check out our
                 website, it&apos;s awesome!
               </Text>
-              <Text fontStyle={"italic"}>Brooke &amp; Kristi - StudioLife</Text>
+              <Text fontStyle={"italic"} fontWeight={600}>Brooke &amp; Kristi - StudioLife</Text>
             </Stack>
           </GridItem>
           <GridItem colSpan={[3, 1]}>
@@ -261,7 +279,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 new year, and it&apos;s been such a nice gift to myself and my
                 business!
               </Text>
-              <Text fontStyle={"italic"}>Sarah - The Mint Gardener</Text>
+              <Text fontStyle={"italic"} fontWeight={600}>Sarah - The Mint Gardener</Text>
             </Stack>
           </GridItem>
         </SimpleGrid>
@@ -269,20 +287,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           <Button>See Our Portfolio</Button>
         </Link>
       </Container>
-      {/* Cut out Statement 1 */}
-      <Box
-        py={40}
-        bg={colorMode === "dark" ? "gray.600" : "gray.900"}
-        color="white"
-      >
-        <Container maxW="container.lg" centerContent>
-          <Text fontSize="2xl" textAlign={"center"}>
-            We work together to understand your brand goals and create a
-            strategy to get the most out of your new website and marketing
-            platform so that you can grow your audience and your business.
-          </Text>
-        </Container>
-      </Box>
       {/* We're WEBPRISM */}
       <Parallax
         blur={{ min: -5, max: 15 }}
@@ -294,8 +298,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       >
         <Container maxW="container.xl" py={40}>
           <Heading size="lg">we&apos;re</Heading>
-          <Heading size={"4xl"}>WEBPRISM</Heading>
-          <Text mt={8} maxW={"60%"}>
+          <Heading size={"3xl"}>WEBPRISM</Heading>
+          <Text mt={8} maxW={["full", "60%"]}>
             We build websites that unlock online marketing for our customers.
             We&apos;ll also help our customers support and market their website
             after launch with SEO, a content strategy, and social advertising.
@@ -399,10 +403,10 @@ function ProjectFeature({
           outline="none"
           color="white"
           transition={"opacity 200ms ease"}
-          opacity={0.7}
-          _hover={{
-            opacity: 1,
-          }}
+          // opacity={0.7}
+          // _hover={{
+          //   opacity: 1,
+          // }}
           cursor={"pointer"}
         >
           <Heading size="lg">Project Feature - {name}</Heading>

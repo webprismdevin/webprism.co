@@ -42,7 +42,7 @@ export default function MailingList() {
           </DrawerHeader>
           <DrawerBody pb={10}>
             <Flex justifyContent={"center"}>
-              <Stack spacing={8} maxW="container.md">
+              <Stack spacing={8} maxW="container.lg"s>
                 <Text>
                   It can be tough to stay on top of all the ways to reach your customers online - if your website isn&apos;t opening up new opportunities for building and connecting with your audience, we can show you simple tweaks to start unlocking new opportunities with your current website!
                 </Text>

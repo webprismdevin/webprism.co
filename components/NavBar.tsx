@@ -107,7 +107,6 @@ function MobileMenu({ colorMode, toggleColorMode }: any) {
               </Link>
             </Stack>
           </DrawerBody>
-
           {/* <DrawerFooter>
             <Link href="/contact" passHref>
               <Button>Contact</Button>
