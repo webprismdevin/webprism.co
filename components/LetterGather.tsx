@@ -10,6 +10,9 @@ import {
   ButtonProps,
   Button,
   Icon,
+  useColorMode,
+  Image,
+  ImageProps,
 } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import { useEffect } from "react";
@@ -20,6 +23,7 @@ const MotionHeading = motion<HeadingProps>(Heading);
 const MotionContainer = motion<ContainerProps>(Container);
 const MotionText = motion<TextProps>(Text);
 const MotionButton = motion<ButtonProps>(Button);
+const MotionImage = motion<ImageProps>(Image);
 
 export default function LetterGather() {
   const letters = ["W", "E", "B", "P", "R", "I", "S", "M"];
@@ -27,11 +31,9 @@ export default function LetterGather() {
   const { ref, inView } = useInView({
     threshold: isBrowser ? 1 : 0.8,
   });
-
-  // controls.start("rest")
+  const { colorMode } = useColorMode();
 
   useEffect(() => {
-    console.log(inView);
     if (inView) controls.start("hover");
     if (!inView) controls.start("rest");
   }, [inView]);
@@ -58,6 +60,7 @@ export default function LetterGather() {
     },
     hover: {
       opacity: 1,
+      transition: { delay: 0.3}
     },
   };
 
@@ -68,22 +71,25 @@ export default function LetterGather() {
       animate={controls}
       py={40}
       ref={ref}
+      pos={"relative"}
     >
-      <MotionHeading size="md" variants={opacityMotion}>
-        WE&apos;RE
+      <MotionHeading size="lg" variants={opacityMotion}>
+        we&apos;re
       </MotionHeading>
       <Box w="full" mt={8}>
         <MotionHeading
           size="3xl"
           display={"inline-block"}
           variants={{
-            rest: isBrowser ? {
-              x: 500,
-              y: -280,
-            } : {
-              x: 80,
-              y: -180
-            },
+            rest: isBrowser
+              ? {
+                  x: 500,
+                  y: -280,
+                }
+              : {
+                  x: 80,
+                  y: -180,
+                },
             hover: hoverMotion,
           }}
         >
@@ -93,13 +99,15 @@ export default function LetterGather() {
           size="3xl"
           display={"inline-block"}
           variants={{
-            rest: isBrowser ? {
-              x: 200,
-              y: 0,
-            } : {
-              x: 200,
-              y: -123
-            },
+            rest: isBrowser
+              ? {
+                  x: 200,
+                  y: 0,
+                }
+              : {
+                  x: 200,
+                  y: -123,
+                },
             hover: hoverMotion,
           }}
         >
@@ -109,13 +117,15 @@ export default function LetterGather() {
           size="3xl"
           display={"inline-block"}
           variants={{
-            rest: isBrowser ? {
-              x: 300,
-              y: -80,
-            } : {
-              x: 100,
-              y: -80
-            },
+            rest: isBrowser
+              ? {
+                  x: 300,
+                  y: -80,
+                }
+              : {
+                  x: 100,
+                  y: -80,
+                },
             hover: hoverMotion,
           }}
         >
@@ -125,13 +135,15 @@ export default function LetterGather() {
           size="3xl"
           display={"inline-block"}
           variants={{
-            rest: isBrowser ? {
-              x: 400,
-              y: 123,
-            } : {
-              x: -46,
-              y: 123
-            },
+            rest: isBrowser
+              ? {
+                  x: 400,
+                  y: 123,
+                }
+              : {
+                  x: -46,
+                  y: 123,
+                },
             hover: hoverMotion,
           }}
         >
@@ -141,13 +153,15 @@ export default function LetterGather() {
           size="3xl"
           display={"inline-block"}
           variants={{
-            rest: isBrowser ? {
-              x: 456,
-              y: 65,
-            } : {
-              x: 120,
-              y: 65
-            },
+            rest: isBrowser
+              ? {
+                  x: 456,
+                  y: 65,
+                }
+              : {
+                  x: 120,
+                  y: 65,
+                },
             hover: hoverMotion,
           }}
         >
@@ -157,13 +171,15 @@ export default function LetterGather() {
           size="3xl"
           display={"inline-block"}
           variants={{
-            rest: isBrowser ? {
-              x: 690,
-              y: -100,
-            } : {
-              x: 0,
-              y: 100
-            },
+            rest: isBrowser
+              ? {
+                  x: 690,
+                  y: -100,
+                }
+              : {
+                  x: 0,
+                  y: 100,
+                },
             hover: hoverMotion,
           }}
         >
@@ -173,13 +189,15 @@ export default function LetterGather() {
           size="3xl"
           display={"inline-block"}
           variants={{
-            rest: isBrowser ? {
-              x: 600,
-              y: 120,
-            } : {
-              x: 0,
-              y: 160
-            },
+            rest: isBrowser
+              ? {
+                  x: 600,
+                  y: 120,
+                }
+              : {
+                  x: 0,
+                  y: 160,
+                },
             hover: hoverMotion,
           }}
         >
@@ -213,6 +231,30 @@ export default function LetterGather() {
       >
         About Us
       </MotionButton>
+      <MotionImage
+        variants={{
+          rest: {
+            opacity: 0,
+            scale: 0
+          },
+          hover: {
+            opacity: 1,
+            scale: 1,
+            transition: { delay: 0.5}
+          }
+        }}
+        pos="absolute"
+        right={0}
+        top={[0, 200]}
+        src={
+          colorMode === "dark"
+            ? "/logos/webprism_diamond_white.svg"
+            : "/logos/webprism_diamond.svg"
+        }
+        h={48}
+        w={48}
+        alt="WEBPRISM diamond"
+      />
     </MotionContainer>
   );
 }

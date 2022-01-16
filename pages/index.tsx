@@ -21,6 +21,7 @@ import PainPoints from "@/components/PainPoints";
 import { FaArrowRight } from "react-icons/fa";
 import ProjectFeature from "@/components/ProjectFeature";
 import LetterGather from "@/components/LetterGather";
+import { useInView } from "react-intersection-observer";
 
 const DynamicLordIcon = dynamic(() => import("../components/LordIcon"), {
   ssr: false,
@@ -180,8 +181,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                   </Text>
                   <Link href="https://mvp.webprism.co" passHref>
                     <Text textDecor={"underline"} cursor={"pointer"}>
-                      We built an app to help anyone define their mission,
-                      vision &amp; purpose.
+                      We built an app to help anyone define their mission.
                     </Text>
                   </Link>
                 </Stack>
@@ -201,8 +201,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                   <Text>
                     Sell your products online with a custom shopping experience
                     that allows ultimate flexibility for your content strategy.
-                    Go further than a blog with guides, video series and
-                    courses, podcasts and more!
                   </Text>
                   <Link href="https://supershops.webprism.xyz" passHref>
                     <Text textDecor={"underline"} cursor={"pointer"}>
@@ -215,31 +213,32 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           </SimpleGrid>
         </Stack>
       </Container>
-      <Container
-        maxW="container.xl"
-        minH={"630px"}
-        pos="relative"
-        overflow={"hidden"}
-      >
-        <Box mt={20}>
-          <ProjectFeature />
-        </Box>
-        <Image
-          src={"/projects/le-marche.png"}
-          alt=""
-          pos="absolute"
-          top={-20}
-          right={-20}
-          zIndex={-1}
-        />
-      </Container>
+      {/* Project Feature 1 */}
+      <Box py={40}>
+        <Container
+          maxW="container.xl"
+          minH={"630px"}
+          pos="relative"
+          overflow={"hidden"}
+        >
+          <Box mt={20}>
+            <ProjectFeature />
+          </Box>
+          <Image
+            src={"/projects/le-marche.png"}
+            alt=""
+            pos="absolute"
+            top={-20}
+            right={-20}
+            zIndex={-1}
+          />
+        </Container>
+      </Box>
       {/* Our Process */}
       <Container maxW={["container.xl"]} centerContent py={40}>
         <Stack spacing={8} alignItems={"center"} mb={12}>
           <Heading size="2xl">Our Process</Heading>
-          <Heading size="md">
-            What you can expect
-          </Heading>
+          <Heading size="md">What you can expect</Heading>
         </Stack>
         <OurProcess />
       </Container>
@@ -247,7 +246,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       <Box
         py={40}
         bg={colorMode === "dark" ? "brand.darkBlue" : "brand.dark"}
-        color={colorMode === 'dark' ? "black" : "white"}
+        color={colorMode === "dark" ? "black" : "white"}
       >
         <Container maxW="container.lg" centerContent>
           <Text fontSize="2xl" textAlign={"center"}>
@@ -321,15 +320,13 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       </Container>
       {/* We're WEBPRISM */}
       <Flex py={20} justifyContent={"flex-start"}>
-      <LetterGather
-
-        />
+        <LetterGather />
       </Flex>
       {/* Cut out Statement 2 */}
       <Box
         py={40}
         bg={colorMode === "dark" ? "brand.darkBlue" : "brand.dark"}
-        color={colorMode === 'dark' ? "black" : "white"}
+        color={colorMode === "dark" ? "black" : "white"}
       >
         <Container maxW="container.lg" centerContent>
           <Stack spacing={8}>

@@ -15,9 +15,10 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
+  Divider
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { FaSun, FaMoon, FaBars, FaPhoneAlt } from "react-icons/fa";
+import { FaSun, FaMoon, FaBars, FaPhoneAlt, FaPaperPlane } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import useSound from "use-sound";
@@ -56,7 +57,7 @@ export default function NavBar() {
                 <Text cursor={"pointer"}>Portfolio</Text>
               </Link>
               <Link href="/contact" passHref>
-                <Button rightIcon={<Icon as={FaPhoneAlt} /> }>Contact</Button>
+                <Button rightIcon={<Icon as={FaPaperPlane} /> }>Contact</Button>
               </Link>
               <ColorModeSwitcher
                 colorMode={colorMode}
@@ -97,7 +98,7 @@ function MobileMenu({ colorMode, toggleColorMode }: any) {
       <Icon as={FaBars} onClick={onOpen} h={8} w={8} />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent bg={colorMode === 'dark' ? 'brand.dark' : 'brand.light'}>
           <DrawerCloseButton />
           <DrawerHeader w="full" justifyContent={"space-between"}>
             <ColorModeSwitcher
@@ -105,15 +106,16 @@ function MobileMenu({ colorMode, toggleColorMode }: any) {
               toggleColorMode={toggleColorMode}
             />
           </DrawerHeader>
-
           <DrawerBody>
             <Stack spacing={4} mt={4}>
               <Link href="/posts" passHref>
                 <Text fontSize={"2xl"} cursor={"pointer"}>Blog</Text>
               </Link>
+              <Divider />
               <Link href="/portfolio" passHref>
                 <Text fontSize={"2xl"} cursor={"pointer"}>Portfolio</Text>
               </Link>
+              <Divider />
               <Link href="/contact" passHref>
                 <Text fontSize={"2xl"} fontWeight={600} cursor={"pointer"}>Contact</Text>
               </Link>

@@ -10,7 +10,8 @@ import {
     DrawerContent,
     useDisclosure,
     Heading,
-    Flex
+    Flex,
+    useColorMode
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -18,11 +19,12 @@ import { useEffect } from 'react';
 export default function MailingList() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const router = useRouter();
+    const { colorMode } = useColorMode();
   
     useEffect(() => {
       const timer = setTimeout(() => {
-        if(process.env.NODE_ENV !== "development") onOpen(); 
-        // onOpen()
+        // if(process.env.NODE_ENV !== "development") onOpen(); 
+        onOpen()
       }, 4200);
   
       return () => clearTimeout(timer);
@@ -36,7 +38,7 @@ export default function MailingList() {
     return (
       <Drawer placement={"bottom"} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent bg={colorMode === 'dark' ? 'brand.dark' : 'brand.light'}>
           <DrawerHeader borderBottomWidth="1px">
             <Heading textAlign="center">Psssttttt 👀 </Heading>
           </DrawerHeader>

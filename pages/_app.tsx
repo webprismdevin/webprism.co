@@ -3,15 +3,16 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import TagManager from "react-gtm-module";
 import $ from "jquery/dist/jquery.slim";
-import { theme as defaultTheme } from "@chakra-ui/theme"
-import { ChakraProvider, extendTheme, ThemeComponents } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools";
+// import { theme as defaultTheme } from "@chakra-ui/theme"
+import { ChakraProvider } from "@chakra-ui/react";
+// import { mode } from "@chakra-ui/theme-tools";
 import { useRouter } from "next/router";
 import { HeadContent } from "@/components/head-content";
 import dynamic from "next/dynamic";
 import "@fontsource/montserrat";
 import "@/styles/styles.scss";
 import "animate.css";
+import customTheme from '@/lib/theme';
 
 const NavBar = dynamic(() => import("../components/NavBar"));
 const MailingList = dynamic(() => import("../components/MailingList"));
@@ -26,39 +27,6 @@ declare global {
 const tagManagerArgs = {
   gtmId: "GTM-NZ2DFK5",
 };
-
-const customTheme = extendTheme(defaultTheme, {
-  useSystemColorMode: false,
-  initialColorMode: "light",
-  fonts: {
-    heading: "Montserrat",
-    body: "Montserrat",
-  },
-  colors: {
-    brand: {
-      light: '#F7F4EE',
-      dark: "#161718",
-      darkBlue: "#00D5FF"
-    }
-  },
-  styles: {
-    global: (props: ThemeComponents) => ({
-      body: {
-        bg: mode('brand.light', 'brand.dark')(props),
-      },
-    }),
-  },
-  components: {
-    Button: {
-      variants: {
-        solid: (props: any) => ({
-          bg: mode('brand.dark', '#FD2187')(props),
-          color: mode("whiteAlpha.900", "whiteAlpha.900")(props)
-        })
-      }
-    }
-  }
-});
 
 if (process.env.NODE_ENV === "production" && process.browser) {
   console.log("GTM fired");

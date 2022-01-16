@@ -1,7 +1,7 @@
 export function returnStatement(step: number) {
   switch (step) {
     case 0:
-      return "hover over a step to learn more!";
+      return "hover over a step";
 
     case 1:
       return "We start our process by understanding your goals for your project and what a successful completion looks like to you. Don’t worry if you don’t have all the answers, we can help with the right questions.";
