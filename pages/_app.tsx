@@ -3,7 +3,9 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import TagManager from "react-gtm-module";
 import $ from "jquery/dist/jquery.slim";
-import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import { theme as defaultTheme } from "@chakra-ui/theme"
+import { ChakraProvider, extendTheme, ThemeComponents } from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
 import { useRouter } from "next/router";
 import { HeadContent } from "@/components/head-content";
 import dynamic from "next/dynamic";
@@ -11,9 +13,9 @@ import "@fontsource/montserrat";
 import "@/styles/styles.scss";
 import "animate.css";
 
-const NavBar = dynamic(() => import("../components/NavBar"))
+const NavBar = dynamic(() => import("../components/NavBar"));
 const MailingList = dynamic(() => import("../components/MailingList"));
-const Footer = dynamic(() => import("../components/footer"))
+const Footer = dynamic(() => import("../components/footer"));
 
 declare global {
   interface Window {
@@ -25,7 +27,7 @@ const tagManagerArgs = {
   gtmId: "GTM-NZ2DFK5",
 };
 
-const customTheme = extendTheme({
+const customTheme = extendTheme(defaultTheme, {
   useSystemColorMode: false,
   initialColorMode: "light",
   fonts: {
@@ -33,7 +35,28 @@ const customTheme = extendTheme({
     body: "Montserrat",
   },
   colors: {
-    white: "#F7F4EE"
+    brand: {
+      light: '#F7F4EE',
+      dark: "#161718",
+      darkBlue: "#00D5FF"
+    }
+  },
+  styles: {
+    global: (props: ThemeComponents) => ({
+      body: {
+        bg: mode('brand.light', 'brand.dark')(props),
+      },
+    }),
+  },
+  components: {
+    Button: {
+      variants: {
+        solid: (props: any) => ({
+          bg: mode('brand.dark', '#FD2187')(props),
+          color: mode("whiteAlpha.900", "whiteAlpha.900")(props)
+        })
+      }
+    }
   }
 });
 
@@ -46,7 +69,6 @@ if (process.env.NODE_ENV === "production" && process.browser) {
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const [window, setWindow] = useState(null);
-  const [isOpen, handleOnOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -80,18 +102,6 @@ function CustomApp({ Component, pageProps }: AppProps) {
         .on("touchstart" as any, fun)
         .on("mousedown" as any, fun);
     }
-  }, []);
-
-  useEffect(() => {
-    const handleRouteChange = () => {
-      handleOnOpen(false);
-    };
-
-    router.events.on("routeChangeStart", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-    };
   }, []);
 
   return (

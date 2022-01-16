@@ -10,21 +10,27 @@ import {
   Button,
   Image,
   useColorMode,
+  Icon,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { Parallax } from "react-parallax";
-import { useInView } from "react-intersection-observer";
 import dynamic from "next/dynamic";
 import { FAQ } from "@/components/FAQ";
 import Head from "next/head";
+import PainPoints from "@/components/PainPoints";
+import { FaArrowRight } from "react-icons/fa";
+import ProjectFeature from "@/components/ProjectFeature";
+import LetterGather from "@/components/LetterGather";
 
 const DynamicLordIcon = dynamic(() => import("../components/LordIcon"), {
   ssr: false,
 });
 
 const OurProcess = dynamic(() => import("../components/OurProcess"!), {
-  ssr: false
+  ssr: false,
 });
+
+// const LetterGather = dynamic(() => import("@/components/LetterGather"))
 
 export default function ReHome({ blogPosts }: { blogPosts: [] }) {
   const { colorMode } = useColorMode();
@@ -43,7 +49,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               <iframe
                 src={
                   colorMode === "dark"
-                    ? "https://my.spline.design/shapesdarkmode-6d0ed103eb7820d52a67213a7835db2c/"
+                    ? "https://my.spline.design/shapesdarkmode-593bd108b90e73c0f998b0e7ebaf1aa7/"
                     : "https://my.spline.design/shapeslightmode-382f8e27efafd96f224a93830b6debcb/"
                 }
                 frameBorder="0"
@@ -56,15 +62,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                   zIndex: 0,
                 }}
               ></iframe>
-              <Box
-                pos="absolute"
-                bg={colorMode === "dark" ? "gray.800" : "#F7F4EE"}
-                bottom={0 + top * 4}
-                right={0}
-                p={8}
-                h={300}
-                zIndex={1}
-              />
             </>
           );
         }}
@@ -89,7 +86,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               website designed to showcase your brand.
             </Heading>
             <Link href="/contact" passHref>
-              <Button>Contact Us →</Button>
+              <Button rightIcon={<Icon as={FaArrowRight} />}>
+                Let&apos;s Talk
+              </Button>
             </Link>
           </Stack>
         </Container>
@@ -98,27 +97,32 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       <Box py={40}>
         <Container maxW="container.md" pos={"relative"}>
           <Stack spacing={16}>
-            <Text fontSize="xl">
+            {/* <Text fontSize="xl">
               Your website is one of the most important marketing tools your
               business has. Not only is it the face of your business, but
               it&apos;s also the heart of your marketing engine.
-            </Text>
-            <Text fontSize="xl">
+            </Text> */}
+            <Text fontSize="xl" textAlign={"center"}>
               We create a custom-tailored websites that showcases our
               clients&apos; personality and unlock digital marketing
               opportunities - like SEO and social advertising.
             </Text>
           </Stack>
-          <Image alt="" />
+          {/* <Image alt="" /> */}
         </Container>
       </Box>
+      <PainPoints />
       {/* Site Types */}
-      <Container py={20} maxW="container.xl">
+      <Container py={40} maxW="container.xl">
         <Stack spacing={16}>
           <Heading size="2xl" textAlign={"center"}>
             What We Build
           </Heading>
-          <SimpleGrid templateColumns={'repeat(2, 1fr)'} templateRows={'repeat(2, 1fr)'} gap={8}>
+          <SimpleGrid
+            templateColumns={"repeat(2, 1fr)"}
+            templateRows={"repeat(2, 1fr)"}
+            gap={8}
+          >
             <GridItem colSpan={[2, 1]}>
               <Flex gap={6} className="mktg_sites">
                 <DynamicLordIcon
@@ -201,7 +205,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                     courses, podcasts and more!
                   </Text>
                   <Link href="https://supershops.webprism.xyz" passHref>
-                    <Button>Learn More →</Button>
+                    <Text textDecor={"underline"} cursor={"pointer"}>
+                      Check out SuperShops →
+                    </Text>
                   </Link>
                 </Stack>
               </Flex>
@@ -209,33 +215,39 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           </SimpleGrid>
         </Stack>
       </Container>
-      <Box w="full" overflow={"hidden"}>
-        <ProjectFeature
-          dir="left"
-          name="Strong Ox"
-          portLink={"Strong%20Ox"}
-          bgImage={"/projects/strongox.webp"}
+      <Container
+        maxW="container.xl"
+        minH={"630px"}
+        pos="relative"
+        overflow={"hidden"}
+      >
+        <Box mt={20}>
+          <ProjectFeature />
+        </Box>
+        <Image
+          src={"/projects/le-marche.png"}
+          alt=""
+          pos="absolute"
+          top={-20}
+          right={-20}
+          zIndex={-1}
         />
-        <ProjectFeature
-          dir="right"
-          name="Le Marche Reverie"
-          portLink={"La%20Marche%20Reverie"}
-          bgImage={"projects/le-marche.png"}
-        />
-      </Box>
+      </Container>
       {/* Our Process */}
       <Container maxW={["container.xl"]} centerContent py={40}>
-        <Heading size="2xl">Our Process</Heading>
-        <Heading size="md" mb={8}>
-          What you can expect
-        </Heading>
+        <Stack spacing={8} alignItems={"center"} mb={12}>
+          <Heading size="2xl">Our Process</Heading>
+          <Heading size="md">
+            What you can expect
+          </Heading>
+        </Stack>
         <OurProcess />
       </Container>
       {/* Cut out Statement 1 */}
       <Box
         py={40}
-        bg={colorMode === "dark" ? "gray.600" : "gray.900"}
-        color="white"
+        bg={colorMode === "dark" ? "brand.darkBlue" : "brand.dark"}
+        color={colorMode === 'dark' ? "black" : "white"}
       >
         <Container maxW="container.lg" centerContent>
           <Text fontSize="2xl" textAlign={"center"}>
@@ -308,32 +320,16 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         </Link>
       </Container>
       {/* We're WEBPRISM */}
-      <Parallax
-        blur={{ min: -5, max: 15 }}
-        bgImage={
-          colorMode === "dark" ? "logos/logo-bg-dark.jpg" : "/logos/logo-bg.jpg"
-        }
-        strength={-100}
-        bgImageAlt="WEBPRISM logo repeated background"
-      >
-        <Container maxW="container.xl" py={40}>
-          <Heading size="lg">we&apos;re</Heading>
-          <Heading size={"3xl"}>WEBPRISM</Heading>
-          <Text mt={8} maxW={["full", "60%"]}>
-            We build websites that unlock online marketing for our customers.
-            We&apos;ll also help our customers support and market their website
-            after launch with SEO, a content strategy, and social advertising.
-            We&apos;ve worked with small teams so far, becoming a marketing
-            partner and digital advisor to our clients.
-          </Text>
-          <Button mt={8}>About Us →</Button>
-        </Container>
-      </Parallax>
+      <Flex py={20} justifyContent={"flex-start"}>
+      <LetterGather
+
+        />
+      </Flex>
       {/* Cut out Statement 2 */}
       <Box
         py={40}
-        bg={colorMode === "dark" ? "gray.600" : "gray.900"}
-        color="white"
+        bg={colorMode === "dark" ? "brand.darkBlue" : "brand.dark"}
+        color={colorMode === 'dark' ? "black" : "white"}
       >
         <Container maxW="container.lg" centerContent>
           <Stack spacing={8}>
@@ -379,71 +375,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         </Container>
       </Box>
     </>
-  );
-}
-
-function ProjectFeature({
-  dir,
-  name,
-  portLink,
-  bgImage,
-}: {
-  dir: "left" | "right";
-  name: string;
-  portLink: string;
-  bgImage: string;
-}) {
-  const { colorMode } = useColorMode();
-  const [feature, featureInView, entry] = useInView({
-    threshold: 0.3,
-    triggerOnce: true,
-  });
-
-  const animationDirection = dir === "left" ? "Left" : "Right";
-  const animationFlex = dir === "left" ? "flex-start" : "flex-end";
-
-  return (
-    <Flex justifyContent={animationFlex} py={16}>
-      <Link href={`/portfolio#${portLink}`} passHref>
-        <Stack
-          spacing={8}
-          p={20}
-          maxW={["100%", "60%"]}
-          ref={feature}
-          pos={"relative"}
-          zIndex={1}
-          className={`animate__animated ${
-            featureInView
-              ? `animate__slideIn${animationDirection}`
-              : "pre_animated"
-          }`}
-          alignItems={"flex-start"}
-          bgImage={bgImage}
-          bgPos={"left center"}
-          outline="none"
-          color="white"
-          transition={"opacity 200ms ease"}
-          // opacity={0.7}
-          // _hover={{
-          //   opacity: 1,
-          // }}
-          cursor={"pointer"}
-        >
-          <Heading size="lg">Project Feature - {name}</Heading>
-          <Stack direction={["column"]} spacing={8}>
-            <Text fontWeight={800}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
-              sequi maiores molestias beatae aspernatur sunt assumenda esse
-              optio repellendus, voluptate ut praesentium dolore et neque
-              commodi ipsum placeat facilis consequatur.
-            </Text>
-            <Text fontStyle={"italic"}>
-              quote from the customer about our awesomeness...
-            </Text>
-          </Stack>
-        </Stack>
-      </Link>
-    </Flex>
   );
 }
 

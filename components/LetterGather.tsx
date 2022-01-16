@@ -1,0 +1,218 @@
+import { motion, useAnimation } from "framer-motion";
+import {
+  Heading,
+  Container,
+  Box,
+  HeadingProps,
+  ContainerProps,
+  TextProps,
+  Text,
+  ButtonProps,
+  Button,
+  Icon,
+} from "@chakra-ui/react";
+import { FaArrowRight } from "react-icons/fa";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { isBrowser } from "react-device-detect";
+
+const MotionHeading = motion<HeadingProps>(Heading);
+const MotionContainer = motion<ContainerProps>(Container);
+const MotionText = motion<TextProps>(Text);
+const MotionButton = motion<ButtonProps>(Button);
+
+export default function LetterGather() {
+  const letters = ["W", "E", "B", "P", "R", "I", "S", "M"];
+  const controls = useAnimation();
+  const { ref, inView } = useInView({
+    threshold: isBrowser ? 1 : 0.8,
+  });
+
+  // controls.start("rest")
+
+  useEffect(() => {
+    console.log(inView);
+    if (inView) controls.start("hover");
+    if (!inView) controls.start("rest");
+  }, [inView]);
+
+  const WMotion = {
+    rest: {
+      x: 200,
+      y: 0,
+    },
+    hover: {
+      x: 0,
+      y: 0,
+    },
+  };
+
+  const hoverMotion = {
+    x: 0,
+    y: 0,
+  };
+
+  const opacityMotion = {
+    rest: {
+      opacity: 0,
+    },
+    hover: {
+      opacity: 1,
+    },
+  };
+
+  return (
+    <MotionContainer
+      maxW="container.xl"
+      initial="rest"
+      animate={controls}
+      py={40}
+      ref={ref}
+    >
+      <MotionHeading size="md" variants={opacityMotion}>
+        WE&apos;RE
+      </MotionHeading>
+      <Box w="full" mt={8}>
+        <MotionHeading
+          size="3xl"
+          display={"inline-block"}
+          variants={{
+            rest: isBrowser ? {
+              x: 500,
+              y: -280,
+            } : {
+              x: 80,
+              y: -180
+            },
+            hover: hoverMotion,
+          }}
+        >
+          W
+        </MotionHeading>
+        <MotionHeading
+          size="3xl"
+          display={"inline-block"}
+          variants={{
+            rest: isBrowser ? {
+              x: 200,
+              y: 0,
+            } : {
+              x: 200,
+              y: -123
+            },
+            hover: hoverMotion,
+          }}
+        >
+          E
+        </MotionHeading>
+        <MotionHeading
+          size="3xl"
+          display={"inline-block"}
+          variants={{
+            rest: isBrowser ? {
+              x: 300,
+              y: -80,
+            } : {
+              x: 100,
+              y: -80
+            },
+            hover: hoverMotion,
+          }}
+        >
+          B
+        </MotionHeading>
+        <MotionHeading
+          size="3xl"
+          display={"inline-block"}
+          variants={{
+            rest: isBrowser ? {
+              x: 400,
+              y: 123,
+            } : {
+              x: -46,
+              y: 123
+            },
+            hover: hoverMotion,
+          }}
+        >
+          P
+        </MotionHeading>
+        <MotionHeading
+          size="3xl"
+          display={"inline-block"}
+          variants={{
+            rest: isBrowser ? {
+              x: 456,
+              y: 65,
+            } : {
+              x: 120,
+              y: 65
+            },
+            hover: hoverMotion,
+          }}
+        >
+          R
+        </MotionHeading>
+        <MotionHeading
+          size="3xl"
+          display={"inline-block"}
+          variants={{
+            rest: isBrowser ? {
+              x: 690,
+              y: -100,
+            } : {
+              x: 0,
+              y: 100
+            },
+            hover: hoverMotion,
+          }}
+        >
+          I
+        </MotionHeading>
+        <MotionHeading
+          size="3xl"
+          display={"inline-block"}
+          variants={{
+            rest: isBrowser ? {
+              x: 600,
+              y: 120,
+            } : {
+              x: 0,
+              y: 160
+            },
+            hover: hoverMotion,
+          }}
+        >
+          S
+        </MotionHeading>
+        <MotionHeading
+          size="3xl"
+          display={"inline-block"}
+          variants={{
+            rest: {
+              x: -80,
+              y: -240,
+            },
+            hover: hoverMotion,
+          }}
+        >
+          M
+        </MotionHeading>
+      </Box>
+      <MotionText mt={8} w={["full", "60%"]} variants={opacityMotion}>
+        We build websites that unlock online marketing for our customers.
+        We&apos;ll also help our customers support and market their website
+        after launch with SEO, a content strategy, and social advertising.
+        We&apos;ve worked with small teams so far, becoming a marketing partner
+        and digital advisor to our clients.
+      </MotionText>
+      <MotionButton
+        mt={8}
+        variants={opacityMotion}
+        rightIcon={<Icon as={FaArrowRight} />}
+      >
+        About Us
+      </MotionButton>
+    </MotionContainer>
+  );
+}

@@ -12,7 +12,7 @@ const LordIcon = ({ trigger, src, target, width, height }) => {
     style={{ minHeight: height, minWidth: width }} 
     trigger={trigger} 
     src={src}
-    colors={colorMode === 'dark' ? "primary:#ffffff,secondary:#90CDF4" : "primary:#121331,secondary:#4299e1"}
+    colors={colorMode === 'dark' ? "primary:#ffffff,secondary:#00D5FF" : "primary:#121331,secondary:#4299e1"}
     target={target}
     />
 )};

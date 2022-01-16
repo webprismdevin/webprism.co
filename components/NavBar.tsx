@@ -17,14 +17,13 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { FaSun, FaMoon, FaBars } from "react-icons/fa";
-import { useRef } from "react";
+import { FaSun, FaMoon, FaBars, FaPhoneAlt } from "react-icons/fa";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import useSound from "use-sound";
 import {
   BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
+  MobileView
 } from "react-device-detect";
 
 export default function NavBar() {
@@ -57,7 +56,7 @@ export default function NavBar() {
                 <Text cursor={"pointer"}>Portfolio</Text>
               </Link>
               <Link href="/contact" passHref>
-                <Button>Contact</Button>
+                <Button rightIcon={<Icon as={FaPhoneAlt} /> }>Contact</Button>
               </Link>
               <ColorModeSwitcher
                 colorMode={colorMode}
@@ -79,6 +78,19 @@ export default function NavBar() {
 
 function MobileMenu({ colorMode, toggleColorMode }: any) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      onClose()
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
 
   return (
     <>

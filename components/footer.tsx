@@ -8,15 +8,17 @@ import {
   SimpleGrid,
   GridItem,
   Stack,
-  Icon
+  Icon,
+  Divider,
 } from "@chakra-ui/react";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <Box py={40} color="white" bg={"gray.900"}>
+    <Box py={40}>
       <Container maxW="container.xl">
         <Stack spacing={16}>
+          <Divider />
           <SimpleGrid
             w="full"
             templateColumns={"repeat(5, 1fr)"}
@@ -31,11 +33,14 @@ const Footer = () => {
                   <Link href="https://www.instagram.com/webprism.co/" passHref>
                     <Icon as={FaFacebookF} h={8} w={8} />
                   </Link>
-                  <Link href="https://www.linkedin.com/company/webprism/" passHref>
-                  <Icon as={FaLinkedin} h={8} w={8} />
+                  <Link
+                    href="https://www.linkedin.com/company/webprism/"
+                    passHref
+                  >
+                    <Icon as={FaLinkedin} h={8} w={8} />
                   </Link>
                   <Link href="https://www.facebook.com/webprismco" passHref>
-                  <Icon as={FaInstagram} h={8} w={8} />
+                    <Icon as={FaInstagram} h={8} w={8} />
                   </Link>
                 </Stack>
               </Stack>
