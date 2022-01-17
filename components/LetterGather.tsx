@@ -221,8 +221,8 @@ export default function LetterGather() {
         We build websites that unlock online marketing for our customers.
         We&apos;ll also help our customers support and market their website
         after launch with SEO, a content strategy, and social advertising.
-        We&apos;ve worked with small teams so far, becoming a marketing partner
-        and digital advisor to our clients.
+        We&apos;ve worked with small teams, and multi-million dollar firms, becoming their marketing partner
+        and digital advisor.
       </MotionText>
       <MotionButton
         mt={8}
