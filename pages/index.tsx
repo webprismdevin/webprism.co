@@ -104,9 +104,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               it&apos;s also the heart of your marketing engine.
             </Text> */}
             <Text fontSize="xl" textAlign={"center"}>
-              We create a custom-tailored websites that showcases our
-              clients&apos; personality and unlock digital marketing
-              opportunities - like SEO and social advertising.
+              We create <strong style={{fontSize: '1.2em'}}>custom-tailored websites</strong> that <em style={{fontSize: '1.4em'}}>showcase personality</em> and <u style={{fontSize: '1.2em'}}>unlock digital marketin</u>g.
             </Text>
           </Stack>
           {/* <Image alt="" /> */}
@@ -217,17 +215,18 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       <Box py={40}>
         <Container
           maxW="container.xl"
-          minH={"630px"}
+          minH={["700px","630px"]}
           pos="relative"
-          overflow={"hidden"}
+          overflow={["hidden"]}
         >
-          <Box mt={20}>
+          <Box mt={20} mb={8}>
             <ProjectFeature />
           </Box>
           <Image
             src={"/projects/le-marche.png"}
             alt=""
             pos="absolute"
+            h={["600px","800px"]}
             top={-20}
             right={-20}
             zIndex={-1}
