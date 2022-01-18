@@ -12,36 +12,45 @@ import {
   Image,
   Link,
   Stack,
-  Flex
+  Flex,
+  Box,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+
+const MotionBox = motion(Box);
 
 export default function FreeStickerBro() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
-      <Text display="inline" onClick={onOpen}>
-        👋
-      </Text>
+      <MotionBox
+        // display="inline"
+        whileHover={{
+          rotate: 45,
+        }}
+      >
+        <Text display="inline" onClick={onOpen}>👋</Text>
+      </MotionBox>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Ah, You Found Me!</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Stack spacing={6} w="full" >
+            <Stack spacing={6} w="full">
               <Text>
                 Thanks for exploring our site! As a token of appreciation, we
                 made this sticker for you.
               </Text>
               <Flex w="full" justifyContent={"center"}>
-                  <Image
-                    borderRadius={3}
-                    src="/logos/sticker.jpg"
-                    h={64}
-                    w={64}
-                    alt="WEBRPISM holo sticker"
-                  />
+                <Image
+                  borderRadius={3}
+                  src="/logos/sticker.jpg"
+                  h={64}
+                  w={64}
+                  alt="WEBRPISM holo sticker"
+                />
               </Flex>
               <Text>It&apos;s completely free, shipping and all.</Text>
             </Stack>

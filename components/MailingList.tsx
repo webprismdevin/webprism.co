@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { isMobile } from 'react-device-detect';
 
 export default function MailingList() {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -22,10 +23,17 @@ export default function MailingList() {
     const { colorMode } = useColorMode();
   
     useEffect(() => {
-      const timer = setTimeout(() => {
-        if(process.env.NODE_ENV !== "development") onOpen(); 
+      const timer = setTimeout(async () => {
+        // if(process.env.NODE_ENV !== "development") {
+          let popped = await window.sessionStorage.getItem("wp_popped");
+
+          if(popped !== "true") {
+            onOpen();
+            window.sessionStorage.setItem("wp_popped", "true")
+          }
+        // } 
         // onOpen()
-      }, 4200);
+      }, isMobile ? 6400 : 4200);
   
       return () => clearTimeout(timer);
     }, []); 
