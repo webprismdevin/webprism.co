@@ -78,9 +78,9 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
                   <Stack spacing={4}>
                     <Heading>{post.title}</Heading>
                     <Text>
-                      Published:{" "}
                       {new Date(post._createdAt).toLocaleDateString()}
                     </Text>
+                    <Text>{post.metaDesc}</Text>
                   </Stack>
                 </GridItem>
               </Link>
@@ -94,7 +94,7 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const query = encodeURIComponent(
-    `*[ _type == "post" ] | order (publishedAt desc)`
+    `*[ _type == "post" ] { publishedAt, slug, title, _id, metaDesc } | order (publishedAt desc)`
   );
 
   const url = `https://0ggffobx.api.sanity.io/v1/data/query/production?query=${query}`;

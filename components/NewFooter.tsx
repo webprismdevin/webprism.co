@@ -31,18 +31,18 @@ const Footer = () => {
               <Stack alignItems={"flex-start"} mt={8}>
                 <Heading size="sm">Connect with us</Heading>
                 <Stack direction="row" spacing={4}>
-                  <NextLink href="https://www.instagram.com/webprism.co/" passHref>
+                  <Link target="_blank" href="https://www.instagram.com/webprism.co/">
                     <Icon as={FaFacebookF} h={8} w={8} />
-                  </NextLink>
-                  <NextLink
-                    href="https://www.linkedin.com/company/webprism/"
-                    passHref
+                  </Link>
+                  <Link
+                    target="_blank" href="https://www.linkedin.com/company/webprism/"
+                  
                   >
                     <Icon as={FaLinkedin} h={8} w={8} />
-                  </NextLink>
-                  <NextLink href="https://www.facebook.com/webprismco" passHref>
+                  </Link>
+                  <Link target="_blank" href="https://www.facebook.com/webprismco">
                     <Icon as={FaInstagram} h={8} w={8} />
-                  </NextLink>
+                  </Link>
                 </Stack>
               </Stack>
             </GridItem>

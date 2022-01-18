@@ -55,6 +55,7 @@ export default function NavBar() {
               <NextLink href="/posts" passHref>
                 <Link color={colorMode === 'dark' ? 'white' : 'dark'}>Blog</Link>
               </NextLink>
+              <Link href="https://mvp.webprism.co" target="_blank" color={colorMode === 'dark' ? 'white' : 'dark'}>MVP</Link>
               <NextLink href="/portfolio" passHref>
                 <Link color={colorMode === 'dark' ? 'white' : 'dark'}>Portfolio</Link>
               </NextLink>
