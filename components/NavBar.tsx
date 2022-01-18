@@ -15,9 +15,10 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
-  Divider
+  Divider,
+  Link
 } from "@chakra-ui/react";
-import Link from "next/link";
+import NextLink from "next/link";
 import { FaSun, FaMoon, FaBars, FaPhoneAlt, FaPaperPlane } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -35,30 +36,31 @@ export default function NavBar() {
     <>
       <Box pos={["fixed"]} top={0} left={0} zIndex={2} px={8} py={6} w="full">
         <Flex justifyContent={"space-between"} alignItems={"center"}>
-          <Link href="/" passHref>
+          <NextLink href="/" passHref>
             <Image
               src={
                 colorMode === "dark"
                   ? "/logos/webprism_diamond_white.svg"
                   : "/logos/webprism_diamond.svg"
               }
+              cursor={"pointer"}
               height={10}
               width={8}
               alt="WEBPRISM diamond logo"
               onClick={play as any}
             />
-          </Link>
+          </NextLink>
           <BrowserView>
             <Stack direction="row" spacing={[4, 8]} alignItems={"center"}>
-              <Link href="/posts" passHref>
-                <Text cursor={"pointer"}>Blog</Text>
-              </Link>
-              <Link href="/portfolio" passHref>
-                <Text cursor={"pointer"}>Portfolio</Text>
-              </Link>
-              <Link href="/contact" passHref>
+              <NextLink href="/posts" passHref>
+                <Link color={colorMode === 'dark' ? 'white' : 'dark'}>Blog</Link>
+              </NextLink>
+              <NextLink href="/portfolio" passHref>
+                <Link color={colorMode === 'dark' ? 'white' : 'dark'}>Portfolio</Link>
+              </NextLink>
+              <NextLink href="/contact" passHref>
                 <Button rightIcon={<Icon as={FaPaperPlane} /> }>Contact</Button>
-              </Link>
+              </NextLink>
               <ColorModeSwitcher
                 colorMode={colorMode}
                 toggleColorMode={toggleColorMode}

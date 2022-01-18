@@ -30,7 +30,7 @@
     "block-content-to-react.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/posts/[slug].js", "pages/sitemap.xml.js"  ],
+, "pages/posts/[slug].js", "pages/sitemap.xml.js", "components/Model.jsx"  ],
   "exclude": [
     "node_modules"
   ]

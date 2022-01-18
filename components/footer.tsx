@@ -1,4 +1,4 @@
-import Link from "next/link";
+import NextLink from "next/link";
 import {
   Box,
   Container,
@@ -10,6 +10,7 @@ import {
   Stack,
   Icon,
   Divider,
+  Link
 } from "@chakra-ui/react";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 
@@ -30,38 +31,38 @@ const Footer = () => {
               <Stack alignItems={"flex-start"} mt={8}>
                 <Heading size="sm">Connect with us</Heading>
                 <Stack direction="row" spacing={4}>
-                  <Link href="https://www.instagram.com/webprism.co/" passHref>
+                  <NextLink href="https://www.instagram.com/webprism.co/" passHref>
                     <Icon as={FaFacebookF} h={8} w={8} />
-                  </Link>
-                  <Link
+                  </NextLink>
+                  <NextLink
                     href="https://www.linkedin.com/company/webprism/"
                     passHref
                   >
                     <Icon as={FaLinkedin} h={8} w={8} />
-                  </Link>
-                  <Link href="https://www.facebook.com/webprismco" passHref>
+                  </NextLink>
+                  <NextLink href="https://www.facebook.com/webprismco" passHref>
                     <Icon as={FaInstagram} h={8} w={8} />
-                  </Link>
+                  </NextLink>
                 </Stack>
               </Stack>
             </GridItem>
             <GridItem colSpan={4} rowSpan={1} textAlign={"right"}>
               <Stack>
-                <Link href="/posts" passHref>
-                  <Text>Blog</Text>
-                </Link>
-                <Link href="/portfolio" passHref>
-                  <Text>Portfolio</Text>
-                </Link>
-                <Link href="https://supershops.webprism.xyz" passHref>
-                  <Text>SuperShops</Text>
-                </Link>
-                <Link href="https://mvp.webprism.co" passHref>
-                  <Text>MVP</Text>
-                </Link>
-                <Link href="/contact" passHref>
-                  <Text>Contact Us</Text>
-                </Link>
+                <NextLink href="/posts" passHref>
+                  <Link>Blog</Link>
+                </NextLink>
+                <NextLink href="/portfolio" passHref>
+                  <Link>Portfolio</Link>
+                </NextLink>
+                <NextLink href="https://supershops.webprism.xyz" passHref>
+                  <Link>SuperShops</Link>
+                </NextLink>
+                <NextLink href="https://mvp.webprism.co" passHref>
+                  <Link>MVP</Link>
+                </NextLink>
+                <NextLink href="/contact" passHref>
+                  <Link>Contact Us</Link>
+                </NextLink>
               </Stack>
             </GridItem>
           </SimpleGrid>

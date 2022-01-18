@@ -18,6 +18,8 @@
     "@emotion/styled": "^11.6.0",
     "@fontsource/montserrat": "^4.5.1",
     "@next/bundle-analyzer": "^12.0.7",
+    "@react-three/drei": "^8.4.0",
+    "@react-three/fiber": "^7.0.24",
     "@sanity/block-content-to-react": "^3.0.0",
     "animate.css": "^4.1.1",
     "bulma": "^0.9.3",
@@ -25,6 +27,7 @@
     "formik": "^2.2.9",
     "framer": "^2.0.0-beta.17",
     "framer-motion": "^5.6.0",
+    "framer-motion-3d": "^6.0.0-alpha.1",
     "jquery": "^3.6.0",
     "lord-icon-element": "^3.3.3",
     "lottie-web": "^5.8.1",
@@ -32,7 +35,6 @@
     "next": "^12.0.8",
     "next-sanity": "^0.4.0",
     "next-sitemap": "^1.9.9",
-    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-burger-menu": "^3.0.6",
     "react-device-detect": "^2.1.2",
@@ -46,7 +48,10 @@
     "react-parallax": "^3.3.0",
     "react-scroll-horizontal": "^1.6.6",
     "react-swipeable-views": "^0.14.0",
+    "react-three": "^0.9.7",
     "react-typed": "^1.2.0",
+    "sass": "^1.48.0",
+    "three": "^0.136.0",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {
@@ -57,9 +62,11 @@
     "@types/react-gtm-module": "^2.0.1",
     "@types/react-lottie": "^1.2.6",
     "@types/react-swipeable-views": "^0.13.1",
+    "@types/three": "^0.136.1",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.1",
     "globby": "^12.0.2",
+    "next-transpile-modules": "^9.0.0",
     "typescript": "^4.5.4"
   }
 }

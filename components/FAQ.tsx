@@ -7,8 +7,9 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
+  Link
 } from "@chakra-ui/react";
-import Link from "next/link";
+import NextLink from "next/link";
 
 export function FAQ() {
   return (
@@ -25,7 +26,7 @@ export function FAQ() {
             </AccordionButton>
           </h2>
           <AccordionPanel pb={4}>
-            It&apos;s entirely dependent on the project, but as a guide, single-page landing pages start at $2,000. Marketing websites (5-pages) start at $5,000. E-commerce and web apps are too complex to provide a starting price, but we can <Link href="/booknow" passHref><u style={{cursor: 'pointer'}}>connect for a conversation</u></Link> and see if we&apos;re a good fit.
+            It&apos;s entirely dependent on the project, but as a guide, single-page landing pages start at $2,000. Marketing websites (5-pages) start at $5,000. E-commerce and web apps are too complex to provide a starting price, but we can <NextLink href="/booknow" passHref><Link>connect for a conversation</Link></NextLink> and see if we&apos;re a good fit.
           </AccordionPanel>
         </AccordionItem>
 

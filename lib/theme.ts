@@ -1,6 +1,7 @@
 import { extendTheme, ThemeComponents } from "@chakra-ui/react";
 import { theme as defaultTheme } from "@chakra-ui/theme"
 import { mode } from "@chakra-ui/theme-tools";
+import { LinkProps } from "next/link";
 
 const customTheme = extendTheme(defaultTheme, {
   useSystemColorMode: false,
@@ -14,6 +15,8 @@ const customTheme = extendTheme(defaultTheme, {
       light: "#F7F4EE",
       dark: "#161718",
       darkBlue: "#00D5FF",
+      brightPink: "#FD2187",
+      lightBlue: "#4299e1"
     },
   },
   styles: {
@@ -30,10 +33,19 @@ const customTheme = extendTheme(defaultTheme, {
           bg: mode("brand.dark", "#FD2187")(props),
           color: mode("whiteAlpha.900", "whiteAlpha.900")(props),
           _hover: {
-            color: mode("brand.dark", "whiteAlpha.900")(props)
+            color: mode("brand.dark", "whiteAlpha.900")(props),
+            bg: mode("brand.lightBlue", "brand.darkBlue")(props)
           }
         }),
       },
+    },
+    Link: {
+      baseStyle: (props: any) => ({
+        color: mode('brand.lightBlue', 'brand.darkBlue')(props),
+        _hover: {
+          color: mode('brand.dark','brand.brightPink')(props)
+        }
+      })
     }
   },
 });

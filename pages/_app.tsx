@@ -3,20 +3,17 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import TagManager from "react-gtm-module";
 import $ from "jquery/dist/jquery.slim";
-// import { theme as defaultTheme } from "@chakra-ui/theme"
 import { ChakraProvider } from "@chakra-ui/react";
-// import { mode } from "@chakra-ui/theme-tools";
 import { useRouter } from "next/router";
 import { HeadContent } from "@/components/head-content";
 import dynamic from "next/dynamic";
 import "@fontsource/montserrat";
 import "@/styles/styles.scss";
-import "animate.css";
 import customTheme from '@/lib/theme';
 
 const NavBar = dynamic(() => import("../components/NavBar"));
 const MailingList = dynamic(() => import("../components/MailingList"));
-const Footer = dynamic(() => import("../components/footer"));
+const Footer = dynamic(() => import("../components/Footer"!));
 
 declare global {
   interface Window {

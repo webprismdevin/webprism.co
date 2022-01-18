@@ -3,27 +3,22 @@ import {
   Heading,
   Container,
   Box,
-  HeadingProps,
-  ContainerProps,
-  TextProps,
   Text,
-  ButtonProps,
   Button,
   Icon,
   useColorMode,
   Image,
-  ImageProps,
 } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { isBrowser } from "react-device-detect";
 
-const MotionHeading = motion<HeadingProps>(Heading);
-const MotionContainer = motion<ContainerProps>(Container);
-const MotionText = motion<TextProps>(Text);
-const MotionButton = motion<ButtonProps>(Button);
-const MotionImage = motion<ImageProps>(Image);
+const MotionHeading = motion<any>(Heading);
+const MotionContainer = motion<any>(Container);
+const MotionText = motion<any>(Text);
+const MotionButton = motion<any>(Button);
+const MotionImage = motion<any>(Image);
 
 export default function LetterGather() {
   const letters = ["W", "E", "B", "P", "R", "I", "S", "M"];
@@ -45,7 +40,7 @@ export default function LetterGather() {
     },
     hover: {
       x: 0,
-      y: 0,
+      y: 0
     },
   };
 
@@ -64,6 +59,11 @@ export default function LetterGather() {
     },
   };
 
+  const transition = { 
+    type: 'tween',
+    duration: 0.3
+  }
+
   return (
     <MotionContainer
       maxW="container.xl"
@@ -79,6 +79,7 @@ export default function LetterGather() {
       <Box w="full" mt={8}>
         <MotionHeading
           size="3xl"
+          transition={transition}
           display={"inline-block"}
           variants={{
             rest: isBrowser
@@ -97,6 +98,7 @@ export default function LetterGather() {
         </MotionHeading>
         <MotionHeading
           size="3xl"
+          transition={transition}
           display={"inline-block"}
           variants={{
             rest: isBrowser
@@ -115,6 +117,7 @@ export default function LetterGather() {
         </MotionHeading>
         <MotionHeading
           size="3xl"
+          transition={transition}
           display={"inline-block"}
           variants={{
             rest: isBrowser
@@ -133,6 +136,7 @@ export default function LetterGather() {
         </MotionHeading>
         <MotionHeading
           size="3xl"
+          transition={transition}
           display={"inline-block"}
           variants={{
             rest: isBrowser
@@ -151,6 +155,7 @@ export default function LetterGather() {
         </MotionHeading>
         <MotionHeading
           size="3xl"
+          transition={transition}
           display={"inline-block"}
           variants={{
             rest: isBrowser
@@ -169,6 +174,7 @@ export default function LetterGather() {
         </MotionHeading>
         <MotionHeading
           size="3xl"
+          transition={transition}
           display={"inline-block"}
           variants={{
             rest: isBrowser
@@ -187,6 +193,7 @@ export default function LetterGather() {
         </MotionHeading>
         <MotionHeading
           size="3xl"
+          transition={transition}
           display={"inline-block"}
           variants={{
             rest: isBrowser
@@ -205,6 +212,7 @@ export default function LetterGather() {
         </MotionHeading>
         <MotionHeading
           size="3xl"
+          transition={transition}
           display={"inline-block"}
           variants={{
             rest: {

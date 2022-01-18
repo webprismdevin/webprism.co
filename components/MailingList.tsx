@@ -23,8 +23,8 @@ export default function MailingList() {
   
     useEffect(() => {
       const timer = setTimeout(() => {
-        // if(process.env.NODE_ENV !== "development") onOpen(); 
-        onOpen()
+        if(process.env.NODE_ENV !== "development") onOpen(); 
+        // onOpen()
       }, 4200);
   
       return () => clearTimeout(timer);

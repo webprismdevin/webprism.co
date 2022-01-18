@@ -11,8 +11,10 @@ import {
   Image,
   useColorMode,
   Icon,
+  Link,
+  Divider
 } from "@chakra-ui/react";
-import Link from "next/link";
+import NextLink from "next/link";
 import { Parallax } from "react-parallax";
 import dynamic from "next/dynamic";
 import { FAQ } from "@/components/FAQ";
@@ -20,8 +22,12 @@ import Head from "next/head";
 import PainPoints from "@/components/PainPoints";
 import { FaArrowRight } from "react-icons/fa";
 import ProjectFeature from "@/components/ProjectFeature";
-import LetterGather from "@/components/LetterGather";
+import { ShapesProps } from "@/components/shapes";
 import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+
+const MotionText = motion(Text);
 
 const DynamicLordIcon = dynamic(() => import("../components/LordIcon"), {
   ssr: false,
@@ -31,10 +37,24 @@ const OurProcess = dynamic(() => import("../components/OurProcess"!), {
   ssr: false,
 });
 
-// const LetterGather = dynamic(() => import("@/components/LetterGather"))
+const LetterGather = dynamic(() => import("@/components/LetterGather"));
+
+const Shapes = dynamic<ShapesProps>(() => import("@/components/Shapes"!));
 
 export default function ReHome({ blogPosts }: { blogPosts: [] }) {
   const { colorMode } = useColorMode();
+  const [c1Ref, c1InView] = useInView({
+    threshold: 1,
+  });
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    console.log(c1InView);
+
+    if (c1InView) controls.start("animate");
+    else controls.start("rest");
+  }, [c1InView]);
 
   return (
     <>
@@ -42,69 +62,62 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         <title>Crafted Websites for Authentic Brands | WEBPRISM</title>
       </Head>
       {/* Hero */}
-      <Parallax
-        renderLayer={(percentage) => {
-          const top = percentage * 100 - 100;
-          return (
-            <>
-              <iframe
-                src={
-                  colorMode === "dark"
-                    ? "https://my.spline.design/shapesdarkmode-593bd108b90e73c0f998b0e7ebaf1aa7/"
-                    : "https://my.spline.design/shapeslightmode-382f8e27efafd96f224a93830b6debcb/"
-                }
-                frameBorder="0"
-                width="100%"
-                height={900}
+      <Box>
+        <Parallax
+          renderLayer={(percentage) => {
+            const top = percentage * 100 - 100;
+            return (
+              <Box
                 style={{
                   position: "absolute",
                   top: -top * 4,
                   left: 0,
                   zIndex: 0,
                 }}
-              ></iframe>
-            </>
-          );
-        }}
-        strength={-100}
-        bgImageAlt="NEEDS UPDATE WHEN FINAL SETTLED"
-      >
-        <Container maxW="container.xl">
-          <Stack
-            spacing={8}
-            my={80}
-            alignItems={"flex-start"}
-            maxW={["full", "60%"]}
-            px={"18px"}
-            pos="relative"
-            zIndex={1}
-          >
-            <Heading size="3xl" fontWeight="800">
-              Crafted Websites for Authentic Brands
-            </Heading>
-            <Heading size="md">
-              Unlock new digital marketing opportunities with a custom-tailored
-              website designed to showcase your brand.
-            </Heading>
-            <Link href="/contact" passHref>
-              <Button rightIcon={<Icon as={FaArrowRight} />}>
-                Let&apos;s Talk
-              </Button>
-            </Link>
-          </Stack>
-        </Container>
-      </Parallax>
+              >
+                <Shapes colorMode={colorMode} />
+              </Box>
+            );
+          }}
+          strength={-120}
+        >
+          <Container maxW="container.xl">
+            <Stack
+              spacing={8}
+              my={80}
+              alignItems={"flex-start"}
+              maxW={["full", "60%"]}
+              px={"18px"}
+              pos="relative"
+              zIndex={1}
+            >
+              <Heading size="3xl" fontWeight="800">
+                Crafted Websites for Authentic Brands
+              </Heading>
+              <Heading size="md">
+                Unlock new digital marketing opportunities with a
+                custom-tailored website designed to showcase your brand.
+              </Heading>
+              <NextLink href="/contact" passHref>
+                <Button rightIcon={<Icon as={FaArrowRight} />}>
+                  Let&apos;s Talk
+                </Button>
+              </NextLink>
+            </Stack>
+          </Container>
+        </Parallax>
+      </Box>
       {/* PAS */}
       <Box py={40}>
         <Container maxW="container.md" pos={"relative"}>
           <Stack spacing={16}>
-            {/* <Text fontSize="xl">
-              Your website is one of the most important marketing tools your
-              business has. Not only is it the face of your business, but
-              it&apos;s also the heart of your marketing engine.
-            </Text> */}
             <Text fontSize="xl" textAlign={"center"}>
-              We create <strong style={{fontSize: '1.2em'}}>custom-tailored websites</strong> that <em style={{fontSize: '1.4em'}}>showcase personality</em> and <u style={{fontSize: '1.2em'}}>unlock digital marketin</u>g.
+              We create{" "}
+              <strong style={{ fontSize: "1.2em" }}>
+                custom-tailored websites
+              </strong>{" "}
+              that <em style={{ fontSize: "1.4em" }}>showcase personality</em>{" "}
+              and <u style={{ fontSize: "1.2em" }}>unlock digital marketin</u>g.
             </Text>
           </Stack>
           {/* <Image alt="" /> */}
@@ -177,11 +190,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                     business. We can even turn your new web application into a
                     mobile app!
                   </Text>
-                  <Link href="https://mvp.webprism.co" passHref>
-                    <Text textDecor={"underline"} cursor={"pointer"}>
+                    <Link href="https://mvp.webprism.co" target="_blank">
                       We built an app to help anyone define their mission.
-                    </Text>
-                  </Link>
+                    </Link>
                 </Stack>
               </Flex>
             </GridItem>
@@ -200,10 +211,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                     Sell your products online with a custom shopping experience
                     that allows ultimate flexibility for your content strategy.
                   </Text>
-                  <Link href="https://supershops.webprism.xyz" passHref>
-                    <Text textDecor={"underline"} cursor={"pointer"}>
-                      Check out SuperShops →
-                    </Text>
+                  <Link href="https://supershops.webprism.xyz" target="_blank">
+                    Check out SuperShops →
                   </Link>
                 </Stack>
               </Flex>
@@ -215,7 +224,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       <Box py={40}>
         <Container
           maxW="container.xl"
-          minH={["700px","630px"]}
+          minH={["700px", "630px"]}
           pos="relative"
           overflow={["hidden"]}
         >
@@ -226,7 +235,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             src={"/projects/le-marche.png"}
             alt=""
             pos="absolute"
-            h={["600px","800px"]}
+            h={["600px", "800px"]}
             top={-20}
             right={-20}
             zIndex={-1}
@@ -242,19 +251,36 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         <OurProcess />
       </Container>
       {/* Cut out Statement 1 */}
+      <Container maxW="sm">
+          <Divider />
+        </Container>
       <Box
         py={40}
-        bg={colorMode === "dark" ? "brand.darkBlue" : "brand.dark"}
-        color={colorMode === "dark" ? "black" : "white"}
       >
-        <Container maxW="container.lg" centerContent>
-          <Text fontSize="2xl" textAlign={"center"}>
+        <Container maxW="container.lg" centerContent ref={c1Ref}>
+          <MotionText
+            variants={{
+              rest: { y: -300, opacity: 0 },
+              animate: { y: 0, opacity: 1 },
+            }}
+            initial="rest"
+            animate={controls}
+            transition={{
+              x: { type: "tween", duration: 0.4 },
+              opacity: { type: "spring", duration: 0.4 },
+            }}
+            fontSize="2xl"
+            textAlign={"center"}
+          >
             We work together to understand your brand goals and create a
             strategy to get the most out of your new website and marketing
             platform so that you can grow your audience and your business.
-          </Text>
+          </MotionText>
         </Container>
       </Box>
+      <Container maxW="sm">
+          <Divider />
+        </Container>
       {/* Testimonials */}
       <Container pt={40} pb={80} centerContent maxW="container.xl">
         <Stack spacing={6} textAlign={"center"}>
@@ -301,11 +327,11 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             <Stack spacing={4} alignItems={"flex-start"}>
               <Text>
                 Devin and Ashley of @webprism.co redesigned and reworked my
-                website, and I couldn’t be more thrilled. If you’ve been waiting
-                for the right person to do your website rebuild, I cannot
-                recommend @webprism.co enough. It’s a fabulous way to start a
-                new year, and it&apos;s been such a nice gift to myself and my
-                business!
+                website, and I couldn&apos;t be more thrilled. If you&apos;ve
+                been waiting for the right person to do your website rebuild, I
+                cannot recommend @webprism.co enough. It&apos;s a fabulous way
+                to start a new year, and it&apos;s been such a nice gift to
+                myself and my business!
               </Text>
               <Text fontStyle={"italic"} fontWeight={600}>
                 Sarah - The Mint Gardener
@@ -313,19 +339,20 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             </Stack>
           </GridItem>
         </SimpleGrid>
-        <Link href="/portfolio" passHref>
+        <NextLink href="/portfolio" passHref>
           <Button>See Our Portfolio</Button>
-        </Link>
+        </NextLink>
       </Container>
       {/* We're WEBPRISM */}
       <Flex py={20} justifyContent={"flex-start"}>
         <LetterGather />
       </Flex>
       {/* Cut out Statement 2 */}
+      <Container maxW="sm">
+          <Divider />
+        </Container>
       <Box
         py={40}
-        bg={colorMode === "dark" ? "brand.darkBlue" : "brand.dark"}
-        color={colorMode === "dark" ? "black" : "white"}
       >
         <Container maxW="container.lg" centerContent>
           <Stack spacing={8}>
@@ -334,13 +361,12 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               something to improve their corner of the world. We believe the
               most successful businesses exist to serve others.
             </Text>
-            <Text fontSize="2xl" textAlign={"center"}>
-              Who would we be if we didn&apos;t use our talents to help improve
-              the world around us, in whatever way we can?
-            </Text>
           </Stack>
         </Container>
       </Box>
+      <Container maxW="sm">
+          <Divider />
+        </Container>
       {/* Blog Posts */}
       <Box pt={40} pb={20}>
         <Container maxW="container.md">
@@ -355,9 +381,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 <Stack spacing={4} alignItems={"flex-start"} key={post._id}>
                   <Heading size="md">{post.title}</Heading>
                   <Text>{post.metaDesc}</Text>
-                  <Link href={`/posts/${post.slug.current}`} passHref>
+                  <NextLink href={`/posts/${post.slug.current}`} passHref>
                     <Button>Read →</Button>
-                  </Link>
+                  </NextLink>
                 </Stack>
               ))}
             </Stack>
