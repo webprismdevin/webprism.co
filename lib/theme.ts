@@ -46,6 +46,13 @@ const customTheme = extendTheme(defaultTheme, {
           color: mode('brand.dark','brand.brightPink')(props)
         }
       })
+    },
+    Divider: {
+      variants: {
+        solid: (props: any) => ({
+          opacity: mode(1, 0.6)(props)
+        })
+      }
     }
   },
 });
