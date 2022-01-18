@@ -22,7 +22,7 @@ import { BsChevronDoubleDown } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
-import { BrowserView } from "react-device-detect";
+import { BrowserView, isBrowser } from "react-device-detect";
 
 const MotionBox = motion(Box);
 
@@ -55,11 +55,13 @@ export default function Project({ project, projectList }: any) {
             VIEW FULL SITE
           </Link>
         </Stack>
-        <BrowserView>
-          <AspectRatio mt={8} ratio={16 / 9} w="full">
-            <embed style={{backgroundColor: 'white'}} className="project_embed" src={project.url} />
-          </AspectRatio>
-        </BrowserView>
+{isBrowser &&  <AspectRatio mt={8} ratio={16 / 9} w="full">
+          <embed
+            style={{ backgroundColor: "white" }}
+            className="project_embed"
+            src={project.url}
+          />
+        </AspectRatio>}
       </Container>
       <Container maxW={"container.md"}>
         <Stack spacing={8}>
@@ -229,12 +231,11 @@ export async function getStaticPaths() {
   const projects = result.result;
 
   return {
-    paths:
-      projects.map((project: any) => ({
-        params: {
-          slug: project.slug.current,
-        },
-      })),
+    paths: projects.map((project: any) => ({
+      params: {
+        slug: project.slug.current,
+      },
+    })),
     fallback: false,
   };
 }
