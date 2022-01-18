@@ -12,6 +12,7 @@ import {
   Link
 } from "@chakra-ui/react";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
+import FreeStickerBro from "./FreeStickerBro";
 
 const Footer = () => {
   return (
@@ -65,7 +66,7 @@ const Footer = () => {
               </Stack>
             </GridItem>
           </SimpleGrid>
-          <Text textAlign={"center"}>thanks for stopping by 👋</Text>
+          <Text display="inline" textAlign={"center"}>thanks for stopping by <FreeStickerBro/></Text>
         </Stack>
       </Container>
     </Box>

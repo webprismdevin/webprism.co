@@ -1,16 +1,8 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import NextLink from "next/link";
-import Image from "next/image";
-import BlockContent from "@sanity/block-content-to-react";
-import markdownStyles from "@/styles/portfolio-markdown-styles.module.scss";
 import {
   Container,
-  Heading,
-  Flex,
-  Box,
-  AspectRatio,
-  Stack,
   Link,
 } from "@chakra-ui/react";
 
