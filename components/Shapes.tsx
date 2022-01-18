@@ -1,8 +1,7 @@
-import { motion } from "framer-motion-3d";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
 import dynamic from "next/dynamic";
-import { OrbitControls, Stage } from "@react-three/drei";
+import {  Stage } from "@react-three/drei";
 
 const Model = dynamic(() => import("./Model"), {
   ssr: false,
