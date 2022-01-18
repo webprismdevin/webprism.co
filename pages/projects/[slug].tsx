@@ -33,7 +33,7 @@ export default function Project({ project, projectList }: any) {
   });
   const controls = useAnimation();
 
-  const currentIndex = projectList.findIndex((proj: any, index: number) => {
+  const currentIndex = projectList?.findIndex((proj: any, index: number) => {
     if (proj.slug.current === project.slug.current) {
       return true;
     }
@@ -70,7 +70,7 @@ export default function Project({ project, projectList }: any) {
             {project.tags.map((tag: string, index: number) => (
               <>
                 <Text key={index}>{tag}</Text>
-                {index < project.tags.length - 1 && (
+                {index < project.tags?.length - 1 && (
                   <Divider orientation="vertical" />
                 )}
               </>
@@ -90,7 +90,7 @@ export default function Project({ project, projectList }: any) {
           </Text>
         </Stack>
       </Container>
-      {project.detailShots && project.detailShots.length > 4 && (
+      {project.detailShots && project.detailShots?.length > 4 && (
         <Container maxW="container.xl" py={40}>
           <SimpleGrid
             w="full"
@@ -178,7 +178,7 @@ export default function Project({ project, projectList }: any) {
             />
           </MotionBox>
           <Box w="125px" textAlign={"right"}>
-            {currentIndex !== projectList.length - 1 && (
+            {currentIndex !== projectList?.length - 1 && (
               <NextLink
                 href={`/projects/${projectList[currentIndex + 1].slug.current}`}
                 passHref
@@ -230,11 +230,11 @@ export async function getStaticPaths() {
 
   return {
     paths:
-      projects?.map((project: any) => ({
+      projects.map((project: any) => ({
         params: {
           slug: project.slug.current,
         },
-      })) || [],
-    fallback: true,
+      })),
+    fallback: false,
   };
 }
