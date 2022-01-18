@@ -96,7 +96,7 @@ export default function Project({ project, projectList }: any) {
           </Text>
         </Stack>
       </Container>
-      {project.detailShots && project.detailShots?.length > 4 && (
+      {project.detailShots && project.detailShots?.length >= 4 && (
         <Container maxW="container.xl" py={40}>
           <SimpleGrid
             w="full"
