@@ -28,6 +28,12 @@ body {
   visibility: hidden;
 }
 
+.project_embed {
+  ::-webkit-scrollbar {
+    width: 0px
+  }
+}
+
 @keyframes joy {
   0% {
     background-position: 0 0;

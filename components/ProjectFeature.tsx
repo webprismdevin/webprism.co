@@ -2,7 +2,7 @@ import { useColorMode } from "@chakra-ui/react"
 import dynamic from "next/dynamic"
 import { isMobile } from "react-device-detect"
 
-const Card = dynamic<any>(() => import('https://framer.com/m/Project-Feature-hqLd.js@3tqE8bddeG0WYpOt2iuU'!))
+const Card = dynamic<any>(() => import('https://framer.com/m/Project-Feature-hqLd.js@bsQtYiUETp4bSUtDQU6C'!))
 
 export default function ProjectFeature(){
     const { colorMode } = useColorMode()
@@ -11,7 +11,7 @@ export default function ProjectFeature(){
         switch(true){
             case(!isMobile && colorMode === 'light'):
                 return 'light'
-            case(!isMobile && colorMode === 'light'):
+            case(isMobile && colorMode === 'light'):
                 return 'mobile-light'
             case(isMobile && colorMode === 'dark'):
                 return 'mobile-dark'

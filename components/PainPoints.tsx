@@ -188,7 +188,7 @@ export default function PainPoints() {
               rightIcon={<Icon as={FaPaperPlane} />}
               transition={{ type: "tween" }}
             >
-              Submit
+              {colorMode === 'dark' ? 'Show Me' : 'Read more'}
             </MotionButton>
           </Box>
         </Stack>
@@ -278,27 +278,32 @@ const answers = {
         host of things) to bring visitors to your site, whether it&apos;s social
         media content, running a newsletter, or writing blog posts &amp; sharing
         them; the important part is you&apos;re doing something,{" "}
-        <strong>and tracking it</strong>. Using a tool like Google Analytics to
-        track{" "}
-        <em>
-          which activities are most successful, and which are least successful
-          so you can focus on what&apos;s working
-        </em>
-        .
+        <strong>and tracking it</strong>. Using tools like Google Analytics, we
+        can track which activities are most successful and which are least
+        effective at driving traffic, so you can focus more on what&apos;s
+        working.
       </Text>
     </Stack>
   ),
   opTwo: (
     <Stack spacing={4}>
       <Text>
-        We&apos;ve been there - and the best first step we&apos;ve found to
-        define the direction for your website (and digital presence more
-        broadly) is to write out what you want to your audience to know about
-        you, then take each statement back to an explanation that someone who
-        has no knowledge of you would be able to understand.
+        We&apos;ve been there - translating your brand identity to the internet
+        is challenging. The most effective first step we&apos;ve found to define
+        the direction for your website (and digital presence more broadly) is to
+        write out what you want your audience to know about you, then take each
+        statement back to an explanation that someone who has no knowledge of
+        you would be able to understand.
       </Text>
       <Text>
-        You can take a look at our <Link href="/files/WEBPRISM_Onboarding_Questionnaire.pdf" target="_blank">client onboarding questionnaire</Link> for some direction.
+        You can take a look at our{" "}
+        <Link
+          href="/files/WEBPRISM_Onboarding_Questionnaire.pdf"
+          target="_blank"
+        >
+          client onboarding questionnaire
+        </Link>{" "}
+        for some direction.
       </Text>
       <Text>
         From there, create a mood board - get a sense of what your visual
@@ -310,20 +315,21 @@ const answers = {
   opThree: (
     <Stack spacing={4}>
       <Text>
-        You can drive as many people as possible to see your products online,
-        but your site needs to be designed to connect with your shoppers and
-        convert them in that moment, or create another buying opportunity
-        off-site (via email or other messaging).
+        Driving traffic to your website is great, but your site needs to connect
+        with your shoppers and convert them into customers in that moment. A
+        strong design paired with intuitive functionality are necessary to
+        encourage sales.
       </Text>
       <Text>
-        Content is one of the most effective drivers of e-commerce traffic -
-        having a platform that enables you to track what content is most
-        successful, and refine the most effective strategies.
+        Content is one of the most effective drivers of e-commerce traffic. It’s
+        important to have a platform that enables you to track what content is
+        most successful, so you can identify and refine the most effective
+        strategies.
       </Text>
       <Text>
         Ensuring basics like a site that loads quickly, has prominent calls to
-        action and great photography are necessary to increase the likelihood
-        that visitors end up buying, and coming back.
+        action, and features great photography are necessary to increase the
+        likelihood that visitors end up buying , and come back for more.
       </Text>
     </Stack>
   ),
@@ -332,14 +338,26 @@ const answers = {
       <Text>
         This is one of our favorite things to do for our clients - taking manual
         processes and automating them is a great move to free up your time and
-        create more consistent action. Draw out the logic of a process on a big
-        piece of paper or whiteboard - then look for ways to simplify.
+        create more consistent action. Draw out every step of the process on a
+        big piece of paper or whiteboard - from there, look for ways to
+        simplify.
       </Text>
       <Text>
-        Once you&apos;ve simplified your process, dig into services like Zapier,
-        Automate.io or Integromat - these services let you automate tasks like
-        responding to for submissions on your website, sending notification
-        emails to customers, and so much more
+        Once you&apos;ve simplified your process, dig into services like{" "}
+        <Link href="zapier.com" target="_blank">
+          Zapier
+        </Link>
+        ,{" "}
+        <Link href="automate.io" target="_blank">
+          Automate.io
+        </Link>{" "}
+        or{" "}
+        <Link href="integromat.com" target="_blank">
+          Integromat
+        </Link>{" "}
+        - these services let you automate tasks like responding to for
+        submissions on your website, sending notification emails to customers,
+        and so much more
       </Text>
       <Text>
         If you&apos;re not sure where to start -{" "}
@@ -356,13 +374,20 @@ const answers = {
         Start with building a brand identity. You won&apos;t have all the
         answers in the beginnnig, brand comes with time. However, you can start
         with tasks such as defining a mission statement{" "}
-          <Link href="https://mvp.webprism.co" target="_blank">(we built an app to help with that)</Link>
+        <Link href="https://mvp.webprism.co" target="_blank">
+          (we built an app to help with that)
+        </Link>
         , deciding on a color pallete, creating a mood board to represent your
         brand personality and some visuals.
       </Text>
       <Text>
         Our{" "}
-        <Link href="/files/WEBPRISM_Onboarding_Questionnaire.pdf" target="_blank">client onboarding questionnaire</Link>{" "}
+        <Link
+          href="/files/WEBPRISM_Onboarding_Questionnaire.pdf"
+          target="_blank"
+        >
+          client onboarding questionnaire
+        </Link>{" "}
         is another helpful resource to give you an idea of what content you
         need, and provide direction on information to include on your site.
       </Text>

@@ -10,6 +10,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string',
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -75,6 +80,16 @@ export default {
       name: 'body',
       title: 'Project Overview',
       type: 'blockContent',
+    },
+    {
+      name: 'testimonial',
+      title: 'Testimonial from Client',
+      type: 'text'
+    },
+    {
+      name: 'name',
+      title: 'Client Name',
+      type: 'string'
     }
   ],
 

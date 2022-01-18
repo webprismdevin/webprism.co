@@ -12,7 +12,7 @@ import {
   useColorMode,
   Icon,
   Link,
-  Divider
+  Divider,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { Parallax } from "react-parallax";
@@ -21,7 +21,6 @@ import { FAQ } from "@/components/FAQ";
 import Head from "next/head";
 import PainPoints from "@/components/PainPoints";
 import { FaArrowRight } from "react-icons/fa";
-import ProjectFeature from "@/components/ProjectFeature";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
@@ -37,6 +36,8 @@ const OurProcess = dynamic(() => import("../components/OurProcess"!), {
   ssr: false,
 });
 
+const ProjectFeature = dynamic(() => import('@/components/ProjectFeature'), { ssr: false})
+
 const LetterGather = dynamic(() => import("@/components/LetterGather"));
 
 const Shapes = dynamic<ShapesProps>(() => import("@/components/Shapes"!));
@@ -47,14 +48,22 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
     threshold: 1,
   });
 
+  const [c2Ref, c2InView] = useInView({
+    threshold: 1,
+  });
+
   const controls = useAnimation();
+  const controls2 = useAnimation();
 
   useEffect(() => {
-    console.log(c1InView);
-
     if (c1InView) controls.start("animate");
     else controls.start("rest");
   }, [c1InView]);
+
+  useEffect(() => {
+    if (c2InView) controls2.start("animate");
+    else controls2.start("rest");
+  }, [c2InView]);
 
   return (
     <>
@@ -62,7 +71,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         <title>Crafted Websites for Authentic Brands | WEBPRISM</title>
       </Head>
       {/* Hero */}
-      <Box>
+      <Box overflow={"visible"}>
         <Parallax
           renderLayer={(percentage) => {
             const top = percentage * 100 - 100;
@@ -73,6 +82,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                   top: -top * 4,
                   left: 0,
                   zIndex: 0,
+                  overflow: 'visible'
                 }}
               >
                 <Shapes colorMode={colorMode} />
@@ -190,9 +200,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                     business. We can even turn your new web application into a
                     mobile app!
                   </Text>
-                    <Link href="https://mvp.webprism.co" target="_blank">
-                      We built an app to help anyone define their mission.
-                    </Link>
+                  <Link href="https://mvp.webprism.co" target="_blank">
+                    We built an app to help anyone define their mission.
+                  </Link>
                 </Stack>
               </Flex>
             </GridItem>
@@ -252,11 +262,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       </Container>
       {/* Cut out Statement 1 */}
       <Container maxW="sm">
-          <Divider />
-        </Container>
-      <Box
-        py={40}
-      >
+        <Divider />
+      </Container>
+      <Box py={40}>
         <Container maxW="container.lg" centerContent ref={c1Ref}>
           <MotionText
             variants={{
@@ -279,8 +287,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         </Container>
       </Box>
       <Container maxW="sm">
-          <Divider />
-        </Container>
+        <Divider />
+      </Container>
       {/* Testimonials */}
       <Container pt={40} pb={80} centerContent maxW="container.xl">
         <Stack spacing={6} textAlign={"center"}>
@@ -326,10 +334,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           <GridItem colSpan={[3, 1]}>
             <Stack spacing={4} alignItems={"flex-start"}>
               <Text>
-                Devin and Ashley of @webprism.co redesigned and reworked my
+                Devin and Ashley of [WEBPRISM] redesigned and reworked my
                 website, and I couldn&apos;t be more thrilled. If you&apos;ve
                 been waiting for the right person to do your website rebuild, I
-                cannot recommend @webprism.co enough. It&apos;s a fabulous way
+                cannot recommend [WEBPRISM] enough. It&apos;s a fabulous way
                 to start a new year, and it&apos;s been such a nice gift to
                 myself and my business!
               </Text>
@@ -349,24 +357,33 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       </Flex>
       {/* Cut out Statement 2 */}
       <Container maxW="sm">
-          <Divider />
-        </Container>
-      <Box
-        py={40}
-      >
-        <Container maxW="container.lg" centerContent>
-          <Stack spacing={8}>
-            <Text fontSize="2xl" textAlign={"center"}>
-              We believe the free market of ideas allows every person to do
-              something to improve their corner of the world. We believe the
-              most successful businesses exist to serve others.
-            </Text>
-          </Stack>
+        <Divider />
+      </Container>
+      <Box py={40}>
+        <Container ref={c2Ref} maxW="container.lg" centerContent>
+          <MotionText
+            variants={{
+              rest: { y: -300, opacity: 0 },
+              animate: { y: 0, opacity: 1 },
+            }}
+            initial="rest"
+            animate={controls2}
+            transition={{
+              x: { type: "tween", duration: 0.4 },
+              opacity: { type: "spring", duration: 0.4 },
+            }}
+            fontSize="2xl"
+            textAlign={"center"}
+          >
+            We believe the free market of ideas allows every person to do
+            something to improve their corner of the world. We believe the most
+            successful businesses exist to serve others.
+          </MotionText>
         </Container>
       </Box>
       <Container maxW="sm">
-          <Divider />
-        </Container>
+        <Divider />
+      </Container>
       {/* Blog Posts */}
       <Box pt={40} pb={20}>
         <Container maxW="container.md">
@@ -402,7 +419,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
 
 export async function getStaticProps() {
   const query = encodeURIComponent(
-    `*[ _type == "post" ][0..2] | order (publishedAt desc)`
+    `*[ _type == "post" ] | order (_createdAt desc) [0..2]`
   );
 
   const url = `https://0ggffobx.api.sanity.io/v1/data/query/production?query=${query}`;

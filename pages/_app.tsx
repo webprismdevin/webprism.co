@@ -7,10 +7,10 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { HeadContent } from "@/components/head-content";
 import dynamic from "next/dynamic";
-import "@fontsource/montserrat";
-import "@/styles/styles.scss";
 import customTheme from '@/lib/theme';
 import { ColorModeScript } from '@chakra-ui/react'
+import "@fontsource/montserrat";
+import "@/styles/styles.scss";
 
 const NavBar = dynamic(() => import("@/components/NavBar"));
 const MailingList = dynamic(() => import("@/components/MailingList"));
