@@ -34,7 +34,7 @@ const Portfolio = ({ projects }: PortfolioProps) => {
   return (
     <>
       <Head>
-        <title>Portfolio | WEBPRISM | A web design + development agency</title>
+        <title>Portfolio | WEBPRISM | Crafted Websites for Authentic Brands</title>
         <meta
           name="description"
           content="Our portfolio showcases our recent work and favorite projects."

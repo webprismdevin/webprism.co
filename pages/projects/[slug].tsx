@@ -22,7 +22,8 @@ import { BsChevronDoubleDown } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
-import { BrowserView, isBrowser } from "react-device-detect";
+import { isBrowser } from "react-device-detect";
+import Head from "next/head";
 
 const MotionBox = motion(Box);
 
@@ -46,6 +47,9 @@ export default function Project({ project, projectList }: any) {
 
   return (
     <Box>
+      <Head>
+        <title>{project.title} | Portfolio | WEBPRISM </title>
+      </Head>
       <Container maxW="container.xl" centerContent py={20}>
         <Stack spacing={8} textAlign={"center"}>
           <Heading textTransform={"uppercase"} fontWeight={300} size="4xl">
