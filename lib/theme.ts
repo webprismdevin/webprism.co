@@ -4,8 +4,7 @@ import { mode } from "@chakra-ui/theme-tools";
 import { LinkProps } from "next/link";
 
 const customTheme = extendTheme(defaultTheme, {
-  useSystemColorMode: true,
-  initialColorMode: "light",
+  initialColorMode: "system",
   fonts: {
     heading: "Montserrat",
     body: "Montserrat",

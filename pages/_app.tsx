@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import "@fontsource/montserrat";
 import "@/styles/styles.scss";
 import customTheme from '@/lib/theme';
+import { ColorModeScript } from '@chakra-ui/react'
 
 const NavBar = dynamic(() => import("@/components/NavBar"));
 const MailingList = dynamic(() => import("@/components/MailingList"));
@@ -81,6 +82,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
         </main>
         <Footer />
         <MailingList />
+        <ColorModeScript initialColorMode={customTheme.initialColorMode} />
       </ChakraProvider>
     </>
   );
