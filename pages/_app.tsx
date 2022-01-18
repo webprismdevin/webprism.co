@@ -3,12 +3,12 @@ import { AppProps } from "next/app";
 import Head from "next/head";
 import TagManager from "react-gtm-module";
 import $ from "jquery/dist/jquery.slim";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { HeadContent } from "@/components/head-content";
 import dynamic from "next/dynamic";
-import customTheme from '@/lib/theme';
-import { ColorModeScript } from '@chakra-ui/react'
+import customTheme from "@/lib/theme";
+import { ColorModeScript } from "@chakra-ui/react";
 import "@fontsource/montserrat";
 import "@/styles/styles.scss";
 
@@ -36,6 +36,7 @@ if (process.env.NODE_ENV === "production" && process.browser) {
 function CustomApp({ Component, pageProps }: AppProps) {
   const [window, setWindow] = useState(null);
   const router = useRouter();
+  const { colorMode } = useColorMode()
 
   useEffect(() => {
     if (typeof window !== undefined) {
@@ -72,10 +73,11 @@ function CustomApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head>
-        <HeadContent />
-      </Head>
       <ChakraProvider theme={customTheme}>
+        <Head>
+          <HeadContent />
+          <meta name="theme-color" content={colorMode === 'dark' ? 'brand.dark' : 'brand.light'} />
+        </Head>
         <NavBar />
         <main>
           <Component {...pageProps} />

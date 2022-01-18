@@ -1,8 +1,8 @@
+
+
 export function HeadContent() {
   return (
     <>
-      <meta name="theme-color" content="#03040A" />
-
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://www.webprism.co/" />
       <meta

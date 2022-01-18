@@ -61,6 +61,7 @@ export default function FreeStickerBro() {
               textDecor={"none"}
               _hover={{ textDecor: "none" }}
               href="https://webprism.myshopify.com/cart/41265991811245:1?channel=buy_button"
+              target="_blank"
             >
               <Button mr={3}>Ship it!</Button>
             </Link>

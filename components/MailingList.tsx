@@ -24,15 +24,12 @@ export default function MailingList() {
   
     useEffect(() => {
       const timer = setTimeout(async () => {
-        // if(process.env.NODE_ENV !== "development") {
           let popped = await window.sessionStorage.getItem("wp_popped");
 
           if(popped !== "true") {
             onOpen();
             window.sessionStorage.setItem("wp_popped", "true")
           }
-        // } 
-        // onOpen()
       }, isMobile ? 6400 : 4200);
   
       return () => clearTimeout(timer);
