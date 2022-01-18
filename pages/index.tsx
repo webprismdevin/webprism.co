@@ -22,10 +22,10 @@ import Head from "next/head";
 import PainPoints from "@/components/PainPoints";
 import { FaArrowRight } from "react-icons/fa";
 import ProjectFeature from "@/components/ProjectFeature";
-import { ShapesProps } from "@/components/Shapes";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
+import { ShapesProps } from "@/components/ShapesProps";
 
 const MotionText = motion(Text);
 

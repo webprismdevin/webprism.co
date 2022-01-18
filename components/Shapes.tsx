@@ -2,14 +2,11 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
 import dynamic from "next/dynamic";
 import {  Stage } from "@react-three/drei";
+import { ShapesProps } from "./ShapesProps";
 
 const Model = dynamic(() => import("./Model"), {
   ssr: false,
 });
-
-export type ShapesProps = {
-  colorMode: string
-}
 
 export default function Shapes({colorMode }: ShapesProps) {
   const ref = useRef<any>()

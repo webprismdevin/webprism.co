@@ -11,9 +11,9 @@ import "@fontsource/montserrat";
 import "@/styles/styles.scss";
 import customTheme from '@/lib/theme';
 
-const NavBar = dynamic(() => import("../components/NavBar"));
-const MailingList = dynamic(() => import("../components/MailingList"));
-const Footer = dynamic(() => import("../components/Footer"!));
+const NavBar = dynamic(() => import("@/components/NavBar"));
+const MailingList = dynamic(() => import("@/components/MailingList"));
+const Footer = dynamic(() => import("../components/NewFooter"));
 
 declare global {
   interface Window {

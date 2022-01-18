@@ -2,7 +2,6 @@ import NextLink from "next/link";
 import {
   Box,
   Container,
-  Flex,
   Heading,
   Text,
   SimpleGrid,
