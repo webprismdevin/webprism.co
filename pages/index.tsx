@@ -36,7 +36,9 @@ const OurProcess = dynamic(() => import("../components/OurProcess"!), {
   ssr: false,
 });
 
-const ProjectFeature = dynamic(() => import('@/components/ProjectFeature'), { ssr: false})
+const ProjectFeature = dynamic(() => import("@/components/ProjectFeature"), {
+  ssr: false,
+});
 
 const LetterGather = dynamic(() => import("@/components/LetterGather"));
 
@@ -82,7 +84,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                   top: -top * 4,
                   left: 0,
                   zIndex: 0,
-                  overflow: 'visible'
+                  overflow: "visible",
                 }}
               >
                 <Shapes colorMode={colorMode} />
@@ -101,10 +103,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               pos="relative"
               zIndex={1}
             >
-              <Heading size="3xl" fontWeight="800">
+              <Heading as="h1" size="3xl" fontWeight="800">
                 Crafted Websites for Authentic Brands
               </Heading>
-              <Heading size="md">
+              <Heading as="h2" size="md">
                 Unlock new digital marketing opportunities with a
                 custom-tailored website designed to showcase your brand.
               </Heading>
@@ -122,12 +124,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         <Container maxW="container.md" pos={"relative"}>
           <Stack spacing={16}>
             <Text fontSize="xl" textAlign={"center"}>
-              We create{" "}
-              <strong style={{ fontSize: "1.2em" }}>
-                custom-tailored websites
-              </strong>{" "}
-              that <em style={{ fontSize: "1.4em" }}>showcase personality</em>{" "}
-              and <u style={{ fontSize: "1.2em" }}>unlock digital marketin</u>g.
+              We create custom-tailored websites that showcase personality and
+              unlock digital marketing.
             </Text>
           </Stack>
           {/* <Image alt="" /> */}
@@ -201,7 +199,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                     mobile app!
                   </Text>
                   <Link href="https://mvp.webprism.co" target="_blank">
-                    We built an app to help anyone define their mission.
+                    Check out the app we built to help everyone define their
+                    purpose.
                   </Link>
                 </Stack>
               </Flex>
@@ -256,7 +255,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       <Container maxW={["container.xl"]} centerContent py={40}>
         <Stack spacing={8} alignItems={"center"} mb={12}>
           <Heading size="2xl">Our Process</Heading>
-          <Heading size="md">What you can expect</Heading>
+          <Heading size="md">What you can expect when working with us</Heading>
         </Stack>
         <OurProcess />
       </Container>
@@ -337,9 +336,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 Devin and Ashley of [WEBPRISM] redesigned and reworked my
                 website, and I couldn&apos;t be more thrilled. If you&apos;ve
                 been waiting for the right person to do your website rebuild, I
-                cannot recommend [WEBPRISM] enough. It&apos;s a fabulous way
-                to start a new year, and it&apos;s been such a nice gift to
-                myself and my business!
+                cannot recommend [WEBPRISM] enough. It&apos;s a fabulous way to
+                start a new year, and it&apos;s been such a nice gift to myself
+                and my business!
               </Text>
               <Text fontStyle={"italic"} fontWeight={600}>
                 Sarah - The Mint Gardener
@@ -363,8 +362,14 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         <Container ref={c2Ref} maxW="container.lg" centerContent>
           <MotionText
             variants={{
-              rest: { y: -300, opacity: 0 },
-              animate: { y: 0, opacity: 1 },
+              rest: {
+                y: 300,
+                opacity: 0,
+              },
+              animate: {
+                y: 0,
+                opacity: 1,
+              },
             }}
             initial="rest"
             animate={controls2}
@@ -392,7 +397,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             <Text>
               We write things, about stuff. Come stand around our soap box.
             </Text>
-
             <Stack dir={"column"} spacing={8}>
               {blogPosts.map((post: any) => (
                 <Stack spacing={4} alignItems={"flex-start"} key={post._id}>

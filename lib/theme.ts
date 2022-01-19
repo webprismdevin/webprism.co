@@ -1,7 +1,6 @@
 import { extendTheme, ThemeComponents } from "@chakra-ui/react";
 import { theme as defaultTheme, ThemeConfig } from "@chakra-ui/theme"
 import { mode } from "@chakra-ui/theme-tools";
-import { LinkProps } from "next/link";
 
 const customTheme: ThemeConfig = extendTheme(defaultTheme, {
   initialColorMode: "system",

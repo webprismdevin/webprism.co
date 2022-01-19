@@ -66,7 +66,7 @@ export default function OurProcess() {
             width={96}
           />
           <Heading>{step.name}</Heading>
-          <Text>{returnStatement(index + 1)}</Text>
+          <Text fontWeight={500}>{returnStatement(index + 1)}</Text>
         </Stack>
       ))}
         </SwipeableViews>

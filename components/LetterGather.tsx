@@ -100,6 +100,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
+          marginLeft={'0.5em'}
           variants={{
             rest: isBrowser
               ? {
@@ -119,6 +120,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
+          marginLeft={'0.5em'}
           variants={{
             rest: isBrowser
               ? {
@@ -138,6 +140,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
+          marginLeft={'0.5em'}
           variants={{
             rest: isBrowser
               ? {
@@ -157,6 +160,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
+          marginLeft={'0.5em'}
           variants={{
             rest: isBrowser
               ? {
@@ -176,6 +180,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
+          marginLeft={'0.5em'}
           variants={{
             rest: isBrowser
               ? {
@@ -195,6 +200,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
+          marginLeft={'0.5em'}
           variants={{
             rest: isBrowser
               ? {
@@ -214,6 +220,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
+          marginLeft={'0.5em'}
           variants={{
             rest: {
               x: -80,

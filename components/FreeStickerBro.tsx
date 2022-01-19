@@ -25,7 +25,6 @@ export default function FreeStickerBro() {
   return (
     <>
       <MotionBox
-        // display="inline"
         whileHover={{
           rotate: 45,
         }}
@@ -56,7 +55,7 @@ export default function FreeStickerBro() {
             </Stack>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost"> Nah, I don&apos;t want it</Button>
+            <Button variant="ghost" onClick={onClose}> Nah, I don&apos;t want it</Button>
             <Link
               textDecor={"none"}
               _hover={{ textDecor: "none" }}

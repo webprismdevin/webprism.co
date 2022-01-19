@@ -30,7 +30,7 @@ export default function MailingList() {
             onOpen();
             window.sessionStorage.setItem("wp_popped", "true")
           }
-      }, isMobile ? 6400 : 4200);
+      }, isMobile ? 8400 : 4200);
   
       return () => clearTimeout(timer);
     }, []); 

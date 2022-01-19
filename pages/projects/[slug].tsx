@@ -52,7 +52,7 @@ export default function Project({ project, projectList }: any) {
       </Head>
       <Container maxW="container.xl" centerContent py={20}>
         <Stack spacing={8} textAlign={"center"}>
-          <Heading textTransform={"uppercase"} fontWeight={300} size="4xl">
+          <Heading as="h1" textTransform={"uppercase"} fontWeight={300} size="4xl">
             {project.title}
           </Heading>
           <Link href={project.url} target="_blank">

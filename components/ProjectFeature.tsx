@@ -1,11 +1,13 @@
 import { useColorMode } from "@chakra-ui/react"
 import dynamic from "next/dynamic"
 import { isMobile } from "react-device-detect"
+import { useRouter } from 'next/router'
 
-const Card = dynamic<any>(() => import('https://framer.com/m/Project-Feature-hqLd.js@bsQtYiUETp4bSUtDQU6C'!))
+const Card = dynamic<any>(() => import('https://framer.com/m/Project-Feature-hqLd.js@6oiWqNC6k0GaVRpzXbXn'!))
 
 export default function ProjectFeature(){
     const { colorMode } = useColorMode()
+    const router = useRouter()
 
     function returnVariant(){
         switch(true){
@@ -25,6 +27,7 @@ export default function ProjectFeature(){
     return (<>
         <Card 
             variant={returnVariant()}
+            tap={() => router.push('/projects/le-marche-reverie')}
         /> 
     </>)
 }

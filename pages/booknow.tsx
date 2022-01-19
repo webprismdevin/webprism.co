@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Box, Text, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import styles from "@/styles/booknow.module.scss";
 
 
@@ -15,7 +15,6 @@ export function ContactPage(props: ContactProps) {
         <div className={styles.iframeContainer}>
           <iframe
             src="https://app.usemotion.com/meet/webprism/website-seo-audit-design-review"
-            // title="Motion Booking Page"
             width="100%"
             height="840px"
             frameBorder="0"
