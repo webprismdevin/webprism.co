@@ -18,6 +18,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { imageBuilder } from "@/lib/sanity";
 import { useState } from "react";
 import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
+import { isMobile } from "react-device-detect";
 
 export interface ProjectProps {
   _id: string;
@@ -44,12 +45,12 @@ const Portfolio = ({ projects }: PortfolioProps) => {
 
   function handleNext() {
     setIndex(index + 3);
-    window.scrollTo(0, 0)
+    if(isMobile) window.scrollTo(0, 0)
   }
 
   function handlePrev() {
-      setIndex(index - 3);
-      window.scrollTo(0, 0)
+    setIndex(index - 3);
+    if(isMobile) window.scrollTo(0, 0)
   }
 
   return (
