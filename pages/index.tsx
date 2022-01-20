@@ -25,6 +25,7 @@ import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { ShapesProps } from "@/components/ShapesProps";
+import Testimonials from "@/components/Testimonials";
 
 const MotionText = motion(Text);
 
@@ -71,7 +72,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
     <>
       <Head>
         <title>Crafted Websites for Authentic Brands | WEBPRISM</title>
-        <meta name="description" content="WEBPRISM is a digital creative agency that specializes in website design and e-commerce solutions. Our team of experts will work with you to create a website that showcases your personality and unlocks your digital marketing potential." />
+        <meta
+          name="description"
+          content="WEBPRISM is a digital creative agency that specializes in website design and e-commerce solutions. Our team of experts will work with you to create a website that showcases your personality and unlocks your digital marketing potential."
+        />
       </Head>
       {/* Hero */}
       <Box overflow={"visible"} w="full">
@@ -103,7 +107,12 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               pos="relative"
               zIndex={1}
             >
-              <Heading textTransform={"uppercase"} fontWeight={300} as="h1" size="3xl">
+              <Heading
+                textTransform={"uppercase"}
+                fontWeight={300}
+                as="h1"
+                size="3xl"
+              >
                 Crafted Websites for Authentic Brands
               </Heading>
               <Heading maxW={["full", "50%"]} as="h2" size="md">
@@ -111,7 +120,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 custom-tailored website designed to showcase your brand.
               </Heading>
               <NextLink href="/contact" passHref>
-                <Button rightIcon={<Icon as={FaArrowRight} />}>
+                <Button rightIscon={<Icon as={FaArrowRight} />}>
                   Let&apos;s Talk
                 </Button>
               </NextLink>
@@ -135,7 +144,13 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       {/* Site Types */}
       <Container py={40} maxW="container.xl">
         <Stack spacing={16}>
-          <Heading textTransform={"uppercase"} fontWeight={300} size="2xl" textAlign={"center"} as="h2">
+          <Heading
+            textTransform={"uppercase"}
+            fontWeight={300}
+            size="2xl"
+            textAlign={"center"}
+            as="h2"
+          >
             What We Build
           </Heading>
           <SimpleGrid
@@ -254,7 +269,14 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       {/* Our Process */}
       <Container maxW={["container.xl"]} centerContent py={40}>
         <Stack spacing={8} alignItems={"center"} mb={12}>
-          <Heading textTransform={"uppercase"} fontWeight={300} size="2xl" as="h2">Our Process</Heading>
+          <Heading
+            textTransform={"uppercase"}
+            fontWeight={300}
+            size="2xl"
+            as="h2"
+          >
+            Our Process
+          </Heading>
           <Heading size="md">What you can expect when working with us</Heading>
         </Stack>
         <OurProcess />
@@ -291,10 +313,21 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       {/* Testimonials */}
       <Container pt={40} pb={80} centerContent maxW="container.xl">
         <Stack spacing={6} textAlign={"center"}>
-          <Heading textTransform={"uppercase"} fontWeight={300} size="2xl" as="h2">What Our Clients Say</Heading>
-          <Text>We might be biased, but we think they like us.</Text>
+          <Heading
+            textTransform={"uppercase"}
+            fontWeight={300}
+            size="2xl"
+            as="h2"
+          >
+            What Our Clients Say
+          </Heading>
+          <Text fontWeight={600} fontSize={"lg"}>We might be biased, but we think they like us.</Text>
+          <Testimonials />
+          <NextLink href="/portfolio" passHref>
+            <Button alignSelf={"center"}>See Our Portfolio</Button>
+          </NextLink>
         </Stack>
-        <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={8} my={20}>
+        {/* <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={8} my={20}>
           <GridItem colSpan={[3, 1]}>
             <Stack spacing={4} alignItems={"flex-start"}>
               <Text>
@@ -345,10 +378,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               </Text>
             </Stack>
           </GridItem>
-        </SimpleGrid>
-        <NextLink href="/portfolio" passHref>
-          <Button>See Our Portfolio</Button>
-        </NextLink>
+        </SimpleGrid> */}
       </Container>
       {/* We're WEBPRISM */}
       <Flex py={20} justifyContent={"flex-start"}>
@@ -380,7 +410,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             fontSize="2xl"
             textAlign={"center"}
           >
-            We&apos;re exploring the depths of our creativity, and creating better experiences for our clients and their customers with everything we discover.
+            We&apos;re exploring the depths of our creativity, and creating
+            better experiences for our clients and their customers with
+            everything we discover.
           </MotionText>
         </Container>
       </Box>
@@ -391,14 +423,22 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       <Box pt={40} pb={20}>
         <Container maxW="container.md">
           <Stack spacing={8}>
-            <Heading as="h3" textTransform={"uppercase"} fontWeight={300}>Latest Writing</Heading>
+            <Heading as="h3" textTransform={"uppercase"} fontWeight={300}>
+              Latest Writing
+            </Heading>
             <Text>
               We write things, about stuff. Come stand around our soap box.
             </Text>
             <Stack dir={"column"} spacing={8}>
               {blogPosts.map((post: any) => (
                 <Stack spacing={4} alignItems={"flex-start"} key={post._id}>
-                  <Heading textTransform={"uppercase"} size="md" fontWeight={300}>{post.title}</Heading>
+                  <Heading
+                    textTransform={"uppercase"}
+                    size="md"
+                    fontWeight={300}
+                  >
+                    {post.title}
+                  </Heading>
                   <Text>{post.metaDesc}</Text>
                   <NextLink href={`/posts/${post.slug.current}`} passHref>
                     <Button>Read →</Button>
