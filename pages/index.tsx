@@ -71,6 +71,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
     <>
       <Head>
         <title>Crafted Websites for Authentic Brands | WEBPRISM</title>
+        <meta name="description" content="WEBPRISM is a digital creative agency that specializes in website design and e-commerce solutions. Our team of experts will work with you to create a website that showcases your personality and unlocks your digital marketing potential." />
       </Head>
       {/* Hero */}
       <Box overflow={"visible"} w="full">

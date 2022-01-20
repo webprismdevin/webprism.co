@@ -10,6 +10,7 @@ export function ContactPage(props: ContactProps) {
     <div className={`page`}>
       <Head>
         <title>WEBPRISM | Book Now</title>
+        <meta name="description" content="Schedule a consultation directly!" />
       </Head>
       <Box pt={"86px"} bg="#2C77E7">
         <div className={styles.iframeContainer}>

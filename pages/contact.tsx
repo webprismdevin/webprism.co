@@ -11,6 +11,7 @@ export function ContactPage(props: ContactProps) {
     <>
       <Head>
         <title>Contact | WEBPRISM | A web design + development agency</title>
+        <meta name="description" content="We're excited to connect with you. Contact us today to schedule consultation, or get started right away!" />
       </Head>
       <Container maxW="container.md" pt={40} pb={20}>
         <Stack spacing={8}>

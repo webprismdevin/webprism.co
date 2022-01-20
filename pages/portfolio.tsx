@@ -78,13 +78,13 @@ const Portfolio = ({ projects }: PortfolioProps) => {
           w="full"
         >
           {projects[index + 0] && (
-            <Item project={projects[index + 0]} order={0} />
+            <Item key={projects[index + 0]} project={projects[index + 0]} order={0} />
           )}
           {projects[index + 1] && (
-            <Item project={projects[index + 1]} order={1} />
+            <Item key={projects[index + 0]} project={projects[index + 1]} order={1} />
           )}
           {projects[index + 2] && (
-            <Item project={projects[index + 2]} order={2} />
+            <Item key={projects[index + 0]} project={projects[index + 2]} order={2} />
           )}
         </Stack>
         <Flex w="full" justifyContent={"center"} mt={8}>
