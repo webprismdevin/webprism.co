@@ -29,7 +29,7 @@ export default function FreeStickerBro() {
           rotate: 45,
         }}
       >
-        <Text display="inline" onClick={onOpen}>👋</Text>
+        <Text display="inline" cursor="pointer" onClick={onOpen}>👋</Text>
       </MotionBox>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

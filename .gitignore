@@ -41,3 +41,4 @@ yarn-error.log*
 
 #sanity
 /sanity/node_modules
+public/sitemap.xml
