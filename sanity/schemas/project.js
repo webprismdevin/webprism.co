@@ -39,14 +39,12 @@ export default {
           title: 'Width',
           type: 'number',
           description: 'Full width (in pixels) of the screenshot.',
-          validation: Rule => Rule.required().min(600)
         },
         {
           name: 'height',
           title: 'Height',
           type: 'number',
           description: 'Full height (in pixels) of the screenshot.',
-          validation: Rule => Rule.required().min(600)
         },
       ],
       options: {

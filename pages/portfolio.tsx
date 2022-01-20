@@ -176,7 +176,7 @@ function Item({
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const query = encodeURIComponent(`*[ _type == "project" ] {
         _id, mainImage, tags, title, body, url, slug
-    }`);
+    } | order(title desc)`);
 
   const url = `https://0ggffobx.api.sanity.io/v1/data/query/production?query=${query}`;
   const result = await fetch(url).then((res) => res.json());
