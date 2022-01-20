@@ -239,7 +239,7 @@ export default function LetterGather() {
         We&apos;ve worked with small teams, and multi-million dollar firms, becoming their marketing partner
         and digital advisor.
       </MotionText>
-      <NextLink
+      {/* <NextLink
         href="/about"
         passHref
       >
@@ -250,7 +250,7 @@ export default function LetterGather() {
         >
           About Us
         </MotionButton>
-      </NextLink>
+      </NextLink> */}
       <MotionImage
         variants={{
           rest: {
