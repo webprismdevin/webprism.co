@@ -13,6 +13,7 @@ import { FaArrowRight } from "react-icons/fa";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { isBrowser } from "react-device-detect";
+import NextLink from 'next/link'
 
 const MotionHeading = motion<any>(Heading);
 const MotionContainer = motion<any>(Container);
@@ -21,10 +22,9 @@ const MotionButton = motion<any>(Button);
 const MotionImage = motion<any>(Image);
 
 export default function LetterGather() {
-  const letters = ["W", "E", "B", "P", "R", "I", "S", "M"];
   const controls = useAnimation();
   const { ref, inView } = useInView({
-    threshold: isBrowser ? 1 : 0.8,
+    threshold: isBrowser ? 1 : 0.7,
   });
   const { colorMode } = useColorMode();
 
@@ -100,7 +100,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
-          marginLeft={'0.5em'}
+          marginLeft={['0em','0.5em']}
           variants={{
             rest: isBrowser
               ? {
@@ -120,7 +120,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
-          marginLeft={'0.5em'}
+          marginLeft={['0em','0.5em']}
           variants={{
             rest: isBrowser
               ? {
@@ -140,7 +140,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
-          marginLeft={'0.5em'}
+          marginLeft={['0em','0.5em']}
           variants={{
             rest: isBrowser
               ? {
@@ -160,7 +160,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
-          marginLeft={'0.5em'}
+          marginLeft={['0em','0.5em']}
           variants={{
             rest: isBrowser
               ? {
@@ -180,7 +180,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
-          marginLeft={'0.5em'}
+          marginLeft={['0em','0.5em']}
           variants={{
             rest: isBrowser
               ? {
@@ -200,7 +200,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
-          marginLeft={'0.5em'}
+          marginLeft={['0em','0.5em']}
           variants={{
             rest: isBrowser
               ? {
@@ -220,7 +220,7 @@ export default function LetterGather() {
           size="3xl"
           transition={transition}
           display={"inline-block"}
-          marginLeft={'0.5em'}
+          marginLeft={['0em','0.5em']}
           variants={{
             rest: {
               x: -80,
@@ -239,13 +239,18 @@ export default function LetterGather() {
         We&apos;ve worked with small teams, and multi-million dollar firms, becoming their marketing partner
         and digital advisor.
       </MotionText>
-      <MotionButton
-        mt={8}
-        variants={opacityMotion}
-        rightIcon={<Icon as={FaArrowRight} />}
+      <NextLink
+        href="/about"
+        passHref
       >
-        About Us
-      </MotionButton>
+        <MotionButton
+          mt={8}
+          variants={opacityMotion}
+          rightIcon={<Icon as={FaArrowRight} />}
+        >
+          About Us
+        </MotionButton>
+      </NextLink>
       <MotionImage
         variants={{
           rest: {
@@ -255,11 +260,11 @@ export default function LetterGather() {
           hover: {
             opacity: 1,
             scale: 1,
-            transition: { delay: 0.5}
+            transition: { delay: 0.5 }
           }
         }}
         pos="absolute"
-        right={0}
+        right={[2, 0]}
         top={[0, 200]}
         src={
           colorMode === "dark"

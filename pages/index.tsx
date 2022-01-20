@@ -73,7 +73,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         <title>Crafted Websites for Authentic Brands | WEBPRISM</title>
       </Head>
       {/* Hero */}
-      <Box overflow={"visible"}>
+      <Box overflow={"visible"} w="full">
         <Parallax
           renderLayer={(percentage) => {
             const top = percentage * 100 - 100;
@@ -99,7 +99,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               my={80}
               alignItems={"flex-start"}
               maxW={["full", "60%"]}
-              px={"18px"}
               pos="relative"
               zIndex={1}
             >
@@ -380,9 +379,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             fontSize="2xl"
             textAlign={"center"}
           >
-            We believe the free market of ideas allows every person to do
-            something to improve their corner of the world. We believe the most
-            successful businesses exist to serve others.
+            We&apos;re exploring the depths of our creativity, and creating better experiences for our clients and their customers with everything we discover.
           </MotionText>
         </Container>
       </Box>

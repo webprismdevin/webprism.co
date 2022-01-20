@@ -42,10 +42,12 @@ export default function PainPoints() {
     rest: {
       opacity: 0,
       y: 500,
+      display: 'none'
     },
     animate: {
       opacity: 1,
       y: 0,
+      display: 'inline-block'
     },
   };
 

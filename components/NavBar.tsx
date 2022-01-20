@@ -16,17 +16,14 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Divider,
-  Link
+  Link,
 } from "@chakra-ui/react";
 import NextLink from "next/link";
-import { FaSun, FaMoon, FaBars, FaPhoneAlt, FaPaperPlane } from "react-icons/fa";
+import { FaSun, FaMoon, FaBars, FaPaperPlane } from "react-icons/fa";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import useSound from "use-sound";
-import {
-  BrowserView,
-  MobileView
-} from "react-device-detect";
+import { BrowserView, MobileView } from "react-device-detect";
 
 export default function NavBar() {
   const [play] = useSound<any>("/sounds/pup-fat.mp3");
@@ -34,7 +31,7 @@ export default function NavBar() {
 
   return (
     <>
-      <Box pos={["fixed"]} top={0} left={0} zIndex={2} px={8} py={6} w="full">
+      <Box pos={["fixed"]} top={0} left={0} zIndex={2} px={[4, 8]} py={6} w="full">
         <Flex justifyContent={"space-between"} alignItems={"center"}>
           <NextLink href="/" passHref>
             <Image
@@ -52,15 +49,30 @@ export default function NavBar() {
           </NextLink>
           <BrowserView>
             <Stack direction="row" spacing={[4, 8]} alignItems={"center"}>
-              <NextLink href="/posts" passHref>
-                <Link color={colorMode === 'dark' ? 'white' : 'dark'}>Blog</Link>
+              <NextLink href="/about" passHref>
+                <Link color={colorMode === "dark" ? "white" : "dark"}>
+                  About
+                </Link>
               </NextLink>
-              <Link href="https://mvp.webprism.co" target="_blank" color={colorMode === 'dark' ? 'white' : 'dark'}>MVP</Link>
               <NextLink href="/portfolio" passHref>
-                <Link color={colorMode === 'dark' ? 'white' : 'dark'}>Portfolio</Link>
+                <Link color={colorMode === "dark" ? "white" : "dark"}>
+                  Portfolio
+                </Link>
               </NextLink>
+              <NextLink href="/posts" passHref>
+                <Link color={colorMode === "dark" ? "white" : "dark"}>
+                  Blog
+                </Link>
+              </NextLink>
+              <Link
+                href="https://mvp.webprism.co"
+                target="_blank"
+                color={colorMode === "dark" ? "white" : "dark"}
+              >
+                MVP
+              </Link>
               <NextLink href="/contact" passHref>
-                <Button rightIcon={<Icon as={FaPaperPlane} /> }>Contact</Button>
+                <Button rightIcon={<Icon as={FaPaperPlane} />}>Contact</Button>
               </NextLink>
               <ColorModeSwitcher
                 colorMode={colorMode}
@@ -86,7 +98,7 @@ function MobileMenu({ colorMode, toggleColorMode }: any) {
 
   useEffect(() => {
     const handleRouteChange = () => {
-      onClose()
+      onClose();
     };
 
     router.events.on("routeChangeStart", handleRouteChange);
@@ -101,7 +113,7 @@ function MobileMenu({ colorMode, toggleColorMode }: any) {
       <Icon as={FaBars} onClick={onOpen} h={8} w={8} />
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent bg={colorMode === 'dark' ? 'brand.dark' : 'brand.light'}>
+        <DrawerContent bg={colorMode === "dark" ? "brand.dark" : "brand.light"}>
           <DrawerCloseButton />
           <DrawerHeader w="full" justifyContent={"space-between"}>
             <ColorModeSwitcher
@@ -111,24 +123,37 @@ function MobileMenu({ colorMode, toggleColorMode }: any) {
           </DrawerHeader>
           <DrawerBody>
             <Stack spacing={4} mt={4}>
-              <Link href="/posts" passHref>
-                <Text fontSize={"2xl"} cursor={"pointer"}>Blog</Text>
-              </Link>
+              <NextLink href="/about" passHref>
+                <Link fontSize={"2xl"} cursor={"pointer"}>
+                  About
+                </Link>
+              </NextLink>
               <Divider />
-              <Link href="/portfolio" passHref>
-                <Text fontSize={"2xl"} cursor={"pointer"}>Portfolio</Text>
-              </Link>
+              <NextLink href="/portfolio" passHref>
+                <Link fontSize={"2xl"} cursor={"pointer"}>
+                  Portfolio
+                </Link>
+              </NextLink>
               <Divider />
-              <Link href="/contact" passHref>
-                <Text fontSize={"2xl"} fontWeight={600} cursor={"pointer"}>Contact</Text>
-              </Link>
+              <NextLink href="/posts" passHref>
+                <Link fontSize={"2xl"} cursor={"pointer"}>
+                  Blog
+                </Link>
+              </NextLink>
+              <Divider />
+              <NextLink href="/posts" passHref>
+                <Link fontSize={"2xl"} cursor={"pointer"}>
+                  MVP
+                </Link>
+              </NextLink>
+              <Divider />
+              <NextLink href="/contact" passHref>
+                <Link color={colorMode === 'dark' ? 'brand.brightPink' : 'brand.dark'} fontSize={"2xl"} fontWeight={600} cursor={"pointer"}>
+                  Contact
+                </Link>
+              </NextLink>
             </Stack>
           </DrawerBody>
-          {/* <DrawerFooter>
-            <Link href="/contact" passHref>
-              <Button>Contact</Button>
-            </Link>
-          </DrawerFooter> */}
         </DrawerContent>
       </Drawer>
     </>
