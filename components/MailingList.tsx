@@ -8,6 +8,7 @@ import {
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
+    DrawerCloseButton,
     useDisclosure,
     Heading,
     Flex,
@@ -45,6 +46,7 @@ export default function MailingList() {
       <Drawer placement={"bottom"} onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent bg={colorMode === 'dark' ? 'brand.dark' : 'brand.light'}>
+          <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px">
             <Container maxW="container.lg">
               <Heading size="lg">Hey! There&apos;s free stuff around here somewhere!</Heading>

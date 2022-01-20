@@ -59,6 +59,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
   const controls2 = useAnimation();
 
   useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
+  useEffect(() => {
     if (c1InView) controls.start("animate");
     else controls.start("rest");
   }, [c1InView]);
@@ -327,58 +331,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             <Button alignSelf={"center"}>See Our Portfolio</Button>
           </NextLink>
         </Stack>
-        {/* <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={8} my={20}>
-          <GridItem colSpan={[3, 1]}>
-            <Stack spacing={4} alignItems={"flex-start"}>
-              <Text>
-                Working with WEBPRISM was a great decision - they were able to
-                build my website quickly, help me define my branding and showed
-                the personality I wanted to show for the Strong Ox brand. They
-                helped me with everything from getting Shopify set up to
-                building the site and creating graphics for longer term
-                marketing.
-              </Text>
-              <Text fontStyle={"italic"} fontWeight={600}>
-                Damen - Strong Ox
-              </Text>
-            </Stack>
-          </GridItem>
-          <GridItem colSpan={[3, 1]}>
-            <Stack spacing={4} alignItems={"flex-start"}>
-              <Text>
-                Deciding to work with Devin and Ashley was a pivotal moment for
-                our business. Their expertise, creativity and productivity (not
-                to mention their adaptability and great personalities) are
-                brilliant.
-              </Text>
-              <Text>
-                Their ability to conceptualize our business allows us to trust
-                their insights and guidance. Redoing our website felt like a
-                major undertaking and vulnerable step, but their design
-                competence and workflow made it so positive. Check out our
-                website, it&apos;s awesome!
-              </Text>
-              <Text fontStyle={"italic"} fontWeight={600}>
-                Brooke &amp; Kristi - StudioLife
-              </Text>
-            </Stack>
-          </GridItem>
-          <GridItem colSpan={[3, 1]}>
-            <Stack spacing={4} alignItems={"flex-start"}>
-              <Text>
-                Devin and Ashley of [WEBPRISM] redesigned and reworked my
-                website, and I couldn&apos;t be more thrilled. If you&apos;ve
-                been waiting for the right person to do your website rebuild, I
-                cannot recommend [WEBPRISM] enough. It&apos;s a fabulous way to
-                start a new year, and it&apos;s been such a nice gift to myself
-                and my business!
-              </Text>
-              <Text fontStyle={"italic"} fontWeight={600}>
-                Sarah - The Mint Gardener
-              </Text>
-            </Stack>
-          </GridItem>
-        </SimpleGrid> */}
       </Container>
       {/* We're WEBPRISM */}
       <Flex py={20} justifyContent={"flex-start"}>
