@@ -49,10 +49,11 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
           content="We love to write about life, our business, and give away everything we learn! Come on it, and you might just learn something."
         />
       </Head>
-      <Container maxW="container.xl" py={40} centerContent>
+      <Container maxW="container.xl" py={24} centerContent>
         <Stack spacing={8}>
-          <Heading as="h1" textAlign={"center"}>
-            WEBPRISM Blog
+          <Text textAlign={"center"} fontSize="xl">WEBPRISM BLOG</Text>
+          <Heading as="h1" textTransform={"uppercase"} textAlign={"center"} size="3xl" fontWeight={300}>
+            Posts
           </Heading>
           <Divider />
           <SimpleGrid
@@ -76,9 +77,9 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
                   _hover={{ opacity: 0.6 }}
                 >
                   <Stack spacing={4}>
-                    <Heading>{post.title}</Heading>
+                    <Heading textTransform={"uppercase"}  fontWeight={300}>{post.title}</Heading>
                     <Text>
-                      {new Date(post._createdAt).toLocaleDateString()}
+                      {new Date(post.publishedAt).toLocaleDateString()}
                     </Text>
                     <Text>{post.metaDesc}</Text>
                   </Stack>

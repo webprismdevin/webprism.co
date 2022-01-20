@@ -65,7 +65,7 @@ export default function PainPoints() {
     <>
       <Container maxW="container.xl" py={40}>
         <Stack spacing={[6, 12]}>
-          <Heading as="h2" textAlign={"center"}>
+          <Heading textTransform={"uppercase"} fontWeight={300} size="lg" as="h2" textAlign={"center"}>
             What&apos;s Your Focus This Year?
           </Heading>
           <Flex

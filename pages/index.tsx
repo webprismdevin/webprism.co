@@ -98,14 +98,14 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               spacing={8}
               my={80}
               alignItems={"flex-start"}
-              maxW={["full", "60%"]}
+              maxW={["full", "80%"]}
               pos="relative"
               zIndex={1}
             >
-              <Heading as="h1" size="3xl" fontWeight="800">
+              <Heading textTransform={"uppercase"} fontWeight={300} as="h1" size="3xl">
                 Crafted Websites for Authentic Brands
               </Heading>
-              <Heading as="h2" size="md">
+              <Heading maxW={["full", "50%"]} as="h2" size="md">
                 Unlock new digital marketing opportunities with a
                 custom-tailored website designed to showcase your brand.
               </Heading>
@@ -134,7 +134,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       {/* Site Types */}
       <Container py={40} maxW="container.xl">
         <Stack spacing={16}>
-          <Heading size="2xl" textAlign={"center"}>
+          <Heading textTransform={"uppercase"} fontWeight={300} size="2xl" textAlign={"center"} as="h2">
             What We Build
           </Heading>
           <SimpleGrid
@@ -253,7 +253,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       {/* Our Process */}
       <Container maxW={["container.xl"]} centerContent py={40}>
         <Stack spacing={8} alignItems={"center"} mb={12}>
-          <Heading size="2xl">Our Process</Heading>
+          <Heading textTransform={"uppercase"} fontWeight={300} size="2xl" as="h2">Our Process</Heading>
           <Heading size="md">What you can expect when working with us</Heading>
         </Stack>
         <OurProcess />
@@ -290,7 +290,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       {/* Testimonials */}
       <Container pt={40} pb={80} centerContent maxW="container.xl">
         <Stack spacing={6} textAlign={"center"}>
-          <Heading size="2xl">What Our Clients Say</Heading>
+          <Heading textTransform={"uppercase"} fontWeight={300} size="2xl" as="h2">What Our Clients Say</Heading>
           <Text>We might be biased, but we think they like us.</Text>
         </Stack>
         <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={8} my={20}>
@@ -390,14 +390,14 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       <Box pt={40} pb={20}>
         <Container maxW="container.md">
           <Stack spacing={8}>
-            <Heading>Latest Writing</Heading>
+            <Heading as="h3" textTransform={"uppercase"} fontWeight={300}>Latest Writing</Heading>
             <Text>
               We write things, about stuff. Come stand around our soap box.
             </Text>
             <Stack dir={"column"} spacing={8}>
               {blogPosts.map((post: any) => (
                 <Stack spacing={4} alignItems={"flex-start"} key={post._id}>
-                  <Heading size="md">{post.title}</Heading>
+                  <Heading textTransform={"uppercase"} size="md" fontWeight={300}>{post.title}</Heading>
                   <Text>{post.metaDesc}</Text>
                   <NextLink href={`/posts/${post.slug.current}`} passHref>
                     <Button>Read →</Button>

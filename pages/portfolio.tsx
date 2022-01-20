@@ -2,9 +2,22 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import NextLink from "next/link";
 import {
+  AspectRatio,
   Container,
-  Link,
+  Image,
+  Stack,
+  Box,
+  Text,
+  Flex,
+  useColorMode,
+  Icon,
+  Heading,
+  Divider
 } from "@chakra-ui/react";
+import { motion, AnimatePresence } from "framer-motion";
+import { imageBuilder } from "@/lib/sanity";
+import { useState } from "react";
+import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 
 export interface ProjectProps {
   _id: string;
@@ -16,34 +29,149 @@ export interface ProjectProps {
     current: string;
     id: string;
   };
+  mainImage: any;
 }
 
 export interface PortfolioProps {
   projects: [];
 }
 
+const MotionBox = motion(Box);
+
 const Portfolio = ({ projects }: PortfolioProps) => {
+  const { colorMode } = useColorMode();
+  const [index, setIndex] = useState(0);
+
+  function handleNext() {
+    setIndex(index + 3);
+    window.scrollTo(0, 0)
+  }
+
+  function handlePrev() {
+      setIndex(index - 3);
+      window.scrollTo(0, 0)
+  }
+
   return (
     <>
       <Head>
-        <title>Portfolio | WEBPRISM | Crafted Websites for Authentic Brands</title>
+        <title>
+          Portfolio | WEBPRISM | Crafted Websites for Authentic Brands
+        </title>
         <meta
           name="description"
           content="Our portfolio showcases our recent work and favorite projects."
         />
       </Head>
-      <Container py={20} centerContent maxW="container.xl">
-        {projects.map((p: ProjectProps) => (
-          <NextLink href={`/projects/${p.slug.current}`} key={p._id} passHref>
-            <Link>{p.title}</Link>
-          </NextLink>
-        ))}
+      <Container pt={24} centerContent maxW="container.xl">
+        <Heading
+          as="h1"
+          mb={12}
+          size="3xl"
+          textTransform={"uppercase"}
+          fontWeight={300}
+        >
+          Portfolio
+        </Heading>
+        <Stack
+          direction={["column", "row"]}
+          w="full"
+        >
+          {projects[index + 0] && (
+            <Item project={projects[index + 0]} order={0} />
+          )}
+          {projects[index + 1] && (
+            <Item project={projects[index + 1]} order={1} />
+          )}
+          {projects[index + 2] && (
+            <Item project={projects[index + 2]} order={2} />
+          )}
+        </Stack>
+        <Flex w="full" justifyContent={"center"} mt={8}>
+          {index !== 0 && (
+            <Icon
+              onClick={handlePrev}
+              as={BsChevronDoubleLeft}
+              h={6}
+              w={8}
+              color={colorMode === "dark" ? "white" : "brand.dark"}
+            />
+          )}
+          {index + 3 < projects.length - 1 && (
+            <Icon
+              onClick={handleNext}
+              as={BsChevronDoubleRight}
+              h={6}
+              w={8}
+              color={colorMode === "dark" ? "white" : "brand.dark"}
+            />
+          )}
+        </Flex>
       </Container>
     </>
   );
 };
 
 export default Portfolio;
+
+function Item({
+  project,
+  order,
+}: {
+  project: { tags: [], slug: { current: string }; mainImage: any; title: string };
+  order: number;
+}) {
+  return (
+    <AnimatePresence exitBeforeEnter={true}>
+      <NextLink href={`/portfolio/${project.slug.current}`}>
+          <MotionBox
+            cursor={"pointer"}
+            minW="33%"
+            pos="relative"
+            key={project.slug.current}
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            exit={{
+              opacity: 0,
+            }}
+            transition={{
+              delay: 0.1 * order,
+              type: "tween",
+            }}
+            whileHover={{
+              scale: 1.02,
+              transition: { 
+                duration: 0.2
+              }
+            }}
+          >
+            <AspectRatio minW="100%" minH={[600, 600]}>
+              <Image
+                src={imageBuilder(project.mainImage).url() as string}
+                alt={project.title}
+              />
+            </AspectRatio>
+            <Flex mt={6} h={4} gap={4} justifyContent={"flex-start"} alignItems={"center"}>
+            {project.tags.map((tag: string, index: number) => (
+              <>
+                <Text fontWeight={600} fontSize={12} textTransform={"uppercase"} key={index}>{tag}</Text>
+                {index < project.tags?.length - 1 && (
+                  <Divider orientation="vertical" />
+                )}
+              </>
+            ))}
+          </Flex>
+            <Text fontSize={20} textTransform={"uppercase"} fontWeight={600} mt={2}>{project.title}</Text>
+          </MotionBox>
+      </NextLink>
+    </AnimatePresence>
+  );
+}
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const query = encodeURIComponent(`*[ _type == "project" ] {

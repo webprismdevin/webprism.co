@@ -95,33 +95,6 @@ export const Post: React.FC<PostProps> = ({
           </Box>
         </Stack>
       </Container>
-      {/* <section className="section">
-            <div className="container">
-              <div className="columns">
-                <div className="column is-2"/>
-                <div className={`column is-8 ${styles.postcontainer}`}>
-                  <Image src={getImgUrl() as string} height={540} width={1240} alt="post image"/>
-                  <div style={{marginBottom: 40}}/>
-                  <h1 className="title is-1">{title}</h1>
-                  <div className="block" style={{display: 'flex', alignItems: 'center'}}>
-                    <div style={{borderRadius: '100%', width: 40, height: 40, overflow: 'hidden', display: 'inline'}}>
-                      <Image src={getPfpUrl() as string} height={40} width={40} alt="Profile Pic" />
-                    </div>
-                    <div style={{marginLeft: 8}}>
-                      <span className="is-size-6">By: {authorName}</span>
-                    </div>
-                  </div>
-
-                  <hr />
-                  <div className="block">
-                    <p className="is-size-7">Published: {new Date(_createdAt).toLocaleDateString()}</p>
-                    <p className="is-size-7">Last updated: {new Date(_updatedAt).toLocaleDateString()}</p>
-                  </div>
-                </div>
-                <div className="column is-2"/>
-              </div>
-            </div>
-          </section> */}
     </>
   );
 };

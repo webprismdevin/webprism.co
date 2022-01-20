@@ -14,7 +14,7 @@ import NextLink from "next/link";
 export function FAQ() {
   return (
     <Stack spacing={8}>
-      <Heading size="xl">Frequently Asked Questions</Heading>
+      <Heading size="xl" textTransform={"uppercase"} fontWeight={300}>Frequently Asked Questions</Heading>
       <Accordion allowMultiple allowToggle>
         <AccordionItem>
           <h2>

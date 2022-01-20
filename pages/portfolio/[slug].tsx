@@ -52,20 +52,36 @@ export default function Project({ project, projectList }: any) {
       </Head>
       <Container maxW="container.xl" centerContent py={20}>
         <Stack spacing={8} textAlign={"center"}>
-          <Heading as="h1" textTransform={"uppercase"} fontWeight={300} size="4xl">
+          <Heading
+            as="h1"
+            textTransform={"uppercase"}
+            fontWeight={300}
+            size="3xl"
+          >
             {project.title}
           </Heading>
           <Link href={project.url} target="_blank">
             VIEW FULL SITE
           </Link>
         </Stack>
-{isBrowser &&  <AspectRatio mt={8} ratio={16 / 9} w="full">
-          <embed
-            style={{ backgroundColor: "white" }}
-            className="project_embed"
-            src={project.url}
-          />
-        </AspectRatio>}
+        {isBrowser && (
+          <AspectRatio mt={8} ratio={16 / 9} w="full">
+            <motion.iframe
+              style={{ backgroundColor: "white" }}
+              className="project_embed"
+              src={project.url}
+              initial={{
+                opacity: 0
+              }}
+              animate={{
+                opacity: 1
+              }}
+              exit={{
+                opacity: 0
+              }}
+            />
+          </AspectRatio>
+        )}
       </Container>
       <Container maxW={"container.md"}>
         <Stack spacing={8}>
@@ -75,7 +91,7 @@ export default function Project({ project, projectList }: any) {
           <Flex h={4} gap={4} justifyContent={"center"} alignItems={"center"}>
             {project.tags.map((tag: string, index: number) => (
               <>
-                <Text key={index}>{tag}</Text>
+                <Text textTransform={"uppercase"} key={index}>{tag}</Text>
                 {index < project.tags?.length - 1 && (
                   <Divider orientation="vertical" />
                 )}
@@ -85,26 +101,33 @@ export default function Project({ project, projectList }: any) {
           <Text>
             <BlockContent blocks={project.body} />
           </Text>
-          <Divider />
-          <Text fontStyle={"italic"}>&quot;{project.testimonial}&quot;</Text>
-          <Text
-            alignSelf={"flex-end"}
-            fontStyle={"italic"}
-            textTransform={"uppercase"}
-          >
-            {project.name}
-          </Text>
+          {project.testimonial && project.name && (
+            <>
+              <Divider />
+              <Text fontStyle={"italic"}>
+                &quot;{project.testimonial}&quot;
+              </Text>
+              <Text
+                alignSelf={"flex-end"}
+                fontStyle={"italic"}
+                textTransform={"uppercase"}
+              >
+                {project.name}
+              </Text>
+            </>
+          )}
         </Stack>
       </Container>
       {project.detailShots && project.detailShots?.length >= 4 && (
         <Container maxW="container.xl" py={40}>
           <SimpleGrid
-            w="full"
             templateColumns={"repeat(4, 1fr)"}
             templateRows={"repeat(4, 1fr)"}
+            columnGap={4}
+            rowGap={4}
           >
-            <GridItem colSpan={[4, 1]} rowSpan={[4, 2]}>
-              <AspectRatio ratio={1 / 1}>
+            <GridItem shadow={"xl"} colSpan={[4, 1]} rowSpan={[4, 2]}>
+              <AspectRatio ratio={1 / 1} minH="100%">
                 <Image
                   src={imageBuilder(project.detailShots[0]).url()!}
                   objectFit="cover"
@@ -112,26 +135,26 @@ export default function Project({ project, projectList }: any) {
                 />
               </AspectRatio>
             </GridItem>
-            <GridItem colSpan={[4, 1]} rowSpan={[4, 2]}>
-              <AspectRatio ratio={1 / 1}>
+            <GridItem shadow={"xl"} colSpan={[4, 1]} rowSpan={[4, 2]}>
+              <AspectRatio ratio={1 / 1} minH="100%">
                 <Image
                   src={imageBuilder(project.detailShots[1]).url()!}
                   objectFit="cover"
                   alt="project shot"
                 />
-              </AspectRatio>{" "}
+              </AspectRatio>
             </GridItem>
-            <GridItem colSpan={[4, 2]} rowSpan={[4, 4]}>
-              <AspectRatio ratio={1 / 1}>
+            <GridItem shadow={"xl"} colSpan={[4, 2]} rowSpan={[4, 4]}>
+              <AspectRatio ratio={1 / 1} minH="full">
                 <Image
                   src={imageBuilder(project.detailShots[2]).url()!}
                   objectFit="cover"
                   alt="project shot"
                 />
-              </AspectRatio>{" "}
+              </AspectRatio>
             </GridItem>
-            <GridItem colSpan={[4, 2]} rowSpan={[4, 2]}>
-              <AspectRatio ratio={2 / 1}>
+            <GridItem shadow={"xl"} colSpan={[4, 2]} rowSpan={[4, 2]}>
+              <AspectRatio ratio={2 / 1} minH="100%">
                 <Image
                   src={imageBuilder(project.detailShots[3]).url()!}
                   objectFit="cover"
@@ -156,7 +179,9 @@ export default function Project({ project, projectList }: any) {
           <Box w="125px">
             {currentIndex > 0 && (
               <NextLink
-                href={`/projects/${projectList[currentIndex - 1].slug.current}`}
+                href={`/portfolio/${
+                  projectList[currentIndex - 1].slug.current
+                }`}
                 passHref
               >
                 <Link color={colorMode === "dark" ? "white" : "brand.dark"}>
@@ -186,7 +211,9 @@ export default function Project({ project, projectList }: any) {
           <Box w="125px" textAlign={"right"}>
             {currentIndex !== projectList?.length - 1 && (
               <NextLink
-                href={`/projects/${projectList[currentIndex + 1].slug.current}`}
+                href={`/portfolio/${
+                  projectList[currentIndex + 1].slug.current
+                }`}
                 passHref
               >
                 <Link color={colorMode === "dark" ? "white" : "brand.dark"}>

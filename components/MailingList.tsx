@@ -11,7 +11,8 @@ import {
     useDisclosure,
     Heading,
     Flex,
-    useColorMode
+    useColorMode,
+    Container
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -30,7 +31,7 @@ export default function MailingList() {
             onOpen();
             window.sessionStorage.setItem("wp_popped", "true")
           }
-      }, isMobile ? 8400 : 4200);
+      }, isMobile ? 8400 : 6200);
   
       return () => clearTimeout(timer);
     }, []); 
@@ -45,22 +46,24 @@ export default function MailingList() {
         <DrawerOverlay />
         <DrawerContent bg={colorMode === 'dark' ? 'brand.dark' : 'brand.light'}>
           <DrawerHeader borderBottomWidth="1px">
-            <Heading textAlign="center">Psssttttt 👀 </Heading>
+            <Container maxW="container.lg">
+              <Heading size="lg">Hey! There&apos;s free stuff around here somewhere!</Heading>
+            </Container>
           </DrawerHeader>
-          <DrawerBody pb={10}>
-            <Flex justifyContent={"center"}>
-              <Stack spacing={8} maxW="container.lg"s>
-                <Text>
-                  It can be tough to stay on top of all the ways to reach your customers online - if your website isn&apos;t opening up new opportunities for building and connecting with your audience, we can show you simple tweaks to start unlocking new opportunities with your current website!
-                </Text>
-                <Text>We totally get it if you&apos;re overwhelmed, and not looking to grow right now. But if you are - smash that button below 👇👇</Text>
-              </Stack>
-            </Flex>
+          <DrawerBody py={4}>
+            <Container maxW="container.lg">
+              <Flex>
+                <Stack spacing={6} maxW="container.lg">
+                  <Text>Not click-bait! We&apos;ll sort of...but if you look hard enough, there is an opportunity to get a free party favor if you find a hidden surprise on our site. We&apos;ll give you a hint: give us a high-five.</Text>
+                  <Text>Since we&apos;ve got your attention, we do consultations, totally free, other than your time, which we acknowledge is super important. We keep them short, and try to be as helpful as possible. You&apos;ll leave with at least one way to make your own digital marketing better, even if you don&apos;t want to work with us.</Text><Text>Smash the button below 👇👇</Text>
+                </Stack>
+              </Flex>
+            </Container>
           </DrawerBody>
           <DrawerFooter>
-            <Flex justifyContent={"center"} w="full">
+            <Container maxW="container.lg" textAlign={"left"}>
               <Button onClick={handleSchedule}>Schedule Your Consultation</Button>
-            </Flex>
+            </Container>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

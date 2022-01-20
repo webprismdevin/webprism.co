@@ -3,7 +3,7 @@ import dynamic from "next/dynamic"
 import { isMobile } from "react-device-detect"
 import { useRouter } from 'next/router'
 
-const Card = dynamic<any>(() => import('https://framer.com/m/Project-Feature-hqLd.js@6oiWqNC6k0GaVRpzXbXn'!))
+const Card = dynamic<any>(() => import('https://framer.com/m/Project-Feature-hqLd.js@HS5uKNCPKeNcJXV5Up86'!))
 
 export default function ProjectFeature(){
     const { colorMode } = useColorMode()
@@ -27,7 +27,7 @@ export default function ProjectFeature(){
     return (<>
         <Card 
             variant={returnVariant()}
-            tap={() => router.push('/projects/le-marche-reverie')}
+            tap={() => router.push('/portfolio/le-marche-reverie')}
         /> 
     </>)
 }

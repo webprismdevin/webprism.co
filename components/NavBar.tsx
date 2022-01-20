@@ -49,11 +49,11 @@ export default function NavBar() {
           </NextLink>
           <BrowserView>
             <Stack direction="row" spacing={[4, 8]} alignItems={"center"}>
-              <NextLink href="/about" passHref>
+              {/* <NextLink href="/about" passHref>
                 <Link color={colorMode === "dark" ? "white" : "dark"}>
                   About
                 </Link>
-              </NextLink>
+              </NextLink> */}
               <NextLink href="/portfolio" passHref>
                 <Link color={colorMode === "dark" ? "white" : "dark"}>
                   Portfolio
@@ -123,12 +123,12 @@ function MobileMenu({ colorMode, toggleColorMode }: any) {
           </DrawerHeader>
           <DrawerBody>
             <Stack spacing={4} mt={4}>
-              <NextLink href="/about" passHref>
+              {/* <NextLink href="/about" passHref>
                 <Link fontSize={"2xl"} cursor={"pointer"}>
                   About
                 </Link>
               </NextLink>
-              <Divider />
+              <Divider /> */}
               <NextLink href="/portfolio" passHref>
                 <Link fontSize={"2xl"} cursor={"pointer"}>
                   Portfolio
@@ -141,11 +141,9 @@ function MobileMenu({ colorMode, toggleColorMode }: any) {
                 </Link>
               </NextLink>
               <Divider />
-              <NextLink href="/posts" passHref>
-                <Link fontSize={"2xl"} cursor={"pointer"}>
+                <Link href="https://mvp.webprism.co" target="_blank" fontSize={"2xl"} cursor={"pointer"}>
                   MVP
                 </Link>
-              </NextLink>
               <Divider />
               <NextLink href="/contact" passHref>
                 <Link color={colorMode === 'dark' ? 'brand.brightPink' : 'brand.dark'} fontSize={"2xl"} fontWeight={600} cursor={"pointer"}>
