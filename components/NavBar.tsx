@@ -28,6 +28,7 @@ import { BrowserView, MobileView } from "react-device-detect";
 export default function NavBar() {
   const [play] = useSound<any>("/sounds/pup-fat.mp3");
   const { colorMode, toggleColorMode } = useColorMode();
+  const router = useRouter();
 
   return (
     <>
@@ -49,11 +50,11 @@ export default function NavBar() {
           </NextLink>
           <BrowserView>
             <Stack direction="row" spacing={[4, 8]} alignItems={"center"}>
-              {/* <NextLink href="/about" passHref>
+              {router.pathname !== "/" && <NextLink href="/" passHref>
                 <Link color={colorMode === "dark" ? "white" : "dark"}>
-                  About
+                  Home
                 </Link>
-              </NextLink> */}
+              </NextLink>}
               <NextLink href="/portfolio" passHref>
                 <Link color={colorMode === "dark" ? "white" : "dark"}>
                   Portfolio
@@ -84,6 +85,7 @@ export default function NavBar() {
             <MobileMenu
               colorMode={colorMode}
               toggleColorMode={toggleColorMode}
+              router={router}
             />
           </MobileView>
         </Flex>
@@ -92,9 +94,8 @@ export default function NavBar() {
   );
 }
 
-function MobileMenu({ colorMode, toggleColorMode }: any) {
+function MobileMenu({ colorMode, toggleColorMode, router }: any) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -123,12 +124,12 @@ function MobileMenu({ colorMode, toggleColorMode }: any) {
           </DrawerHeader>
           <DrawerBody>
             <Stack spacing={4} mt={4}>
-              {/* <NextLink href="/about" passHref>
+              {router.pathname !== "/" && <NextLink href="/" passHref>
                 <Link fontSize={"2xl"} cursor={"pointer"}>
-                  About
+                  Home
                 </Link>
-              </NextLink>
-              <Divider /> */}
+              </NextLink>}
+              {router.pathname !== "/" && <Divider />}
               <NextLink href="/portfolio" passHref>
                 <Link fontSize={"2xl"} cursor={"pointer"}>
                   Portfolio
