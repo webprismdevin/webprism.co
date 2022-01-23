@@ -266,6 +266,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             top={-20}
             right={-20}
             zIndex={-1}
+            loading="lazy"
           />
         </Container>
       </Box>
