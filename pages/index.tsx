@@ -141,7 +141,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
               unlock digital marketing.
             </Text>
           </Stack>
-          {/* <Image alt="" /> */}
         </Container>
       </Box>
       <PainPoints />
@@ -260,7 +259,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             <ProjectFeature />
           </Box>
           <Image
-            src={"/projects/le-marche.png"}
+            src={"/photos/le-marche.webp"}
             alt=""
             pos="absolute"
             h={["600px", "800px"]}

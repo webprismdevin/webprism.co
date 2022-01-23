@@ -24,6 +24,7 @@ import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { isBrowser } from "react-device-detect";
 import Head from "next/head";
+import { format } from "path/posix";
 
 const MotionBox = motion(Box);
 
@@ -129,7 +130,7 @@ export default function Project({ project, projectList }: any) {
             <GridItem shadow={"xl"} colSpan={[4, 1]} rowSpan={[4, 2]}>
               <AspectRatio ratio={1 / 1} minH="100%">
                 <Image
-                  src={imageBuilder(project.detailShots[0]).url()!}
+                  src={imageBuilder(project.detailShots[0]).format('webp').url() as string}
                   objectFit="cover"
                   alt="project shot"
                 />
@@ -138,7 +139,7 @@ export default function Project({ project, projectList }: any) {
             <GridItem shadow={"xl"} colSpan={[4, 1]} rowSpan={[4, 2]}>
               <AspectRatio ratio={1 / 1} minH="100%">
                 <Image
-                  src={imageBuilder(project.detailShots[1]).url()!}
+                  src={imageBuilder(project.detailShots[1]).format('webp').url() as string}
                   objectFit="cover"
                   alt="project shot"
                 />
@@ -147,7 +148,7 @@ export default function Project({ project, projectList }: any) {
             <GridItem shadow={"xl"} colSpan={[4, 2]} rowSpan={[4, 4]}>
               <AspectRatio ratio={1 / 1} minH="full">
                 <Image
-                  src={imageBuilder(project.detailShots[2]).url()!}
+                  src={imageBuilder(project.detailShots[2]).format('webp').url() as string}
                   objectFit="cover"
                   alt="project shot"
                 />
@@ -156,7 +157,7 @@ export default function Project({ project, projectList }: any) {
             <GridItem shadow={"xl"} colSpan={[4, 2]} rowSpan={[4, 2]}>
               <AspectRatio ratio={2 / 1} minH="100%">
                 <Image
-                  src={imageBuilder(project.detailShots[3]).url()!}
+                  src={imageBuilder(project.detailShots[3]).format('webp').url() as string}
                   objectFit="cover"
                   alt="project shot"
                 />

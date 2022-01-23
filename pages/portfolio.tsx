@@ -77,6 +77,7 @@ const Portfolio = ({ projects }: PortfolioProps) => {
         <Stack
           direction={["column", "row"]}
           w="full"
+          justifyContent={"space-between"}
         >
           {projects[index + 0] && (
             <Item key={projects[index + 0]} project={projects[index + 0]} order={0} />
@@ -92,6 +93,11 @@ const Portfolio = ({ projects }: PortfolioProps) => {
           {index !== 0 && (
             <Icon
               onClick={handlePrev}
+              cursor={"pointer"}
+              _hover={{
+                opacity: 0.6,
+                transform: 'scale(1.1)'
+              }}
               as={BsChevronDoubleLeft}
               h={6}
               w={8}
@@ -101,6 +107,12 @@ const Portfolio = ({ projects }: PortfolioProps) => {
           {index + 3 < projects.length - 1 && (
             <Icon
               onClick={handleNext}
+              cursor={"pointer"}
+              transition={'transform 200ms ease'}
+              _hover={{
+                opacity: 0.6,
+                transform: 'scale(1.1)'
+              }}
               as={BsChevronDoubleRight}
               h={6}
               w={8}
@@ -126,8 +138,9 @@ function Item({
     <AnimatePresence exitBeforeEnter={true}>
       <NextLink href={`/portfolio/${project.slug.current}`}>
           <MotionBox
+            pt={[12, 0]}
             cursor={"pointer"}
-            minW="33%"
+            minW="32.5%"
             pos="relative"
             key={project.slug.current}
             initial={{
@@ -153,7 +166,7 @@ function Item({
           >
             <AspectRatio minW="100%" minH={[600, 600]}>
               <Image
-                src={imageBuilder(project.mainImage).url() as string}
+                src={imageBuilder(project.mainImage).format('webp').url() as string}
                 alt={project.title}
               />
             </AspectRatio>
