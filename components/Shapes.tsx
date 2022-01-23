@@ -16,7 +16,12 @@ export default function Shapes({colorMode }: ShapesProps) {
       <Canvas>
         {/* @ts-ignore */}
         <Suspense fallback={null} r3f>
-          <Stage controls={ref} preset="portrait" environment="studio" adjustCamera={false}>
+          <Stage 
+            controls={ref} 
+            // preset="portrait" 
+            // environment="studio" 
+            adjustCamera={false}
+          >
             <Model colorMode={colorMode} />
           </Stage>
         </Suspense>
