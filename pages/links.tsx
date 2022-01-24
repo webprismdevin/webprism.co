@@ -30,7 +30,7 @@ export default function Links({ data }: any) {
           {data.links.map((link: any) => {
             if (link._type === "link")
               return (
-                <Link fontSize="xl" p={8} shadow="md" key={link._id} url={link.url}>
+                <Link fontSize="xl" p={8} shadow="md" key={link._id} href={link.url}>
                     <Text>{link.title}</Text>
                     <Divider my={2} />
                     <Tag>Link</Tag>
