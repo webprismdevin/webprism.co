@@ -43,7 +43,7 @@ export default function Testimonials() {
             }}
           >
             <Text>{testimonials[index].text}</Text>
-            <Text textAlign={"right"} textTransform={"uppercase"} fontStyle={"italic"}>{testimonials[index].name}</Text>
+            <Text textAlign={["center", "right"]} textTransform={"uppercase"} fontStyle={"italic"}>{testimonials[index].name}</Text>
           </MotionStack>
         </AnimatePresence>
         <Icon

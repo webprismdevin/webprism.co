@@ -43,7 +43,7 @@ export default function Links({ data }: any) {
                   <Link fontSize="xl" p={8} shadow="md">
                       <Text>{link.title}</Text>
                       <Divider my={2} />
-                      <Tag>Post</Tag>
+                      <Tag>Blog Post</Tag>
                   </Link>
                 </NextLink>
               );
