@@ -1,8 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { RiFilePaper2Line } from 'react-icons/ri'
+
 export default {
   name: 'post',
-  title: 'Post',
+  title: 'Posts',
   type: 'document',
+  icon: RiFilePaper2Line,
   fields: [
     {
       name: 'title',

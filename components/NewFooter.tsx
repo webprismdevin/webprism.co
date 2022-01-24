@@ -59,6 +59,9 @@ const Footer = () => {
                 <NextLink href="https://mvp.webprism.co" passHref>
                   <Link>MVP</Link>
                 </NextLink>
+                <NextLink href="/links" passHref>
+                  <Link>Links</Link>
+                </NextLink>
                 <NextLink href="/contact" passHref>
                   <Link>Contact Us</Link>
                 </NextLink>

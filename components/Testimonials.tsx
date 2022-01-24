@@ -21,8 +21,12 @@ export default function Testimonials() {
         <Icon
           onClick={() => paginate(-1)}
           as={BsChevronDoubleLeft}
-          h={4}
-          w={4}
+          h={6}
+          w={6}
+          _hover={{
+            transform: 'scale(1.1)'
+          }}
+          transition={'transform 200ms ease'}
         />
         <AnimatePresence exitBeforeEnter>
           <MotionStack
@@ -45,8 +49,12 @@ export default function Testimonials() {
         <Icon
           onClick={() => paginate(1)}
           as={BsChevronDoubleRight}
-          h={4}
-          w={4}
+          h={6}
+          w={6}
+          _hover={{
+            transform: 'scale(1.1)'
+          }}
+          transition={'transform 200ms ease'}
         />
       </Flex>
     </Container>

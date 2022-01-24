@@ -1,8 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
+import { GrProjects } from 'react-icons/gr'
+
 export default {
   name: 'project',
   title: 'Projects',
   type: 'document',
+  icon: GrProjects,
   fields: [
     {
       name: 'title',

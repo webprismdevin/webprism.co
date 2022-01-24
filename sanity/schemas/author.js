@@ -1,8 +1,11 @@
-// eslint-disable-next-line import/no-anonymous-default-export
+/* eslint-disable import/no-anonymous-default-export */
+import { IoIosPeople } from 'react-icons/io'
+
 export default {
   name: 'author',
-  title: 'Author',
+  title: 'Authors',
   type: 'document',
+  icon: IoIosPeople,
   fields: [
     {
       name: 'name',

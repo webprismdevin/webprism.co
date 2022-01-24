@@ -18,8 +18,6 @@ export default function Shapes({colorMode }: ShapesProps) {
         <Suspense fallback={null} r3f>
           <Stage 
             controls={ref} 
-            // preset="portrait" 
-            // environment="studio" 
             adjustCamera={false}
           >
             <Model colorMode={colorMode} />

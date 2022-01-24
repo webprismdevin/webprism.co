@@ -266,7 +266,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             top={-20}
             right={-20}
             zIndex={-1}
-            // loading="lazy"
           />
         </Container>
       </Box>
@@ -375,13 +374,15 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
       <Box pt={40} pb={20}>
         <Container maxW="container.md">
           <Stack spacing={8}>
-            <Heading as="h3" textTransform={"uppercase"} fontWeight={300}>
-              Latest Writing
-            </Heading>
-            <Text>
-              We write things, about stuff. Come stand around our soap box.
-            </Text>
-            <Stack dir={"column"} spacing={8}>
+            <Box pt={4}>
+              <Heading as="h3" textTransform={"uppercase"} fontWeight={300}>
+                Latest Writing
+              </Heading>
+              <Text>
+                We write things, about stuff. Come stand around our soap box.
+              </Text>
+            </Box>
+            <Stack dir={"column"} spacing={12}>
               {blogPosts.map((post: any) => (
                 <Stack spacing={4} alignItems={"flex-start"} key={post._id}>
                   <Heading
