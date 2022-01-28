@@ -56,7 +56,7 @@ const Footer = () => {
                 <NextLink href="https://supershops.webprism.xyz" passHref>
                   <Link>SuperShops</Link>
                 </NextLink>
-                <NextLink href="https://mvp.webprism.co" passHref>
+                <NextLink href="https://mission.webprism.xyz" passHref>
                   <Link>MVP</Link>
                 </NextLink>
                 <NextLink href="/links" passHref>

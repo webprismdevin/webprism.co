@@ -69,7 +69,7 @@ export const Post: React.FC<PostProps> = ({
               alt="post image"
             />
           </AspectRatio>
-          <Heading>{title}</Heading>
+          <Heading as="h1">{title}</Heading>
           <Flex alignItems={"center"} gap={4}>
             <Image
               borderRadius={"full"}

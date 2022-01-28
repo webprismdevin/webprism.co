@@ -66,7 +66,7 @@ export default function NavBar() {
                 </Link>
               </NextLink>
               <Link
-                href="https://mvp.webprism.co"
+                href="https://mission.webprism.xyz"
                 target="_blank"
                 color={colorMode === "dark" ? "white" : "dark"}
               >
@@ -142,7 +142,7 @@ function MobileMenu({ colorMode, toggleColorMode, router }: any) {
                 </Link>
               </NextLink>
               <Divider />
-                <Link href="https://mvp.webprism.co" target="_blank" fontSize={"2xl"} cursor={"pointer"}>
+                <Link href="https://mission.webprism.xyz" target="_blank" fontSize={"2xl"} cursor={"pointer"}>
                   MVP
                 </Link>
               <Divider />
