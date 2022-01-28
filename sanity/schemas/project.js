@@ -69,14 +69,13 @@ export default {
         layout: 'tags'
       }
     },
-    // {
-    //   name: 'metaDesc',
-    //   title: 'Meta Tag Description',
-    //   description: 'The <Meta> Tag Description is used for preview text when a link is sent, and SEO.',
-    //   rows: 3,
-    //   type: 'text',
-    //   validation: Rule => Rule.required().min(20).max(250)
-    // },
+    {
+      name: 'metaDesc',
+      title: 'Meta Tag Description',
+      description: 'The <Meta> Tag Description is used for preview text when a link is sent, and SEO. Rephrase the Project Overview (or just copy-paste).',
+      rows: 3,
+      type: 'text',
+    },
     {
       name: 'body',
       title: 'Project Overview',

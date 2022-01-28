@@ -50,6 +50,7 @@ export default function Project({ project, projectList }: any) {
     <Box>
       <Head>
         <title>{project.title} | Portfolio | WEBPRISM </title>
+        <meta name="description" content={`${project.metaDesc}`} />
       </Head>
       <Container maxW="container.xl" centerContent py={20}>
         <Stack spacing={8} textAlign={"center"}>
