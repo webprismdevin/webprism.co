@@ -252,7 +252,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       project: data,
       projectList: data2,
     },
-    revalidate: 600,
+    revalidate: 60,
   };
 };
 
