@@ -104,7 +104,7 @@ const Portfolio = ({ projects }: PortfolioProps) => {
               color={colorMode === "dark" ? "white" : "brand.dark"}
             />
           )}
-          {index + 3 < projects.length - 1 && (
+          {index < projects.length - 1 && (
             <Icon
               onClick={handleNext}
               cursor={"pointer"}
@@ -172,12 +172,12 @@ function Item({
             </AspectRatio>
             <Flex mt={6} h={4} gap={4} justifyContent={"flex-start"} alignItems={"center"}>
             {project.tags.map((tag: string, index: number) => (
-              <>
-                <Text fontWeight={600} fontSize={12} textTransform={"uppercase"} key={index}>{tag}</Text>
+              <div key={index}>
+                <Text fontWeight={600} fontSize={12} textTransform={"uppercase"} >{tag}</Text>
                 {index < project.tags?.length - 1 && (
                   <Divider orientation="vertical" />
                 )}
-              </>
+              </div>
             ))}
           </Flex>
             <Text fontSize={20} textTransform={"uppercase"} fontWeight={600} mt={2}>{project.title}</Text>
