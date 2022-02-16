@@ -32,7 +32,7 @@ declare global {
 //   TagManager.initialize(tagManagerArgs);
 // } else {
 //   console.log("GTM not fired");
-// }
+// } 6 56
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const [window, setWindow] = useState(null);
