@@ -26,7 +26,6 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { ShapesProps } from "@/components/ShapesProps";
 import Testimonials from "@/components/Testimonials";
-import Tawk from "@/components/tawk";
 
 const MotionText = motion(Text);
 
@@ -409,7 +408,6 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           <FAQ />
         </Container>
       </Box>
-      <Tawk src="https://embed.tawk.to/621c6ef8a34c24564128a29d/1fsvh2ugc" />
     </>
   );
 }

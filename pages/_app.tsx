@@ -12,6 +12,7 @@ import { ColorModeScript } from "@chakra-ui/react";
 import "@fontsource/montserrat";
 import "@/styles/styles.scss";
 import NextScript from "next/script";
+import Tawk from "@/components/tawk";
 
 const NavBar = dynamic(() => import("@/components/NavBar"));
 const MailingList = dynamic(() => import("@/components/MailingList"));
@@ -22,18 +23,6 @@ declare global {
     fun: any;
   }
 }
-
-// const tagManagerArgs = {
-//   gtmId: "GTM-NZ2DFK5",
-// };
-
-// if (process.env.NODE_ENV === "production" && process.browser) {
-//   console.log("GTM fired");
-//   TagManager.initialize(tagManagerArgs);
-// } else {
-//   console.log("GTM not fired");
-// } 6 56
-
 function CustomApp({ Component, pageProps }: AppProps) {
   const [window, setWindow] = useState(null);
   const router = useRouter();
@@ -99,6 +88,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
           }}();`
         }}
       />
+      <Tawk src="https://embed.tawk.to/621c6ef8a34c24564128a29d/1fsvh2ugc" />
     </>
   );
 }
