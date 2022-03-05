@@ -23,6 +23,18 @@ declare global {
     fun: any;
   }
 }
+
+const tagManagerArgs = {
+  gtmId: "GTM-NZ2DFK5",
+};
+
+if (process.env.NODE_ENV === "production" && process.browser) {
+  console.log("GTM fired");
+  TagManager.initialize(tagManagerArgs);
+} else {
+  console.log("GTM not fired");
+}
+
 function CustomApp({ Component, pageProps }: AppProps) {
   const [window, setWindow] = useState(null);
   const router = useRouter();
