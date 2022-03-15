@@ -124,7 +124,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 custom-tailored website designed to showcase your brand.
               </Heading>
               <NextLink href="/contact" passHref>
-                <Button rightIscon={<Icon as={FaArrowRight} />}>
+                <Button rightIcon={<Icon as={FaArrowRight} />}>
                   Let&apos;s Talk
                 </Button>
               </NextLink>

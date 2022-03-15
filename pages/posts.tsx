@@ -61,7 +61,6 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
             templateRows={"repeat(1, 1fr)"}
             columnGap={8}
             rowGap={8}
-            s
           >
             {posts.map((post: any) => (
               <Link
