@@ -50,7 +50,7 @@ export default {
       description: 'The <Meta name="description"> tag is used for preview text when a link is sent, and  important for SEO.',
       rows: 3,
       type: 'text',
-      validation: Rule => Rule.required().min(20).max(250)
+      validation: Rule => Rule.required().min(20)
     },
     {
       name: 'publishedAt',

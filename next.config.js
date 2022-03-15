@@ -9,7 +9,7 @@ module.exports = withTM();
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   images: {
-    domains: ['webprism.co','cdn.sanity.io', 'localhost', 'framer.com'],
+    domains: ['webprism.co','cdn.sanity.io', 'localhost', 'framer.com', 'partners.tawk.to'],
     formats: ['image/avif', 'image/webp']
   },
   experimental: {
