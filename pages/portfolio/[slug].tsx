@@ -19,12 +19,11 @@ import BlockContent from "@sanity/block-content-to-react";
 import { imageBuilder } from "@/lib/sanity";
 import NextLink from "next/link";
 import { BsChevronDoubleDown } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { isBrowser } from "react-device-detect";
 import Head from "next/head";
-import { format } from "path/posix";
 
 const MotionBox = motion(Box);
 
@@ -73,13 +72,13 @@ export default function Project({ project, projectList }: any) {
               className="project_embed"
               src={project.url}
               initial={{
-                opacity: 0
+                opacity: 0,
               }}
               animate={{
-                opacity: 1
+                opacity: 1,
               }}
               exit={{
-                opacity: 0
+                opacity: 0,
               }}
             />
           </AspectRatio>
@@ -92,17 +91,15 @@ export default function Project({ project, projectList }: any) {
           </Heading>
           <Flex h={4} gap={4} justifyContent={"center"} alignItems={"center"}>
             {project.tags.map((tag: string, index: number) => (
-              <>
-                <Text textTransform={"uppercase"} key={index}>{tag}</Text>
+              <React.Fragment key={index}>
+                <Text textTransform={"uppercase"}>{tag}</Text>
                 {index < project.tags?.length - 1 && (
                   <Divider orientation="vertical" />
                 )}
-              </>
+              </React.Fragment>
             ))}
           </Flex>
-          <Text>
-            <BlockContent blocks={project.body} />
-          </Text>
+          <BlockContent blocks={project.body} />
           {project.testimonial && project.name && (
             <>
               <Divider />
@@ -131,7 +128,11 @@ export default function Project({ project, projectList }: any) {
             <GridItem shadow={"xl"} colSpan={[4, 1]} rowSpan={[4, 2]}>
               <AspectRatio ratio={1 / 1} minH="100%">
                 <Image
-                  src={imageBuilder(project.detailShots[0]).format('webp').url() as string}
+                  src={
+                    imageBuilder(project.detailShots[0])
+                      .format("webp")
+                      .url() as string
+                  }
                   objectFit="cover"
                   alt="project shot"
                 />
@@ -140,7 +141,11 @@ export default function Project({ project, projectList }: any) {
             <GridItem shadow={"xl"} colSpan={[4, 1]} rowSpan={[4, 2]}>
               <AspectRatio ratio={1 / 1} minH="100%">
                 <Image
-                  src={imageBuilder(project.detailShots[1]).format('webp').url() as string}
+                  src={
+                    imageBuilder(project.detailShots[1])
+                      .format("webp")
+                      .url() as string
+                  }
                   objectFit="cover"
                   alt="project shot"
                 />
@@ -149,7 +154,11 @@ export default function Project({ project, projectList }: any) {
             <GridItem shadow={"xl"} colSpan={[4, 2]} rowSpan={[4, 4]}>
               <AspectRatio ratio={1 / 1} minH="full">
                 <Image
-                  src={imageBuilder(project.detailShots[2]).format('webp').url() as string}
+                  src={
+                    imageBuilder(project.detailShots[2])
+                      .format("webp")
+                      .url() as string
+                  }
                   objectFit="cover"
                   alt="project shot"
                 />
@@ -158,7 +167,11 @@ export default function Project({ project, projectList }: any) {
             <GridItem shadow={"xl"} colSpan={[4, 2]} rowSpan={[4, 2]}>
               <AspectRatio ratio={2 / 1} minH="100%">
                 <Image
-                  src={imageBuilder(project.detailShots[3]).format('webp').url() as string}
+                  src={
+                    imageBuilder(project.detailShots[3])
+                      .format("webp")
+                      .url() as string
+                  }
                   objectFit="cover"
                   alt="project shot"
                 />
