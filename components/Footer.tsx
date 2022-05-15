@@ -9,11 +9,12 @@ import {
   Stack,
   Icon,
   Divider,
-  Link
+  Link,
+  AspectRatio,
+  Image
 } from "@chakra-ui/react";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
 import FreeStickerBro from "./FreeStickerBro";
-import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -44,7 +45,11 @@ const Footer = () => {
                     <Icon as={FaInstagram} h={8} w={8} />
                   </Link>
                 </Stack>
-                <Link href="https://www.tawk.to/?pid=9wcjas7" target="_blank"><Image src="https://partners.tawk.to/badges/partner-black.png" alt="tawk.to partner badge" width="150" height="78" /></Link>
+                <Link href="https://www.tawk.to/?pid=9wcjas7" target="_blank">
+                  <AspectRatio ratio={150/78} width={100}>
+                    <Image src="https://partners.tawk.to/badges/partner-black.png" alt="tawk.to partner badge" />
+                  </AspectRatio>
+                </Link>
               </Stack>
             </GridItem>
             <GridItem colSpan={4} rowSpan={1} textAlign={"right"}>

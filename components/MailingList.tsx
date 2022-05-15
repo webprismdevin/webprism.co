@@ -1,73 +1,148 @@
-import { 
-    Text,
-    Stack,
-    Button,
-    Drawer,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-    useDisclosure,
-    Heading,
-    Flex,
-    useColorMode,
-    Container
-} from '@chakra-ui/react'
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { isMobile } from 'react-device-detect';
+import {
+  Box,
+  Input,
+  Stack,
+  Heading,
+  Text,
+  BoxProps,
+  InputGroup,
+  InputRightElement,
+  Icon,
+  Spinner,
+  useColorMode,
+} from "@chakra-ui/react";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
+import { FiArrowRight } from "react-icons/fi";
+
+const MotionBox = motion<BoxProps>(Box);
 
 export default function MailingList() {
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const router = useRouter();
-    const { colorMode } = useColorMode();
-  
-    useEffect(() => {
-      const timer = setTimeout(async () => {
-          let popped = await window.sessionStorage.getItem("wp_popped");
+  const [popupShown, setShown] = useState(false);
+  const controls = useAnimation();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [formStatus, setStatus] = useState("clean");
+  const { colorMode } = useColorMode();
 
-          if(popped !== "true") {
-            onOpen();
-            window.sessionStorage.setItem("wp_popped", "true")
-          }
-      }, isMobile ? 16000 : 12000);
-  
-      return () => clearTimeout(timer);
-    }, []); 
-    
-    function handleSchedule(){
-      router.push('/booknow');
-      onClose();
+  useEffect(() => {
+    const height = document.body.scrollHeight;
+    const trigger = height / 3;
+
+    if (!popupShown) controls.start("initial");
+
+    const interval = setInterval(() => {
+      if (window.scrollY > trigger && !popupShown) {
+        console.log(popupShown);
+        controls.start("animate");
+        setShown(true);
+      }
+    }, 250);
+
+    return () => clearInterval(interval);
+  }, [popupShown]);
+
+  const animationVariants = {
+    initial: {
+      x: 0,
+    },
+    animate: {
+      x: 1008,
+    },
+    close: {
+      x: 0,
+    },
+  };
+
+  async function subscribe() {
+    setStatus("loading");
+
+    const response = await fetch("/api/addsubscriber", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+      }),
+    }).then((res) => res.json());
+
+    console.log(response)
+
+    if (!response.response) {
+      setStatus("failure");
     }
-      
-    return (
-      <Drawer placement={"bottom"} onClose={onClose} isOpen={isOpen}>
-        <DrawerOverlay />
-        <DrawerContent bg={colorMode === 'dark' ? 'brand.dark' : 'brand.light'}>
-          <DrawerCloseButton />
-          <DrawerHeader borderBottomWidth="1px">
-            <Container maxW="container.lg">
-              <Heading size="lg">Hey! There&apos;s free stuff around here somewhere!</Heading>
-            </Container>
-          </DrawerHeader>
-          <DrawerBody py={4}>
-            <Container maxW="container.lg">
-              <Flex>
-                <Stack spacing={6} maxW="container.lg">
-                  <Text>Not click-bait! We&apos;ll sort of...but if you look hard enough, there is an opportunity to get a free party favor if you find a hidden surprise on our site. We&apos;ll give you a hint: give us a high-five.</Text>
-                  <Text>Since we&apos;ve got your attention, we do consultations, totally free, other than your time, which we acknowledge is super important. We keep them short, and try to be as helpful as possible. You&apos;ll leave with at least one way to make your own digital marketing better, even if you don&apos;t want to work with us.</Text><Text>Smash the button below 👇👇</Text>
-                </Stack>
-              </Flex>
-            </Container>
-          </DrawerBody>
-          <DrawerFooter>
-            <Container maxW="container.lg" textAlign={"left"}>
-              <Button onClick={handleSchedule}>Schedule Your Consultation</Button>
-            </Container>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-    );
+
+    if (response.response) {
+      setStatus("success");
+    }
   }
+
+  function handleEnter(event: any) {
+    if (event.code === "Enter") {
+      subscribe();
+    }
+  }
+
+  return (
+    <MotionBox
+      pos="fixed"
+      bottom={2}
+      left={-1000}
+      p={10}
+      zIndex={200}
+      boxShadow={colorMode === "dark" ? `2px 2px 12px rgba(255, 255 ,255 , 0.25)` : '2px 2px 6px rgba(0, 0 ,0 , 0.15)'}
+      bgColor={colorMode === "dark" ? "brand.dark" : "brand.light"}
+      color={colorMode === "dark" ? "brand.light" : "brand.dark"}
+      animate={controls}
+      variants={animationVariants}
+      maxW={["370px", "580px"]}
+    >
+      <MotionBox
+        whileHover={{
+          opacity: 0.6
+        }}
+        onClick={() => controls.start("close")}
+        pos={"absolute"}
+        right={4}
+        top={0}
+        fontSize={36}
+        cursor="pointer"
+      >
+        &times;
+      </MotionBox>
+      <Stack spacing={2}>
+        <Heading size="lg">
+          {formStatus === "success"
+            ? "Check your inbox!"
+            : "Sign up for emails"}
+        </Heading>
+        <InputGroup display={formStatus === "success" ? "none" : "inherit"}>
+          <Input
+            type="email"
+            autoComplete="email"
+            fontSize={20}
+            pb={2}
+            borderBottom={"4px solid"}
+            borderBottomColor={colorMode === "dark" ? "brand.light" : "brand.dark"}
+            borderRadius={0}
+            variant={"unstyled"}
+            placeholder={"enter your email"}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            onKeyDown={handleEnter}
+          />
+          <InputRightElement onClick={subscribe}>
+            {formStatus === "loading" ? (
+              <Spinner />
+            ) : (
+              <Icon _hover={{opacity: 0.6}} cursor="pointer" as={FiArrowRight} boxSize={6} mt={0} />
+            )}
+          </InputRightElement>
+        </InputGroup>
+        <Text fontSize={18}>
+          {formStatus === "clean" && "Join us as we share what we learn on our journey!"}
+          {formStatus === "success" && "We're excited to have you join!"}
+          {formStatus === "failure" && "Something went wrong, try again or chat us on the right side of the screen!"}
+        </Text>
+      </Stack>
+    </MotionBox>
+  );
+}

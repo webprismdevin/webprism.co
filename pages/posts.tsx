@@ -64,7 +64,7 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
           </Heading>
           <Divider />
           <SimpleGrid
-            templateColumns={`repeat(3, 1fr)`}
+            templateColumns={`repeat(2, 1fr)`}
             templateRows={"repeat(1, 1fr)"}
             columnGap={8}
             rowGap={8}
@@ -96,7 +96,7 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
                     <Text>
                       {new Date(post.publishedAt).toLocaleDateString()}
                     </Text>
-                    <Text noOfLines={6}>{post.metaDesc}</Text>
+                    <Text noOfLines={4}>{post.metaDesc}</Text>
                   </Stack>
                 </GridItem>
               </Link>

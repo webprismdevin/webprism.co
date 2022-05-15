@@ -59,8 +59,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
   const controls2 = useAnimation();
 
   useEffect(() => {
-    window.scrollTo(0,0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     if (c1InView) controls.start("animate");
@@ -120,8 +120,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                 Crafted Websites for Authentic Brands
               </Heading>
               <Heading maxW={["full", "50%"]} as="h2" size="md">
-                Unlock new digital marketing opportunities with a
-                custom-tailored website designed to showcase your brand.
+                We create custom-tailored websites that showcase personality and
+                unlock your digital marketing potential.
               </Heading>
               <NextLink href="/contact" passHref>
                 <Button rightIcon={<Icon as={FaArrowRight} />}>
@@ -133,7 +133,7 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
         </Parallax>
       </Box>
       {/* PAS */}
-      <Box py={40}>
+      {/* <Box py={40}>
         <Container maxW="container.md" pos={"relative"}>
           <Stack spacing={16}>
             <Text fontSize="xl" textAlign={"center"}>
@@ -142,10 +142,10 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
             </Text>
           </Stack>
         </Container>
-      </Box>
-      <PainPoints />
+      </Box> */}
+      {/* <PainPoints /> */}
       {/* Site Types */}
-      <Container py={40} maxW="container.xl">
+      <Container pt={0} pb={40} maxW="container.xl">
         <Stack spacing={16}>
           <Heading
             textTransform={"uppercase"}
@@ -238,8 +238,8 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
                     Sell your products online with a custom shopping experience
                     that allows ultimate flexibility for your content strategy.
                   </Text>
-                  <Link href="https://supershops.webprism.xyz" target="_blank">
-                    Check out SuperShops →
+                  <Link href="https://torsalonproducts.com/?utm_source=webprism&utm_medium=referral&utm_campaign=homepage" target="_blank">
+                    Check out what we did for TOR →
                   </Link>
                 </Stack>
               </Flex>
@@ -324,7 +324,9 @@ export default function ReHome({ blogPosts }: { blogPosts: [] }) {
           >
             What Our Clients Say
           </Heading>
-          <Text fontWeight={600} fontSize={"lg"}>We might be biased, but we think they like us.</Text>
+          <Text fontWeight={600} fontSize={"lg"}>
+            We might be biased, but we think they like us.
+          </Text>
           <Testimonials />
           <NextLink href="/portfolio" passHref>
             <Button alignSelf={"center"}>See Our Portfolio</Button>

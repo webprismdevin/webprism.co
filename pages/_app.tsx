@@ -16,7 +16,7 @@ import Tawk from "@/components/tawk";
 
 const NavBar = dynamic(() => import("@/components/NavBar"));
 const MailingList = dynamic(() => import("@/components/MailingList"));
-const Footer = dynamic(() => import("../components/NewFooter"));
+const Footer = dynamic(() => import("../components/Footer"));
 
 declare global {
   interface Window {
