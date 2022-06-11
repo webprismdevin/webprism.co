@@ -75,7 +75,7 @@ const Footer = () => {
               </Stack>
             </GridItem>
           </SimpleGrid>
-          <Text display="inline" textAlign={"center"}>thanks for stopping by <FreeStickerBro/></Text>
+          <Box><Text display="inline" textAlign={"center"}>thanks for stopping by </Text><FreeStickerBro/></Box>
         </Stack>
       </Container>
     </Box>

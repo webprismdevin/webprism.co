@@ -1,5 +1,5 @@
 import sanityClient from '@sanity/client';
-import { createImageUrlBuilder } from 'next-sanity';
+import createImageUrlBuilder from '@sanity/image-url';
 
 const config = {
   dataset: 'production',

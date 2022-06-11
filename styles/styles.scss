@@ -34,6 +34,14 @@ body {
   }
 }
 
+.supertext {
+  font-weight: bold;
+  font-size: 14px;
+  color: #555555;
+  line-height: 2em;
+  text-transform: uppercase;
+}
+
 @keyframes joy {
   0% {
     background-position: 0 0;

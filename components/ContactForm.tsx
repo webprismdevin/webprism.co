@@ -1,117 +1,52 @@
-import {
-  Box,
-  Container,
-  Heading,
-  GridItem,
-  SimpleGrid,
-  Stack,
-  Button,
-  Textarea,
-  Input,
-  FormControl,
-  FormLabel,
-  Text
-} from "@chakra-ui/react";
-import Link from "next/link";
 import { useState } from "react";
-import { useFormik } from "formik";
+import { useFormspark } from "@formspark/use-formspark";
+import { Button, Textarea, Stack, Input, useToast } from "@chakra-ui/react";
 
-export default function ContactForm() {
-  const [formStatus, setStatus] = useState("unsubmitted")
-  
-  const formik = useFormik({
-    initialValues: {
-      first_name: "",
-      last_name: "",
-      phone: "",
-      email: "",
-      message: "",
-    },
-    onSubmit: async (values) => {
-      let response = await fetch("/api/hello", {
-        method: "POST",
-        body: JSON.stringify(values),
-      });
+const FORMSPARK_FORM_ID = "hF7Ye4Ew";
 
-      console.log(response);
-
-      if (response.status === 200) {
-        formik.resetForm();
-        formik.setSubmitting(false);
-        setStatus("submitted")
-      } else if(response.status === 500){
-        formik.setSubmitting(false);
-        setStatus("error")
-      }
-    },
+const ContactForm = () => {
+  const [submit, submitting] = useFormspark({
+    formId: FORMSPARK_FORM_ID,
   });
+  const toast = useToast();
 
-  if(formStatus === "submitted") return (
-    <Box shadow="xl" p={8} border="1px solid" borderColor={"gray.100"}>
-      <Stack spacing={4}>
-        <Heading>Thank You!</Heading>
-        <Text>We look forward to connecting with you and creating something amazing!</Text>
-        <Text>If you&apos;d like to, you can <Link href="/booknow" passHref><a style={{textDecoration: 'underline'}}>book an appointment immediately!</a></Link></Text>
-      </Stack>
-    </Box>
-  )
+  const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [contact, setContact] = useState("");
+
+  const onSubmit = async (e: any) => {
+    e.preventDefault();
+    await submit({ name, contact, message });
+    toast({
+      title: "Form submitted",
+      description: "We've recieved your request and will contact you as soon as possible.",
+      duration: 5000,
+      isClosable: true,
+      onCloseComplete: () => {
+        setName("")
+        setContact("")
+        setMessage("")
+      }
+    });
+
+  };
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      {formStatus === "error" && <Text py={4}>Something went wrong last time. You can <Link href="/booknow" passHref><a style={{textDecoration: 'underline'}}>book an appointment</a></Link> directly if the form continues to fail.</Text>}
-      <SimpleGrid templateColumns={`repeat(2, 1fr)`} gap={6} w="full">
-        <GridItem colSpan={[2, 1]}>
-          <Input
-            placeholder="Enter your first name"
-            name="first_name"
-            onChange={formik.handleChange}
-            value={formik.values.first_name}
-          />
-        </GridItem>
-        <GridItem colSpan={[2, 1]}>
-          <Input
-            placeholder="last name"
-            name="last_name"
-            onChange={formik.handleChange}
-            value={formik.values.last_name}
-          />
-        </GridItem>
-        <GridItem colSpan={[2]}>
-          <Input
-            placeholder="phone number"
-            name="phone"
-            onChange={formik.handleChange}
-            value={formik.values.phone}
-          />
-        </GridItem>
-        <GridItem colSpan={[2]}>
-          <Input
-            name="email"
-            type="email"
-            placeholder="email address"
-            onChange={formik.handleChange}
-            value={formik.values.email}
-          />
-        </GridItem>
-        <GridItem colSpan={[2]}>
-          <Textarea
-            placeholder="your message"
-            rows={5}
-            name="message"
-            onChange={formik.handleChange}
-            value={formik.values.message}
-          />
-        </GridItem>
-        <GridItem>
-          <Button
-            isLoading={formik.isSubmitting}
-            type="submit"
-            loadingText="Submitting..."
-          >
-            Submit ✓
-          </Button>
-        </GridItem>
-      </SimpleGrid>
+    <form onSubmit={onSubmit} data-botpoison-public-key="pk_f7d9a478-bf2d-4ae9-9227-cc4cc2fcbc4e">
+      <Stack w="full">
+        <Input value={name} placeholder="What can we call you?" onChange={(e) => setName(e.target.value)} />
+        <Input value={contact} name="email" placeholder="enter your email or phone number" onChange={(e) => setContact(e.target.value)} />
+        <Textarea
+          value={message}
+          placeholder="How can we help you create a bigger impact?"
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        <Button type="submit" disabled={submitting}>
+          Send
+        </Button>
+      </Stack>
     </form>
   );
-}
+};
+
+export default ContactForm;

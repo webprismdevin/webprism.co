@@ -14,7 +14,7 @@ import "@/styles/styles.scss";
 import NextScript from "next/script";
 import Tawk from "@/components/tawk";
 
-const NavBar = dynamic(() => import("@/components/NavBar"));
+const NavBar = dynamic(() => import("@/components/NavBar"), { ssr: false});
 const MailingList = dynamic(() => import("@/components/MailingList"));
 const Footer = dynamic(() => import("../components/Footer"));
 
@@ -100,7 +100,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
           }}();`
         }}
       />
-      <Tawk src="https://embed.tawk.to/621c6ef8a34c24564128a29d/1fsvh2ugc" />
+      {/* <Tawk src="https://embed.tawk.to/621c6ef8a34c24564128a29d/1fsvh2ugc" /> */}
     </>
   );
 }

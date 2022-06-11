@@ -16,7 +16,7 @@ export function ContactPage(props: ContactProps) {
       <Container maxW="container.md" pt={40} pb={20}>
         <Stack spacing={8}>
           <Heading as="h1">Contact Us</Heading>
-          <Text>You&apos;re here because you are looking for the next step, need some help with design, or want to unlock your websites digital marketing potential. We&apos;re ready to explore the possibilities - together.</Text>
+          <Text>We&apos;re ready to explore the possibilities - together.</Text>
           <ContactForm />
         </Stack>
       </Container>

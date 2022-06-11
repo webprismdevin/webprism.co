@@ -3,12 +3,22 @@ import S from "@sanity/desk-tool/structure-builder";
 import path from "path";
 import { title } from "process";
 import { SiBiolink } from "react-icons/si";
-import { AiOutlineCheck, AiOutlineEdit } from 'react-icons/ai'
+import { AiOutlineCheck, AiOutlineEdit, AiOutlineHome } from 'react-icons/ai'
 
 export default () =>
   S.list()
     .title("Menu")
     .items([
+      S.listItem()
+      .title("Home Page")
+      .icon(AiOutlineHome)
+      .child(
+        S.editor()
+          .id("home_page")
+          .schemaType("homepage")
+          .documentId("homepage")
+          .title("Home Page")
+      ),
       S.listItem()
         .title("Links Page")
         .icon(SiBiolink)
@@ -38,6 +48,6 @@ export default () =>
             .params({ title })
         ),
       ...S.documentTypeListItems().filter(
-        (listItem) => !["link", "links_page", "post"].includes(listItem.getId())
+        (listItem) => !["link", "links_page", "post", "homepage"].includes(listItem.getId())
       ),
     ]);
