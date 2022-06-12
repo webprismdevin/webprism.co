@@ -20,9 +20,9 @@ export function ContactPage(props: ContactProps) {
           <ContactForm />
         </Stack>
       </Container>
-      <Container maxW="container.md" pt={20} pb={40}>
+      {/* <Container maxW="container.md" pt={20} pb={40}>
         <FAQ />
-      </Container>
+      </Container> */}
     </>
   );
 }

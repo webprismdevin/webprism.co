@@ -73,7 +73,7 @@ export default function NavBar() {
                 MVP
               </Link>
               <NextLink href="/contact" passHref>
-                <Button rightIcon={<Icon as={FaPaperPlane} />}>Contact</Button>
+                <Button variant={"outline"} rightIcon={<Icon as={FaPaperPlane} />}>Contact</Button>
               </NextLink>
               <ColorModeSwitcher
                 colorMode={colorMode}

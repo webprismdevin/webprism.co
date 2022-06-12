@@ -13,6 +13,7 @@ import author from './author'
 import link from './link'
 import links_page from './linkpage'
 import homepage from './homepage'
+import section from './section'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,6 +30,7 @@ export default createSchema({
     post,
     author,
     link,
+    section,
     // category,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas

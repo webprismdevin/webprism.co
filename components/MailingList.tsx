@@ -37,7 +37,7 @@ export default function MailingList() {
         controls.start("animate");
         setShown(true);
       }
-    }, 250);
+    }, 25);
 
     return () => clearInterval(interval);
   }, [popupShown]);
@@ -112,7 +112,7 @@ export default function MailingList() {
         <Heading size="lg">
           {formStatus === "success"
             ? "Check your inbox!"
-            : "Sign up for emails"}
+            : "Get design and growth tips, straight to your inbox!"}
         </Heading>
         <InputGroup display={formStatus === "success" ? "none" : "inherit"}>
           <Input

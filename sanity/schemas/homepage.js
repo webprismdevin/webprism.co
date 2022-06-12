@@ -13,26 +13,26 @@ export default {
 
   fields: [
     {
-      name: 'seo',
-      title: 'Search Engine Optimization',
-      type: 'object',
+      name: "seo",
+      title: "Search Engine Optimization",
+      type: "object",
       fields: [
         {
-          name: 'pageTitle',
-          title: 'Page Title',
-          type: 'string'
+          name: "pageTitle",
+          title: "Page Title",
+          type: "string",
         },
         {
-          name: 'metaDesc',
-          title: 'Meta Description',
-          type: 'text'
-        }
-      ]
+          name: "metaDesc",
+          title: "Meta Description",
+          type: "text",
+        },
+      ],
     },
     {
-      name: 'hero',
-      title: 'Hero Section',
-      type: 'object',
+      name: "hero",
+      title: "Hero Section",
+      type: "object",
       fields: [
         {
           title: "Title",
@@ -62,7 +62,7 @@ export default {
             hotspot: true,
           },
         },
-      ]
+      ],
     },
     {
       name: "caseStudies",
@@ -87,104 +87,99 @@ export default {
               name: "project",
               title: "Linked Project",
               type: "reference",
-              to: [{type: "project"}]
-            }
+              to: [{ type: "project" }],
+            },
           ],
         },
       ],
     },
     {
-      name: "experiencesText",
-      title: '"Digital Experiences" description text',
-      type: 'string',
+      name: "sections",
+      title: "Sections",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "section" }] }],
     },
     {
-      name: "marketingText",
-      title: '"Unified Marketing" description text',
-      type: 'string',
-    },
-    {
-      name: 'caseStudy',
-      title: 'Featured Case Study',
-      type: 'object',
+      name: "caseStudy",
+      title: "Featured Case Study",
+      type: "object",
       fields: [
         {
-          name: 'title',
-          title: 'Title',
-          description: 'Use the company name',
-          type: 'string'
+          name: "title",
+          title: "Title",
+          description: "Use the company name",
+          type: "string",
         },
         {
-          name: 'beforeImage',
-          title: 'Before Image',
-          type: 'image'
+          name: "beforeImage",
+          title: "Before Image",
+          type: "image",
         },
         {
-          name: 'afterImage',
-          title: 'After Image',
-          type: 'image'
+          name: "afterImage",
+          title: "After Image",
+          type: "image",
         },
         {
-          name: 'description',
-          title: 'Short Description',
-          type: 'text'
-        }
-      ]
+          name: "description",
+          title: "Short Description",
+          type: "text",
+        },
+      ],
     },
     {
-      name: 'faqs',
-      title: 'Frequently Asked Questions',
-      type: 'array',
+      name: "faqs",
+      title: "Frequently Asked Questions",
+      type: "array",
       of: [
         {
-          name: 'faq',
-          title: 'FAQ',
-          type: 'object',
+          name: "faq",
+          title: "FAQ",
+          type: "object",
           fields: [
             {
-              name: 'question',
-              title: 'Question',
-              type: 'string'
+              name: "question",
+              title: "Question",
+              type: "string",
             },
             {
-              name: 'answer',
-              title: 'Answer',
-              type: 'text'
-            }
-          ]
-        }
-      ]
+              name: "answer",
+              title: "Answer",
+              type: "text",
+            },
+          ],
+        },
+      ],
     },
     {
-      name: 'getStarted',
-      title: 'Get Started: Final Section',
-      type: 'object',
+      name: "getStarted",
+      title: "Get Started: Final Section",
+      type: "object",
       fields: [
         {
-          name: 'title',
-          title: 'Title',
-          type: 'string'
+          name: "title",
+          title: "Title",
+          type: "string",
         },
         {
-          name: 'button',
-          title: 'Button Settings',
-          type: 'object',
+          name: "button",
+          title: "Button Settings",
+          type: "object",
           fields: [
             {
-              name: 'text',
+              name: "text",
               title: "Text",
-              type: 'string'
+              type: "string",
             },
             {
-              name: 'link',
+              name: "link",
               title: "Link Destination",
-              description: 'Can be relative or absolute.',
-              type: 'string'
-            }
-          ]
+              description: "Can be relative or absolute.",
+              type: "string",
+            },
+          ],
         },
-
-      ]
-    }
+      ],
+    },
   ],
 };

@@ -28,8 +28,8 @@ const customTheme: ThemeConfig = extendTheme(defaultTheme, {
     Button: {
       variants: {
         solid: (props: any) => ({
-          bg: mode("brand.dark", "#FD2187")(props),
-          color: mode("whiteAlpha.900", "whiteAlpha.900")(props),
+          bg: mode("brand.lightBlue", "#FD2187")(props),
+          color: mode("white", "white")(props),
           _hover: {
             color: mode("brand.dark", "whiteAlpha.900")(props),
             bg: mode("brand.lightBlue", "brand.darkBlue")(props)
