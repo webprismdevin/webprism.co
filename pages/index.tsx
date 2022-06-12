@@ -8,7 +8,8 @@ import {
   Button,
   useColorMode,
   chakra,
-  Image
+  Image,
+  Box
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 import dynamic from "next/dynamic";
@@ -57,12 +58,13 @@ export default function Home({
       <Container maxW="container.xl">
         <Stack direction={["column", "row"]}>
           <Stack
+            maxW={["full", "70%"]}
             spacing={8}
             alignItems={"flex-start"}
             pos="relative"
             zIndex={1}
             pt={60}
-            pb={20}
+            pb={40}
           >
             <Heading
               textTransform={"uppercase"}
@@ -72,34 +74,40 @@ export default function Home({
             >
               {homepage.hero.title}
             </Heading>
-            <Heading as="h2" size="md">
+            <Heading maxW={["full", "680px"]} size="md">
               {homepage.hero.subtitle}
             </Heading>
-            <NextLink href="/contact" passHref>
+            <NextLink href="/booknow" passHref>
               <Button>{homepage.hero.cta}</Button>
             </NextLink>
           </Stack>
         </Stack>
       </Container>
-      <Container maxW="container.xl">
-    
-      </Container>
+      <Box bg={colorMode === "dark" ? "white" : "brand.dark"} color={colorMode === "dark" ? "brand.dark" : "brand.light"}>
+        <Container maxW="container.lg" py={20}>
+          <Stack w="full" textAlign={"center"} spacing={6}>
+            <Heading>Being part of a small team is awesome.</Heading>
+            <Text fontSize="lg">It can also be hard. Managing all of your marketing while running your business and taking care of your clients can become too much. The bottom line is you&apos;re on a mission, creating an impact, and all of these things need to get done.</Text>
+            <Text fontSize="lg">At WEBPRISM, we love working with people like you. We partner with small teams to help them scale up their marketing efforts and deliver on their goals like never before.</Text>
+          </Stack>
+        </Container>
+      </Box>
       {homepage.sections.map((section: any, index: number) => (
         <Container key={section._key} maxW="container.xl" py={20}>
           <Stack direction={["column", index % 2 === 0 ? "row": "row-reverse"]} align="center" spacing={[12]}>
             {section.image && <Image maxW={["full", "50%"]} src={imageBuilder(colorMode === "dark" && section.imageDark ? section.imageDark : section.image).url()} alt={section.title} />}
-            <Stack spacing={[6]}>
-              <Heading size="3xl" maxW="400px">
+            <Stack spacing={[6]} maxW={["full", "50%"]}>
+              <Heading size="3xl">
                 {section.title}
               </Heading>
-              <Text fontSize="2xl">{section.text}</Text>
-              <NextLink href={section.cta.link} passHref><Button alignSelf="flex-start">{section.cta.text}</Button></NextLink>
+              <Text fontSize="xl">{section.text}</Text>
+              {/* <NextLink href={section.cta.link} passHref><Button alignSelf="flex-start">{section.cta.text}</Button></NextLink> */}
             </Stack>
           </Stack>
         </Container>
       ))}
       <Container maxW="container.xl" py={20}>
-        <Stack direction={["column", "row"]} spacing={10}>
+        <Stack direction={["column", "row"]} spacing={20}>
           <BeforeAfterChakra
             style={{
               flexGrow: 0,
@@ -118,8 +126,8 @@ export default function Home({
             <Heading size="3xl" fontWeight={700}>
               {homepage.caseStudy.title}
             </Heading>
-            <MultiText text={homepage.caseStudy.description} mapKey="csdesc" />
-            <Button alignSelf={"flex-start"}>Read the case study →</Button>
+            <MultiText fontSize="lg" text={homepage.caseStudy.description} mapKey="csdesc" />
+            <Button variant={"outline"} alignSelf={"flex-start"}>Read the case study →</Button>
           </Stack>
         </Stack>
       </Container>
@@ -145,6 +153,7 @@ export default function Home({
         </SimpleGrid>
       </Container>
       <Container maxW="container.xl" py={20}>
+        {/* should we mix-blend these? */}
         <SimpleGrid templateColumns={"repeat(2, 1fr)"} gap={10}>
           {homepage.faqs.map((faq: any) => (
             <GridItem
@@ -159,7 +168,7 @@ export default function Home({
                 <Text fontWeight={600} fontSize="2xl">
                   {faq.question}
                 </Text>
-                <MultiText text={faq.answer} mapKey={"faq_answer"} />
+                <MultiText fontSize="lg" text={faq.answer} mapKey={"faq_answer"} />
               </Stack>
             </GridItem>
           ))}
