@@ -65,13 +65,6 @@ export default function NavBar() {
                   Blog
                 </Link>
               </NextLink>
-              <Link
-                href="https://mission.webprism.xyz"
-                target="_blank"
-                color={colorMode === "dark" ? "white" : "dark"}
-              >
-                MVP
-              </Link>
               <NextLink href="/contact" passHref>
                 <Button variant={"outline"} rightIcon={<Icon as={FaPaperPlane} />}>Contact</Button>
               </NextLink>
@@ -139,6 +132,11 @@ function MobileMenu({ colorMode, toggleColorMode, router }: any) {
               <NextLink href="/posts" passHref>
                 <Link fontSize={"2xl"} cursor={"pointer"}>
                   Blog
+                </Link>
+              </NextLink>
+              <NextLink href="/calculator" passHref>
+                <Link color={colorMode === "dark" ? "white" : "dark"}>
+                  Cost of Marketing Calculator
                 </Link>
               </NextLink>
               <Divider />

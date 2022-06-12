@@ -13,7 +13,6 @@ import {
   AspectRatio,
   Image,
 } from "@chakra-ui/react";
-import styles from "@/styles/posts.module.scss";
 
 export interface Post {
   title: string;
@@ -24,28 +23,11 @@ export interface PostsProps {
   posts: Array<Post>;
 }
 
-function randomColor() {
-  const rando = Math.floor(Math.random() * 5);
-
-  switch (rando) {
-    case 0:
-      return styles.pink;
-    case 1:
-      return styles.blue;
-    case 2:
-      return styles.orange;
-    case 3:
-      return styles.green;
-    case 4:
-      return styles.purple;
-  }
-}
-
 export const Posts: React.FC<PostsProps> = ({ posts }) => {
   return (
     <>
       <Head>
-        <title>Posts | WEBPRISM | A web design + development agency</title>
+        <title>Blog | WEBPRISM | A web design + development agency</title>
         <meta
           name="description"
           content="We love to write about life, our business, and give away everything we learn! Come on it, and you might just learn something."
@@ -56,11 +38,10 @@ export const Posts: React.FC<PostsProps> = ({ posts }) => {
           <Heading
             as="h1"
             textTransform={"uppercase"}
-            textAlign={"center"}
             size="3xl"
             fontWeight={300}
           >
-            Posts
+            Blog
           </Heading>
           <Divider />
           <SimpleGrid

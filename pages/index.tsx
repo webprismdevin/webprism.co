@@ -16,10 +16,13 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import MultiText from "@/lib/MultiText";
 import { imageBuilder } from "@/lib/sanity";
+import { wrap } from "@popmotion/popcorn";
+import { useEffect, useRef, useState } from "react";
+
 
 const ProjectFeature = dynamic<any>(
   () =>
-    import("https://framer.com/m/Project-Feature-IfqO.js@V5UIBd71QgaLPVnhpFyu"),
+    import("https://framer.com/m/Project-Feature-IfqO.js@z9Y8WFDj6iHSatuDXn4g"),
   {
     ssr: false,
   }
@@ -59,7 +62,7 @@ export default function Home({
             pos="relative"
             zIndex={1}
             pt={60}
-            pb={40}
+            pb={20}
           >
             <Heading
               textTransform={"uppercase"}
@@ -79,26 +82,10 @@ export default function Home({
         </Stack>
       </Container>
       <Container maxW="container.xl">
-        <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={12}>
-          {/* figure out how to cycle a variant with an image */}
-          {homepage.caseStudies.map((feature: any) => (
-            <GridItem colSpan={[3, 1]} key={feature._key}>
-              <ProjectFeature
-                supertext={feature.supertext}
-                title={feature.title}
-                titleColor={colorMode === "dark" ? "#F7F4EE" : "#161718"}
-                tap={() =>
-                  router.push(`/portfolio/${feature.project.slug.current}`)
-                }
-                fontSize={22}
-                style={{ maxWidth: "600px", width: "100%", cursor: "default" }}
-              />
-            </GridItem>
-          ))}
-        </SimpleGrid>
+    
       </Container>
       {homepage.sections.map((section: any, index: number) => (
-        <Container key={section._key} maxW="container.xl" py={40}>
+        <Container key={section._key} maxW="container.xl" py={20}>
           <Stack direction={["column", index % 2 === 0 ? "row": "row-reverse"]} align="center" spacing={[12]}>
             {section.image && <Image maxW={["full", "50%"]} src={imageBuilder(colorMode === "dark" && section.imageDark ? section.imageDark : section.image).url()} alt={section.title} />}
             <Stack spacing={[6]}>
@@ -135,6 +122,27 @@ export default function Home({
             <Button alignSelf={"flex-start"}>Read the case study →</Button>
           </Stack>
         </Stack>
+      </Container>
+      <Container maxW="container.xl" py={20}>
+        <Heading mb={6} textTransform={"uppercase"}>More of our work</Heading>
+        <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={12}>
+          {homepage.caseStudies.map((feature: any, index: number) => (
+            <GridItem colSpan={[3, 1]} key={feature._key}>
+              <ProjectFeature
+                key={`feat_${feature._key}`}
+                supertext={feature.supertext}
+                title={feature.title}
+                image={feature.image ? imageBuilder(feature.image).url() : null}
+                titleColor={colorMode === "dark" ? "#F7F4EE" : "#161718"}
+                tap={() =>
+                  router.push(`/portfolio/${feature.project.slug.current}`)
+                }
+                fontSize={22}
+                style={{ maxWidth: "600px", width: "100%", cursor: "default" }}
+              />
+            </GridItem>
+          ))}
+        </SimpleGrid>
       </Container>
       <Container maxW="container.xl" py={20}>
         <SimpleGrid templateColumns={"repeat(2, 1fr)"} gap={10}>

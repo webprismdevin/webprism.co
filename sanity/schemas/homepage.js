@@ -46,7 +46,7 @@ export default {
           name: "subtitle",
           description:
             "This subtitle will appear in the hero unit at the top of the page",
-          type: "string",
+          type: "text",
         },
         {
           title: "CTA",
