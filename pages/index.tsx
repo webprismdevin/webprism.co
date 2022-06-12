@@ -83,7 +83,7 @@ export default function Home({
           </Stack>
         </Stack>
       </Container>
-      <Box bg={colorMode === "dark" ? "white" : "brand.dark"} color={colorMode === "dark" ? "brand.dark" : "brand.light"}>
+      <Box >
         <Container maxW="container.lg" py={20}>
           <Stack w="full" textAlign={"center"} spacing={6}>
             <Heading>Being part of a small team is awesome.</Heading>
@@ -204,5 +204,6 @@ export async function getStaticProps() {
       blogPosts: data.result.posts,
       homepage: data.result.homepage,
     },
+    revalidate: 10
   };
 }
