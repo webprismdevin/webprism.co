@@ -14,6 +14,7 @@ import link from './link'
 import links_page from './linkpage'
 import homepage from './homepage'
 import section from './section'
+import webDesign from './web-design'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,6 +26,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     homepage,
+    webDesign,
     links_page,
     project,
     post,

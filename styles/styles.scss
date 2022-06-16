@@ -34,6 +34,10 @@ body {
   }
 }
 
+.realistic_shadow {
+  box-shadow: rgba(0, 0, 0, 0.18) 0 .60323px .60323px -1.25px, rgba(0, 0, 0, 0.16) 0 2.29021px 2.29021px -2.5px, rgba(0, 0, 0, 0.063) 0 10px 10px -3.75px;
+}
+
 .supertext {
   font-weight: bold;
   font-size: 14px;

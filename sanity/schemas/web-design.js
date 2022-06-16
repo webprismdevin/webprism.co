@@ -1,8 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 // studio/schemas/homepage.js
 export default {
-  name: "homepage",
-  title: "Homepage",
+  name: "web-design",
+  title: "Web Design",
   type: "document",
 
   // These actions define what users can do with this document.
@@ -10,30 +10,41 @@ export default {
   // This means, users can't delete this document
   // from within the studio
   __experimental_actions: ["update", "create", "publish"],
-
-  fields: [
+  groups: [
+    {
+      name: "content",
+      title: "Page Content",
+      default: true,
+    },
     {
       name: "seo",
-      title: "Search Engine Optimization",
-      type: "object",
-      fields: [
-        {
-          name: "pageTitle",
-          title: "Page Title",
-          type: "string",
-        },
-        {
-          name: "metaDesc",
-          title: "Meta Description",
-          type: "text",
-        },
-      ],
+      title: "SEO",
+    },
+  ],
+  fields: [
+    {
+      name: "pageTitle",
+      title: "Page Title",
+      type: "string",
+      group: "seo",
+    },
+    {
+      name: "metaDesc",
+      title: "Meta Description",
+      type: "text",
+      group: "seo",
     },
     {
       name: "hero",
       title: "Hero Section",
       type: "object",
+      group: "content",
       fields: [
+        {
+          name: "supertext",
+          title: "SUPERTEXT",
+          type: "string",
+        },
         {
           title: "Title",
           description:
@@ -49,12 +60,6 @@ export default {
           type: "text",
         },
         {
-          title: "CTA",
-          name: "cta",
-          description: "Main button in the hero",
-          type: "string",
-        },
-        {
           title: "Image",
           name: "image",
           type: "image",
@@ -62,7 +67,118 @@ export default {
             hotspot: true,
           },
         },
+        {
+          title: "Call To Action",
+          name: "cta",
+          description: "Main button in the hero",
+          type: "object",
+          fields: [
+            {
+              name: "text",
+              title: "Button Text",
+              type: "string",
+            },
+            {
+              name: "link",
+              title: "Button URL",
+              description:
+                "Can be relative or absolute. Should point to /booknow.",
+              type: "string",
+            },
+          ],
+        }
       ],
+    },
+    {
+      name: "logos",
+      title: "Client Logos",
+      type: "array",
+      group: "content",
+      of: [
+        {
+          type: "object",
+          fields: [
+            {
+              name: "image",
+              title: "Logo",
+              type: "image",
+            },
+            {
+              name: 'url',
+              title: 'URL',
+              description: 'Can be either a link to our portfolio piece, or an absolute url.',
+              type: 'string'
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "belowTheFold",
+      title: "Below The Fold",
+      type: "object",
+      group: "content",
+      fields: [
+        {
+          name: "supertext",
+          title: "SUPERTEXT",
+          type: "string",
+        },
+        {
+          title: "Title",
+          description:
+            "This title will appear in the hero unit at the top of the page",
+          type: "string",
+          name: "title",
+        },
+        {
+          title: "Subtitle",
+          name: "subtitle",
+          description:
+            "This subtitle will appear in the hero unit at the top of the page",
+          type: "text",
+        },
+        {
+          title: "Features",
+          name: "features",
+          type: "array",
+          of: [
+            {
+              type: "object",
+              fields: [
+                {
+                  name: "icon",
+                  title: "Icon",
+                  description: "Icon from Font Awesome (fontawesome.com)",
+                  type: "image",
+                },
+                {
+                  name: "text",
+                  title: "Text",
+                  type: "string",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'process',
+      title: 'Our Process',
+      group: 'content',
+      type: 'array',
+      of: [{ type: 'object', title: 'Steps', fields: [{
+        name: 'name',
+        title: 'Step Name',
+        type: 'string'
+      },
+      {
+        name: 'description',
+        title: 'Description',
+        type: 'text'
+      }
+    ]}]
     },
     {
       name: "caseStudies",
@@ -131,6 +247,7 @@ export default {
       name: "faqs",
       title: "Frequently Asked Questions",
       type: "array",
+      group: 'content',
       of: [
         {
           name: "faq",

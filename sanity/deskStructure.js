@@ -3,7 +3,7 @@ import S from "@sanity/desk-tool/structure-builder";
 import path from "path";
 import { title } from "process";
 import { SiBiolink } from "react-icons/si";
-import { AiOutlineCheck, AiOutlineEdit, AiOutlineHome } from 'react-icons/ai'
+import { AiOutlineCheck, AiOutlineEdit, AiOutlineGlobal, AiOutlineHome } from 'react-icons/ai'
 
 export default () =>
   S.list()
@@ -18,6 +18,16 @@ export default () =>
           .schemaType("homepage")
           .documentId("homepage")
           .title("Home Page")
+      ),
+      S.listItem()
+      .title("Web Design")
+      .icon(AiOutlineGlobal)
+      .child(
+        S.editor()
+          .id("web-design")
+          .schemaType("web-design")
+          .documentId("web-design")
+          .title("Web Design")
       ),
       S.listItem()
         .title("Links Page")

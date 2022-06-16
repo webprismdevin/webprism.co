@@ -32,17 +32,17 @@ export default function NavBar() {
 
   return (
     <>
-      <Box pos={["fixed"]} top={0} left={0} zIndex={2} px={[4, 8]} py={6} w="full">
+      <Box pos={["fixed"]} bgColor={colorMode === "dark" ? "brand.dark" : "brand.light"} top={0} left={0} zIndex={2} px={[4, 8]} py={6} w="full">
         <Flex justifyContent={"space-between"} alignItems={"center"}>
           <NextLink href="/" passHref>
             <Image
               src={
                 colorMode === "dark"
-                  ? "/logos/webprism_diamond_white.svg"
-                  : "/logos/webprism_diamond.svg"
+                  ? "/logos/logo_v2_white.png"
+                  : "/logos/logo_v2_black.png"
               }
               cursor={"pointer"}
-              height={10}
+              height={8}
               width={8}
               alt="WEBPRISM diamond logo"
               onClick={play as any}
@@ -55,6 +55,16 @@ export default function NavBar() {
                   Home
                 </Link>
               </NextLink>}
+              <NextLink href="/web-design">
+                <Link color={colorMode === "dark" ? "white" : "dark"}>
+                  Web Design
+                </Link>
+              </NextLink>
+              <NextLink href="/digital-marketing">
+                <Link color={colorMode === "dark" ? "white" : "dark"}>
+                  Digital Marketing
+                </Link>
+              </NextLink>
               <NextLink href="/portfolio" passHref>
                 <Link color={colorMode === "dark" ? "white" : "dark"}>
                   Portfolio
