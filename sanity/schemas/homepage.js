@@ -10,11 +10,22 @@ export default {
   // This means, users can't delete this document
   // from within the studio
   __experimental_actions: ["update", "create", "publish"],
-
+  groups: [
+    {
+      name: 'content',
+      title: 'Page Content',
+      default: true
+    },
+    {
+      name: 'seo',
+      title: 'SEO'
+    }
+  ],
   fields: [
     {
       name: "seo",
-      title: "Search Engine Optimization",
+      group: 'seo',
+      title: "Metadata",
       type: "object",
       fields: [
         {
@@ -33,6 +44,7 @@ export default {
       name: "hero",
       title: "Hero Section",
       type: "object",
+      group: 'content',
       fields: [
         {
           title: "Title",
@@ -68,6 +80,7 @@ export default {
       name: "caseStudies",
       title: "Featured Work",
       type: "array",
+      group: 'content',
       of: [
         {
           type: "object",
@@ -97,6 +110,7 @@ export default {
       name: "sections",
       title: "Sections",
       type: "array",
+      group: 'content',
       of: [{ type: "reference", to: [{ type: "section" }] }],
     },
     {
@@ -131,6 +145,7 @@ export default {
       name: "faqs",
       title: "Frequently Asked Questions",
       type: "array",
+      group: 'content',
       of: [
         {
           name: "faq",
@@ -155,6 +170,7 @@ export default {
       name: "getStarted",
       title: "Get Started: Final Section",
       type: "object",
+      group: 'content',
       fields: [
         {
           name: "title",

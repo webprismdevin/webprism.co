@@ -10,6 +10,8 @@ import {
   Link,
   useColorMode,
   chakra,
+  AspectRatio,
+  Flex,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import NextLink from "next/link";
@@ -23,7 +25,13 @@ const TC = dynamic(
   { ssr: false }
 );
 
-const TestimonialCard = chakra(TC)
+const E = dynamic(
+  () => import("https://framer.com/m/Slider-5nCj.js@Qo8wKbynA5oC7L4DnTNQ"),
+  { ssr: false }
+);
+
+const TestimonialCard = chakra(TC);
+const Examples = chakra(E);
 
 const WebDesign = ({ page }: any) => {
   const { colorMode } = useColorMode();
@@ -33,60 +41,111 @@ const WebDesign = ({ page }: any) => {
       <Head>
         <title>{page.pageTitle}</title>
       </Head>
-      <Container maxW="container.xl" pt={60} pb={20}>
-        <Stack direction={["column-reverse", "row"]}>
-          <Stack maxW={["full", "60%"]} spacing={6}>
-            <Box>
-              <Text mb={2} className="supertext">
-                {page.hero.supertext}
-              </Text>
-              <Heading size="2xl">{page.hero.title}</Heading>
-            </Box>
-            {page.hero.subtitle && <Text>{page.hero?.subtitle}</Text>}
-            <NextLink href={page.hero.cta.link} passHref>
-              <Button alignSelf={"flex-start"}>{page.hero.cta.text}</Button>
-            </NextLink>
-          </Stack>
-        </Stack>
-      </Container>
-      <Box bgColor={colorMode === "dark" ? "brand.light" : "none"}>
-        <Container pt={20} pb={20} maxW="container.xl">
-          <Stack
-            w="full"
-            direction={["column", "row"]}
-            align={"center"}
-            justify={"space-between"}
-            spacing={8}
-          >
-            {page.logos.map((l: { _key: string; url: string; image: any }) => (
-              <Link href={l.url} key={l._key} target="_blank">
-                <Image
-                  borderRadius={3}
-                  maxH={"100px"}
-                  maxW={["200px", "350px"]}
-                  src={imageBuilder(l.image).width(350).url()}
-                  alt=""
-                  transition={"opacity 200ms ease"}
-                  _hover={{
-                    cursor: "pointer",
-                    opacity: 0.6,
-                  }}
-                />
-              </Link>
-            ))}
+
+      <Box overflow={"hidden"} position={"relative"}>
+        <Box
+          bgColor={"brand.dark"}
+          width={"full"}
+          height={"full"}
+          position={"absolute"}
+          top={0}
+          left={0}
+          zIndex={-2}
+        />
+        <chakra.video
+          autoPlay
+          muted
+          loop
+          position={"absolute"}
+          top={-10}
+          left={0}
+          zIndex={-1}
+          width={"full"}
+          opacity={0.5}
+        >
+          <source src="/webprism-cut-reel.mp4" type="video/mp4" />
+        </chakra.video>
+        <Container maxW="container.xl" pt={40} pb={40} color={"white"}>
+          <Stack direction={["column-reverse", "row"]} align="center">
+            <Stack maxW={["full", "50%"]} spacing={6}>
+              <Box>
+                <Text mb={2} className="supertext" color={"white"}>
+                  {page.hero.supertext}
+                </Text>
+                <Heading
+                  textTransform={"uppercase"}
+                  lineHeight={1.2}
+                  fontWeight={300}
+                  as="h1"
+                  size="3xl"
+                >
+                  {page.hero.title}
+                </Heading>
+              </Box>
+              {page.hero.subtitle && <Text>{page.hero?.subtitle}</Text>}
+              <NextLink href={page.hero.cta.link} passHref>
+                <Button size="lg" alignSelf={"flex-start"}>
+                  {page.hero.cta.text}
+                </Button>
+              </NextLink>
+            </Stack>
           </Stack>
         </Container>
       </Box>
-      <Container maxW="container.lg" pt={40} pb={20}>
+
+      <Container pt={10} pb={20} maxW="container.lg" borderRadius={6}>
+        <Stack
+          w="full"
+          direction={["column", "row"]}
+          align={["center", "stretch"]}
+          justify={"space-between"}
+          spacing={8}
+        >
+          {page.logos.map((l: { _key: string; url: string; image: any }) => (
+            <Link
+              href={l.url}
+              key={l._key}
+              target="_blank"
+              bgColor={"brand.light"}
+              p={4}
+              borderRadius={6}
+            >
+              <Image
+                borderRadius={3}
+                maxH={"65px"}
+                maxW={["200px", "320px"]}
+                src={imageBuilder(l.image).width(350).url()}
+                alt=""
+                transition={"opacity 200ms ease"}
+                _hover={{
+                  cursor: "pointer",
+                  opacity: 0.6,
+                }}
+              />
+            </Link>
+          ))}
+        </Stack>
+      </Container>
+      <Container maxW="container.lg" py={[0, 20]}>
         <Stack align="center" spacing={8}>
           <Box textAlign={"center"}>
             <Text mb={2}>{page.belowTheFold.supertext}</Text>
             <Heading as="h2">{page.belowTheFold.title}</Heading>
           </Box>
-          <Stack direction={["column", "row"]} justify={"space-between"} w="full" spacing={[8, null]}>
+          <Stack
+            direction={["column", "row"]}
+            justify={"space-between"}
+            w="full"
+            spacing={[8, null]}
+          >
             {page.belowTheFold.features.map(
               (feature: { text: string; icon: string; _key: string }) => (
-                <Stack key={feature._key} direction="row" align="center" justify={"center"} >
+                <Stack
+                  key={feature._key}
+                  direction="row"
+                  align="center"
+                  justify={"center"}
+                >
                   <Image
                     style={{
                       filter:
@@ -94,30 +153,31 @@ const WebDesign = ({ page }: any) => {
                     }}
                     src={imageBuilder(feature.icon).url()}
                     alt={feature.text}
-                   h={8}
-                   w={10}
+                    h={8}
+                    w={10}
                   />
-                  <Text fontSize="xl">{feature.text}</Text>
+                  <Text fontSize="lg">{feature.text}</Text>
                 </Stack>
               )
             )}
           </Stack>
         </Stack>
       </Container>
-      <Container maxW="container.lg" py={20}>
-        <Stack direction={["column-reverse", "row"]} justify={"space-between"} spacing={[12, 0]}>
-          <Stack maxW={400}>
-            <Heading as="h2">FAQs</Heading>
-            {page.faqs?.map(
-              (faq: { question: string; answer: string; _key: string }) => (
-                <Box key={faq._key}>
-                  <Text fontWeight={600}>{faq.question}</Text>
-                  <Text>{faq.answer}</Text>
-                </Box>
-              )
-            )}
-          </Stack>
-          <Stack maxW={400} p={8} borderRadius={6} backgroundColor={"white"} className="realistic_shadow">
+      <Flex
+        justify={"center"}
+        maxW={["full", null]}
+        maxH={[250, "none"]}
+        overflow="hidden"
+      >
+        <Examples mt={[0, 10]} />
+      </Flex>
+      <Container maxW="container.lg" py={40}>
+        <Stack
+          direction={["column-reverse", "row"]}
+          justify={"space-between"}
+          spacing={[12, 0]}
+        >
+          <Stack maxW={400} spacing={8} py={[0, 10]}>
             <Heading as="h3">Our Process</Heading>
             {page.process.map(
               (step: { name: string; description: string; _key: string }) => (
@@ -128,15 +188,49 @@ const WebDesign = ({ page }: any) => {
               )
             )}
           </Stack>
+          <Box pos="relative">
+            <Box
+              pos="absolute"
+              top={0}
+              left={0}
+              h={"full"}
+              w={"1200px"}
+              zIndex={0}
+              backgroundColor={"white"}
+              className="realistic_shadow"
+              borderRadius={6}
+
+            />
+            <Stack
+              maxW={420}
+              p={10}
+              color={"brand.dark"}
+              pos="relative"
+              zIndex={1}
+              spacing={8}
+            >
+              <Heading as="h2">FAQs</Heading>
+              {page.faqs?.map(
+                (faq: { question: string; answer: string; _key: string }) => (
+                  <Box key={faq._key}>
+                    <Text fontWeight={600}>{faq.question}</Text>
+                    <Text>{faq.answer}</Text>
+                  </Box>
+                )
+              )}
+            </Stack>
+          </Box>
         </Stack>
       </Container>
       <Container maxW="container.lg" py={20} centerContent>
         <Stack direction={["column", "row"]} spacing={12}>
           <Box flexGrow={1}>
             <Heading size="2xl" py={6}>
-              Ready to stand out online?
+              {page.getStarted.title}
             </Heading>
-            <Button>Schedule A Consultation</Button>
+            <NextLink href={page.getStarted.button.link}>
+              <Button size="lg">{page.getStarted.button.text}</Button>
+            </NextLink>
           </Box>
           <Box>
             <TestimonialCard maxW={[360, "none"]} />

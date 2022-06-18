@@ -76,9 +76,9 @@ const Footer = () => {
                 <NextLink href="https://mission.webprism.xyz" passHref>
                   <Link>MVP</Link>
                 </NextLink>
-                <NextLink href="/calculator" passHref>
+                <NextLink href="/cost-of-marketing" passHref>
                   <Link>
-                    Cost of Marketing
+                    Cost of Marketing Calculator
                   </Link>
                 </NextLink>
                 <NextLink href="/links" passHref>

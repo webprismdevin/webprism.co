@@ -68,6 +68,11 @@ export default {
           },
         },
         {
+          title: "Image Alt text",
+          name: 'imageAlt',
+          type: 'string'
+        },
+        {
           title: "Call To Action",
           name: "cta",
           description: "Main button in the hero",
@@ -272,6 +277,7 @@ export default {
       name: "getStarted",
       title: "Get Started: Final Section",
       type: "object",
+      group: 'content',
       fields: [
         {
           name: "title",

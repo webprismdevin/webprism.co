@@ -32,7 +32,7 @@ export default function NavBar() {
 
   return (
     <>
-      <Box pos={["fixed"]} bgColor={colorMode === "dark" ? "brand.dark" : "brand.light"} top={0} left={0} zIndex={2} px={[4, 8]} py={6} w="full">
+      <Box pos={["sticky"]} bgColor={colorMode === "dark" ? "brand.dark" : "brand.light"} top={0} left={0} zIndex={2} px={[4, 8]} py={6} w="full">
         <Flex justifyContent={"space-between"} alignItems={"center"}>
           <NextLink href="/" passHref>
             <Image
@@ -144,8 +144,8 @@ function MobileMenu({ colorMode, toggleColorMode, router }: any) {
                   Blog
                 </Link>
               </NextLink>
-              <NextLink href="/calculator" passHref>
-                <Link color={colorMode === "dark" ? "white" : "dark"}>
+              <NextLink href="/cost-of-marketing" passHref>
+                <Link>
                   Cost of Marketing Calculator
                 </Link>
               </NextLink>

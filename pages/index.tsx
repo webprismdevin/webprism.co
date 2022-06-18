@@ -19,11 +19,12 @@ import MultiText from "@/lib/MultiText";
 import { imageBuilder } from "@/lib/sanity";
 import { wrap } from "@popmotion/popcorn";
 import { useEffect, useRef, useState } from "react";
+import { isMobile } from "react-device-detect";
 
 
 const ProjectFeature = dynamic<any>(
   () =>
-    import("https://framer.com/m/Project-Feature-IfqO.js@z9Y8WFDj6iHSatuDXn4g"),
+    import("https://framer.com/m/Project-Feature-IfqO.js@4w39GVUnO6tiAGgmFItH"),
   {
     ssr: false,
   }
@@ -68,17 +69,18 @@ export default function Home({
           >
             <Heading
               textTransform={"uppercase"}
+              lineHeight={1.2}
               fontWeight={300}
               as="h1"
               size="3xl"
             >
               {homepage.hero.title}
             </Heading>
-            <Heading maxW={["full", "680px"]} size="md">
+            <Heading maxW={["full", "680px"]} lineHeight={1.3} size="md">
               {homepage.hero.subtitle}
             </Heading>
             <NextLink href="/booknow" passHref>
-              <Button>{homepage.hero.cta}</Button>
+              <Button size="lg">{homepage.hero.cta}</Button>
             </NextLink>
           </Stack>
         </Stack>
@@ -101,7 +103,6 @@ export default function Home({
                 {section.title}
               </Heading>
               <Text fontSize="xl">{section.text}</Text>
-              {/* <NextLink href={section.cta.link} passHref><Button alignSelf="flex-start">{section.cta.text}</Button></NextLink> */}
             </Stack>
           </Stack>
         </Container>
@@ -133,7 +134,7 @@ export default function Home({
       </Container>
       <Container maxW="container.xl" py={20}>
         <Heading mb={6} textTransform={"uppercase"}>More of our work</Heading>
-        <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={12}>
+        <SimpleGrid templateColumns={"repeat(3, 1fr)"} gap={[4, 12]}>
           {homepage.caseStudies.map((feature: any, index: number) => (
             <GridItem colSpan={[3, 1]} key={feature._key}>
               <ProjectFeature
@@ -147,6 +148,7 @@ export default function Home({
                 }
                 fontSize={22}
                 style={{ maxWidth: "600px", width: "100%", cursor: "default" }}
+                variant={isMobile ? "Variant 2" : "Variant 2"}
               />
             </GridItem>
           ))}
@@ -180,7 +182,7 @@ export default function Home({
             {homepage.getStarted.title}
           </Heading>
           <NextLink href={homepage.getStarted.button.link} passHref>
-            <Button>{homepage.getStarted.button.text}</Button>
+            <Button size="lg">{homepage.getStarted.button.text}</Button>
           </NextLink>
         </Stack>
       </Container>

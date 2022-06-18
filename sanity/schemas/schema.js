@@ -15,6 +15,9 @@ import links_page from './linkpage'
 import homepage from './homepage'
 import section from './section'
 import webDesign from './web-design'
+import digitalMarketing from './digital-marketing'
+import service from './service'
+import callToAction from './parts/callToAction'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -27,6 +30,8 @@ export default createSchema({
     // in the studio.
     homepage,
     webDesign,
+    digitalMarketing,
+    service,
     links_page,
     project,
     post,
@@ -37,5 +42,6 @@ export default createSchema({
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
+    callToAction
   ]),
 })

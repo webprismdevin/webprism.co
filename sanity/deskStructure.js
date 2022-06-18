@@ -3,32 +3,55 @@ import S from "@sanity/desk-tool/structure-builder";
 import path from "path";
 import { title } from "process";
 import { SiBiolink } from "react-icons/si";
-import { AiOutlineCheck, AiOutlineEdit, AiOutlineGlobal, AiOutlineHome } from 'react-icons/ai'
+import {
+  AiOutlineCheck,
+  AiOutlineEdit,
+  AiOutlineGlobal,
+  AiOutlineHome,
+  AiOutlineNotification,
+} from "react-icons/ai";
 
 export default () =>
   S.list()
     .title("Menu")
     .items([
       S.listItem()
-      .title("Home Page")
-      .icon(AiOutlineHome)
-      .child(
-        S.editor()
-          .id("home_page")
-          .schemaType("homepage")
-          .documentId("homepage")
-          .title("Home Page")
-      ),
+        .title("Home Page")
+        .icon(AiOutlineHome)
+        .child(
+          S.editor()
+            .id("home_page")
+            .schemaType("homepage")
+            .documentId("homepage")
+            .title("Home Page")
+        ),
       S.listItem()
-      .title("Web Design")
-      .icon(AiOutlineGlobal)
-      .child(
-        S.editor()
-          .id("web-design")
-          .schemaType("web-design")
-          .documentId("web-design")
-          .title("Web Design")
-      ),
+        .title("Web Design")
+        .icon(AiOutlineGlobal)
+        .child(
+          S.editor()
+            .id("web-design")
+            .schemaType("web-design")
+            .documentId("web-design")
+            .title("Web Design")
+        ),
+        S.listItem()
+        .title("Digital Marketing")
+        .icon(AiOutlineNotification)
+        .child(
+          S.editor()
+            .id("digital-marketing")
+            .schemaType("digital-marketing")
+            .documentId("digital-marketing")
+            .title("Digital Marketing")
+        ),
+      S.listItem()
+        .title("Services")
+        .schemaType("service")
+        .child(
+          S.documentTypeList("service")
+            .title("Service Pages")  
+        ),
       S.listItem()
         .title("Links Page")
         .icon(SiBiolink)
@@ -39,25 +62,16 @@ export default () =>
             .documentId("links_page")
             .title("Links Page")
         ),
-      S.listItem()
-        .title("Draft Posts")
-        .icon(AiOutlineEdit)
-        .child((title) =>
-          S.documentList()
-            .title("Drafts")
-            .filter('_id in path("drafts.**") && _type == "post"')
-            .params({ title })
-        ),
-      S.listItem()
-        .title("Published Posts")
-        .icon(AiOutlineCheck)
-        .child((title) =>
-          S.documentList()
-            .title("Published")
-            .filter('!(_id in path("drafts.**")) && _type == "post"')
-            .params({ title })
-        ),
       ...S.documentTypeListItems().filter(
-        (listItem) => !["link", "links_page", "post", "homepage"].includes(listItem.getId())
+        (listItem) =>
+          ![
+            "link",
+            "links_page",
+            "post",
+            "homepage",
+            "web-design",
+            "service",
+            "digital-marketing"
+          ].includes(listItem.getId())
       ),
     ]);
