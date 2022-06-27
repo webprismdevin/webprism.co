@@ -23,22 +23,16 @@ export default {
   ],
   fields: [
     {
-      name: "seo",
+      name: "pageTitle",
+      title: "Page Title",
       group: 'seo',
-      title: "Metadata",
-      type: "object",
-      fields: [
-        {
-          name: "pageTitle",
-          title: "Page Title",
-          type: "string",
-        },
-        {
-          name: "metaDesc",
-          title: "Meta Description",
-          type: "text",
-        },
-      ],
+      type: "string",
+    },
+    {
+      name: "pageDescription",
+      title: "Meta Description",
+      group: 'seo',
+      type: "text",
     },
     {
       name: "hero",
@@ -76,6 +70,68 @@ export default {
         },
       ],
     },
+    {
+      name: 'testimonial',
+      type: 'object',
+      group: 'content',
+      fields: [
+        {
+          name: 'client',
+          type: 'string'
+        },
+        {
+          name: 'text',
+          type: 'text'
+        },
+        {
+          name: 'name',
+          type: 'string'
+        }
+      ]
+    },
+    {
+      name: 'belowTheFold',
+      type: 'object',
+      group: 'content',
+      fields: [
+        {
+          name: 'title',
+          type: 'string'
+        },
+        {
+          name: 'text',
+          type: 'text'
+        },
+        {
+          name: 'cta',
+          type: 'string'
+        }
+      ]
+    },
+    {
+        name: 'about',
+        type: 'object',
+        group: 'content',
+        fields: [
+          {
+            name: 'superText',
+            type: 'string'
+          },
+          {
+            name: 'title',
+            type: 'string'
+          },
+          {
+            name: 'text',
+            type: 'text'
+          },
+          {
+            name: 'features',
+            type: 'array',
+            of: [{type: 'string'}] 
+          }
+        ]
+    }, 
     {
       name: "caseStudies",
       title: "Featured Work",

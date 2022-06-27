@@ -10,7 +10,7 @@ const config = {
 export const imageBuilder = (source:any) => createImageUrlBuilder(config).image(source)
 
 //
-export const client = sanityClient({
+export const sanity = sanityClient({
   projectId: '0ggffobx',
   dataset: 'production',
   apiVersion: '2021-10-30', // use current UTC date - see "specifying API version"!

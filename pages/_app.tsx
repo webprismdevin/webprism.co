@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AppProps } from "next/app";
 import Head from "next/head";
-import TagManager from "react-gtm-module";
 import $ from "jquery/dist/jquery.slim";
 import { ChakraProvider, useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/router";
@@ -24,16 +23,7 @@ declare global {
   }
 }
 
-const tagManagerArgs = {
-  gtmId: "GTM-NZ2DFK5",
-};
-
-if (process.env.NODE_ENV === "production" && process.browser) {
-  console.log("GTM fired");
-  TagManager.initialize(tagManagerArgs);
-} else {
-  console.log("GTM not fired");
-}
+//readd gtm as a script
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const [window, setWindow] = useState(null);
@@ -87,19 +77,10 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <main>
           <Component {...pageProps} />
         </main>
-        <Footer />
-        <MailingList />
+        {/* <Footer /> */}
+        {/* <MailingList /> */}
         <ColorModeScript initialColorMode={customTheme.initialColorMode} />
       </ChakraProvider>
-      <NextScript 
-        id="segment"
-        dangerouslySetInnerHTML={{
-          __html: `!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="YOUR_WRITE_KEY";analytics.SNIPPET_VERSION="4.15.2";
-          analytics.load("pY5WgoDP09niot4j8hMVyCkwnp4qy0dz");
-          analytics.page();
-          }}();`
-        }}
-      />
       {/* <Tawk src="https://embed.tawk.to/621c6ef8a34c24564128a29d/1fsvh2ugc" /> */}
     </>
   );
