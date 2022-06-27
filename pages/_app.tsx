@@ -77,11 +77,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <main>
           <Component {...pageProps} />
         </main>
-        {/* <Footer /> */}
-        {/* <MailingList /> */}
+        <Footer />
         <ColorModeScript initialColorMode={customTheme.initialColorMode} />
       </ChakraProvider>
-      {/* <Tawk src="https://embed.tawk.to/621c6ef8a34c24564128a29d/1fsvh2ugc" /> */}
     </>
   );
 }

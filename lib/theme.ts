@@ -4,10 +4,10 @@ import { mode } from "@chakra-ui/theme-tools";
 
 const customTheme: ThemeConfig = extendTheme(defaultTheme, {
   initialColorMode: "system",
-  fonts: {
-    heading: "Montserrat",
-    body: "Montserrat",
-  },
+  // fonts: {
+  //   heading: "Montserrat",
+  //   body: "Montserrat",
+  // },
   colors: {
     brand: {
       light: "#F7F4EE",

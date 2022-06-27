@@ -12,33 +12,33 @@ export default {
   __experimental_actions: ["update", "create", "publish"],
   groups: [
     {
-      name: 'content',
-      title: 'Page Content',
-      default: true
+      name: "content",
+      title: "Page Content",
+      default: true,
     },
     {
-      name: 'seo',
-      title: 'SEO'
-    }
+      name: "seo",
+      title: "SEO",
+    },
   ],
   fields: [
     {
       name: "pageTitle",
       title: "Page Title",
-      group: 'seo',
+      group: "seo",
       type: "string",
     },
     {
       name: "pageDescription",
       title: "Meta Description",
-      group: 'seo',
+      group: "seo",
       type: "text",
     },
     {
       name: "hero",
       title: "Hero Section",
       type: "object",
-      group: 'content',
+      group: "content",
       fields: [
         {
           title: "Title",
@@ -71,152 +71,117 @@ export default {
       ],
     },
     {
-      name: 'testimonial',
-      type: 'object',
-      group: 'content',
+      name: "testimonial",
+      type: "object",
+      group: "content",
       fields: [
         {
-          name: 'client',
-          type: 'string'
+          name: "client",
+          type: "string",
         },
         {
-          name: 'text',
-          type: 'text'
+          name: "text",
+          type: "text",
         },
         {
-          name: 'name',
-          type: 'string'
-        }
-      ]
+          name: "name",
+          type: "string",
+        },
+      ],
     },
     {
-      name: 'belowTheFold',
-      type: 'object',
-      group: 'content',
+      name: "belowTheFold",
+      type: "object",
+      group: "content",
       fields: [
         {
-          name: 'title',
-          type: 'string'
+          name: "title",
+          type: "string",
         },
         {
-          name: 'text',
-          type: 'text'
+          name: "text",
+          type: "text",
         },
         {
-          name: 'cta',
-          type: 'string'
-        }
-      ]
+          name: "cta",
+          type: "string",
+        },
+      ],
     },
     {
-        name: 'about',
-        type: 'object',
-        group: 'content',
-        fields: [
-          {
-            name: 'superText',
-            type: 'string'
-          },
-          {
-            name: 'title',
-            type: 'string'
-          },
-          {
-            name: 'text',
-            type: 'text'
-          },
-          {
-            name: 'features',
-            type: 'array',
-            of: [{type: 'string'}] 
-          }
-        ]
-    }, 
+      name: "about",
+      type: "object",
+      group: "content",
+      fields: [
+        {
+          name: "superText",
+          type: "string",
+        },
+        {
+          name: "title",
+          type: "string",
+        },
+        {
+          name: "text",
+          type: "text",
+        },
+        {
+          name: "features",
+          type: "array",
+          of: [{ type: "string" }],
+        },
+      ],
+    },
     {
       name: "caseStudies",
-      title: "Featured Work",
+      group: "content",
       type: "array",
-      group: 'content',
       of: [
         {
           type: "object",
-          name: "Feature",
           fields: [
             {
-              name: "supertext",
-              title: "SUPERTEXT",
-              type: "string",
-            },
-            {
               name: "title",
-              title: "Feature Title",
+              title: "Title",
+              description: "Use the company name",
               type: "string",
             },
             {
-              name: "project",
-              title: "Linked Project",
-              type: "reference",
-              to: [{ type: "project" }],
+              name: "image",
+              title: "Image",
+              type: "image",
+              options: {
+                hotspot: true,
+              },
+            },
+            {
+              name: "description",
+              title: "Short Description",
+              type: "text",
             },
           ],
         },
       ],
     },
     {
-      name: "sections",
-      title: "Sections",
-      type: "array",
+      name: "testimonials",
       group: 'content',
-      of: [{ type: "reference", to: [{ type: "section" }] }],
-    },
-    {
-      name: "caseStudy",
-      title: "Featured Case Study",
-      type: "object",
-      fields: [
-        {
-          name: "title",
-          title: "Title",
-          description: "Use the company name",
-          type: "string",
-        },
-        {
-          name: "beforeImage",
-          title: "Before Image",
-          type: "image",
-        },
-        {
-          name: "afterImage",
-          title: "After Image",
-          type: "image",
-        },
-        {
-          name: "description",
-          title: "Short Description",
-          type: "text",
-        },
-      ],
-    },
-    {
-      name: "faqs",
-      title: "Frequently Asked Questions",
       type: "array",
-      group: 'content',
       of: [
         {
-          name: "faq",
-          title: "FAQ",
           type: "object",
           fields: [
             {
-              name: "question",
-              title: "Question",
+              name: "client",
               type: "string",
             },
             {
-              name: "answer",
-              title: "Answer",
+              name: "text",
               type: "text",
+            },
+            {
+              name: "name",
+              type: "string",
             },
           ],
         },
@@ -226,7 +191,7 @@ export default {
       name: "getStarted",
       title: "Get Started: Final Section",
       type: "object",
-      group: 'content',
+      group: "content",
       fields: [
         {
           name: "title",

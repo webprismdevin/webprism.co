@@ -19,9 +19,9 @@ export default function CostModal({ buttonText }: CostModalTypes) {
   return (
     <>
       <Button onClick={onOpen} variant={"outline"}>{buttonText}</Button>
-      <Modal isOpen={isOpen} onClose={onClose} size="md">
+      <Modal isOpen={isOpen} onClose={onClose} size={["sm", "md"]}>
         <ModalOverlay />
-        <ModalContent >
+        <ModalContent mx={4}>
           <ModalCloseButton />
           <ModalBody>
             <Calculator />
