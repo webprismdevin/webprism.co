@@ -27,10 +27,9 @@ export default function NavBar() {
         </Box>
         <NextLink href="/booknow">
           <Button
-            rightIcon={<FaRegCalendar />}
             aria-label="schedule your strategy session"
           >
-            Schedule
+            Schedule 🗓
           </Button>
         </NextLink>
       </Flex>

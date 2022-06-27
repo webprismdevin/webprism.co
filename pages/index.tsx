@@ -19,10 +19,15 @@ import Head from "next/head";
 import { AnimatePresence, motion } from "framer-motion";
 import { wrap } from "@popmotion/popcorn";
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
+import CaseStudies from "@/components/Home/CaseStudies";
 
 const CostModal = dynamic(() => import("@/components/Home/CostModal"), {
   suspense: true,
 });
+
+const InfiniteScroll = dynamic(() => import("@/components/Home/InfiniteScroll"), {
+  suspense: true
+})
 
 const MotionBox = motion(Box);
 
@@ -61,6 +66,7 @@ export default function Index({ page }: any) {
   const paginate = (newDirection: number) => {
     setPage([item + newDirection, newDirection]);
   };
+
   return (
     <Box>
       <Head>
@@ -78,9 +84,9 @@ export default function Index({ page }: any) {
               <Button size="lg">{page.hero.cta}</Button>
             </NextLink>
           </Stack>
-          {/* <Box maxW={["full", "50%"]}>
+          <Box maxW={["full", "50%"]}>
             <NextImage src={imageBuilder(page.hero.image).height(531).width(830).url()} width={830} height={531} />
-          </Box> */}
+          </Box>
         </Stack>
       </Container>
       <Container py={[0]}>
@@ -109,111 +115,14 @@ export default function Index({ page }: any) {
         </Stack>
       </Container>
       <Box py={10} bgColor={"brand.dark"} color={"brand.light"} my={20}>
-        <Box maxW="full" overflow={"hidden"} position={"relative"} h={"36px"}>
-          <MotionBox
-            position={"absolute"}
-            whiteSpace="nowrap"
-            animate={{
-              x: [0, -904],
-              transition: {
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 16,
-                  ease: "linear",
-                },
-              },
-            }}
-          >
-            {page.about.features.map((feature: string) => (
-              <span style={{ fontSize: 24 }} key={feature}>
-                {feature} |{" "}
-              </span>
-            ))}
-            {page.about.features.map((feature: string) => (
-              <span style={{ fontSize: 24 }} key={feature}>
-                {feature} |{" "}
-              </span>
-            ))}
-            {page.about.features.map((feature: string) => (
-              <span style={{ fontSize: 24 }} key={feature}>
-                {feature} |{" "}
-              </span>
-            ))}
-            {page.about.features.map((feature: string) => (
-              <span style={{ fontSize: 24 }} key={feature}>
-                {feature} |{" "}
-              </span>
-            ))}
-          </MotionBox>
-        </Box>
+        <Suspense fallback={`Loading...`}>
+          <InfiniteScroll data={page.about} />
+        </Suspense>
       </Box>
       <Container>
-        <Box overflow={"hidden"}>
-          <AnimatePresence initial={false} custom={direction} exitBeforeEnter>
-            <MotionBox
-              key={item}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 },
-              }}
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={1}
-              onDragEnd={(e: any, { offset, velocity }: any) => {
-                const swipe = swipePower(offset.x, velocity.x);
-
-                if (swipe < -swipeConfidenceThreshold) {
-                  paginate(1);
-                } else if (swipe > swipeConfidenceThreshold) {
-                  paginate(-1);
-                }
-              }}
-            >
-              <Stack spacing={3}>
-                <NextImage
-                  src={imageBuilder(page.caseStudies[caseStudyIndex].image)
-                    .height(600)
-                    .width(600)
-                    .url()}
-                  width={600}
-                  height={600}
-                  layout="responsive"
-                  style={{
-                    pointerEvents: "none",
-                  }}
-                />
-                <Heading>{page.caseStudies[caseStudyIndex].title}</Heading>
-                <MultiText
-                  text={page.caseStudies[caseStudyIndex].description}
-                  mapKey={"case_study_desc"}
-                />
-              </Stack>
-            </MotionBox>
-          </AnimatePresence>
-          <Stack direction="row" align="center" justify="space-between" py={5}>
-            <IconButton
-              onClick={() => paginate(-1)}
-              variant="ghost"
-              boxSize={6}
-              as={HiChevronDoubleLeft}
-              aria-label="Last case study"
-            />
-            <Text opacity={0.4} display={["inherit", "none"]}>swipe</Text>
-            <IconButton
-              onClick={() => paginate(1)}
-              variant="ghost"
-              boxSize={6}
-              as={HiChevronDoubleRight}
-              aria-label="Next case study"
-            />
-          </Stack>
-        </Box>
+        <Suspense fallback={`Loading...`}>
+          <CaseStudies data={page.caseStudies} />
+        </Suspense>
       </Container>
       <Container py={20} maxW="container.xl">
         <Heading mb={6} fontStyle={"italic"}>from our clients...</Heading>
