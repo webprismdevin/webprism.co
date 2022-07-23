@@ -4,7 +4,7 @@ import Head from "next/head";
 import $ from "jquery/dist/jquery.slim";
 import { ChakraProvider, useColorMode } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import { HeadContent } from "@/components/head-content";
+import { HeadContent } from "@/components/Global/head-content";
 import dynamic from "next/dynamic";
 import customTheme from "@/lib/theme";
 import { ColorModeScript } from "@chakra-ui/react";
@@ -13,9 +13,9 @@ import "@/styles/styles.scss";
 import NextScript from "next/script";
 import Tawk from "@/components/tawk";
 
-const NavBar = dynamic(() => import("@/components/NavBar"), { ssr: false});
-const MailingList = dynamic(() => import("@/components/MailingList"));
-const Footer = dynamic(() => import("../components/Footer"));
+const NavBar = dynamic(() => import("@/components/Global/NavBar"), { ssr: false});
+const MailingList = dynamic(() => import("@/components/Global/MailingList"));
+const Footer = dynamic(() => import("../components/Global/Footer"));
 
 declare global {
   interface Window {

@@ -16,18 +16,20 @@ import dynamic from "next/dynamic";
 import NextImage from "next/image";
 import { Suspense, useState } from "react";
 import Head from "next/head";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { wrap } from "@popmotion/popcorn";
-import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import CaseStudies from "@/components/Home/CaseStudies";
 
 const CostModal = dynamic(() => import("@/components/Home/CostModal"), {
   suspense: true,
 });
 
-const InfiniteScroll = dynamic(() => import("@/components/Home/InfiniteScroll"), {
-  suspense: true
-})
+const InfiniteScroll = dynamic(
+  () => import("@/components/Home/InfiniteScroll"),
+  {
+    suspense: true,
+  }
+);
 
 const MotionBox = motion(Box);
 
@@ -73,7 +75,57 @@ export default function Index({ page }: any) {
         <title>{page.pageTitle}</title>
         <meta name="description" content={page.pageDescription} />
       </Head>
-      <Container py={20} maxW="container.xl">
+      <Box pos="relative" overflow={"hidden"} h={"100vh"} mt={-16}>
+        <Container py={40} pos={"relative"} zIndex={1} maxW={"container.lg"}>
+          <Stack>
+            <Heading
+              maxW={800}
+              color="white"
+              size="3xl"
+              textShadow={"2px 2px 8px rgba(0,0,0, 0.25)"}
+            >
+              {page.hero.title}
+            </Heading>
+            <Text
+              maxW={540}
+              fontSize="3xl"
+              color="white"
+              textShadow={"2px 2px 8px rgba(0,0,0, 0.25)"}
+            >
+              Grow with a partner who knows your business like it&apos;s their
+              own.
+            </Text>
+            <Button alignSelf="flex-start" bgColor="brand.brightPink">
+              Schedule A Strategy Session
+            </Button>
+          </Stack>
+        </Container>
+        <Box
+          pos="absolute"
+          top={0}
+          left={0}
+          zIndex={0}
+          w={"100%"}
+          h={"100%"}
+          bgColor={"blackAlpha.600"}
+        />
+        <video
+          autoPlay
+          muted
+          loop
+          style={{
+            width: "100%",
+            height: "auto",
+            position: "absolute",
+            top: -80,
+            left: 0,
+            zIndex: -1,
+          }}
+        >
+          <source src={"/video/webprism-opening-video.mp4"} type="video/mp4" />
+        </video>
+      </Box>
+      {/* <Container py={20} maxW="container.xl">
         <Stack direction={["column-reverse", "row"]}>
           <Stack spacing={6} align="flex-start">
             <Heading size="3xl" lineHeight={1.3}>
@@ -88,7 +140,57 @@ export default function Index({ page }: any) {
             <NextImage src={imageBuilder(page.hero.image).height(531).width(830).url()} width={830} height={531} />
           </Box>
         </Stack>
-      </Container>
+      </Container> */}
+      <Box pos="relative" overflow={"hidden"} h={"100vh"} mt={-16}>
+        <Container py={40} pos={"relative"} zIndex={1} maxW={"container.lg"}>
+          <Stack>
+            <Heading
+              maxW={800}
+              color="white"
+              size="3xl"
+              textShadow={"2px 2px 8px rgba(0,0,0, 0.25)"}
+            >
+              Expand Your Ecommerce Business Marketing
+            </Heading>
+            <Text
+              maxW={540}
+              fontSize="3xl"
+              color="white"
+              textShadow={"2px 2px 8px rgba(0,0,0, 0.25)"}
+            >
+              Grow with a partner who knows your business like it&apos;s their
+              own.
+            </Text>
+            <Button alignSelf="flex-start" bgColor="brand.brightPink">
+              Schedule A Strategy Session
+            </Button>
+          </Stack>
+        </Container>
+        <Box
+          pos="absolute"
+          top={0}
+          left={0}
+          zIndex={0}
+          w={"100%"}
+          h={"100%"}
+          bgColor={"blackAlpha.600"}
+        />
+        <video
+          autoPlay
+          muted
+          loop
+          style={{
+            width: "100%",
+            height: "auto",
+            position: "absolute",
+            top: -80,
+            left: 0,
+            zIndex: -1,
+          }}
+        >
+          <source src={"/video/webprism-opening-video.mp4"} type="video/mp4" />
+        </video>
+      </Box>
       <Container py={[0]}>
         <Box bgColor={"white"} shadow="lg" borderRadius={6} p={6}>
           <Stack>
@@ -125,7 +227,9 @@ export default function Index({ page }: any) {
         </Suspense>
       </Container>
       <Container py={20} maxW="container.xl">
-        <Heading mb={6} fontStyle={"italic"}>from our clients...</Heading>
+        <Heading mb={6} fontStyle={"italic"}>
+          from our clients...
+        </Heading>
         <Stack spacing={6} direction={["column", "row"]}>
           {page.testimonials.map((t: any) => (
             <Stack shadow="lg" key={t._key} p={4} borderRadius={6} bg="white">
