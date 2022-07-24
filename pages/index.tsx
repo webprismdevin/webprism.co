@@ -29,6 +29,7 @@ export default function Index({ page }: any) {
           alt="background gradient"
           src={gradient}
           placeholder="blur"
+          quality={100}
         />
       </Box>
       <Stack
@@ -44,7 +45,7 @@ export default function Index({ page }: any) {
           <Stack maxW={["full", 480]} minW={["full", 320]} maxH={"50vh"}>
             <NextLink href={page.buttons.button1.link}>
               <Button size="xl" w="full" variant="outline">
-                {page.buttons.button2.text}
+                {page.buttons.button1.text}
               </Button>
             </NextLink>
             <NextLink href={page.buttons.button2.link}>

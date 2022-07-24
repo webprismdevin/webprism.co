@@ -41,7 +41,7 @@ const ContactForm = () => {
           placeholder="How can we help you create a bigger impact?"
           onChange={(e) => setMessage(e.target.value)}
         />
-        <Button type="submit" disabled={submitting}>
+        <Button type="submit" size="xl" disabled={submitting}>
           Send
         </Button>
       </Stack>
