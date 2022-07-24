@@ -28,10 +28,9 @@ function CustomApp({ Component, pageProps }: AppProps) {
     <>
       <ChakraProvider theme={customTheme}>
         <Head>
-          <HeadContent />
           <meta
             name="theme-color"
-            content={colorMode === "dark" ? "brand.dark" : "brand.light"}
+            content="#131a24"
           />
         </Head>
         <Banner data={data} />
