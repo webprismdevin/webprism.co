@@ -1,21 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { AppProps } from "next/app";
 import Head from "next/head";
-import $ from "jquery/dist/jquery.slim";
-import { ChakraProvider, useColorMode } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import { HeadContent } from "@/components/Global/head-content";
-import dynamic from "next/dynamic";
+import Banner from "@/components/Global/Banner";
 import customTheme from "@/lib/theme";
+import FootNav from "@/components/Global/FootNav";
+import useSWR from "swr";
+import { AppProps } from "next/app";
+import { sanity } from "../lib/sanity";
 import { ColorModeScript } from "@chakra-ui/react";
-import "@fontsource/montserrat";
-import "@/styles/styles.scss";
-import NextScript from "next/script";
-import Tawk from "@/components/tawk";
-
-const NavBar = dynamic(() => import("@/components/Global/NavBar"), { ssr: false});
-const MailingList = dynamic(() => import("@/components/Global/MailingList"));
-const Footer = dynamic(() => import("../components/Global/Footer"));
+import { ChakraProvider, useColorMode } from "@chakra-ui/react";
+import { HeadContent } from "@/components/Global/head-content";
 
 declare global {
   interface Window {
@@ -25,43 +17,12 @@ declare global {
 
 //readd gtm as a script
 
+const groqFetcher = (query: any) => sanity.fetch(query, {});
+
 function CustomApp({ Component, pageProps }: AppProps) {
-  const [window, setWindow] = useState(null);
-  const router = useRouter();
   const { colorMode } = useColorMode();
+  const { data, error } = useSWR(`*[_type == "siteSettings"][0]`, groqFetcher, { refreshInterval: 60 } )
 
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      setWindow(window);
-    }
-  }, []);
-
-  useEffect(() => {
-    const fun = function fun(e: MouseEvent) {
-      setTimeout(() => {
-        e = e || {};
-        const $img = $('<div class="joy"></div>')
-          .css({
-            position: "fixed",
-            width: 100,
-            top: (e.y || e.clientY) - 50,
-            left: (e.x || e.clientX || e.pageX) - 50,
-            transform: "rotate(" + Math.random() * 360 + "deg)",
-          })
-          .appendTo("body");
-
-        setTimeout(() => {
-          $img.remove();
-        }, 800);
-      }, 10);
-    };
-
-    if (process.env.NODE_ENV !== "development") {
-      $("body")
-        .on("touchstart" as any, fun)
-        .on("mousedown" as any, fun);
-    }
-  }, []);
 
   return (
     <>
@@ -73,11 +34,13 @@ function CustomApp({ Component, pageProps }: AppProps) {
             content={colorMode === "dark" ? "brand.dark" : "brand.light"}
           />
         </Head>
-        <NavBar />
+        {/* <NavBar /> */}
+        <Banner data={data} />
         <main>
           <Component {...pageProps} />
         </main>
-        <Footer />
+        {/* <Footer /> */}
+        <FootNav data={data} />
         <ColorModeScript initialColorMode={customTheme.initialColorMode} />
       </ChakraProvider>
     </>

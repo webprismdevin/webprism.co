@@ -23,7 +23,6 @@
     "@react-three/fiber": "^8.0.26",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/image-url": "^1.0.1",
-    "@splinetool/react-spline": "^2.2.1",
     "animate.css": "^4.1.1",
     "bulma": "^0.9.4",
     "cross-env": "^7.0.3",
@@ -52,6 +51,7 @@
     "react-three": "^0.9.7",
     "react-typed": "^1.2.0",
     "sass": "^1.52.2",
+    "swr": "^1.3.0",
     "three": "^0.141.0",
     "use-sound": "^4.0.1"
   },

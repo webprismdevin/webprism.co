@@ -18,6 +18,7 @@ import webDesign from './web-design'
 import digitalMarketing from './digital-marketing'
 import service from './service'
 import callToAction from './parts/callToAction'
+import siteSettings from './siteSettings'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,6 +30,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     homepage,
+    siteSettings,
     webDesign,
     digitalMarketing,
     service,

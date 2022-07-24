@@ -3,7 +3,7 @@ import { theme as defaultTheme, ThemeConfig } from "@chakra-ui/theme"
 import { mode } from "@chakra-ui/theme-tools";
 
 const customTheme: ThemeConfig = extendTheme(defaultTheme, {
-  initialColorMode: "system",
+  initialColorMode: "dark",
   // fonts: {
   //   heading: "Montserrat",
   //   body: "Montserrat",
@@ -31,10 +31,18 @@ const customTheme: ThemeConfig = extendTheme(defaultTheme, {
           bg: mode("brand.lightBlue", "#FD2187")(props),
           color: mode("white", "white")(props),
           _hover: {
-            color: mode("brand.dark", "whiteAlpha.900")(props),
+            color: mode("whiteAlpha.900", "whiteAlpha.400")(props),
             bg: mode("brand.lightBlue", "brand.darkBlue")(props)
           }
-        }),
+        })
+      },
+      sizes: {
+        xl: {
+          h: '56px',
+          fontSize: 'lg',
+          px: '32px',
+          borderRadius: '0px'
+        },
       },
     },
     Link: {
