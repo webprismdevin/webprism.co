@@ -23,4 +23,13 @@ module.exports = withBundleAnalyzer({
         "https://cdn.jsdelivr.net/"
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/portfolio/:path*',
+        destination: '/project/:path*',
+        permanent: true
+      }
+    ]
+  }
 });

@@ -1,4 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
+
+import basicSEO from "./parts/basicSEO";
+
 // studio/schemas/homepage.js
 export default {
   name: "homepage",
@@ -13,7 +16,7 @@ export default {
   groups: [
     {
       name: "content",
-      title: "Page Content",
+      title: "Content",
       default: true,
     },
     {
@@ -22,18 +25,7 @@ export default {
     },
   ],
   fields: [
-    {
-      name: "pageTitle",
-      title: "Page Title",
-      group: "seo",
-      type: "string",
-    },
-    {
-      name: "pageDescription",
-      title: "Meta Description",
-      group: "seo",
-      type: "text",
-    },
+    basicSEO,
     {
       name: 'definition',
       type: 'object',

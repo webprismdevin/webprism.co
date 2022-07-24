@@ -1,8 +1,11 @@
+import { AiOutlineLink } from 'react-icons/ai'
+
 /* eslint-disable import/no-anonymous-default-export */
 // studio/schemas/homepage.js
 export default {
   name: "links_page",
   title: "Links Page",
+  icon: AiOutlineLink,
   type: "document",
 
   // These actions define what users can do with this document.

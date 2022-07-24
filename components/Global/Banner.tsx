@@ -28,7 +28,7 @@ export default function Banner({ data }: any) {
   if (!data?.banner) return null;
 
   return (
-    <MotionBox py={2} bg="gray.400" color="white" pos="fixed" top={0} left={0} w="full">
+    <MotionBox py={2} bg="gray.500" color="white" pos="fixed" top={0} left={0} w="full" zIndex={1}>
       <AnimatePresence initial={true} custom={direction} exitBeforeEnter={true}>
         <MotionBox
           custom={direction}

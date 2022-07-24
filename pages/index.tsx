@@ -33,15 +33,15 @@ export default function Index({ page }: any) {
         />
       </Box>
       <Stack
-        py={[8]}
         px={[4, 8]}
+        pt={24}
         spacing={[6]}
         w="full"
         minH={["auto", "100vh"]}
         direction={["column-reverse", "row"]}
         align={["center"]}
       >
-        <Stack minW={["full", "50%"]} minH={["50vh", "auto"]} justify={["center", "stretch"]} align="center">
+        <Stack minW={["full", "50%"]} py={[18, 0]} justify={["center", "stretch"]} align="center">
           <Stack maxW={["full", 480]} minW={["full", 320]} maxH={"50vh"}>
             <NextLink href={page.buttons.button1.link}>
               <Button size="xl" w="full" variant="outline">

@@ -10,15 +10,20 @@ import blockContent from './blockContent'
 import project from './project'
 import post from './post'
 import author from './author'
-import link from './link'
+import linkPageLink from './linkPageLink'
 import links_page from './linkpage'
+import siteSettings from './siteSettings'
 import homepage from './homepage'
+import portfolio from './portfolio'
+import caseStudy from './caseStudy'
+
+
 import section from './section'
 import webDesign from './web-design'
 import digitalMarketing from './digital-marketing'
 import service from './service'
 import callToAction from './parts/callToAction'
-import siteSettings from './siteSettings'
+import link from './parts/link'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,21 +34,25 @@ export default createSchema({
   types: schemaTypes.concat([
     // The following are document types which will appear
     // in the studio.
-    homepage,
     siteSettings,
+    homepage,
+    portfolio,
+    project,
+    caseStudy,
+
     webDesign,
     digitalMarketing,
     service,
     links_page,
-    project,
     post,
     author,
-    link,
+    linkPageLink,
     section,
     // category,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
-    callToAction
+    callToAction,
+    link
   ]),
 })

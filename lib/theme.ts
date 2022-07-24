@@ -31,7 +31,7 @@ const customTheme: ThemeConfig = extendTheme(defaultTheme, {
           bg: mode("brand.lightBlue", "#FD2187")(props),
           color: mode("white", "white")(props),
           _hover: {
-            color: mode("whiteAlpha.900", "whiteAlpha.400")(props),
+            color: mode("whiteAlpha.900", "blackAlpha.900")(props),
             bg: mode("brand.lightBlue", "brand.darkBlue")(props)
           }
         })
@@ -47,7 +47,7 @@ const customTheme: ThemeConfig = extendTheme(defaultTheme, {
     },
     Link: {
       baseStyle: (props: any) => ({
-        color: mode('brand.lightBlue', 'brand.darkBlue')(props),
+        color: mode('blackAlpha.900', 'whiteAlpha.900')(props),
         _hover: {
           color: mode('brand.dark','brand.brightPink')(props)
         }

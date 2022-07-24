@@ -1,14 +1,13 @@
 import Head from "next/head";
 import Banner from "@/components/Global/Banner";
 import customTheme from "@/lib/theme";
-import FootNav from "@/components/Global/FootNav";
 import useSWR from "swr";
 import NextScript from 'next/script';
 import { AppProps } from "next/app";
 import { sanity } from "../lib/sanity";
 import { ColorModeScript } from "@chakra-ui/react";
 import { ChakraProvider, useColorMode } from "@chakra-ui/react";
-import { HeadContent } from "@/components/Global/head-content";
+import Nav from "@/components/Global/Nav";
 
 declare global {
   interface Window {
@@ -34,10 +33,10 @@ function CustomApp({ Component, pageProps }: AppProps) {
           />
         </Head>
         <Banner data={data} />
+        <Nav data={data} />
         <main>
           <Component {...pageProps} />
         </main>
-        <FootNav data={data} />
         <ColorModeScript initialColorMode={customTheme.initialColorMode} />
       </ChakraProvider>
       {process.env.NODE_ENV === "production" && (

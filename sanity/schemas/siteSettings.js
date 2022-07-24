@@ -1,3 +1,5 @@
+import basicSEO from "./parts/basicSEO";
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   name: "siteSettings",
@@ -13,12 +15,15 @@ export default {
     },
     {
       name: "banner",
+      title: 'Banner',
     },
     {
-      name: "footer",
+      name: "navigation",
+      title: "Navigation"
     },
   ],
   fields: [
+    basicSEO,
     {
         name: "banner",
         type: "array",
@@ -40,9 +45,9 @@ export default {
         ],
       },
     {
-      name: "footerLinks",
+      name: "navLinks",
       type: "array",
-      group: "footer",
+      group: "navigation",
       of: [
         {
           type: "object",

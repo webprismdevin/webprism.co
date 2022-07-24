@@ -1,11 +1,19 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { GrProjects } from 'react-icons/gr'
+import defaultGroups from './parts/defaultGroups'
 
 export default {
   name: 'project',
   title: 'Projects',
   type: 'document',
   icon: GrProjects,
+  groups: [
+    ...defaultGroups,
+    {
+      name: 'portfolio',
+      title: 'Portfolio Details'
+    }
+  ],
   fields: [
     {
       name: 'title',
@@ -16,6 +24,16 @@ export default {
       name: 'subtitle',
       title: 'Subtitle',
       type: 'string',
+    },
+    {
+      name: 'portfolioDescription',
+      group: 'portfolio',
+      type: 'string'
+    },
+    {
+      name: 'logo',
+      type: 'image',
+      group: 'portfolio'
     },
     {
       name: 'slug',
@@ -36,20 +54,6 @@ export default {
       title: 'Main image',
       description: 'Be sure to enter all image details in "Edit Details".',
       type: 'image',
-      fields: [
-        {
-          name: 'width',
-          title: 'Width',
-          type: 'number',
-          description: 'Full width (in pixels) of the screenshot.',
-        },
-        {
-          name: 'height',
-          title: 'Height',
-          type: 'number',
-          description: 'Full height (in pixels) of the screenshot.',
-        },
-      ],
       options: {
         hotspot: true,
       },
