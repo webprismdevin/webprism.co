@@ -19,24 +19,39 @@ const ContactForm = () => {
     await submit({ name, contact, message });
     toast({
       title: "Form submitted",
-      description: "We've recieved your request and will contact you as soon as possible.",
+      description:
+        "We've recieved your request and will contact you as soon as possible.",
       duration: 5000,
       isClosable: true,
       onCloseComplete: () => {
-        setName("")
-        setContact("")
-        setMessage("")
-      }
+        setName("");
+        setContact("");
+        setMessage("");
+      },
     });
-
   };
 
   return (
-    <form onSubmit={onSubmit} data-botpoison-public-key="pk_f7d9a478-bf2d-4ae9-9227-cc4cc2fcbc4e">
+    <form
+      onSubmit={onSubmit}
+      data-botpoison-public-key="pk_f7d9a478-bf2d-4ae9-9227-cc4cc2fcbc4e"
+    >
       <Stack w="full">
-        <Input value={name} placeholder="What can we call you?" onChange={(e) => setName(e.target.value)} />
-        <Input value={contact} name="email" placeholder="enter your email or phone number" onChange={(e) => setContact(e.target.value)} />
+        <Input
+          borderRadius={0}
+          value={name}
+          placeholder="What can we call you?"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <Input
+          borderRadius={0}
+          value={contact}
+          name="email"
+          placeholder="enter your email or phone number"
+          onChange={(e) => setContact(e.target.value)}
+        />
         <Textarea
+          borderRadius={0}
           value={message}
           placeholder="How can we help you create a bigger impact?"
           onChange={(e) => setMessage(e.target.value)}

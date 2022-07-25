@@ -17,14 +17,16 @@ export default function Nav({ data }: any) {
   const [open, cycleOpen] = useCycle(false, true);
   const router = useRouter();
 
-  useEffect(() => {
-    console.log(router.asPath);
-  }, []);
+  // useEffect(() => {
+  //   if (open) {
+  //     cycleOpen()
+  //   }
+  // }, [router.asPath]);
 
   if (!data) return null;
 
   return (
-    <Box w={["full", "auto"]} pos="fixed" top={10} right={0} zIndex={1} px={4} py={4} bgColor={[open ? "brand.dark" : 'transparent', 'transparent']} transition={"background-color 300ms ease"}>
+    <Box w={["full", "auto"]} pos="fixed" top={10} right={0} zIndex={1} px={4} py={4} bgColor={[open ? "blackAlpha.800" : 'transparent', 'transparent']} transition={"background-color 300ms ease"}>
       <Stack
         direction={["column-reverse", "row"]}
         w="full"
@@ -33,18 +35,18 @@ export default function Nav({ data }: any) {
         fontSize={28}
         fontWeight={600}
       >
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           {open && (
             <MotionStack
               direction={["column", "row"]}
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { duration: 0.3 } }}
-              exit={{ opacity: 0, transition: { duration: 0.3 } }}
+              animate={{ opacity: 1, transition: { delay: 0, duration: 0.3 } }}
+              exit={{ opacity: 0 }}
               textAlign="right"
             >
               {router.asPath !== "/" && (
                 <NextLink href="/">
-                  <Link color={colorMode === "light" ? "black" : "white"}>
+                  <Link color={colorMode === "light" ? "black" : "white"} onClick={() => cycleOpen()}>
                     HOME
                   </Link>
                 </NextLink>
@@ -54,6 +56,7 @@ export default function Nav({ data }: any) {
                   <Link
                     textTransform={"uppercase"}
                     color={colorMode === "light" ? "black" : "white"}
+                    onClick={() => cycleOpen()}
                   >
                     {link.text}
                   </Link>

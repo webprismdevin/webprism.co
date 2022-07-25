@@ -41,7 +41,7 @@ const customTheme: ThemeConfig = extendTheme(defaultTheme, {
           h: '56px',
           fontSize: 'lg',
           px: '32px',
-          borderRadius: '0px'
+          borderRadius: '0px',
         },
       },
     },

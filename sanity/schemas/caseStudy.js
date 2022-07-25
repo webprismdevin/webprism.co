@@ -1,6 +1,7 @@
 import defaultGroups from "./parts/defaultGroups";
 import basicSEO from "./parts/basicSEO";
 import { AiOutlineProfile } from 'react-icons/ai'
+import portfolioDetails from "./parts/portfolioDetails";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -31,15 +32,6 @@ export default {
       type: "string",
       group: 'content'
     },
-    {
-      name: 'portfolioDescription',
-      type: 'string',
-      group: 'portfolio'
-    },
-    {
-      name: 'logo',
-      type: 'image',
-      group: 'portfolio'
-    }
+    ...portfolioDetails
   ],
 };

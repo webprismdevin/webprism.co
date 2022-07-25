@@ -2,6 +2,7 @@ import { Box, Text, BoxProps } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { wrap } from "@popmotion/popcorn";
+import NextLink from 'next/link'
 
 const MotionBox = motion<BoxProps>(Box);
 
@@ -28,25 +29,27 @@ export default function Banner({ data }: any) {
   if (!data?.banner) return null;
 
   return (
-    <MotionBox py={2} bg="gray.500" color="white" pos="fixed" top={0} left={0} w="full" zIndex={1}>
-      <AnimatePresence initial={true} custom={direction} exitBeforeEnter={true}>
-        <MotionBox
-          custom={direction}
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-            transition: { duration: 0.2 },
-          }}
-          exit={{
-            opacity: 0,
-          }}
-          key={page}
-        >
-          <Text textAlign={"center"}>{data?.banner[index].text}</Text>
-        </MotionBox>
-      </AnimatePresence>
-    </MotionBox>
+    <NextLink href={data.banner[index].link}>
+      <MotionBox py={2} bg="gray.500" color="white" pos="fixed" top={0} left={0} w="full" zIndex={1}>
+        <AnimatePresence initial={true} custom={direction} exitBeforeEnter={true}>
+          <MotionBox
+            custom={direction}
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+              transition: { duration: 0.2 },
+            }}
+            exit={{
+              opacity: 0,
+            }}
+            key={page}
+          >
+            <Text textAlign={"center"}>{data.banner[index].text}</Text>
+          </MotionBox>
+        </AnimatePresence>
+      </MotionBox>
+    </NextLink>
   );
 }

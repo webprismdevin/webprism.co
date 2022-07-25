@@ -1,15 +1,10 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import NextLink from "next/link";
-import {
-  Stack,
-  Text,
-  Icon,
-  Heading,
-  Tag,
-  Link
-} from "@chakra-ui/react";
+import { Stack, Text, Icon, Heading, Tag, Link, Box } from "@chakra-ui/react";
 import { FaArrowRight } from "react-icons/fa";
+import { imageBuilder } from "@/lib/sanity";
+import NextImage from "next/image";
 
 export interface ProjectProps {
   _id: string;
@@ -45,18 +40,47 @@ export default function Portfolio({ page }: any) {
             borderBottom={
               index !== page.projects.length - 1 ? "4px solid white" : "none"
             }
+            pos="relative"
           >
+            {project.portfolioImage && (
+              <Box
+                pos="absolute"
+                top={0}
+                left={0}
+                minH={"100%"}
+                minW="100%"
+                zIndex={-1}
+                opacity={0.4}
+              >
+                <NextImage
+                  src={imageBuilder(project.portfolioImage).url()}
+                  blurDataURL={imageBuilder(project.portfolioImage).height(40).url()}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </Box>
+            )}
             <Tag alignSelf="flex-start" size="md" textTransform={"capitalize"}>
               {project._type.replace(/([a-z])([A-Z])/g, "$1 $2")}
             </Tag>
-            <NextLink href={`projects/${project.slug}`}>
+            <NextLink href={`projects/${project.slug.current}`}>
               <Link>
                 <Heading>{project.title}</Heading>
               </Link>
             </NextLink>
-            <Stack w="full" direction="row" justify="space-between" align="center" spacing={8}>
+            <Stack
+              w="full"
+              direction="row"
+              justify="space-between"
+              align="center"
+              spacing={8}
+            >
               <Text>{project.portfolioDescription}</Text>
-              <NextLink href={`/${project._type === "project" ? "project" : "case-study"}/${project.slug.current}`}>
+              <NextLink
+                href={`/${
+                  project._type === "project" ? "project" : "case-study"
+                }/${project.slug.current}`}
+              >
                 <Icon cursor={"pointer"} as={FaArrowRight} />
               </NextLink>
             </Stack>

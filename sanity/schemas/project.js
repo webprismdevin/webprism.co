@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { GrProjects } from 'react-icons/gr'
 import defaultGroups from './parts/defaultGroups'
+import portfolioDetails from './parts/portfolioDetails'
 
 export default {
   name: 'project',
@@ -25,16 +26,7 @@ export default {
       title: 'Subtitle',
       type: 'string',
     },
-    {
-      name: 'portfolioDescription',
-      group: 'portfolio',
-      type: 'string'
-    },
-    {
-      name: 'logo',
-      type: 'image',
-      group: 'portfolio'
-    },
+    ...portfolioDetails,
     {
       name: 'slug',
       title: 'Slug',

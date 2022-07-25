@@ -2,12 +2,14 @@ import Head from "next/head";
 import Banner from "@/components/Global/Banner";
 import customTheme from "@/lib/theme";
 import useSWR from "swr";
-import NextScript from 'next/script';
+import NextScript from "next/script";
 import { AppProps } from "next/app";
 import { sanity } from "../lib/sanity";
 import { ColorModeScript } from "@chakra-ui/react";
 import { ChakraProvider, useColorMode } from "@chakra-ui/react";
 import Nav from "@/components/Global/Nav";
+import { useRouter } from "next/router";
+import { motion, AnimatePresence } from "framer-motion";
 
 declare global {
   interface Window {
@@ -19,6 +21,7 @@ const groqFetcher = (query: any) => sanity.fetch(query, {});
 
 function CustomApp({ Component, pageProps }: AppProps) {
   const { colorMode } = useColorMode();
+  const router = useRouter();
   const { data, error } = useSWR(`*[_type == "siteSettings"][0]`, groqFetcher, {
     refreshInterval: 60,
   });
@@ -27,16 +30,22 @@ function CustomApp({ Component, pageProps }: AppProps) {
     <>
       <ChakraProvider theme={customTheme}>
         <Head>
-          <meta
-            name="theme-color"
-            content="#131a24"
-          />
+          <meta name="theme-color" content="#718096" />
         </Head>
         <Banner data={data} />
         <Nav data={data} />
-        <main>
-          <Component {...pageProps} />
-        </main>
+        <div style={{overflowX: 'hidden'}}>
+          <AnimatePresence exitBeforeEnter>
+            <motion.main
+              key={router.asPath}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.2 } }}
+              exit={{ opacity: 0 }}
+            >
+              <Component {...pageProps} />
+            </motion.main>
+          </AnimatePresence>
+        </div>
         <ColorModeScript initialColorMode={customTheme.initialColorMode} />
       </ChakraProvider>
       {process.env.NODE_ENV === "production" && (

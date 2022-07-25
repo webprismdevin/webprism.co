@@ -44,7 +44,7 @@ export default function Index({ page }: any) {
         <Stack minW={["full", "50%"]} py={[18, 0]} justify={["center", "stretch"]} align="center">
           <Stack maxW={["full", 480]} minW={["full", 320]} maxH={"50vh"}>
             <NextLink href={page.buttons.button1.link}>
-              <Button size="xl" w="full" variant="outline">
+              <Button size="xl" w="full" variant="outline" border='2px solid' borderColor={"whiteAlpha.500"}>
                 {page.buttons.button1.text}
               </Button>
             </NextLink>
